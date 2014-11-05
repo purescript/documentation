@@ -8,6 +8,9 @@ Welcome to the purescript wiki!
 
 ## Advanced Topics
 
+### Semigroups
+
+- [Semigroup Motivation](https://github.com/purescript/purescript/wiki/Semigroup-Motivation)
 ## Libraries
 
 - [QuickCheck](https://github.com/purescript/purescript/wiki/Test-your-Javascript-with-QuickCheck)
