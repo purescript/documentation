@@ -15,5 +15,6 @@ Welcome to the purescript wiki!
 
 ## Libraries
 
+- [Recommended Libraries](https://github.com/purescript/purescript/wiki/Recommended-Libraries)
 - [QuickCheck](https://github.com/purescript/purescript/wiki/Test-your-Javascript-with-QuickCheck)
 
