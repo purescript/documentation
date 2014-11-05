@@ -1,4 +1,4 @@
-Welcome to the purescript wiki! This wiki is meant to be a collaborative effort, so please feel free to add/edit content where it is appropriate to do so.
+Welcome to the PureScript wiki! This wiki is meant to be a collaborative effort, so please feel free to add/edit content where it is appropriate to do so.
 
 ## Introduction
 
@@ -48,7 +48,7 @@ PureScript is a small strongly, statically typed compile-to-JS language with a n
 
 ## Language Guide
 
-This guide is taken from the old compiler documentation. The [PureScript Book](https://leanpub.com/purescript/read) covers more material in greater depth, and is recommended for learning the language.
+This guide is taken from the old compiler documentation. The [PureScript Book](https://leanpub.com/purescript/read) is the recommended approach to learning the language, since it covers more material in greater depth.
 
 - [Intro](https://github.com/purescript/purescript/wiki/Language-Guide:-Intro)
 - [Getting Started](https://github.com/purescript/purescript/wiki/Language-Guide:-Getting-Started)
