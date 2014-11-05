@@ -1,5 +1,3 @@
-# FFI tips
-
 ## Use `mkFn` and `runFn`
 
 All functions in PureScript take exactly one argument, but when writing an interface to an existing JavaScript library often there is a need to expose multiple argument functions. One way to deal with this is to write some inline FFI code that "manually" curries a version of the function you want to bring in to PureScript:
