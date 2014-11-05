@@ -1,5 +1,21 @@
 Welcome to the purescript wiki! This wiki is meant to be a collaborative effort, so please feel free to add/edit content where it is appropriate to do so.
 
+PureScript is a small strongly, statically typed compile-to-JS language with a number of interesting features, such as:
+
+- Type Inference
+- Higher Kinded Polymorphism
+- Support for basic Javascript types
+- Extensible records
+- Extensible effects
+- Optimizer rules for generation of efficient Javascript
+- Pattern matching
+- Simple FFI
+- Modules
+- Rank N Types
+- Do Notation
+- Tail-call elimination
+- Type Classes
+
 ## Basics
 
 - [First Steps With PureScript - Solving Project Euler #1](https://github.com/purescript/purescript/wiki/First-Steps-With-PureScript---Solving-Project-Euler-%231)
