@@ -21,12 +21,16 @@ PureScript is a small strongly, statically typed compile-to-JS language with a n
 ## Basics
 
 - [First Steps With PureScript - Solving Project Euler #1](https://github.com/purescript/purescript/wiki/First-Steps-With-PureScript---Solving-Project-Euler-%231)
-- [Handling Native Effects with the Eff Monad](https://github.com/purescript/purescript/wiki/Handling-Native-Effects-with-the-Eff-Monad)
-- [JavaScript Interop](https://github.com/purescript/purescript/wiki/JavaScript-Interop)
 - [Related Projects](https://github.com/purescript/purescript/wiki/Related-Projects)
 - [Differences from Haskell](https://github.com/purescript/purescript/wiki/Differences-from-Haskell)
 
 ## Advanced Topics
+
+### FFI
+
+- [Handling Native Effects with the Eff Monad](https://github.com/purescript/purescript/wiki/Handling-Native-Effects-with-the-Eff-Monad)
+- [JavaScript Interop](https://github.com/purescript/purescript/wiki/JavaScript-Interop)
+- [FFI Tips](https://github.com/purescript/purescript/wiki/FFI-tips)
 
 ### Semigroups
 
