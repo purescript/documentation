@@ -1,1 +1,0 @@
-This page will list editor plugins and tools for PureScript development.
