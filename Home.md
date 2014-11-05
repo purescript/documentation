@@ -1,4 +1,4 @@
-Welcome to the purescript wiki!
+Welcome to the purescript wiki! This wiki is meant to be a collaborative effort, so please feel free to add/edit content where it is appropriate to do so.
 
 ## Basics
 
@@ -7,6 +7,7 @@ Welcome to the purescript wiki!
 - [JavaScript Interop](https://github.com/purescript/purescript/wiki/JavaScript-Interop)
 - [Related Projects](https://github.com/purescript/purescript/wiki/Related-Projects)
 - [PureScript for Haskellers](https://github.com/purescript/purescript/wiki/PureScript-for-Haskellers)
+
 ## Advanced Topics
 
 ### Semigroups
