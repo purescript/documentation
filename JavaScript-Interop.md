@@ -1,7 +1,4 @@
----
-title: Javascript Interop 
-author: Phil Freeman
----
+By _Phil Freeman_
 
 In the last post, I promised to describe how to interact with Javascript code using the foreign function interface, or FFI. In this short post, I'll go over how to call Javascript functions using the FFI, as well as how to call PureScript functions from Javascript.
 
