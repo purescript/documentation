@@ -18,3 +18,6 @@ Welcome to the purescript wiki!
 - [Recommended Libraries](https://github.com/purescript/purescript/wiki/Recommended-Libraries)
 - [QuickCheck](https://github.com/purescript/purescript/wiki/Test-your-Javascript-with-QuickCheck)
 
+## Tools
+
+- [Editor Support](https://github.com/purescript/purescript/wiki/Editor-Support)
