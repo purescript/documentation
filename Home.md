@@ -11,6 +11,8 @@ Welcome to the purescript wiki!
 ### Semigroups
 
 - [Semigroup Motivation](https://github.com/purescript/purescript/wiki/Semigroup-Motivation)
+- [Fizz Buzz with Semigroups and Apply](https://github.com/purescript/purescript/wiki/FizzBuzz-with-Semigroups-and-Apply)
+
 ## Libraries
 
 - [QuickCheck](https://github.com/purescript/purescript/wiki/Test-your-Javascript-with-QuickCheck)
