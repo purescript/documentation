@@ -6,7 +6,7 @@ Welcome to the purescript wiki!
 - [Handling Native Effects with the Eff Monad](https://github.com/purescript/purescript/wiki/Handling-Native-Effects-with-the-Eff-Monad)
 - [JavaScript Interop](https://github.com/purescript/purescript/wiki/JavaScript-Interop)
 - [Related Projects](https://github.com/purescript/purescript/wiki/Related-Projects)
-
+- [PureScript for Haskellers](https://github.com/purescript/purescript/wiki/PureScript-for-Haskellers)
 ## Advanced Topics
 
 ### Semigroups
