@@ -26,13 +26,33 @@ This page lists third-party libraries which can be used to perform common tasks.
 - [purescript-contrib/purescript-angular](http://github.com/purescript-contrib/purescript-angular)
 - [purescript-contrib/purescript-virtual-dom](http://github.com/purescript-contrib/purescript-virtual-dom)
 
+## Filesystem
+
+- [purescript-contrib/purescript-node-fs](http://github.com/purescript-contrib/purescript-node-fs)
+
+## FFI
+ 
+- [pelotom/purescript-easy-ffi](http://github.com/pelotom/purescript-easy-ffi)
+
 ## FRP
 
 - [bodil/purescript-signal](http://github.com/bodil/purescript-signal)
 
+## Games
+
+- [waterson/purescript-asteroids](http://github.com/waterson/purescript-asteroids)
+- [bodil/purescript-is-magic](http://github.com/bodil/purescript-is-magic)
+- [michaelficarra/purescript-demo-mario](http://github.com/michaelficarra/purescript-demo-mario)
+- [algas/purescript-enchantjs](http://github.com/algas/purescript-enchantjs)
+
 ## Graphics
 
 - [purescript-contrib/purescript-canvas](http://github.com/purescript-contrib/purescript-canvas)
+- [pelotom/purescript-d3](http://github.com/pelotom/purescript-d3)
+
+## History API
+
+- [CapillarySoftware/purescript-history](http://github.com/CapillarySoftware/purescript-history)
 
 ## JSON
 
@@ -43,7 +63,20 @@ This page lists third-party libraries which can be used to perform common tasks.
 
 - [purescript-contrib/purescript-parsing](http://github.com/purescript-contrib/purescript-parsing)
 
+## Streaming
+
+- [purescript-contrib/purescript-streams](http://github.com/purescript-contrib/purescript-streams)
+
 ## Testing
 
 - [purescript/purescript-quickcheck](http://github.com/purescript/purescript-quickcheck)
 - [purescript-contrib/purescript-strongcheck](http://github.com/purescript-contrib/purescript-strongcheck)
+
+## Timer
+
+- [CapillarySoftware/purescript-timers](http://github.com/CapillarySoftware/purescript-timers)
+
+## Web Frameworks
+
+- [dancingrobot84/purescript-express](http://github.com/dancingrobot84/purescript-express)
+- [mpietrzak/yesod-purescript](http://github.com/mpietrzak/yesod-purescript)
