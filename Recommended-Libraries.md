@@ -3,6 +3,15 @@ This page lists third-party libraries which can be used to perform common tasks.
 ## AJAX
 
 - [philopon/purescript-xhr](http://github.com/philopon/purescript-xhr)
+- [joneshf/purescript-ajax](http://github.com/joneshf/purescript-ajax)
+
+## Async
+
+- [andreypopp/purescript-node-thunk](http://github.com/andreypopp/purescript-node-thunk)
+
+## Audio
+
+- [waterson/purescript-webaudio](http://github.com/waterson/purescript-webaudio)
 
 ## Control
 
@@ -25,6 +34,7 @@ This page lists third-party libraries which can be used to perform common tasks.
 - [aktowns/purescript-simple-dom](http://github.com/aktowns/purescript-simple-dom)
 - [purescript-contrib/purescript-angular](http://github.com/purescript-contrib/purescript-angular)
 - [purescript-contrib/purescript-virtual-dom](http://github.com/purescript-contrib/purescript-virtual-dom)
+- [bodil/purescript-smolder](http://github.com/bodil/purescript-smolder)
 
 ## Filesystem
 
@@ -44,11 +54,15 @@ This page lists third-party libraries which can be used to perform common tasks.
 - [bodil/purescript-is-magic](http://github.com/bodil/purescript-is-magic)
 - [michaelficarra/purescript-demo-mario](http://github.com/michaelficarra/purescript-demo-mario)
 - [algas/purescript-enchantjs](http://github.com/algas/purescript-enchantjs)
+- [grzegorzbalcerek/chess-purescript](http://github.com/grzegorzbalcerek/chess-purescript)
+- [paf31/purescript-croco](http://github.com/paf31/purescript-croco)
 
 ## Graphics
 
 - [purescript-contrib/purescript-canvas](http://github.com/purescript-contrib/purescript-canvas)
 - [pelotom/purescript-d3](http://github.com/pelotom/purescript-d3)
+- [purescript-contrib/purescript-drawing](http://github.com/purescript-contrib/purescript-drawing)
+- [paf31/purescript-free-canvas](http://github.com/paf31/purescript-free-canvas)
 
 ## History API
 
@@ -58,6 +72,11 @@ This page lists third-party libraries which can be used to perform common tasks.
 
 - [purescript/purescript-foreign](http://github.com/purescript/purescript-foreign)
 - [philopon/purescript-json](http://github.com/philopon/purescript-json)
+
+## Math
+
+- [bodil/purescript-geom](http://github.com/bodil/purescript-geom)
+- [tkawachi/purescript-errorfunctions](https://github.com/tkawachi/purescript-errorfunctions)
 
 ## Parsing
 
@@ -71,12 +90,21 @@ This page lists third-party libraries which can be used to perform common tasks.
 
 - [purescript/purescript-quickcheck](http://github.com/purescript/purescript-quickcheck)
 - [purescript-contrib/purescript-strongcheck](http://github.com/purescript-contrib/purescript-strongcheck)
+- [CapillarySoftware/purescript-mocha](http://github.com/CapillarySoftware/purescript-mocha)
 
 ## Timer
 
 - [CapillarySoftware/purescript-timers](http://github.com/CapillarySoftware/purescript-timers)
 
+## Validation
+
+- [purescript/purescript-validation](http://github.com/purescript/purescript-validation)
+
 ## Web Frameworks
 
 - [dancingrobot84/purescript-express](http://github.com/dancingrobot84/purescript-express)
 - [mpietrzak/yesod-purescript](http://github.com/mpietrzak/yesod-purescript)
+
+## Web Storage
+
+- [joneshf/purescript-webstorage](http://github.com/joneshf/purescript-webstorage)
