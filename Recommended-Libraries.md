@@ -93,7 +93,7 @@ This page lists third-party libraries which can be used to perform common tasks.
 ## Testing
 
 - [purescript/purescript-quickcheck](http://github.com/purescript/purescript-quickcheck)
-- [purescript-contrib/purescript-strongcheck](http://github.com/purescript-contrib/purescript-strongcheck)
+- [purescript-contrib/purescript-strongcheck](http://github.com/purescript-contrib/purescript-strongcheck) &mdash; A full-featured, rigorous property- and unit-based testing library for functional programs.
 - [CapillarySoftware/purescript-mocha](http://github.com/CapillarySoftware/purescript-mocha)
 
 ## Timer
