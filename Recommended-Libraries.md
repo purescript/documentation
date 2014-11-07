@@ -14,7 +14,7 @@ This page lists third-party libraries which can be used to perform common tasks.
 
 ## JSON
 
-- _TODO_
+- [purescript/purescript-foreign](http://github.com/purescript/purescript-foreign)
 
 ## Parsing
 
