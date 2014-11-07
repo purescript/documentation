@@ -74,6 +74,10 @@ This page lists third-party libraries which can be used to perform common tasks.
 - [philopon/purescript-json](http://github.com/philopon/purescript-json)
 - [purescript-contrib/purescript-argonaut](http://github.com/purescript-contrib/purescript-argonaut) &mdash; Fast, feature-rich, type-safe JSON library for processing and serialization.
 
+## Markdown
+
+- [slamdata/purescript-markdown](http://github.com/slamdata/purescript-markdown] &mdash; Markdown parser, ADT, and renderer in 100% Purescript.
+
 ## Math
 
 - [bodil/purescript-geom](http://github.com/bodil/purescript-geom)
