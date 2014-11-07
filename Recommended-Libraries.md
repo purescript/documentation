@@ -76,7 +76,7 @@ This page lists third-party libraries which can be used to perform common tasks.
 
 ## Markdown
 
-- [slamdata/purescript-markdown](http://github.com/slamdata/purescript-markdown) &mdash; Markdown parser, ADT, and renderer in 100% Purescript.
+- [slamdata/purescript-markdown](http://github.com/slamdata/purescript-markdown) &mdash; Markdown parser, ADT, and renderer in 100% Purescript (work in progress)
 
 ## Math
 
