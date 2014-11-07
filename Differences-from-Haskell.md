@@ -179,9 +179,57 @@ PureScript does not provide this rule, so it is necessary to either
 - omit the operator: `runST do ...`
 - or use parentheses instead: `runST (do ...)`
 
-## Missing things
+## No Operator Sections
 
--
-- ? 
-- ? Partial application of operators
-- ? Multiple guard clauses
+PureScript does not support operator sections. That is, the following Haskell expression:
+
+```haskell
+map (1 +) [1, 2, 3, 4, 5]
+```
+
+is valid, and evaluates to `[2, 3, 4, 5, 6]`. In PureScript, the section is not syntactically valid. The operator must be applied like a function:
+
+```haskell
+map ((+) 1) [1, 2, 3, 4, 5]
+```
+
+For right-sections, either use `flip`, or eta-expand the operator as follows:
+
+```haskell
+map (flip (+) 1)  [1, 2, 3, 4 5]
+map (\n -> n + 1) [1, 2, 3, 4, 5]
+```
+
+## Defining Operators
+
+In Haskell, it is possible to define an operator with the following natural syntax:
+
+```haskell
+f $ x = f x
+```
+
+In PureScript, the operator must be named with parentheses:
+
+```haskell
+($) f x = f x
+```
+
+# No multiple guard clauses
+
+PureScript does not support multiple guard clauses in patterns. The following valid Haskell code:
+
+```haskell
+fizzBuzz n | n % 15 == 0 = "FizzBuzz"
+           | n % 3 == 0 = "Fizz"
+           | n % 5 == 0 = "Buzz"
+           | otherwise = show n
+```
+
+is not syntactically valid PureScript. The cases must be expanded, as follows:
+
+```haskell
+fizzBuzz n | n % 15 == 0 = "FizzBuzz"
+fizzBuzz n | n % 3 == 0 = "Fizz"
+fizzBuzz n | n % 5 == 0 = "Buzz"
+fizzBuzz n = show n
+```
