@@ -72,6 +72,7 @@ This page lists third-party libraries which can be used to perform common tasks.
 
 - [purescript/purescript-foreign](http://github.com/purescript/purescript-foreign)
 - [philopon/purescript-json](http://github.com/philopon/purescript-json)
+- [purescript-contrib/purescript-argonaut](http://github.com/purescript-contrib/purescript-argonaut) &mdash; Fast, feature-rich, type-safe JSON library for processing and serialization.
 
 ## Math
 
@@ -85,6 +86,9 @@ This page lists third-party libraries which can be used to perform common tasks.
 ## Streaming
 
 - [purescript-contrib/purescript-streams](http://github.com/purescript-contrib/purescript-streams)
+
+## State Machines
+- [purescript-contrib/purescript-machines](http://github.com/purescript-contrib/purescript-machines) &mdash; Simple, generic halting state machines.
 
 ## Testing
 
