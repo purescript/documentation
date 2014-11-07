@@ -32,7 +32,7 @@ PureScript is a small strongly, statically typed compile-to-JS language with a n
 
 - [Editor and tool support](https://github.com/purescript/purescript/wiki/Editor-and-tool-support)
 
-### Articles
+## Articles
 
 - [First Steps With PureScript - Solving Project Euler #1](https://github.com/purescript/purescript/wiki/First-Steps-With-PureScript---Solving-Project-Euler-%231)
 - [Handling Native Effects with the Eff Monad](https://github.com/purescript/purescript/wiki/Handling-Native-Effects-with-the-Eff-Monad)
