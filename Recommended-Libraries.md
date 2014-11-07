@@ -6,12 +6,16 @@ This page lists third-party libraries which can be used to perform common tasks.
 
 ## DOM
 
-- http://github.com/purescript-contrib/purescript-react
+- [purescript-contrib/purescript-react](http://github.com/purescript-contrib/purescript-react)
 
 ## FRP
 
-- http://github.com/bodil/purescript-signal
+- [bodil/purescript-signal](http://github.com/bodil/purescript-signal)
 
 ## JSON
 
 - _TODO_
+
+## Parsing
+
+- [purescript-contrib/purescript-parsing](http://github.com/purescript-contrib/purescript-parsing)
