@@ -123,10 +123,35 @@ PureScript uses `<<<` rather than `.` for right-to-left composition of functions
 
 The `<<<` operator is actually a more general morphism composition operator that applies to semigroupoids and categories, and the `Prelude` module provides a `Semigroupoid` instance for the `->` type, which gives us function composition.
 
+## Type Classes and Type Inference
+
+Unlike in Haskell (with `+XNoMonomorphismRestriction`), PureScript will not infer a type for a top-level declaration which contains a type class constraint.
+
+In practice, this can lead to some potentially-confusing type errors. For example, a beginner might expect the following code to type check:
+
+```haskell
+square x = x * x
+```
+
+However, the most general type of this function is `forall a. (Num a) => a -> a`, so `psc` will fail with an error:
+
+```
+Error in declaration square:
+No instance found for Prelude.Num u1
+```
+
+Here, `u1` is an unknown type. To solve this problem, we can give the intended type for `square`:
+
+```haskell
+square :: Number -> Number
+square x = x * x
+```
+
+This restriction can result in unexpected errors for many of the overloaded operators defined in the Prelude.
+
 ## Missing things
 
 - Array comprehensions
-- ? Inferred constraints
 - ? No special treatment of ($)
 - ? Partial application of operators
 - ? Multiple guard clauses
