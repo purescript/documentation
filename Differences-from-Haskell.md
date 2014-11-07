@@ -149,9 +149,39 @@ square x = x * x
 
 This restriction can result in unexpected errors for many of the overloaded operators defined in the Prelude.
 
+## Array Comprehensions
+
+PureScript does not provide special syntax for array comprehensions. Instead, use `do`-notation. The `guard` function from the `Control.MonadPlus` module in `purescript-control` can be used to filter results:
+
+```haskell
+import Data.Array
+import Data.Tuple
+
+factors :: Number -> [Tuple Number Number]
+factors n = do
+  a <- 1 .. n
+  b <- 1 .. a
+  guard $ a * b == n
+  return $ Tuple a b
+```
+
+## No special treatment of `$`
+
+GHC provides a special typing rule for the `$` operator, so that the following natural application to the rank-2 `runST` function is well-typed:
+
+```haskell
+runST $ do
+  ...
+```
+
+PureScript does not provide this rule, so it is necessary to either 
+
+- omit the operator: `runST do ...`
+- or use parentheses instead: `runST (do ...)`
+
 ## Missing things
 
-- Array comprehensions
-- ? No special treatment of ($)
+-
+- ? 
 - ? Partial application of operators
 - ? Multiple guard clauses
