@@ -4,6 +4,7 @@ This page lists third-party libraries which can be used to perform common tasks.
 
 - [philopon/purescript-xhr](http://github.com/philopon/purescript-xhr)
 - [joneshf/purescript-ajax](http://github.com/joneshf/purescript-ajax)
+- [joneshf/purescript-oboe](https://github.com/joneshf/purescript-oboe)
 
 ## Animation
 
@@ -21,6 +22,11 @@ This page lists third-party libraries which can be used to perform common tasks.
 
 - [purescript-contrib/gulp-purescript](https://github.com/purescript-contrib/gulp-purescript)
 - [purescript-contrib/grunt-purescript](https://github.com/purescript-contrib/grunt-purescript)
+- [joneshf/generator-purescript](https://github.com/joneshf/generator-purescript)
+
+## CLI
+
+- [joneshf/purescript-chalk](https://github.com/joneshf/purescript-chalk)
 
 ## Control
 
@@ -35,6 +41,9 @@ This page lists third-party libraries which can be used to perform common tasks.
 - [purescript/purescript-lazy](http://github.com/purescript/purescript-lazy)
 - [purescript-contrib/purescript-lens](http://github.com/purescript-contrib/purescript-lens)
 - [purescript-contrib/purescript-lists](http://github.com/purescript-contrib/purescript-lists)
+- [joneshf/purescript-collections](https://github.com/joneshf/purescript-collections)
+- [joneshf/purescript-each](https://github.com/joneshf/purescript-each)
+- [joneshf/purescript-typeable](https://github.com/joneshf/purescript-typeable)
 
 ## Dates
 
@@ -53,9 +62,19 @@ This page lists third-party libraries which can be used to perform common tasks.
 - [purescript-contrib/purescript-virtual-dom](http://github.com/purescript-contrib/purescript-virtual-dom)
 - [bodil/purescript-smolder](http://github.com/bodil/purescript-smolder)
 
+## Events
+
+- [joneshf/purescript-events](https://github.com/joneshf/purescript-events)
+- [joneshf/purescript-tiny-emitter](https://github.com/joneshf/purescript-tiny-emitter)
+
+## Fantasy Land
+
+- [joneshf/purescript-fantasy](https://github.com/joneshf/purescript-fantasy)
+
 ## Filesystem
 
 - [purescript-contrib/purescript-node-fs](http://github.com/purescript-contrib/purescript-node-fs)
+- [joneshf/purescript-path](https://github.com/joneshf/purescript-path)
 
 ## FFI
  
@@ -78,9 +97,14 @@ This page lists third-party libraries which can be used to perform common tasks.
 ## Graphics
 
 - [purescript-contrib/purescript-canvas](http://github.com/purescript-contrib/purescript-canvas)
+- [joneshf/purescript-c3](https://github.com/joneshf/purescript-c3)
 - [pelotom/purescript-d3](http://github.com/pelotom/purescript-d3)
 - [purescript-contrib/purescript-drawing](http://github.com/purescript-contrib/purescript-drawing)
 - [paf31/purescript-free-canvas](http://github.com/paf31/purescript-free-canvas)
+
+## GUI
+
+- [joneshf/purescript-node-webkit](https://github.com/joneshf/purescript-node-webkit)
 
 ## History API
 
@@ -95,12 +119,18 @@ This page lists third-party libraries which can be used to perform common tasks.
 ## Markdown
 
 - [slamdata/purescript-markdown](http://github.com/slamdata/purescript-markdown) &mdash; Markdown parser, ADT, and renderer in 100% Purescript (work in progress)
+- [joneshf/purescript-showdown](https://github.com/joneshf/purescript-showdown)
 
 ## Math
 
+- [joneshf/purescript-algebra](https://github.com/joneshf/purescript-algebra)
 - [bodil/purescript-geom](http://github.com/bodil/purescript-geom)
 - [fresheyeball/purescript-geometry](https://github.com/fresheyeball/purescript-geometry)
 - [tkawachi/purescript-errorfunctions](https://github.com/tkawachi/purescript-errorfunctions)
+
+## Network
+
+- [joneshf/purescript-http](https://github.com/joneshf/purescript-http)
 
 ## Parsing
 
@@ -123,6 +153,7 @@ This page lists third-party libraries which can be used to perform common tasks.
 - [purescript-contrib/purescript-strongcheck](http://github.com/purescript-contrib/purescript-strongcheck) &mdash; A full-featured, rigorous property- and unit-based testing library for functional programs.
 - [CapillarySoftware/purescript-mocha](http://github.com/CapillarySoftware/purescript-mocha)
 - [CapillarySoftware/purescript-chai](https://github.com/CapillarySoftware/purescript-chai)
+- [joneshf/purescript-featurespec](https://github.com/joneshf/purescript-featurespec)
 
 ## Timer
 
