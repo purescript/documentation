@@ -5,6 +5,10 @@ This page lists third-party libraries which can be used to perform common tasks.
 - [philopon/purescript-xhr](http://github.com/philopon/purescript-xhr)
 - [joneshf/purescript-ajax](http://github.com/joneshf/purescript-ajax)
 
+## Animation
+
+- [CapillarySoftware/purescript-requestAnimationFrame](https://github.com/CapillarySoftware/purescript-requestAnimationFrame)
+
 ## Async
 
 - [andreypopp/purescript-node-thunk](http://github.com/andreypopp/purescript-node-thunk)
@@ -12,6 +16,11 @@ This page lists third-party libraries which can be used to perform common tasks.
 ## Audio
 
 - [waterson/purescript-webaudio](http://github.com/waterson/purescript-webaudio)
+
+## Build Tools
+
+- [purescript-contrib/gulp-purescript](https://github.com/purescript-contrib/gulp-purescript)
+- [purescript-contrib/grunt-purescript](https://github.com/purescript-contrib/grunt-purescript)
 
 ## Control
 
@@ -26,6 +35,14 @@ This page lists third-party libraries which can be used to perform common tasks.
 - [purescript/purescript-lazy](http://github.com/purescript/purescript-lazy)
 - [purescript-contrib/purescript-lens](http://github.com/purescript-contrib/purescript-lens)
 - [purescript-contrib/purescript-lists](http://github.com/purescript-contrib/purescript-lists)
+
+## Dates
+
+- [CapillarySoftware/purescript-moment](https://github.com/CapillarySoftware/purescript-moment)
+
+## Debugging
+
+- [CapillarySoftware/purescript-debug-foreign](https://github.com/CapillarySoftware/purescript-debug-foreign)
 
 ## DOM
 
@@ -43,6 +60,7 @@ This page lists third-party libraries which can be used to perform common tasks.
 ## FFI
  
 - [pelotom/purescript-easy-ffi](http://github.com/pelotom/purescript-easy-ffi)
+- [CapillarySoftware/purescript-oo-ffi](https://github.com/CapillarySoftware/purescript-oo-ffi)
 
 ## FRP
 
@@ -81,11 +99,16 @@ This page lists third-party libraries which can be used to perform common tasks.
 ## Math
 
 - [bodil/purescript-geom](http://github.com/bodil/purescript-geom)
+- [fresheyeball/purescript-geometry](https://github.com/fresheyeball/purescript-geometry)
 - [tkawachi/purescript-errorfunctions](https://github.com/tkawachi/purescript-errorfunctions)
 
 ## Parsing
 
 - [purescript-contrib/purescript-parsing](http://github.com/purescript-contrib/purescript-parsing)
+
+## Sniffing
+
+- [CapillarySoftware/purescript-browser-sniffer](https://github.com/CapillarySoftware/purescript-browser-sniffer)
 
 ## Streaming
 
@@ -99,6 +122,7 @@ This page lists third-party libraries which can be used to perform common tasks.
 - [purescript/purescript-quickcheck](http://github.com/purescript/purescript-quickcheck)
 - [purescript-contrib/purescript-strongcheck](http://github.com/purescript-contrib/purescript-strongcheck) &mdash; A full-featured, rigorous property- and unit-based testing library for functional programs.
 - [CapillarySoftware/purescript-mocha](http://github.com/CapillarySoftware/purescript-mocha)
+- [CapillarySoftware/purescript-chai](https://github.com/CapillarySoftware/purescript-chai)
 
 ## Timer
 
@@ -116,3 +140,7 @@ This page lists third-party libraries which can be used to perform common tasks.
 ## Web Storage
 
 - [joneshf/purescript-webstorage](http://github.com/joneshf/purescript-webstorage)
+
+## YAML
+
+- [CapillarySoftware/purescript-yaml](https://github.com/CapillarySoftware/purescript-yaml)
