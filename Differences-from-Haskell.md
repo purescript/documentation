@@ -233,3 +233,8 @@ fizzBuzz n | n % 3 == 0 = "Fizz"
 fizzBuzz n | n % 5 == 0 = "Buzz"
 fizzBuzz n = show n
 ```
+
+## TODO
+
+- Separate items "by design" from items which we plan to implement.
+- List pros and cons for each item.
