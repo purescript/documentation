@@ -20,7 +20,7 @@ A foreign import declaration may optionally contain its definition in Javascript
 Importing Types
 ---------------
 
-To declare a new type with no constructors, use ``foreign import data`` and provide the kind::
+To declare a new abstract type (with no constructors), use ``foreign import data`` and provide the kind::
 
   foreign import data DOM :: *
   	
