@@ -42,7 +42,9 @@ This page lists third-party libraries which can be used to perform common tasks.
 - [purescript-contrib/purescript-lens](http://github.com/purescript-contrib/purescript-lens)
 - [purescript-contrib/purescript-lists](http://github.com/purescript-contrib/purescript-lists)
 - [joneshf/purescript-collections](https://github.com/joneshf/purescript-collections)
+- [joneshf/purescript-cons](https://github.com/joneshf/purescript-cons)
 - [joneshf/purescript-each](https://github.com/joneshf/purescript-each)
+- [joneshf/purescript-index](https://github.com/joneshf/purescript-index)
 - [joneshf/purescript-typeable](https://github.com/joneshf/purescript-typeable)
 
 ## Dates
