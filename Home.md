@@ -49,6 +49,6 @@ This guide is taken from the old compiler documentation. The [PureScript Book](h
 - [Kinds](https://github.com/purescript/purescript/wiki/Language-Guide:-Kinds)
 - [Syntax](https://github.com/purescript/purescript/wiki/Language-Guide:-Syntax)
 - [Type Classes](https://github.com/purescript/purescript/wiki/Language-Guide:-Type-Classes)
-- TODO: Pattern Matching ([previous documentation](http://purescript.readthedocs.org/en/latest/patterns.html))
+- [Pattern Matching](https://github.com/purescript/purescript/wiki/Language-Guide:-Pattern-Matching)
 - [Modules](https://github.com/purescript/purescript/wiki/Language-Guide:-Modules)
 - [FFI](https://github.com/purescript/purescript/wiki/Language-Guide:-FFI)
