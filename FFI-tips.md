@@ -86,3 +86,5 @@ This way the compiler knows `Just` and `Nothing` are used so you don't need to w
 ## Why doesn't my Eff work when passed to a normal JS function?
 
 (((Event listeners not calling the "extra" () etc)))
+
+## Avoiding Duplicate Labels
