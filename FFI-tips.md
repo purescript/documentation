@@ -80,15 +80,14 @@ This way the compiler knows `Just` and `Nothing` are used so you don't need to w
 This technique also helps when you want to call a function that is a typeclass member via the FFI. A contrived example using `show`:
 
 ``` haskell
-foreign import showSomethingImpl """
-  function showSomethingImpl(isJust, show, value) {
-    if (isJust(value)) {
-      return "it's something: " + show(just(value));
-    } else {
-      return "it's nothing";
-    }
-  }
-  """ :: forall a. Fn3 (Maybe a -> Boolean) (a -> String) (Maybe a) String
+foreign import showSomethingImpl
+  "function showSomethingImpl(isJust, show, value) {\
+  \  if (isJust(value)) {\
+  \    return \"it's something: \" + show(just(value));\
+  \  } else {\
+  \    return \"it's nothing\";\
+  \  }\
+  \}" :: forall a. Fn3 (Maybe a -> Boolean) (a -> String) (Maybe a) String
 
 showSomething :: forall a. (Show a) => Maybe a -> String
 showSomething x = runFn2 showSomethingImpl isJust show x
