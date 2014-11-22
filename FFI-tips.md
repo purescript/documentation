@@ -77,7 +77,24 @@ doSomething fn x = runFn2 doSomethingImpl Just Nothing fn x
 
 This way the compiler knows `Just` and `Nothing` are used so you don't need to worry about dead code elimination swiping them away, and also you don't have to deal with any future changes that may happen to the way code is generated for data constructors in the generated output.
 
-(((also useful for avoiding typeclass constraints)))
+This technique also helps when you want to call a function that is a typeclass member via the FFI. A contrived example using `show`:
+
+``` haskell
+foreign import showSomethingImpl """
+  function showSomethingImpl(isJust, show, value) {
+    if (isJust(value)) {
+      return "it's something: " + show(just(value));
+    } else {
+      return "it's nothing";
+    }
+  }
+  """ :: forall a. Fn3 (Maybe a -> Boolean) (a -> String) (Maybe a) String
+
+showSomething :: forall a. (Show a) => Maybe a -> String
+showSomething x = runFn2 showSomethingImpl isJust show x
+```
+
+By moving the `show` reference out to `showSomething` the compiler will pick the right `Show` instance for us at that point, so we don't have to deal with typeclass dictionaries in `showSomethingImpl`.
 
 ## Making a normal JavaScript function Eff-typed
 
