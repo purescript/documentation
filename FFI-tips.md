@@ -83,7 +83,7 @@ This technique also helps when you want to call a function that is a typeclass m
 foreign import showSomethingImpl
   "function showSomethingImpl(isJust, show, value) {\
   \  if (isJust(value)) {\
-  \    return \"it's something: \" + show(just(value));\
+  \    return \"it's something: \" + show(value);\
   \  } else {\
   \    return \"it's nothing\";\
   \  }\
