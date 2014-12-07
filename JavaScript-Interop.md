@@ -175,11 +175,12 @@ This function cannot be given a type directly in PureScript, but we can write a 
 
 ``` haskell
 foreign import interestImpl2 
-  "function interestImpl2(amount) {\
-  \  return function(months) {\
-  \    return interestImpl2(amount, months);\
-  \  };\
-  \}" :: Number -> Number -> Number
+  """
+  function interestImpl2(amount) {
+    return function(months) {
+      return interestImpl2(amount, months);
+    };
+  }""" :: Number -> Number -> Number
 ```
 
 ### Santizing Foreign Data With Data.Foreign
