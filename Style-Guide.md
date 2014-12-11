@@ -1,0 +1,1 @@
+This page contains guidelines for writing PureScript libraries. You might consider this a set of best practices, or if you would like to contribute to the core libraries, a set of guidelines for getting your pull requests accepted.
