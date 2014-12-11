@@ -26,6 +26,8 @@ PureScript is a small strongly, statically typed compile-to-JS language with a n
 ## Libraries
 
 - [Recommended Libraries](https://github.com/purescript/purescript/wiki/Recommended-Libraries)
+- [Style Guide](https://github.com/purescript/purescript/wiki/Style-Guide)
+- [24 Days of PureScript 2014](https://gist.github.com/paf31/8e9177b20ee920480fbc)
 
 ## Tools
 
