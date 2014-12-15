@@ -73,3 +73,7 @@ The ability to build and execute the examples is also preferred. Please try not 
 If your example produces and output, please ensure to include the baked output in the example, (either as a code comment or another file).
 
 A great example of good quality examples is [here](https://github.com/purescript-contrib/purescript-lens/blob/master/examples/Nested.purs)
+
+### Keeping your library up to date
+
+PureScript is a developing language, and breaking changes to core libraries and the language itself occasionally do occur. To help you keep your library rock solid and stable through this phase of PureScript's development. Consider using [VersionEye](https://www.versioneye.com/). VersionEye reads your `bower.json` file and alerts you if your dependencies go out of date. If you have Travis up and running for CI, you can then easily test to see if those changes are breaking changes, and address them more promptly.
