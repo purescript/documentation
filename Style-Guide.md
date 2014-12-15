@@ -34,15 +34,15 @@ Please use documentation generation and post it prominently in your repository, 
 
 Tests are strongly preferred, particularly if you are using FFI for bindings in some way. Checkout to following packages to assist your testing efforts:
 
-purescript-test-unit [Test.Unit](https://github.com/bodil/purescript-test-unit)
-purescript-featurespec [Test.FeatureSpec](https://github.com/joneshf/purescript-featurespec)
-purescript-quickcheck [Test.QuickCheck](https://github.com/purescript/purescript-quickcheck)
-purescript-strongcheck [Test.StrongCheck](https://github.com/purescript-contrib/purescript-strongcheck)
+ - purescript-test-unit [Test.Unit](https://github.com/bodil/purescript-test-unit)
+ - purescript-featurespec [Test.FeatureSpec](https://github.com/joneshf/purescript-featurespec)
+ - purescript-quickcheck [Test.QuickCheck](https://github.com/purescript/purescript-quickcheck)
+ - purescript-strongcheck [Test.StrongCheck](https://github.com/purescript-contrib/purescript-strongcheck)
 
 If your goal is to use standard js libs for testing and so be able to plug into existing tools like [Karma](http://karma-runner.github.io/0.12/index.html). Consider these as well:
 
-purescript-mocha [Test.Mocha](https://github.com/CapillarySoftware/purescript-mocha)
-purescript-chai [Test.Chai](https://github.com/CapillarySoftware/purescript-chai)
+ - purescript-mocha [Test.Mocha](https://github.com/CapillarySoftware/purescript-mocha)
+ - purescript-chai [Test.Chai](https://github.com/CapillarySoftware/purescript-chai)
 
 ### Travis
 
