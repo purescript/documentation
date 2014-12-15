@@ -60,6 +60,16 @@ script :
 
 Don't forget to display your Travis "Build Passing" badge on your `README.md`, so others can download your package with an inflated sense of confidence. 
 
-### Namespacing
+### Name Spacing
 
 TBD
+
+### Examples
+
+Writing some examples are a good idea. Demonstrating how your library might be used to solve some simple complete use-cases, is usually the best way to make your work accessible to others. 
+
+The ability to build and execute the examples is also preferred. Please try not to be too abstract, examples need to be simple and specific. 
+
+If your example produces and output, please ensure to include the baked output in the example, (either as a code comment or another file).
+
+A great example of good quality examples is [here](https://github.com/purescript-contrib/purescript-lens/blob/master/examples/Nested.purs)
