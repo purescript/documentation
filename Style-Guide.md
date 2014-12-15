@@ -22,6 +22,8 @@ Some things to note:
   - Bower works with git tags, but does not require any present tags to publish. Please run `bower version 0.0.0` and push tags for your initial release (this prevents interim work not intended for publication from leaking on 0.0.0 libs).
   - Considering that you may need to be editing your library live as a part of the development of your main project, check out `bower link` (learn all about it [here](https://oncletom.io/2013/live-development-bower-component/)). This will enable you to keep the repos in sync as you work, and facilitate publishing when ready.
 
+`bower link` can also be useful if you plan on contributing to a package needed by your project. Simply fork the repo, and link. Once you have your additional bindings, or features needed for your project working, you can contribute them back to the source repo easily with a Pull Request.
+
 ### Node Compatibility
 
 Node.js and the Browser have differences. Its desirable for any libraries up on Bower (even though Bower is usually considered Browser-centric) to be compatible with both Node.js and the Browser. If your code is necessarily Node.js or Browser specific, please note this in your `README.md`.
@@ -72,7 +74,7 @@ The ability to build and execute the examples is also preferred. Please try not 
 
 If your example produces and output, please ensure to include the baked output in the example, (either as a code comment or another file).
 
-A great example of good quality examples is [here](https://github.com/purescript-contrib/purescript-lens/blob/master/examples/Nested.purs)
+A great example of good quality example is [here.](https://github.com/purescript-contrib/purescript-lens/blob/master/examples/Nested.purs)
 
 ### Keeping your library up to date
 
