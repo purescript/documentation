@@ -4,6 +4,7 @@
 - [Emacs](https://github.com/dysinger/purescript-mode) and [a mode for PSCI](https://github.com/ardumont/emacs-psci)
 - [Sublime Text 2](https://sublime.wbond.net/search/PureScript)
 - [Vim](https://github.com/raichoo/purescript-vim)
+- [IntelliJ IDEA](https://github.com/ikarienator/pure-idea)
 
 ## Tools
 
