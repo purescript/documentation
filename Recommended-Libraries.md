@@ -63,6 +63,7 @@ This page lists third-party libraries which can be used to perform common tasks.
 - [purescript-contrib/purescript-angular](http://github.com/purescript-contrib/purescript-angular)
 - [purescript-contrib/purescript-virtual-dom](http://github.com/purescript-contrib/purescript-virtual-dom)
 - [bodil/purescript-smolder](http://github.com/bodil/purescript-smolder)
+- [paf31/purescript-thermite](https://github.com/paf31/purescript-thermite) &mdash; A set of easy-to-use React bindings for PureScript
 
 ## Events
 
