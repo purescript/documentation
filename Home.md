@@ -33,6 +33,10 @@ PureScript is a small strongly, statically typed compile-to-JS language with a n
 
 - [Editor and tool support](https://github.com/purescript/purescript/wiki/Editor-and-tool-support)
 
+## Deployment
+
+- [PureScript and Docker](https://github.com/purescript/purescript/wiki/PureScript-and-Docker)
+
 ## Articles
 
 - [First Steps With PureScript - Solving Project Euler #1](https://github.com/purescript/purescript/wiki/First-Steps-With-PureScript---Solving-Project-Euler-%231)
