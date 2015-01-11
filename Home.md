@@ -32,6 +32,7 @@ PureScript is a small strongly, statically typed compile-to-JS language with a n
 ## Tools
 
 - [Editor and tool support](https://github.com/purescript/purescript/wiki/Editor-and-tool-support)
+- [Pursuit search engine](http://pursuit.purescript.org)
 
 ## Deployment
 
