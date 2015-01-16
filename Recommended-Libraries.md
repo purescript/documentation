@@ -69,6 +69,7 @@ This page lists third-party libraries which can be used to perform common tasks.
 
 - [joneshf/purescript-events](https://github.com/joneshf/purescript-events)
 - [joneshf/purescript-tiny-emitter](https://github.com/joneshf/purescript-tiny-emitter)
+- [anttih/purescript-rx](http://github.com/anttih/purescript-rx) – PureScript bindings for RxJS
 
 ## Fantasy Land
 
