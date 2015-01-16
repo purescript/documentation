@@ -121,7 +121,7 @@ This page lists third-party libraries which can be used to perform common tasks.
 
 ## Markdown
 
-- [slamdata/purescript-markdown](http://github.com/slamdata/purescript-markdown) &mdash; Markdown parser, ADT, and renderer in 100% Purescript (work in progress)
+- [slamdata/purescript-markdown](http://github.com/slamdata/purescript-markdown) &mdash; Markdown parser, ADT, and renderer in 100% Purescript
 - [joneshf/purescript-showdown](https://github.com/joneshf/purescript-showdown)
 
 ## Math
@@ -153,6 +153,7 @@ This page lists third-party libraries which can be used to perform common tasks.
 ## Streaming
 
 - [purescript-contrib/purescript-streams](http://github.com/purescript-contrib/purescript-streams)
+- [purescript-contrib/purescript-channels](http://github.com/purescript-contrib/purescript-channels)
 
 ## State Machines
 - [purescript-contrib/purescript-machines](http://github.com/purescript-contrib/purescript-machines) &mdash; Simple, generic halting state machines.
