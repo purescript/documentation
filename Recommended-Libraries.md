@@ -141,6 +141,7 @@ This page lists third-party libraries which can be used to perform common tasks.
 - [joneshf/purescript-node-child-process](https://github.com/joneshf/purescript-node-child-process)
 - [joneshf/purescript-node-domain](https://github.com/joneshf/purescript-node-domain)
 - [joneshf/purescript-node-events](https://github.com/joneshf/purescript-node-events)
+- [purescript-contrib/purescript-node-fs](http://github.com/purescript-contrib/purescript-node-fs)
 - [joneshf/purescript-node-url](https://github.com/joneshf/purescript-node-url)
 
 ## Parsing
