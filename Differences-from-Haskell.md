@@ -38,7 +38,7 @@ PureScript has a type `Unit` used in place of Haskell's `()`. The `Prelude` modu
 
 ### [a]
 
-PureScript’s `[a]` represents JavaScript’s array type and operations on it are found in `Data.Array`, not `Data.List`.
+PureScript’s `[a]` represents JavaScript’s array type and operations on it are found in `Data.Array` (from [purescript-arrays](https://github.com/purescript/purescript-arrays)), not `Data.List`.
 
 ## IO vs Eff
 
