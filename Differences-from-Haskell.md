@@ -190,27 +190,6 @@ PureScript does not provide this rule, so it is necessary to either
 - omit the operator: `runST do ...`
 - or use parentheses instead: `runST (do ...)`
 
-## No Operator Sections
-
-PureScript does not support operator sections. That is, the following Haskell expression:
-
-```haskell
-map (1 +) [1, 2, 3, 4, 5]
-```
-
-is valid, and evaluates to `[2, 3, 4, 5, 6]`. In PureScript, the section is not syntactically valid. The operator must be applied like a function:
-
-```haskell
-map ((+) 1) [1, 2, 3, 4, 5]
-```
-
-For right-sections, either use `flip`, or eta-expand the operator as follows:
-
-```haskell
-map (flip (+) 1)  [1, 2, 3, 4 5]
-map (\n -> n + 1) [1, 2, 3, 4, 5]
-```
-
 ## Defining Operators
 
 In Haskell, it is possible to define an operator with the following natural syntax:
