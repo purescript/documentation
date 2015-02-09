@@ -198,10 +198,10 @@ To access a property of a record, use a dot followed by the property name, as in
 rec.propertyName
 ```
 
-There are also _accessor sections_, where an accessor surrounded by parentheses can be used to define a partially applied accessor:
+There are also partially applied accessors, where an underscore is followed by a property name:
 
 ``` purescript
-(.propertyName)
+_.propertyName
 ```
 
 This is equivalent to:
@@ -234,6 +234,18 @@ This is equivalent to:
 
 ``` purescript
 \foo -> rec { foo = foo }
+```
+
+An underscore can also appear in the object position in an updater:
+
+``` purescript
+_ { foo = 1 }
+```
+
+This is equivalent to:
+
+``` purescript
+\rec -> rec { foo = 1 }
 ```
 
 # Operators
