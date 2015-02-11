@@ -20,7 +20,7 @@ Fields of records can be accessed using a dot, followed by the label of the fiel
 
 ## Kinds
 
-`{ ... }` is just syntactic sugar for the `Object` type constructor, so `{ language:  String }` is the same as `Object ( language :: String )`.
+`{ ... }` is just syntactic sugar for the `Object` type constructor, so `{ language ::  String }` is the same as `Object ( language :: String )`.
 
 The Object type constructor is parameterized by a row of types. In kind notation, `Object` has kind `# * -> *`. That is, it takes a row of types to a type.
 
