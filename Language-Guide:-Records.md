@@ -1,5 +1,3 @@
-# Language Guide: Records
-
 Record literals are surrounded by braces, as in JavaScript:
 
 ```haskell
