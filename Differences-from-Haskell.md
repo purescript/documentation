@@ -204,26 +204,6 @@ In PureScript, the operator must be named with parentheses:
 ($) f x = f x
 ```
 
-# No multiple guard clauses
-
-PureScript does not support multiple guard clauses in patterns. The following valid Haskell code:
-
-```haskell
-fizzBuzz n | n % 15 == 0 = "FizzBuzz"
-           | n % 3 == 0 = "Fizz"
-           | n % 5 == 0 = "Buzz"
-           | otherwise = show n
-```
-
-is not syntactically valid PureScript. The cases must be expanded, as follows:
-
-```haskell
-fizzBuzz n | n % 15 == 0 = "FizzBuzz"
-fizzBuzz n | n % 3 == 0 = "Fizz"
-fizzBuzz n | n % 5 == 0 = "Buzz"
-fizzBuzz n = show n
-```
-
 ## TODO
 
 - Separate items "by design" from items which we plan to implement.
