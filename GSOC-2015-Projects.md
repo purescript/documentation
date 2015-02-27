@@ -2,7 +2,7 @@ PureScript developers are keen to mentor interested students for GSOC 2015, unde
 
 Projects will be PureScript-themed, but should also benefit the larger Haskell community in some way.
 
-## Interested Mentors
+## Mentors
 
 - Phil Freeman (@paf31) - willing to mentor any students interested on working on the compiler (any component, but in particular the typechecker) or associated tools.
 - John A. De Goes (@jdegoes) - JVM backend, supercompiler, singleton types, first-class labels, Template PureScript
