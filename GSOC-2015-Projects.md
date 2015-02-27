@@ -24,6 +24,14 @@ This project could take many different forms, but here are some possible goals:
 - Implement a reference backend (probably an interpreter, which we could use in `psci` in environments where `node` is not available, or undesirable for some reason - sandboxing?)
 - Implement a specific backend (JVM is probably the target with the most demand right now, but see above for other ideas)
 
+### Source Maps
+
+Source maps can aid the debugging process in the browser by converting source positions in the generated Javascript code into source positions in the original PureScript code, effectively letting the user step through the PureScript code directly.
+
+This project would add support for source map generation to the compiler.
+
+_Interested mentors_: Phil Freeman
+
 ### An IDL for typed Haskell/PureScript communication
 
 _Interested mentors_: Phil Freeman
