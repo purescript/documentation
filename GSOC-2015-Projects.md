@@ -59,4 +59,5 @@ Idiomatic functional programming involves the manipulation and composition of fu
 
 This project would involve evaluating PureScript code at compile-time to maximally apply functions, and generate these specializations for use in runtime Javascript, with the goal of dramatically reducing and in many cases eliminating the runtime overhead of functional abstraction.
 
- - TODO
+ - Partial evaluator for functional core
+ - Function specialization
