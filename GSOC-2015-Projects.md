@@ -26,11 +26,11 @@ This project could take many different forms, but here are some possible goals:
 
 ### Source Maps
 
+_Interested mentors_: Phil Freeman
+
 Source maps can aid the debugging process in the browser by converting source positions in the generated Javascript code into source positions in the original PureScript code, effectively letting the user step through the PureScript code directly.
 
 This project would add support for source map generation to the compiler.
-
-_Interested mentors_: Phil Freeman
 
 ### An IDL for typed Haskell/PureScript communication
 
