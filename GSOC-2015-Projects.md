@@ -76,8 +76,12 @@ The Pursuit search engine is used to explore PureScript packages and find functi
 - Integrate `psc-pages` to provide Haddock-style documentation.
 - Add support for interactive examples using the Try PureScript API.
 
-### New Optimizations
+### Supercompiler for Functional Core
 
 _Interested mentors_: John A. De Goes
 
-_TODO_
+Idiomatic functional programming involves the manipulation and composition of functions through the use of function combinators. Thanks to the purity of PureScript, function combinators applied to the same parameters always return the same results. Currently, this fact is not taken advantage of, and as a result, there is substantial redundant evaluation of pure expressions in generated Javascript code.
+
+This project would involve evaluating PureScript code at compile-time to maximally apply functions, and generate these specializations for use in runtime Javascript, with the goal of dramatically reducing and in many cases eliminating the runtime overhead of functional abstraction.
+
+ - TODO
