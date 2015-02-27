@@ -30,7 +30,7 @@ The Pursuit search engine is used to explore PureScript packages and find functi
 
 _Interested mentors_: Phil Freeman, John A. De Goes
 
-We would like to support code generation in the style of Template Haskell. The current plan is to implement Template PureScript quasiquoters in a separate source directory and to update the compiler to run those quasiquoters as part of the build.
+We would like to support code generation in the style of Template Haskell. The current plan is to implement Template PureScript quasiquoters in a separate source directory and to update the compiler to run those quasiquoters as part of the compilation pipeline, replacing the existing hard-coded rewrite rules.
 
 This project would involve any or all of:
 
@@ -43,9 +43,7 @@ This project would involve any or all of:
 
 _Interested mentors_: Phil Freeman
 
-Support for type class constraints in the compiler is currently limited to _checking_ mode, which effectively imposes Haskell's _monomorphism restriction_ globally.
-
-This project would lift that restriction, and also investigate new, useful types of constraints, such as _row constraints_.
+Support for type class constraints in the compiler is currently limited to _checking_ mode, which effectively imposes Haskell's _monomorphism restriction_ globally. This project would lift that restriction.
 
 Another possible avenue is to investigate support for _functional dependencies_ or alternative solutions to the problem of ambiguous types when using multi-parameter type classes.
 
