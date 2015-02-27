@@ -26,6 +26,7 @@ The Pursuit search engine is used to explore PureScript packages and find functi
 - Add the ability to search by type, a la Hoogle/Hayoo.
 - Integrate `psc-pages` to provide Haddock-style documentation.
 - Add support for interactive examples using the Try PureScript API.
+
 ### Template PureScript
 
 _Interested mentors_: Phil Freeman, John A. De Goes
