@@ -52,3 +52,12 @@ is equivalent to:
 ```haskell
 \foo bar -> { foo: foo, bar: bar }
 ```
+
+## Record Update
+
+PureScript also provides a record update syntax similar to Haskell's:
+
+```haskell
+setX :: Number -> Point -> Point
+setX val point = point { x = val }
+```
