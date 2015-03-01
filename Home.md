@@ -60,3 +60,4 @@ This guide is taken from the old compiler documentation. The [PureScript Book](h
 - [Pattern Matching](https://github.com/purescript/purescript/wiki/Language-Guide:-Pattern-Matching)
 - [Modules](https://github.com/purescript/purescript/wiki/Language-Guide:-Modules)
 - [FFI](https://github.com/purescript/purescript/wiki/Language-Guide:-FFI)
+- [Records](https://github.com/purescript/purescript/wiki/Language-Guide:-Records)
