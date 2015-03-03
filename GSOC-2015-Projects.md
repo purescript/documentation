@@ -27,6 +27,16 @@ The Pursuit search engine is used to explore PureScript packages and find functi
 - Integrate `psc-pages` to provide Haddock-style documentation.
 - Add support for interactive examples using the Try PureScript API.
 
+### PSCI Improvements
+
+_Interested mentors_: Phil Freeman
+
+There are several ways in which PSCI could be improved, but one important improvement would be to support evaluation of actions in the `Eff` monad:
+
+- Write a server process in PureScript which would run on NodeJS and keep track of bound names, and execute actions as needed.
+- Integrate with this new service from the `psci` side - passing values to the service for evaluation and storage.
+- If there is time left, extending this model to provide some kind of `psci`-in-a-browser would be a very interesting project.
+
 ### Template PureScript
 
 _Interested mentors_: Phil Freeman, John A. De Goes
