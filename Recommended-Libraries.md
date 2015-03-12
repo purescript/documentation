@@ -5,6 +5,7 @@ This page lists third-party libraries which can be used to perform common tasks.
 - [philopon/purescript-xhr](http://github.com/philopon/purescript-xhr)
 - [joneshf/purescript-ajax](http://github.com/joneshf/purescript-ajax)
 - [joneshf/purescript-oboe](https://github.com/joneshf/purescript-oboe)
+- [slamdata/purescript-affjax](http://github.com/slamdata/purescript-affjax)
 
 ## Animation
 
@@ -13,6 +14,7 @@ This page lists third-party libraries which can be used to perform common tasks.
 ## Async
 
 - [andreypopp/purescript-node-thunk](http://github.com/andreypopp/purescript-node-thunk)
+- [slamdata/purescript-aff](http://github.com/slamdata/purescript-aff)
 
 ## Audio
 
@@ -32,6 +34,7 @@ This page lists third-party libraries which can be used to perform common tasks.
 
 - [purescript/purescript-transformers](http://github.com/purescript/purescript-transformers)
 - [purescript/purescript-free](http://github.com/purescript/purescript-free)
+- [slamdata/purescript-aff](http://github.com/slamdata/purescript-aff)
 
 ## Data Structures
 
@@ -64,6 +67,7 @@ This page lists third-party libraries which can be used to perform common tasks.
 - [purescript-contrib/purescript-virtual-dom](http://github.com/purescript-contrib/purescript-virtual-dom)
 - [bodil/purescript-smolder](http://github.com/bodil/purescript-smolder)
 - [paf31/purescript-thermite](https://github.com/paf31/purescript-thermite) &mdash; A set of easy-to-use React bindings for PureScript
+- [slamdata/purescript-halogen](http://github.com/slamdata/purescript-halogen)
 
 ## Events
 
@@ -106,7 +110,7 @@ This page lists third-party libraries which can be used to perform common tasks.
 - [purescript-contrib/purescript-drawing](http://github.com/purescript-contrib/purescript-drawing)
 - [paf31/purescript-free-canvas](http://github.com/paf31/purescript-free-canvas)
 
-## GUI
+## Desktop GUI
 
 - [joneshf/purescript-node-webkit](https://github.com/joneshf/purescript-node-webkit)
 
@@ -159,6 +163,7 @@ This page lists third-party libraries which can be used to perform common tasks.
 
 ## State Machines
 - [purescript-contrib/purescript-machines](http://github.com/purescript-contrib/purescript-machines) &mdash; Simple, generic halting state machines.
+- [purescript-contrib/purescript-channels](http://github.com/purescript-contrib/purescript-channels)
 
 ## Testing
 
