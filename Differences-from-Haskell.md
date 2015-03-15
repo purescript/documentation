@@ -101,7 +101,7 @@ setX :: Number -> Point' -> Point'
 setX val point = point { x = val }
 ```
 
-A common mistake to look out for is when writing a function that accepts a data type like the original `Point` above, is that the object is still wrapped inside `Point` so something this will fail:
+A common mistake to look out for is when writing a function that accepts a data type like the original `Point` above, is that the object is still wrapped inside `Point` so something like this will fail:
 
 ``` haskell
 showPoint :: Point -> String
