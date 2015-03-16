@@ -27,6 +27,27 @@ The Pursuit search engine is used to explore PureScript packages and find functi
 - Integrate `psc-pages` to provide Haddock-style documentation.
 - Add support for interactive examples using the Try PureScript API.
 
+### Exhaustivity Checker
+
+_Interested mentors_: Phil Freeman
+
+Pattern matches in PureScript are currently not checked for exhaustiveness at compile time, which can lead to unexpected failures at runtime.
+
+The first part of this project could be to add an exhaustiveness checker for the functional core AST, and to generate warnings at compile time if partial functions are found.
+
+Possible extensions of this include using the type system (nullary type classes in particular) to turn these warnings into errors, forcing library developers to document any partial functions in type annotations, and forcing users to opt in to partiality explicitly, either locally or globally. 
+
+The implementation of this would be something like the following:
+
+```purescript
+class Partial
+
+patternMatchFailure :: forall a. (Partial) => a
+patternMatchFailure = error "Pattern match failure!"
+```
+
+where `Partial` is defined in `Prim`, and `patternMatchFailure` is inlined by the exhaustivity checker in any partial function. This would force the developer to add a `Partial` annotation on any such function.
+
 ### PSCI Improvements
 
 _Interested mentors_: Phil Freeman
