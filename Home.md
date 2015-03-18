@@ -18,11 +18,6 @@ PureScript is a small strongly, statically typed compile-to-JS language with a n
 - Tail-call elimination
 - Type Classes
 
-## Basics
-
-- [Related Projects](https://github.com/purescript/purescript/wiki/Related-Projects)
-- [Differences from Haskell](https://github.com/purescript/purescript/wiki/Differences-from-Haskell)
-
 ## Libraries
 
 - [Recommended Libraries](https://github.com/purescript/purescript/wiki/Recommended-Libraries)
@@ -61,3 +56,8 @@ This guide is taken from the old compiler documentation. The [PureScript Book](h
 - [Modules](https://github.com/purescript/purescript/wiki/Language-Guide:-Modules)
 - [FFI](https://github.com/purescript/purescript/wiki/Language-Guide:-FFI)
 - [Records](https://github.com/purescript/purescript/wiki/Language-Guide:-Records)
+
+## Related Languages
+
+- [Related Projects](https://github.com/purescript/purescript/wiki/Related-Projects)
+- [Differences from Haskell](https://github.com/purescript/purescript/wiki/Differences-from-Haskell)
