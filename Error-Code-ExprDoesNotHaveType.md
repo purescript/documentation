@@ -1,5 +1,3 @@
-# Expression x does not have type t
-
 This error occurs when the type checker thinks an expression needs to have a certain type to type-check, but it has a different type.
 
 For example:
