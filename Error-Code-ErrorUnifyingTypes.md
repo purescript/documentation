@@ -1,5 +1,3 @@
-# Error unifying types
-
 This error occurs when the type checker is unable to deduce that two types are 'the same'.
 
 For example, take this expression:
