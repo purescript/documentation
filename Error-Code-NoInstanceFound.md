@@ -1,5 +1,3 @@
-# No Instance Found
-
 This error occurs when you try to use a function which has a type class constraint with a type (or types) that are not instances of the relevant type class.
 
 Example:
