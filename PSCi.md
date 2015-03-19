@@ -29,8 +29,8 @@ You can load a file containing PureScript source code with the `:load` directive
 Once a file has been loaded, values and types in the module(s) that it
 contains are available fully qualified:
 
-    > :type Data.Array.cons
-    forall a. a -> [a] -> [a]
+    > :type Data.Array.concat
+    forall a. [[a]] -> [a]
 
 Alternatively, you can import a loaded module in order to bring types and
 values into the current scope - then, you can use them unqualified.
