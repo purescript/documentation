@@ -61,3 +61,9 @@ This guide is taken from the old compiler documentation. The [PureScript Book](h
 
 - [Related Projects](https://github.com/purescript/purescript/wiki/Related-Projects)
 - [Differences from Haskell](https://github.com/purescript/purescript/wiki/Differences-from-Haskell)
+
+## TL;DR
+* [Install PureScript](http://www.purescript.org/download/)
+* [Install Node.js](https://nodejs.org/): `brew install node`/`pacman -S nodejs`/`choco install nodejs`/[Download Node.js](https://nodejs.org/)
+* [Install Pulp](https://github.com/bodil/pulp): `npm install -g pulp`
+* GO: `pulp init`, `pulp dep install purescript-tuples`, `pulp build --to output.js`, etc.
