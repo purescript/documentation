@@ -38,10 +38,11 @@ This page lists third-party libraries which can be used to perform common tasks.
 
 ## Data Structures
 
-- [purescript/purescript-maps](http://github.com/purescript/purescript-maps)
-- [purescript/purescript-sets](http://github.com/purescript/purescript-sets)
+- [purescript/purescript-foldable-traversable](https://github.com/purescript/purescript-foldable-traversable)
 - [purescript/purescript-graphs](http://github.com/purescript/purescript-graphs)
 - [purescript/purescript-lazy](http://github.com/purescript/purescript-lazy)
+- [purescript/purescript-maps](http://github.com/purescript/purescript-maps)
+- [purescript/purescript-sets](http://github.com/purescript/purescript-sets)
 - [purescript-contrib/purescript-lens](http://github.com/purescript-contrib/purescript-lens)
 - [purescript-contrib/purescript-lists](http://github.com/purescript-contrib/purescript-lists)
 - [joneshf/purescript-collections](https://github.com/joneshf/purescript-collections)
