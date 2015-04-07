@@ -6,6 +6,7 @@ Projects will be PureScript-themed, but should also benefit the larger Haskell c
 
 - Phil Freeman (@paf31) - willing to mentor any students interested on working on the compiler (any component, but in particular the typechecker) or associated tools.
 - John A. De Goes (@jdegoes) - JVM backend, supercompiler, singleton types, first-class labels, Template PureScript
+- Brian McKenna (@puffnfresh) - professional PureScript user, interested in mentoring projects which are self-serving such as Pursuit and exhaustiveness checking!
 
 ## Project Ideas
 
@@ -19,7 +20,7 @@ This project would add support for source map generation to the compiler.
 
 ### Pursuit Enhancements
 
-_Interested mentors_: Phil Freeman
+_Interested mentors_: Phil Freeman, Brian McKenna
 
 The Pursuit search engine is used to explore PureScript packages and find functions by name. There are plenty of possible enhancements which could make up a GSOC project:
 
@@ -29,7 +30,7 @@ The Pursuit search engine is used to explore PureScript packages and find functi
 
 ### Exhaustivity Checker
 
-_Interested mentors_: Phil Freeman
+_Interested mentors_: Phil Freeman, Brian McKenna
 
 Pattern matches in PureScript are currently not checked for exhaustiveness at compile time, which can lead to unexpected failures at runtime.
 
