@@ -286,7 +286,7 @@ Consider the following function, which computes the total stopping time of the C
 
 ```haskell
 collatz :: Number -> Number
-collatz n = runPure (runST (do
+collatz n = pureST do
   r <- newSTRef n
   count <- newSTRef 0
   untilE $ do
@@ -294,7 +294,7 @@ collatz n = runPure (runST (do
     m <- readSTRef r
     writeSTRef r $ if m % 2 == 0 then m / 2 else 3 * m + 1
     return $ m == 1
-  readSTRef count))
+  readSTRef count
 ```
 
 In this case, `psc` notices that the mutable variables `r` and `count` are scoped by `runST` and so can safely be turned into local mutable variables.
