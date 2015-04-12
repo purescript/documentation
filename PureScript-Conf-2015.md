@@ -15,5 +15,5 @@ _To be confirmed_
 ## Attendees
 
 - Phil Freeman (@paf31)
-- Register yourself here
+- John A. De Goes (@jdegoes)
 
