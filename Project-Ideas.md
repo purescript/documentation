@@ -6,3 +6,4 @@ This page is a list of possible project ideas for PureScript newcomers who would
 - An automatic way of sharing types between Haskell and PureScript safely 
 - A quaternion rotation library
 - An embedded WebGL shader DSL
+- Automatic differentiation
