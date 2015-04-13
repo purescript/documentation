@@ -6,6 +6,7 @@ This page is a list of possible project ideas for PureScript newcomers who would
 - Type-safe wrappers for HTML5 local storage APIs
 - Type-safe cookie library wrappers
 - Type-safe Indexed DB wrapper
+- Type-safe Node.js `http` wrapper, for HTTP servers
 
 ## Tools
 
