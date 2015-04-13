@@ -18,6 +18,7 @@ _To be confirmed_
 - John A. De Goes (@jdegoes)
 - Greg Pfeil (@sellout)
 - Brian McKenna (@puffnfresh)
+- Isaac Shapira (@fresheyeball)
 - *Add yourself here!*
 
 and also on [Lanyrd](http://lanyrd.com/2015/purescript-conf/).
