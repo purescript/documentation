@@ -16,5 +16,7 @@ _To be confirmed_
 
 - Phil Freeman (@paf31)
 - John A. De Goes (@jdegoes)
+- Greg Pfeil (@sellout)
 - *Add yourself here!*
 
+and also on [Lanyrd](http://lanyrd.com/2015/purescript-conf/).
