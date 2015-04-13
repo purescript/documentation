@@ -3,6 +3,9 @@ This page is a list of possible project ideas for PureScript newcomers who would
 ## FFI
 
 - Type-safe `socket.io` wrapper for client and server
+- Type-safe wrappers for HTML5 local storage APIs
+- Type-safe cookie library wrappers
+- Type-safe Indexed DB wrapper
 
 ## Tools
 
