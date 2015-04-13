@@ -16,6 +16,6 @@ This page is a list of possible project ideas for PureScript newcomers who would
 
 - A quaternion rotation library
 - Automatic differentiation
-- A priority queue implementation
-- Interval trees
+- A priority queue implementation (this could reuse a lot of the code in [purescript-sequences](/hdgarrood/purescript-sequences))
+- Interval trees (this could also reuse a lot of the code in [purescript-sequences](/hdgarrood/purescript-sequences))
 - Efficient set and map union
