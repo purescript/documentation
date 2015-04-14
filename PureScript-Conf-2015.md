@@ -6,7 +6,7 @@ PureScript Conf will be colocated with LambdaConf in Boulder CO.
 
 ## When?
 
-PureScript Conf will be held on Thursday, May 22nd 2015, the day before LambdaConf.
+PureScript Conf will be held on Thursday, May 21st 2015, the day before LambdaConf.
 
 ## Speakers/Schedule
 
