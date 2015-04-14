@@ -12,6 +12,12 @@ PureScript Conf will be held on Thursday, May 21st 2015, the day before LambdaCo
 
 _To be confirmed_
 
+Possible workshops / talks:
+
+ - [ ] **Crash Course in PureScript** (1-2h) &mdash; @jdegoes
+ - [ ] **Principled Asynchronous Programming in PureScript** (30m) &mdash; @jdegoes
+ - [ ] **Reactive UIs with Halogen** (1-2h) &mdash; @paf31???
+ 
 ## Attendees
 
 - Phil Freeman (@paf31)
