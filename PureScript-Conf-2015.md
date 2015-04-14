@@ -26,6 +26,8 @@ Possible workshops / talks:
 - Brian McKenna (@puffnfresh)
 - Isaac Shapira (@fresheyeball)
 - Lane Seppala  (@laneseppala)
+- Chris Wilson (@twopoint718)
+- Jon Childress (@jonplussed)
 - *Add yourself here!*
 
 and also on [Lanyrd](http://lanyrd.com/2015/purescript-conf/).
