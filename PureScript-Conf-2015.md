@@ -19,6 +19,7 @@ _To be confirmed_
 - Greg Pfeil (@sellout)
 - Brian McKenna (@puffnfresh)
 - Isaac Shapira (@fresheyeball)
+- Lane Seppala  (@lseppala)
 - *Add yourself here!*
 
 and also on [Lanyrd](http://lanyrd.com/2015/purescript-conf/).
