@@ -16,7 +16,7 @@ Possible workshops / talks:
 
  - [ ] **Crash Course in PureScript** (1-2h) &mdash; @jdegoes
  - [ ] **Principled, Painless Asynchronous Programming in PureScript** (30m) &mdash; @jdegoes
- - [ ] **Reactive UIs with Halogen** (1-2h) &mdash; @paf31???
+ - [ ] **Reactive UIs with Halogen** (1-2h) &mdash; @paf31
  
 ## Attendees
 
