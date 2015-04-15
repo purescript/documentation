@@ -204,6 +204,10 @@ In PureScript, the operator must be named with parentheses:
 ($) f x = f x
 ```
 
+## Export lists
+
+Documented at: [[Export lists]]
+
 ## TODO
 
 - Separate items "by design" from items which we plan to implement.
