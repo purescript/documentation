@@ -35,13 +35,16 @@ To export a type class, simply add it to the list, together with all of its memb
 For example, suppose we have the following:
 
 ```purescript
-class Foo a where
-  foo :: a
-  bar :: Unit -> a
+class Foldable f where
+  foldr :: forall a b. (a -> b -> b) -> b -> (f a) -> b
+  foldl :: forall a b. (b -> a -> b) -> b -> (f a) -> b
+  foldMap :: forall a m. (Monoid m) => (a -> m) -> (f a) -> m
 ```
 
-Then:
+Then you can export the class with:
 
-* `module Test (Foo, foo, bar) where` exports the `Foo` class and both members.
+```purescript
+module Test (Foldable, foldr, foldl, foldMap) where
+```
 
-The compiler will not allow you to export a type class but not its members.
+If a type class is exported, then all of its members must also be exported. Likewise, if a type class member is exported, the type class it belongs to must also be exported.
