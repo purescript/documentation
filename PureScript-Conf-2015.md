@@ -28,6 +28,8 @@ Possible workshops / talks:
 - Lane Seppala  (@laneseppala)
 - Chris Wilson (@twopoint718)
 - Jon Childress (@jonplussed)
+- Grigoriy Belenkiy (@grishace)
+- Daniel Santa Cruz (@dstcruz)
 - *Add yourself here!*
 
 and also on [Lanyrd](http://lanyrd.com/2015/purescript-conf/).
