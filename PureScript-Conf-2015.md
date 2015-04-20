@@ -32,6 +32,7 @@ Possible workshops / talks:
 - Jon Childress (@jonplussed)
 - Grigoriy Belenkiy (@grishace)
 - Daniel Santa Cruz (@dstcruz)
+- Jeff Simpson (@fooblahblah)
 - *Add yourself here!*
 
 and also on [Lanyrd](http://lanyrd.com/2015/purescript-conf/).
