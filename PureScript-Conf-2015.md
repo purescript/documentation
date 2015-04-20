@@ -35,6 +35,7 @@ Possible workshops / talks:
 - Jeff Simpson (@fooblahblah)
 - Jesse Frankley (@numberdotten)
 - Graham Lipsman (@glipsman)
+- Colt Frederickson (@coltfred)
 - *Add yourself here!*
 
 and also on [Lanyrd](http://lanyrd.com/2015/purescript-conf/).
