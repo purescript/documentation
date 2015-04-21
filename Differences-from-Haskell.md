@@ -115,7 +115,7 @@ showPoint :: Point -> String
 showPoint (Point obj) = show obj.x ++ ", " ++ show obj.y
 ```
 
-## Typeclasses
+## Type classes
 
 ### Arrow direction
 
@@ -130,7 +130,7 @@ This is so that `=>` can always be read as logical implication; in the above cas
 
 ### Named instances
 
-In purescript, it is required to give instances names:
+In PureScript, instances must be given names:
 
 ```purescript
 instance arbitraryUnit :: Arbitrary Unit where
