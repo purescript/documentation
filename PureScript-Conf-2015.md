@@ -37,6 +37,7 @@ Possible workshops / talks:
 - Graham Lipsman (@glipsman)
 - Colt Frederickson (@coltfred)
 - Joe Nash (@jna_sh)
+- Ben Burdette
 - *Add yourself here!*
 
 and also on [Lanyrd](http://lanyrd.com/2015/purescript-conf/).
