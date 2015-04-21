@@ -117,10 +117,39 @@ showPoint (Point obj) = show obj.x ++ ", " ++ show obj.y
 
 ## Typeclasses
 
-- "Implies" arrow
-- Named instances requirement, but still no overlaps/instance choice
-- No default member implementations
-- ? Semigroupoids based hierarchy
+### Arrow direction
+
+When declaring a type class with a superclass, the arrow is the other way around. For example:
+
+```purescript
+class (Eq a) <= Ord a where
+  ...
+```
+
+This is so that `=>` can always be read as logical implication; in the above case, an `Ord a` instance _implies_ an `Eq a` instance.
+
+### Named instances
+
+In purescript, it is required to give instances names:
+
+```purescript
+instance arbitraryUnit :: Arbitrary Unit where
+  ...
+```
+
+Overlapping instances are still disallowed, like in Haskell; instance names are there to help the readability of compiled JavaScript.
+
+### Default members
+
+At the moment it is not possible to declare default member implementations for type classes. This may change in the future.
+
+### Type class hierarchies
+
+Many type class hierarchies are more granular than in Haskell. For example:
+
+* `Category` has a superclass `Semigroupoid` which provides `(<<<)`, and does not require an identity.
+* `Monoid` has a superclass `Semigroup`, which provides `(<>)`, and does not require an identity.
+* `Applicative` has a superclass `Apply`, which provides `(<*>)` and does not require an implementation for `pure`.
 
 ## Tuples
 
