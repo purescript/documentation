@@ -25,6 +25,7 @@ This page lists third-party libraries which can be used to perform common tasks.
 - [purescript-contrib/gulp-purescript](https://github.com/purescript-contrib/gulp-purescript)
 - [purescript-contrib/grunt-purescript](https://github.com/purescript-contrib/grunt-purescript)
 - [joneshf/generator-purescript](https://github.com/joneshf/generator-purescript)
+- [bodil/pulp](https://github.com/bodil/pulp)
 
 ## CLI
 
