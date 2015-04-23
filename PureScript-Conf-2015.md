@@ -45,6 +45,7 @@ Possible workshops / talks:
 - Gustavo Gomez
 - Sean Garborg (@garborg)
 - Peter J. Jones
+- Michael Ficarra (@jspedant)
 - *Add yourself here!*
 
 and also on [Lanyrd](http://lanyrd.com/2015/purescript-conf/).
