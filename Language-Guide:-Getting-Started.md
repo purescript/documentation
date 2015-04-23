@@ -73,7 +73,7 @@ Option                 | Description
 psc-make
 --------
 
-The ``psc-make`` executable makes CommonJS modules and supports incremental compilation. Unlike ``psc``, it does not do dead code elimination.
+The ``psc-make`` executable takes a list of PureScript source files as arguments and makes a CommonJS module from each PureScript module. Unlike ``psc``, this does not perform dead code elimination. This method does, however, perform incremental compilation by only compiling modules which have changed timestamps and modules which depend on those changed modules.
 
 The following command line options are supported:
 
