@@ -40,6 +40,7 @@ Possible workshops / talks:
 - Ben Burdette
 - Alan Shen (@sunzenshen)
 - Alex Berg (@alex_berg)
+- Ryan Tanner (@youfoundryan)
 - *Add yourself here!*
 
 and also on [Lanyrd](http://lanyrd.com/2015/purescript-conf/).
