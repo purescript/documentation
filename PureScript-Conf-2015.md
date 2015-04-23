@@ -39,6 +39,7 @@ Possible workshops / talks:
 - Joe Nash (@jna_sh)
 - Ben Burdette
 - Alan Shen (@sunzenshen)
+- Alex Berg (@alex_berg)
 - *Add yourself here!*
 
 and also on [Lanyrd](http://lanyrd.com/2015/purescript-conf/).
