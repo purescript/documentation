@@ -44,6 +44,7 @@ Possible workshops / talks:
 - Tyler Perkins (@thinksoutside)
 - Gustavo Gomez
 - Sean Garborg (@garborg)
+- Peter J. Jones
 - *Add yourself here!*
 
 and also on [Lanyrd](http://lanyrd.com/2015/purescript-conf/).
