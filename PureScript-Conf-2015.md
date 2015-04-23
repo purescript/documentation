@@ -41,6 +41,7 @@ Possible workshops / talks:
 - Alan Shen (@sunzenshen)
 - Alex Berg (@alex_berg)
 - Ryan Tanner (@youfoundryan)
+- Tyler Perkins (@thinksoutside)
 - *Add yourself here!*
 
 and also on [Lanyrd](http://lanyrd.com/2015/purescript-conf/).
