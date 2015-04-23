@@ -42,6 +42,7 @@ Possible workshops / talks:
 - Alex Berg (@alex_berg)
 - Ryan Tanner (@youfoundryan)
 - Tyler Perkins (@thinksoutside)
+- Gustavo Gomez
 - *Add yourself here!*
 
 and also on [Lanyrd](http://lanyrd.com/2015/purescript-conf/).
