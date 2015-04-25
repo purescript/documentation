@@ -2,11 +2,11 @@ PureScript Conf is a _free_, one-day conference concentrating on the PureScript 
 
 ## Where?
 
-PureScript Conf will be colocated with LambdaConf in Boulder CO.
+PureScript Conf will be colocated with [LambdaConf](http://degoesconsulting.com/lambdaconf-2015) in Boulder CO.
 
 ## When?
 
-PureScript Conf will be held on Thursday, May 21st 2015, the day before LambdaConf.
+PureScript Conf will be held on Thursday, May 21st 2015, the day before [LambdaConf](http://degoesconsulting.com/lambdaconf-2015).
 
 ## Speakers/Schedule
 
