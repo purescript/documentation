@@ -97,12 +97,15 @@ As the introduction indicates, you can type `:?` to see a list of commands:
 
     The following commands are available:
     
-        :?              Show this help menu
-        :i <module>     Import <module> for use in PSCI
-        :m <file>       Load <file> for importing
-        :q              Quit PSCi
-        :r              Reset
-        :t <expr>       Show the type of <expr>
+        :?                        Show this help menu
+        :quit                     Quit PSCi
+        :reset                    Reset
+        :browse      <module>     Browse <module>
+        :load        <file>       Load <file> for importing
+        :type        <expr>       Show the type of <expr>
+        :kind        <type>       Show the kind of <type>
+        :show        import       Show imported modules
+        :show        loaded       Show loaded modules
 
 We will use a selection of these commands during this tutorial.
 
@@ -115,9 +118,9 @@ To see the type of one of these values, type the `:t` command, followed by a spa
     > :t Data.Tuple.curry
     forall a b c. (Data.Tuple.Tuple a b -> c) -> a -> b -> c
 
-We will be using some of the functions from the `Data.Array` module, so import that module by using the `:i` command:
+We will be using some of the functions from the `Data.Array` module, so import that module by using the `import` keyword:
 
-    :i Data.Array
+    import Data.Array
 
 Note that using `Tab` to autocomplete names can be a useful time-saving device in `psci`.
 
@@ -155,7 +158,7 @@ You can see the result by evaluating `multiples` if you like, or even check its 
 
 Now we need to find the sum of the `multiples` array, to complete the solution. We can use the `sum` function from the `Data.Foldable` module.
 
-    > :i Data.Foldable
+    > import Data.Foldable
     > sum multiples
     233168
 
