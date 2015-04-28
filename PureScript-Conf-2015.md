@@ -47,6 +47,6 @@ Possible workshops / talks:
 - Peter J. Jones
 - Michael Ficarra (@jspedant)
 - Connor James
-- *Add yourself here!*
+- Talon (@legittalon)
 
 and also on [Lanyrd](http://lanyrd.com/2015/purescript-conf/).
