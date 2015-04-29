@@ -8,7 +8,7 @@ Example:
 No instance found for Show Foo
 ```
 
-Here, we use `show`, which is a member of the `Show` type class. Its type is `show :: forall a. (Show a) => a -> String`, which means "for all types `a`, if `a` has a `Show` instance, then `show a` will return a String."
+Here, we use `show`, which is a member of the `Show` type class. Its type is `show :: forall a. (Show a) => a -> String`, which means that `show` takes a value of some type `a` and returns a `String`, with the constraint that `a` must have a `Show` instance.
 
 A possible fix is to add an instance for the relevant type. Following from the earlier example:
 
