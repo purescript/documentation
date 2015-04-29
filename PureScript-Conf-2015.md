@@ -49,6 +49,7 @@ Possible workshops / talks:
 - Connor James
 - Talon (@legittalon)
 - Dave Rostron (@yastero)
+- Garrett Dawson (@killtheliterate)
 - *add yourself here*
 
 and also on [Lanyrd](http://lanyrd.com/2015/purescript-conf/).
