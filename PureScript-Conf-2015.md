@@ -14,7 +14,7 @@ _To be confirmed_
 
 Possible workshops / talks:
 
- - [ ] **Crash Course in PureScript** (1h) &mdash; @jdegoes
+ - [ ] **Crash Course in PureScript** (1h) &mdash; @puffnfresh
  - [ ] **Principled, Painless Asynchronous Programming in PureScript** (30m) &mdash; @jdegoes
  - [ ] **Reactive UIs with Halogen** (1-2h) &mdash; @paf31
  - [ ] **Purescript deployment with Nix/NixOS** (1h) &mdash; @laneseppala
