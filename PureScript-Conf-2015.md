@@ -50,6 +50,7 @@ Possible workshops / talks:
 - Talon (@legittalon)
 - Dave Rostron (@yastero)
 - Garrett Dawson (@killtheliterate)
+- Solomon White (@rubysolo)
 - *add yourself here*
 
 and also on [Lanyrd](http://lanyrd.com/2015/purescript-conf/).
