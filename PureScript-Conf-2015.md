@@ -34,7 +34,7 @@ _Abstract_
 
 `purescript-halogen` is a new library for developing reactive front-end web applications in PureScript. I will give a brief overview of the ideas behind the library, and we will work through the creation of a simple application from scratch. Bring a laptop! 
 
-### Purescript deployment with Nix/NixOS
+### Purescript Deployment with Nix/NixOS
 
 **@laneseppala**
 
