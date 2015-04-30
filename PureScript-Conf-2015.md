@@ -26,6 +26,8 @@ _Abstract_
 
 _Abstract_
 
+Asynchronous programming in the browser or node.js is painful, and error-prone! Promises/A+ "promises" to make that better, but the complexity of the numerous ad hoc specifications ensure plenty of confusion, corner cases, and tangled, incomprehensible code. Fortunately, the PureScript language provides us everything we need to make asynchronous programming sound, comprehensible, type-safe, and easy! In this talk, John A. De Goes reviews the `purescript-aff` library and ecosystem, highlighting the power of the library, and showing that asynchronous programming can be just as easy &mdash; no, easier! &mdash; than synchronous programming. Only a basic knowledge of PureScript is assumed, so this talk can be considered a continuation of earlier presentations.
+
 ### Reactive UIs with Halogen
 
 **@paf31**
