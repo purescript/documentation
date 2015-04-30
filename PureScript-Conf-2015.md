@@ -12,7 +12,8 @@ PureScript Conf will be held on Thursday, May 21st 2015, the day before [LambdaC
 
 ### Crash Course in PureScript
 
-** (1h) - @puffnfresh **
+**60 minutes**
+**@puffnfresh**
 
 _Abstract_
 
