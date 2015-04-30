@@ -10,15 +10,33 @@ PureScript Conf will be held on Thursday, May 21st 2015, the day before [LambdaC
 
 ## Speakers/Schedule
 
-_To be confirmed_
+### Crash Course in PureScript
 
-Possible workshops / talks:
+** (1h) &mdash; @puffnfresh **
 
- - [ ] **Crash Course in PureScript** (1h) &mdash; @puffnfresh
- - [ ] **Principled, Painless Asynchronous Programming in PureScript** (30m) &mdash; @jdegoes
- - [ ] **Reactive UIs with Halogen** (1-2h) &mdash; @paf31
- - [ ] **Purescript deployment with Nix/NixOS** (1h) &mdash; @laneseppala
+_Abstract_
 
+### Principled, Painless Asynchronous Programming in PureScript
+
+** (30m) &mdash; @jdegoes **
+
+_Abstract_
+
+### Reactive UIs with Halogen
+
+** (1h) &mdash; @paf31 **
+
+`purescript-halogen` is a new library for developing reactive front-end web applications in PureScript. I will give a brief overview of the ideas behind the library, and we will work through the creation of a simple application from scratch. Bring a laptop! 
+
+### Purescript deployment with Nix/NixOS
+
+** (1h) &mdash; @laneseppala **
+
+_Abstract_
+
+### Call for Speakers
+
+_Anyone_ who would like to present a topic related to PureScript development is more than welcome to do so. Any level of experience is appropriate, although we would like to encourage speakers to prepare something appropriate for a beginner-level audience. If you have a topic, please add the title and a brief description above.
 
 ## Attendees
 
