@@ -28,7 +28,7 @@ An introduction to PureScript, describing the core principles and features:
 * Effects
 * Tooling
 
-An assumption is made that you're familiar with functional programming. A version of the presentation without that assumption will be given at [BoulderJS](http://www.meetup.com/Boulder-JS/) on the Wednesday 17th (the day before PureScript Conf).
+An assumption is made that you're familiar with functional programming. A version of the presentation without that assumption will be given at [BoulderJS](http://www.meetup.com/Boulder-JS/) on the Wednesday 20th (the day before PureScript Conf).
 
 ### Principled, Painless Asynchronous Programming in PureScript
 
