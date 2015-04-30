@@ -18,6 +18,16 @@ PureScript Conf will be held on Thursday, May 21st 2015, the day before [LambdaC
 
 _Abstract_
 
+An introduction to PureScript, describing the core principles and features:
+
+* Algebraic data types
+* Type-classes
+* Rank-N types
+* Records
+* FFI
+* Effects
+* Tooling
+
 ### Principled, Painless Asynchronous Programming in PureScript
 
 **@jdegoes**
