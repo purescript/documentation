@@ -92,6 +92,7 @@ _Anyone_ who would like to present a topic related to PureScript development is 
 - Garrett Dawson (@killtheliterate)
 - Solomon White (@rubysolo)
 - Mark Bolusmjak (@z5h)
+- Mark Farrell (@markfarrell)
 - *add yourself here*
 
 and also on [Lanyrd](http://lanyrd.com/2015/purescript-conf/).
