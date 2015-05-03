@@ -56,6 +56,18 @@ Asynchronous programming in the browser or node.js is painful, and error-prone! 
 
 _Abstract_
 
+### The Future of PureScript (Discussion)
+
+**@paf31**
+
+**1 hour**
+
+Let's discuss the current state of PureScript, and the changes we want to see in the future. Come and tell us about the features you want to see at PureScript Conf 2016!
+
+- New backends (C++11, Lua, Python, PHP, JVM, ...)
+- Optimizations and rewrite rules
+- PureScript's killer applications
+
 ### Call for Speakers
 
 _Anyone_ who would like to present a topic related to PureScript development is more than welcome to do so. Any level of experience is appropriate, although we would like to encourage speakers to prepare something appropriate for a beginner-level audience. If you have a topic, please add the title and a brief description above.
