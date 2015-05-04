@@ -10,6 +10,16 @@ PureScript Conf will be held on Thursday, May 21st 2015, the day before [LambdaC
 
 ## Speakers/Schedule
 
+### Why PureScript?
+
+**@jdegoes**
+
+**10 minutes**
+
+_Abstract_
+
+In this introductory talk, John A. De Goes talks about reasons why you should (or should not) choose PureScript for a new project, and gives a demo of [SlamData](http://slamdata.com), a rich web application built in PureScript (and quite possibly the largest PureScript application ever developed).
+
 ### Crash Course in PureScript
 
 **@puffnfresh**
