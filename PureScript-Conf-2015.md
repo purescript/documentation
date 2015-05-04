@@ -44,7 +44,7 @@ An assumption is made that you're familiar with functional programming. A versio
 
 **@jdegoes**
 
-**30 mins**
+**45 mins**
 
 _Abstract_
 
