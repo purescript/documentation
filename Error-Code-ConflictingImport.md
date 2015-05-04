@@ -18,7 +18,7 @@ Then this will fail with:
 
 One potential solution is to hide the problematic imports with a `hiding` list:
 
-```
+```purescript
 module ConflictingImport where
 
 import Prelude hiding (id)
