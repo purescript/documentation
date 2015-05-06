@@ -119,6 +119,7 @@ _Anyone_ who would like to present a topic related to PureScript development is 
 - Emrys Ingersoll (@wemrysi)
 - Don Abrams (@donabrams)
 - Darin Morrison (@freebroccolo)
+- Typer Prete (@prete)
 - *add yourself here*
 
 and also on [Lanyrd](http://lanyrd.com/2015/purescript-conf/).
