@@ -120,6 +120,7 @@ _Anyone_ who would like to present a topic related to PureScript development is 
 - Don Abrams (@donabrams)
 - Darin Morrison (@freebroccolo)
 - Tyler Prete (@tprete)
+- Todd Bernhard
 - *add yourself here*
 
 and also on [Lanyrd](http://lanyrd.com/2015/purescript-conf/).
