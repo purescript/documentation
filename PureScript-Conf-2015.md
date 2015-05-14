@@ -6,9 +6,9 @@ PureScript Conf will be colocated with [LambdaConf](http://degoesconsulting.com/
 
 Address:
 
-1050 Walnut Street
-Suite 202
-Boulder, CO 80302
+1050 Walnut Street  
+Suite 202  
+Boulder, CO 80302 
 
 **Please do NOT enter the main entrance, look for signs that will direct you to a side entrance.**
 
