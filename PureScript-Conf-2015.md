@@ -134,5 +134,6 @@ _Anyone_ who would like to present a topic related to PureScript development is 
 - Todd Bernhard
 - Jed Schneider (@jedschneider)
 - Joe Douglas (@jjoedouglas)
+- Eric Thomas (@et)
 
 and also on [Lanyrd](http://lanyrd.com/2015/purescript-conf/).
