@@ -8,6 +8,11 @@ PureScript Conf will be colocated with [LambdaConf](http://degoesconsulting.com/
 
 PureScript Conf will be held on Thursday, May 21st 2015, the day before [LambdaConf](http://degoesconsulting.com/lambdaconf-2015).
 
+- Sessions: 9:00 - 5:00 PM
+- Lunch: 12:00
+
+Location information will be displayed here.
+
 ## Speakers/Schedule
 
 ### Why PureScript?
