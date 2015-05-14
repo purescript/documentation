@@ -2,7 +2,15 @@ PureScript Conf is a _free_, one-day conference concentrating on the PureScript 
 
 ## Where?
 
-PureScript Conf will be colocated with [LambdaConf](http://degoesconsulting.com/lambdaconf-2015) in Boulder CO.
+PureScript Conf will be colocated with [LambdaConf](http://degoesconsulting.com/lambdaconf-2015).
+
+Address:
+
+1050 Walnut Street
+Suite 202
+Boulder, CO 80302
+
+**Please do NOT enter the main entrance, look for signs that will direct you to a side entrance.**
 
 ## When?
 
@@ -10,8 +18,6 @@ PureScript Conf will be held on Thursday, May 21st 2015, the day before [LambdaC
 
 - Sessions: 9:00 - 5:00 PM
 - Lunch: 12:00
-
-Location information will be displayed here.
 
 ## Speakers/Schedule
 
