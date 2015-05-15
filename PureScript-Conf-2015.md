@@ -79,6 +79,16 @@ Asynchronous programming in the browser or node.js is painful, and error-prone! 
 
 _Abstract_
 
+### Making Sense of Project Build & Dependency Management
+
+**@alex_berg**
+
+**30 minutes**
+
+_Abstract_
+
+Things go smoothly when you do as the book instructs, but when you try to do something interesting, the compiler says, "Can't find module". Why can't it find my stuff? In this talk, we'll look at the recommended build tools, discuss what they do, and compare them to similar tools. Project dependency management will also be discussed, as build tools often need to know how it works.
+
 ### The Future of PureScript (Discussion)
 
 **@paf31**
