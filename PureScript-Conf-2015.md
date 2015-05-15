@@ -1,6 +1,6 @@
 PureScript Conf is a _free_, one-day conference concentrating on the PureScript language and its libraries.
 
-PureScript Conf is sponsored by [SlamData](http://slamdata.com), an open source company that builds analytics and reporting software for NoSQL data stores.
+*PureScript Conf is sponsored by [SlamData](http://slamdata.com), an open source company that builds analytics and reporting software for NoSQL data stores.*
 
 ## Where?
 
