@@ -14,3 +14,5 @@ The error message reads along the lines of:
   with kind
     # *
 ```
+
+Prime suspect: You are missing an `->` in your type signature.
