@@ -15,4 +15,4 @@ The error message reads along the lines of:
     # *
 ```
 
-Prime suspect: You are missing an `->` in your type signature.
+**Prime suspect:** You are missing an `->` in your type signature.
