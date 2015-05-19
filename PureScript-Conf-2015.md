@@ -163,5 +163,6 @@ _Anyone_ who would like to present a topic related to PureScript development is 
 - Mark Nakasone
 - Proctor (@stevenproctor)
 - Erin Swenson-Healey (@lasericus)
+- Beau Lyddon (@lyddonb)
 
 and also on [Lanyrd](http://lanyrd.com/2015/purescript-conf/).
