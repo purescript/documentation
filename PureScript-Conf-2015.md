@@ -21,6 +21,17 @@ PureScript Conf will be held on Thursday, May 21st 2015, the day before [LambdaC
 - Sessions: 9:00 - 5:00 PM
 - Lunch: 12:00
 
+## Instructions for Attendees
+
+You might like to install the PureScript compiler in advance, so that you can follow along with the talks and examples:
+
+- Install the PureScript compiler for your operating system. 
+  - You should install the [0.6.9.5 release](https://github.com/purescript/purescript/releases/tag/v0.6.9.5). 
+  - If you prefer to build from source, be sure to check out the `v0.6.9.5` tag of the `purescript` compiler repository. The code will **not** build using `master`.
+  - Make sure `psc` and `psc-make` are on your PATH.
+- Install Node and the NPM package manager
+- Install the `pulp` command line tool (`npm install -g pulp`)
+
 ## Speakers/Schedule
 
 ### Why PureScript?
