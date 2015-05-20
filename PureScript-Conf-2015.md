@@ -102,6 +102,11 @@ demonstrate deployment of a simple Purescript webapp with Nix and NixOS, and
 then expand on the ideas of Nix to build multi-node deployments, release A/B
 testing and feature-flag environments, and test integration reproducibly.
 
+### Introduction to Property Testing with QuickCheck
+
+**@fresheyeball**
+
+Making code reliable in JavaScript is a nightmare. Learn how property testing and PureScript can help provide better tests with greater coverage of the problem space. Walking through options available in JavaScript, translating Unit Tests to Property Tests. Closing with examples of Property Tests in PureScript, demonstrating how QuickCheck and PureScript can help you produce better code over Unit Tests and JavaScript.
 
 ### Making Sense of Project Build & Dependency Management
 
