@@ -167,5 +167,6 @@ _Anyone_ who would like to present a topic related to PureScript development is 
 - Matt Williamson (@bizarromatt)
 - Matt Elmer (@mattelmer)
 - Ryan Orendorff
+- Robert Kluin (@robertkluin)
 
 and also on [Lanyrd](http://lanyrd.com/2015/purescript-conf/).
