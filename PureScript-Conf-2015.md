@@ -27,7 +27,7 @@ You might like to install the PureScript compiler in advance, so that you can fo
 
 - Install the PureScript compiler for your operating system. 
   - You should install the [0.6.9.5 release](https://github.com/purescript/purescript/releases/tag/v0.6.9.5). 
-  - If you prefer to build from source, be sure to check out the `v0.6.9.5` tag of the `purescript` compiler repository. The code will **not** build using `master`.
+  - If you prefer to build from source, be sure to check out the `v0.6.9.5` tag of the [`purescript`](https://github.com/purescript/purescript) compiler repository. The code will **not** build using `master`.
   - Make sure `psc` and `psc-make` are on your PATH.
 - Install Node and the NPM package manager
 - Install the `pulp` command line tool (`npm install -g pulp`)
@@ -165,5 +165,6 @@ _Anyone_ who would like to present a topic related to PureScript development is 
 - Ryan Orendorff
 - Robert Kluin (@robertkluin)
 - John Coe (@4tPartySoftware)
+- Leif Warner (@pdxleif)
 
 and also on [Lanyrd](http://lanyrd.com/2015/purescript-conf/).
