@@ -82,26 +82,6 @@ Asynchronous programming in the browser or node.js is painful, and error-prone! 
 
 `purescript-halogen` is a new library for developing reactive front-end web applications in PureScript. I will give a brief overview of the ideas behind the library, and we will work through the creation of a simple application from scratch. Bring a laptop! 
 
-### Purescript Deployment with Nix/NixOS
-
-**@laneseppala**
-
-**1 hour**
-
-_Abstract_
-
-Docker containers and Ansible modules may have overthrown RPMs and Chef recipes
-in our industry, but we're still building the same unknowable systems with
-inconsistent versions of dependencies and Schrödinger servers with poor
-understanding of what's installed where. Have we actually made any progress?
-The goal of this talk is to provide ideas and inspiration for using Nix/NixOS
-to solve the fundamental problems that plague modern software deployment and
-operations. I'll give an overview of key concepts of Nix, the purely functional
-package manager; and NixOS, the Linux distro with Nix as its backbone. I'll
-demonstrate deployment of a simple Purescript webapp with Nix and NixOS, and
-then expand on the ideas of Nix to build multi-node deployments, release A/B
-testing and feature-flag environments, and test integration reproducibly.
-
 ### Introduction to Property Testing with QuickCheck
 
 **@fresheyeball**
