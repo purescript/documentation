@@ -12,7 +12,7 @@ Address:
 Suite 202  
 Boulder, CO 80302 
 
-**Please do NOT enter the main entrance, look for signs that will direct you to a side entrance.**
+**Please do NOT enter the main entrance of Suite 202; look for signs that will direct you to a side entrance.**
 
 ## When?
 
