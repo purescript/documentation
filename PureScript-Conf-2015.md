@@ -166,5 +166,6 @@ _Anyone_ who would like to present a topic related to PureScript development is 
 - Robert Kluin (@robertkluin)
 - John Coe (@4tPartySoftware)
 - Leif Warner (@pdxleif)
+- Kris Nuttycombe (@nuttycom)
 
 and also on [Lanyrd](http://lanyrd.com/2015/purescript-conf/).
