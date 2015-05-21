@@ -154,7 +154,6 @@ _Anyone_ who would like to present a topic related to PureScript development is 
 - Tyler Prete (@tprete)
 - Todd Bernhard
 - Jed Schneider (@jedschneider)
-- Joe Douglas (@jjoedouglas)
 - Eric Thomas (@et)
 - Mark Nakasone
 - Proctor (@stevenproctor)
