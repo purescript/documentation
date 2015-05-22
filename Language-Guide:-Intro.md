@@ -43,18 +43,22 @@ Line by line, this reads as follows:
 - ``showPerson`` works by case analysis on its argument, first matching the constructor ``Person`` and then using string concatenation and object accessors to return its result.
 - ``examplePerson`` is a Person object, made with the ``Person`` constructor and given the String "Bonnie" for the name value and the Number 26 for the age value.
 
-The generated Javascript looks like this:
+The generated Javascript is:
 ```js
-var Person = function (value) { 
-    return { ctor: 'Person', values: [value] }; 
-};
-  
-function showPerson(_1) {
-    return _1.values[0].name + ", aged " + numberToString(_1.values[0].age); 
-};
-  
-var examplePerson = Person({
-    name: "Bonnie", 
-    age: 26
-});
+    var Person = (function () {
+        function Person(value0) {
+            this.value0 = value0;
+        };
+        Person.create = function (value0) {
+            return new Person(value0);
+        };
+        return Person;
+    })();
+    var showPerson = function (_25) {
+        return _25.value0.name + (", aged " + Prelude.show(Prelude.showNumber)(_25.value0.age));
+    };
+    var examplePerson = new Person({
+        name: "Bonnie",
+        age: 26
+    });
 ```
