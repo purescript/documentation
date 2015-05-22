@@ -82,6 +82,9 @@ Asynchronous programming in the browser or node.js is painful, and error-prone! 
 
 `purescript-halogen` is a new library for developing reactive front-end web applications in PureScript. I will give a brief overview of the ideas behind the library, and we will work through the creation of a simple application from scratch. Bring a laptop! 
 
+[Video](https://www.youtube.com/watch?v=AbDX-wRigAo)
+[Slides](https://docs.google.com/presentation/d/1uwKxJzNx8pBL2QCUKYy2mgkEbrCdEjKbYOj3mJ4nyEo/edit?usp=sharing)
+
 ### Introduction to Property Testing with QuickCheck
 
 **@fresheyeball**
