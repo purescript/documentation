@@ -163,7 +163,7 @@ head xs = unsafeIndex xs 0
 
 The code generator will turn the expression `unsafeIndex arr index` into the simplified JavaScript `arr[index]`.
 
-The [`purescript-arrays`](https://github.com/purescript/purescript-arrays) library defines an alternative safe version `unsafeIndex`, named `!!`, which checks arrays bounds and returns a value of type `Maybe a`:
+The [`purescript-arrays`](https://github.com/purescript/purescript-arrays) library defines an alternative safe version, `index`, also available as infix `!!`, which checks arrays bounds and returns a value of type `Maybe a`:
 
 ``` purescript
 safeHead xs = xs !! 0
