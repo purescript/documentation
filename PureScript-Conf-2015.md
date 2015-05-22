@@ -88,6 +88,8 @@ Asynchronous programming in the browser or node.js is painful, and error-prone! 
 
 Making code reliable in JavaScript is a nightmare. Learn how property testing and PureScript can help provide better tests with greater coverage of the problem space. Walking through options available in JavaScript, translating Unit Tests to Property Tests. Closing with examples of Property Tests in PureScript, demonstrating how QuickCheck and PureScript can help you produce better code over Unit Tests and JavaScript.
 
+[** cloud 9 **](https://ide.c9.io/fresheyeball/property_tests)
+
 ### Making Sense of Project Build & Dependency Management
 
 **@alex_berg**
