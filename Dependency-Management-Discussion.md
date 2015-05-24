@@ -29,3 +29,5 @@ import qualified B as Q
 ```
 
 - Should create a tool to dump a module with all implicit imports replaced with their resolutions.
+
+- Some pretty poor points were made in https://wiki.haskell.org/Import_modules_properly
