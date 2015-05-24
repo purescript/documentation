@@ -4,7 +4,7 @@ Here are the minutes from our meeting at LambdaConf 2015.
 
 ## Diamond Dependency Issues
 
-- @chexxor presented the issue, see the https://github.com/chexxor/purescript-myexponent repository.
+- @chexxor presented the issue, see the [chexxor/purescript-dep-management](https://github.com/chexxor/purescript-dep-management) project, which has two dependencies which both have the [chexxor/purescript-myexponent](https://github.com/chexxor/purescript-myexponent repository) project as a dependency.
 - `mysquare` and `mycube` depend on different versions of `myexponent` and `purescript-dep-management` depends on both `mysquare` and `mycube`.
 - Bower gives a warning and requires the user to disambiguate the dependencies.
 - It is necessary for someone to update `mysquare` and `mycube` to compatible dependency versions.
