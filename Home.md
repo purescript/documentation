@@ -52,6 +52,7 @@ The [PureScript Book](https://leanpub.com/purescript/read) is the recommended ap
 - [Type Classes](https://github.com/purescript/purescript/wiki/Language-Guide:-Type-Classes)
 - [Pattern Matching](https://github.com/purescript/purescript/wiki/Language-Guide:-Pattern-Matching)
 - [Modules](https://github.com/purescript/purescript/wiki/Language-Guide:-Modules)
+- [Eff Monad](https://github.com/purescript/purescript/wiki/Language-Guide:-Eff-Monad)
 - [JavaScript Interop](https://github.com/purescript/purescript/wiki/Language-Guide:-JavaScript-Interop)
 - [FFI](https://github.com/purescript/purescript/wiki/Language-Guide:-FFI)
 - [Records](https://github.com/purescript/purescript/wiki/Language-Guide:-Records)
