@@ -37,6 +37,8 @@ PureScript is a small strongly, statically typed compile-to-JS language with a n
 ## Articles
 
 - [First Steps With PureScript - Solving Project Euler #1](https://github.com/purescript/purescript/wiki/First-Steps-With-PureScript---Solving-Project-Euler-%231)
+- [Handling Native Effects with the Eff Monad](https://github.com/purescript/purescript/wiki/Handling-Native-Effects-with-the-Eff-Monad)
+- [JavaScript Interop](https://github.com/purescript/purescript/wiki/JavaScript-Interop)
 - [FFI Tips](https://github.com/purescript/purescript/wiki/FFI-tips)
 - [Test your Javascript with QuickCheck](https://github.com/purescript/purescript/wiki/Test-your-Javascript-with-QuickCheck)
 
@@ -52,8 +54,6 @@ The [PureScript Book](https://leanpub.com/purescript/read) is the recommended ap
 - [Type Classes](https://github.com/purescript/purescript/wiki/Language-Guide:-Type-Classes)
 - [Pattern Matching](https://github.com/purescript/purescript/wiki/Language-Guide:-Pattern-Matching)
 - [Modules](https://github.com/purescript/purescript/wiki/Language-Guide:-Modules)
-- [Eff Monad](https://github.com/purescript/purescript/wiki/Language-Guide:-Eff-Monad)
-- [JavaScript Interop](https://github.com/purescript/purescript/wiki/Language-Guide:-JavaScript-Interop)
 - [FFI](https://github.com/purescript/purescript/wiki/Language-Guide:-FFI)
 - [Records](https://github.com/purescript/purescript/wiki/Language-Guide:-Records)
 
