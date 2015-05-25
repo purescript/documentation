@@ -9,16 +9,18 @@ Here are the minutes from our meeting at LambdaConf 2015.
 - The decided solution is to have someone to update `mysquare` and `mycube` to compatible dependency versions. Given that we use Git for dependencies, sending a PR or forking a repo is the recommended approach, although it admittedly involves some work.
 - This problem can be alleviated by prefixing dependency versions with `~`. This symbol allows Bower to resolve a version conflict, such as illustrated above, by choosing a version usable by all requesting libraries. This symbol indicates that any API-compatible version of that library can be used, where "API-compatible" is defined as version label having the same 1st number, presuming the version label is semver-conforming.
 
-## Documentation
+## Action items
+
+### Documentation
 
 - We should write a semver tutorial for beginners, specifically its use in PureScript and the way we rely on `~`-versions.
 - Add package creator guidelines to the wiki.
 
-## Verified Semver
+### Verified Semver
 
 - Bower does what we need but doesn't enforce compatible versions of packages, merely warns. We should develop either a package manager or a Bower plugin or separate tool for enforcing semver versioning using the subtyping relationship at the module level.
 
-## Required Explicit Exports
+### Required Explicit Exports
 
 - Even if all imported names were explicit, importing all names into the same qualified name for more than one module will still cause the same problem.
 
