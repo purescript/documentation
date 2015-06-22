@@ -237,6 +237,19 @@ In PureScript, the operator must be named with parentheses:
 
 Documented at: [[Export lists]]
 
+## Extensions
+
+The PureScript compiler does not support GHC-like language extensions. However, there are some "built-in" language features that are equivalent (or at least similar) to a number of GHC extensions. These currently are:
+
+* EmptyDataDecls
+* ExplicitForAll
+* FlexibleContexts
+* FlexibleInstancesScopedTypeVariables
+* MultiParameterTypeClasses
+* PartialTypeSignatures
+* RankNTypes
+* ScopedTypeVariables
+
 ## TODO
 
 - Separate items "by design" from items which we plan to implement.
