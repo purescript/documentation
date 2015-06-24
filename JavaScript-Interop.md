@@ -80,7 +80,8 @@ generates
 var $percent = function(a) { ... }
 ```
 
-The full list of escaped characters and their Javascript representations can be found [in the compiler source](https://github.com/purescript/purescript/blob/master/src/Language/PureScript/CodeGen/Common.hs).
+The full list of escaped characters and their Javascript representations can be found [in the compiler source]
+(https://github.com/purescript/purescript/blob/master/src/Language/PureScript/CodeGen/JS/Common.hs).
 
 ### Handling Constrained Types
 
