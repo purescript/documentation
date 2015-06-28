@@ -49,6 +49,17 @@ Module Exports
 
 Module exports can be restricted to a set of names by providing that set in parentheses in the module declaration::
 
-  module A (runFoo, Foo(..)) where
+    module A (runFoo, Foo(..)) where
 
 The types of names which can be exported is the same as for module imports.
+
+Currently, individual imported values and types cannot be re-exported by a module. However, as of PureScript release 0.7, imported modules can be re-exported in their entirety:
+
+    module A (module B) where
+    import B
+
+When re-exporting other modules, all local values and types can also be exported by specifying the module itself as an export:
+
+    module A (module A, module B) where
+    import B
+    data ...
