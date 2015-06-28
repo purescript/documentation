@@ -48,3 +48,19 @@ module Test (Foldable, foldr, foldl, foldMap) where
 ```
 
 If a type class is exported, then all of its members must also be exported. Likewise, if a type class member is exported, the type class it belongs to must also be exported.
+
+## Re-exporting
+
+Currently, individual imported values and types cannot be re-exported by a module. However, as of PureScript release 0.7, imported modules can be re-exported in their entirety:
+
+```purescript
+module A (module B) where
+import B
+```
+When re-exporting other modules, all local values and types can also be exported by specifying the module itself as an export:
+
+```purescript
+module A (module A, module B) where
+import B
+data ...
+```
