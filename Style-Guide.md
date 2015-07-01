@@ -1,81 +1,95 @@
 This page contains guidelines for writing PureScript libraries. You might consider this a set of best practices, or if you would like to contribute to the core libraries, a set of guidelines for getting your pull requests accepted.
 
-### Native Bindings
+The PureScript core libraries are good examples of how to put these guidelines into practice.
 
-Purescript is a new language, and so the need to write new libraries is common for the success of your project. When preparing to write a new library, please consider that PureScript needs shared barebones bindings to native apis, as well as higher level libraries that embellish and provide new functionality.
+## Build Tools
 
-```
-Does my library require FFI code into native apis?
-  Yes -> Is there already a barebones FFI library in PureScript?
-    Yes -> Pull it in as a dependency.
-    No  -> Get that barebones bindings library started! Then pull it in as a dependency.
-  No -> Awesome, proceed in peace.
-```
+- Consider using a one-step build tool such as Pulp or `gulp-purescript` to make your build as simple as possible for end-users.
+- Document build steps for compilation, testing and documentation clearly in your `README` file.
 
-If you have already written a library that has FFI code into a native api, please consider splitting it into two libraries, (a barebones binding, and your extra functionality). 
+## Documentation
 
-### Sharing Your Library
+- Try to document every exported type and function.
+- Even if a function seems "self-explanatory", it is still better to include a small comment or example to help beginners.
+- Short examples go a long way. Try to distill the essence of your function or type into a few lines and include it in your documentation as a Markdown code block.
+- Use `psc-docs` (or `pulp docs`, or the equivalent target in your build plugin) to generate Markdown documentation and include it in your repository.
+- Link to your Markdown documentation clearly from the `README` file.
 
-When your library is ready to go. Please share the package on [**Bower**](http://bower.io/search/?q=purescript) prefixing the name of your library with `purescript-` so other PureScripters can find your work. 
+## Tests
 
-Some things to note:
-  - Bower works with git tags, but does not require any present tags to publish. Please run `bower version 0.0.0` and push tags for your initial release (this prevents interim work not intended for publication from leaking on 0.0.0 libs).
+- Include tests with your project, so that contributors can easily verify their changes.
+- PureScript has several excellent testing libraries, which you can take advantage of:
+  - [`purescript-test-unit`](https://github.com/bodil/purescript-test-unit)
+  - [`purescript-featurespec`](https://github.com/joneshf/purescript-featurespec)
+  - [`purescript-quickcheck`](https://github.com/purescript/purescript-quickcheck)
+  - [`purescript-strongcheck`](https://github.com/purescript-contrib/purescript-strongcheck)
+  - [`purescript-assert`](https://github.com/purescript/purescript-assert)
+- Also consider using the following libraries, which integrate into existing JavaScript testing tools (such as [Karma](http://karma-runner.github.io/0.12/index.html)):
+  - [`purescript-mocha`](https://github.com/CapillarySoftware/purescript-mocha)
+  - [`purescript-chai`](https://github.com/CapillarySoftware/purescript-chai)
+
+## Examples
+
+- Write at least one example, which might be a part of your test suite, to document how your library might be used to solve some simple complete use-case.
+- Link clearly to an example from your `README` file.
+- Make it obvious how to run your example.
+- If your example produces output, consider including the output (either as a code comment or in the `README`)
+
+## Continuous Integration
+
+- Set up continuous integration for your project to verify that your library compiles correctly.
+- Travis can be set up easily. Here is a template `.travis.yml` file:
+
+    ```
+    language: node_js
+    sudo: false
+    node_js:
+      - 0.10
+    install:
+      - npm install purescript pulp -g
+      - pulp dep update
+    script:
+      - pulp build && pulp test
+    ```
+
+- Display the Travis badge in your `README` file so that the build status is visible.
+
+## Publishing
+
+- Share your library on [Bower](http://bower.io/search/?q=purescript), prefixing the name of your library with `purescript-` so others can find your work. 
+  - Bower works with git tags, but does not require any present tags to publish. Please run `bower version 0.0.0` and push tags for your initial release (this prevents interim work not intended for publication from leaking on `0.0.0` libs).
   - Considering that you may need to be editing your library live as a part of the development of your main project, check out `bower link` (learn all about it [here](https://oncletom.io/2013/live-development-bower-component/)). This will enable you to keep the repos in sync as you work, and facilitate publishing when ready.
+  - `bower link` can also be useful if you plan on contributing to a package needed by your project. Simply fork the repo, and link. Once you have your additional bindings, or features needed for your project working, you can contribute them back to the source repo easily with a Pull Request.
+- Share your library on [Pursuit](http://new-pursuit.purescript.org), so that developers can search your library documentation.
+  - Include the `Pursuit` version badge in your `README` file, with a link to your documentation on Pursuit.
 
-`bower link` can also be useful if you plan on contributing to a package needed by your project. Simply fork the repo, and link. Once you have your additional bindings, or features needed for your project working, you can contribute them back to the source repo easily with a Pull Request.
+## Types
 
-### Node Compatibility
+- Include type signatures for top-level declarations. Use type wildcards to infer the type if necessary.
+- Use `newtype` to convey additional information about primitive types where possible (for example, use `newtype EmailAddress` instead of a raw `String`).
+- Do not misuse the type system. Common abuses include `{ | o }` (for "arbitrary records") and `forall a. a -> ...` (to avoid specifying exact types). PureScript has a rich set of types such as `Foreign` and `FnX` for safe interop with JavaScript, so this is never necessary. Create a new foreign data type if need be.
 
-Node.js and the Browser have differences. Its desirable for any libraries up on Bower (even though Bower is usually considered Browser-centric) to be compatible with both Node.js and the Browser. If your code is necessarily Node.js or Browser specific, please note this in your `README.md`.
+## Modules
 
-### Documentation Generation
+- PureScript follows Haskell conventions for module namespacing. Some common top-level namespaces are:
+  - `Data` for data structures and their functions
+  - `Control` for control structures
+  - `Node` for NodeJS-related functionality
+- Include a module export list in your modules.
+- Strive to keep module exports minimal.
 
-Please use documentation generation and post it prominently in your repository, preferably as the README.md. This can be accomplished with the `psc-docs` command, or with [Gulp-PureScript](https://github.com/purescript-contrib/gulp-purescript#purescriptpscdocsoptions) or [Grunt-PureScript](https://github.com/purescript-contrib/grunt-purescript#the-pscdocs-task). 
+## Foreign Function Interface
 
-### Tests
+- PureScript is a new language, and has a need for high quality FFI libraries.
+- If you have already written a library that has FFI code into a native API, consider splitting it into two libraries, a barebones set of FFI bindings, and your extra functionality. 
 
-Tests are strongly preferred, particularly if you are using FFI for bindings in some way. Checkout to following packages to assist your testing efforts:
+## Runtime Requirements
 
- - purescript-test-unit [Test.Unit](https://github.com/bodil/purescript-test-unit)
- - purescript-featurespec [Test.FeatureSpec](https://github.com/joneshf/purescript-featurespec)
- - purescript-quickcheck [Test.QuickCheck](https://github.com/purescript/purescript-quickcheck)
- - purescript-strongcheck [Test.StrongCheck](https://github.com/purescript-contrib/purescript-strongcheck)
+- NodeJS and the web browser have differences. Note any assumptions about the execution environment (Node-only, browser-only, etc.) in your `README` file.
+- Your FFI libraries may come with runtime dependencies (a particular library, for example). Document these clearly, along with any installation steps.
 
-If your goal is to use standard js libs for testing and so be able to plug into existing tools like [Karma](http://karma-runner.github.io/0.12/index.html). Consider these as well:
+## Keeping your library up to date
 
- - purescript-mocha [Test.Mocha](https://github.com/CapillarySoftware/purescript-mocha)
- - purescript-chai [Test.Chai](https://github.com/CapillarySoftware/purescript-chai)
-
-### Travis
-
-Even without tests, using Travis to demonstrate that your library type checks and compiles, is of value. To get your project building on Travis can be as simple as adding the following `.travis.yml` file to your project:
-
-```
-language : haskell
-ghc : 7.8.3
-install :
-  - 'cabal install purescript'
-  - 'bower install'
-script : 
-  - 'psc-make'
-```
-
-Don't forget to display your Travis "Build Passing" badge on your `README.md`, so others can download your package with an inflated sense of confidence. 
-
-### Name Spacing
-
-TBD
-
-### Examples
-
-Writing some examples are a good idea. Demonstrating how your library might be used to solve some simple complete use-cases, is usually the best way to make your work accessible to others. 
-
-The ability to build and execute the examples is also preferred. Please try not to be too abstract, examples need to be simple and specific. 
-
-If your example produces and output, please ensure to include the baked output in the example, (either as a code comment or another file).
-
-A great example of good quality example is [here.](https://github.com/purescript-contrib/purescript-lens/blob/master/examples/Nested.purs)
-
-### Keeping your library up to date
-
-PureScript is a developing language, and breaking changes to core libraries and the language itself occasionally do occur. To help you keep your library rock solid and stable through this phase of PureScript's development. Consider using [VersionEye](https://www.versioneye.com/). VersionEye reads your `bower.json` file and alerts you if your dependencies go out of date. If you have Travis up and running for CI, you can then easily test to see if those changes are breaking changes, and address them more promptly.
+- Try to keep your library up to date.
+- Consider using [VersionEye](https://www.versioneye.com/). VersionEye reads your `bower.json` file and alerts you if your dependencies go out of date. If you have Travis up and running for CI, you can then easily test to see if those changes are breaking changes, and address them more promptly.
+- If your library has been deprecated, document that fact clearly in the `README` file.
