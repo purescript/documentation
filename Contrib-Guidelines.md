@@ -4,4 +4,6 @@
 - Projects should be **up to date**. Specifically they should build against the current core library set (up to a reasonable time window), or be identified as deprecated or seeking a new maintainer.
 - Projects should be **documented**. Typically, this just involves running `psc-docs` as part of the build process, but `contrib` libraries should also strive to document every exported type and function with some combination of text and examples.
 
+Contrib libraries should try to follow the [Style Guide](Style-Guide) as closely as possible.
+
 Maintainers who do not follow these guidelines will be asked to move their repositories out of `purescript-contrib`.
