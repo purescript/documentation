@@ -8,7 +8,7 @@ It determines how expressions involving this operator are bracketed.
 
 ## Associativity
 
-**Warning**: In most cases, "associativity" refers to the algebraic sense, which is defined as follows: an operator `*` is _associative_ if for all values of x, y, and z, `x * (y * z) = (x * y) * z))`. Unfortunately there's a very confusing naming conflict here: in this case, "associativity" is to do with how your code gets parsed, not its semantics.
+**Warning**: In most cases, "associativity" refers to the algebraic sense, which is defined as follows: an operator `*` is _associative_ if for all values of x, y, and z, `x * (y * z) = (x * y) * z))`. Unfortunately there's a very confusing naming conflict here: in the context of fixity declarations, "associativity" is to do with how your code gets parsed, not its semantics.
 
 `infixl`, or "left-associative", means that repeated applications are bracketed starting from the left. For example, `#` from Prelude is left-associative, meaning that an expression such as:
 
