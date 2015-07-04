@@ -6,80 +6,58 @@ I'll start with the installation of the compiler, go through the basic commands 
 
 ### Installing the Compiler
 
-PureScript can be installed from [Hackage](http://hackage.haskell.org/package/purescript). After installing the [Haskell Platform](http://www.haskell.org/platform), you can use the following to build the compiler from source:
+PureScript can be installed from [Hackage](http://hackage.haskell.org/package/purescript) or by downloading the latest [binary bundle](https://github.com/purescript/purescript/releases) for your OS.
 
-    cabal update
-    cabal install purescript
-
-Make sure the `psc` executable is on your path. If not, it is usually installed to `~/.cabal/bin`.
+Make sure the `psc` executable is on your path.
 
 ### Setting up the Development Environment
 
-PureScript's core libraries are configured to use the `grunt` build tool, and packages are available in the `bower` registry.
+PureScript's core libraries are configured to use the Pulp build tool, and packages are available in the Bower registry.
 
-If you don't have `grunt` and `bower` installed, install them now:
+If you don't have Pulp installed, install it now:
 
-    npm install -g grunt-cli bower
+    npm install -g pulp
 
-### Using the Starter Kit
+Create a new project in an empty directory using `pulp init`:
 
-This post will build upon the starter kit available [here](http://github.com/purescript/starter-kit). Start by cloning the project into a new directory:
+    pulp init
 
-    git clone git@github.com:purescript/starter-kit.git
+Your directory should now contain the following files:
 
-Now install necessary packages using `npm`, and pull the necessary libraries from the `bower` registry:
-
-    cd starter-kit
-    npm install
-    bower update
-
-The starter kit contains the following files:
-
-- `bower.json` - contains library dependency information.
-- `package.json` - contains `npm` dependencies, including `grunt-purescript`
-- `Gruntfile.js` - builds the project and its test suite using `grunt`.
-- `.psci` - A configuration file for the interactive mode `psci`.
+- `bower.json` - contains library dependency information
+- `bower_components/` - a directory for installed dependencies
+- `src/Main.purs` - Entry point module for your project
+- `test/Main.purs` - An empty test suite
 
 At this point, you should be able to build the project and run the tests:
 
-    grunt
+    pulp build
+    pulp test
 
 You should see output similar to the following:
 
-    Running "clean:tests" (clean) task
-    Cleaning tmp...OK
+    * Building project in /Users/paf31/Documents/Code/purescript/pulp-test
+    * Build successful. Running tests...
+    You should add some tests.
+    * Tests OK.
 
-    Running "purescript:tests" (purescript) task
-    >> Created file tmp/tests.js.
+If everything was built successfully, and the tests ran without problems, then the last line should state "Tests OK".
 
-    :Running "execute:tests" (execute) task
-    -> executing tmp/tests.js
-    The differences of an empty list are empty.
-    All tests passed
-    The differences of a single-element list are empty.
-    All tests passed
-    The differences of a pair of equal elements are zero.
-    All tests passed
-    The diffs function returns Just (...) for a sorted list.
-    All tests passed
-    The diffs function returns Nothing for a reverse-sorted list with at least one pair of unequal elements.
-    All tests passed
-    -> completed tmp/tests.js (50ms)
+### Installing Dependencies
 
-    >> 1 file and 0 calls executed (60ms)
+Dependencies can be installed using Bower, if you have it installed globally:
 
-    Running "purescript-make:lib" (purescript-make) task
-    >> Make was successful.
+    bower i purescript-lists --save
 
-    Done, without errors.
+If you want to use Pulp, you can run `pulp dep`:
 
-If everything was built successfully, and the tests ran without problems, then the last line should state "Done, without errors."
+    pulp dep i purescript-lists --save
 
 ### Working in PSCI
 
-`psci` is the interactive mode of PureScript. It is useful for working with pure computations, and for testing ideas.
+PSCi is the interactive mode of PureScript. It is useful for working with pure computations, and for testing ideas.
 
-Open `psci` by typing `psci` at the command line.
+Open PSCi by typing `pulp psci` at the command line. Pulp will create a file in your directory called `.psci`, which contains instructions to PSCi to load your modules and dependencies. If you invoke the PSCi executable directly, you would need to load these files by hand.
 
      ____                 ____            _       _   
     |  _ \ _   _ _ __ ___/ ___|  ___ _ __(_)_ __ | |_ 
@@ -89,38 +67,41 @@ Open `psci` by typing `psci` at the command line.
                                            |_|        
     
     :? shows help
-
-    Expressions are terminated using Ctrl+D
     >
 
 As the introduction indicates, you can type `:?` to see a list of commands:
 
     The following commands are available:
-    
-        :?                        Show this help menu
-        :quit                     Quit PSCi
-        :reset                    Reset
-        :browse      <module>     Browse <module>
-        :load        <file>       Load <file> for importing
-        :type        <expr>       Show the type of <expr>
-        :kind        <type>       Show the kind of <type>
-        :show        import       Show imported modules
-        :show        loaded       Show loaded modules
+
+    :?                        Show this help menu
+    :quit                     Quit PSCi
+    :reset                    Discard all imported modules and declared bindings
+    :browse      <module>     See all functions in <module>
+    :load        <file>       Load <file> for importing
+    :foreign     <file>       Load foreign module <file>
+    :type        <expr>       Show the type of <expr>
+    :kind        <type>       Show the kind of <type>
+    :show        import       Show all imported modules
+    :show        loaded       Show all loaded modules
+
+    Further information is available on the PureScript wiki:
+    --> https://github.com/purescript/purescript/wiki/psci
 
 We will use a selection of these commands during this tutorial.
 
-Start by pressing the Tab key to use the autocompletion feature. You will see a collection of names of functions from the Prelude which are available to use. The `.psci` configuration file in the project directory specifies a default set of modules to load on startup.
+Start by pressing the Tab key to use the autocompletion feature. You will see a collection of names of functions from the Prelude which are available to use.
 
-To see the type of one of these values, type the `:t` command, followed by a space, followed by the name of the value:
+To see the type of one of these values, use the `:type` command, followed by a space, followed by the name of the value:
 
-    > :t Data.Array.map
-    forall a b. (a -> b) -> [a] -> [b]
-    > :t Data.Tuple.curry
-    forall a b c. (Data.Tuple.Tuple a b -> c) -> a -> b -> c
+    > :type Prelude.map
+    forall a b f. (Prelude.Functor f) => (a -> b) -> f a -> f b
+    > :type Data.List.zip
+    forall a b. Data.List.List a -> Data.List.List b -> Data.List.List (Data.Tuple.Tuple a b)
 
-We will be using some of the functions from the `Data.Array` module, so import that module by using the `import` keyword:
+We will be using some of the functions from the `Prelude` and `Data.List` modules, so import those by using the `import` keyword:
 
-    import Data.Array
+    import Prelude
+    import Data.List
 
 Note that using `Tab` to autocomplete names can be a useful time-saving device in `psci`.
 
@@ -134,27 +115,26 @@ The following problem is taken from [Project Euler](http://projecteuler.net/prob
 
 We can solve this problem neatly using functions and function composition, directly in `psci`.
 
-Let's start by listing all of the natural numbers below 1000 as an array. We can do this using the `range` function from `Data.Array`:
+Let's start by listing all of the natural numbers below 1000 as a list. We can do this using the `range` function from `Data.List`:
 
     > range 0 999
-    [0,1,2,3,4,...
 
-You should see an array with 1000 elements printed to the command line.
+You should see a list with 1000 elements printed to the command line.
 
 This value can be given a name, using a `let` binding:
 
     > let ns = range 0 999
 
-Now let's filter out all of those elements which do not meet the criterion. We can use the `filter` function from `Data.Array`, by providing a predicate function as its first argument:
+Now let's filter out all of those elements which do not meet the criterion. We can use the `filter` function from `Data.List`, by providing a predicate function as its first argument:
 
-    > let multiples = filter (\n -> n % 3 == 0 || n % 5 == 0) ns
+    > let multiples = filter (\n -> mod n 3 == 0 || mod n 5 == 0) ns
 
 You can see the result by evaluating `multiples` if you like, or even check its type:
 
     > multiples
-    [0,3,5,6,9,10,12,15,...
-    > :t multiples
-    [Prim.Number]
+    Cons 0 (Cons 3 (Cons 5 (Cons 6 (Cons ...
+    > :type multiples
+    List Int
 
 Now we need to find the sum of the `multiples` array, to complete the solution. We can use the `sum` function from the `Data.Foldable` module.
 
@@ -162,9 +142,9 @@ Now we need to find the sum of the `multiples` array, to complete the solution. 
     > sum multiples
     233168
 
-When you have finished using `psci`, type `:q` to quit:
+When you have finished using PSCi, type `:quit` to quit:
 
-    > :q
+    > :quit
     See ya!
 
 ### Compiling a Solution
@@ -173,35 +153,82 @@ Now that we've seen how to use `psci` to reach the answer, let's move our soluti
 
 Create a new text file `src/Euler.purs` and copy the following code:
 
-``` haskell
+```purescript
 module Euler1 where
 
-import Data.Array
-import qualified Data.Foldable as F
+import Prelude
+
+import Data.List (range, filter)
+import Data.Foldable (sum)
 
 ns = range 0 999
 
-multiples = filter (\n -> n % 3 == 0 || n % 5 == 0) ns
+multiples = filter (\n -> mod n 3 == 0 || mod n 5 == 0) ns
 
-answer = F.sum multiples
+answer = sum multiples
 ```
 
-It is possible to load this file directly into `psci` and to continue working:
+It is possible to load this file directly into PSCi and to continue working:
 
-    psci Euler1.purs
+    pulp psci
     > Euler1.answer
     233168
-    > :q
+    > :quit
     See ya!
 
-Alternatively, we can use `grunt` to compile the `Euler1.purs` file to Javascript:
+Alternatively, we can use Pulp to compile our new module to Javascript:
 
-    grunt
+    pulp build
 
-This will compile each module present in `src/` into a separate file under `js/`.
+This will compile each module present in `src/` into a separate file in the `output/` directory.
+
+### Writing a Test Suite
+
+To test our code, we'll use the `purescript-assert` library:
+
+    bower i purescript-assert --save
+
+Modify the `test/Main.purs` file, and add the following code:
+
+```purescript
+module Test.Main where
+
+import Prelude
+import Euler1 (answer)
+import Test.Assert (assert)
+
+main = do
+  assert (answer == 233168)
+```
+
+Our "test suite" is just a single assertion that the `answer` value equals the correct integer. In a real test suite, we might use the `Eff` monad to compose multiple tests in our `main` function.
+
+Run the tests using `pulp test`, and you should hopefully see "Tests OK" in the last line.
+
+### Creating Executables
+
+We can modify the `main` function in the `src/Main.purs` module to print our result to the console:
+
+```purescript
+module Main where
+
+import Prelude
+import Euler1
+import Control.Monad.Eff.Console
+
+main = do
+  log ("The answer is " ++ show answer)
+```
+
+The `pulp run` command can be used to compile and run the `Main` module:
+
+    > pulp run
+    * Building project in /Users/paf31/Documents/Code/purescript/pulp-test
+    * Build successful.
+    The answer is 233168
 
 ### Conclusion
 
-That's all for this post. We've seen how to use enough of the basics of `psc` and `psci` to compile and execute simple PureScript programs. If you would like more information, the [PureScript documentation](http://docs.purescript.org) lists all of the options for both `psc` and `psci`.
+That's all for this post. We've seen how to use enough of the basics of `psc` and PSCi to compile, execute and test simple PureScript programs. If you would like more information, the [PureScript documentation](http://docs.purescript.org) lists all of the options for both `psc` and `psci`.
 
 Until next time\...
