@@ -343,6 +343,8 @@ infixl 7 %%
 infixr 9 ^^
 ```
 
+See [[Understanding fixity declarations]] for more information about these declarations.
+
 # If-Then-Else expressions
 
 The `if`, `then` and `else` keywords can be used to create conditional expressions similar to a JavaScript ternary expression. The `else` block is always required:
