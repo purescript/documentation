@@ -46,7 +46,9 @@ f_total _ = Nothing
 
 The compiler will not complain to this new definition for `f`.
 
-Up to now, we support exhaustivity checking for Data Constructors, Objects and Literals. If you are keen on using guards, you have to add an `otherwise` or `true` case to ensure exhaustivity.
+Up to now, we support exhaustivity checking for Data Constructors, Objects and Literals. If you are keen on using guards, you have to add an `otherwise` or `true` guard case to ensure exhaustivity.
+
+An example with guards:
 
 ```haskell
 data Nat = Zero | Succ Nat
