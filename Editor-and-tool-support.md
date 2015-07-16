@@ -16,10 +16,12 @@
 
 - Type at the cursor
 - Generate minimal imports
-- Go to definition
-- Open Pursuit documentation
+- Go to definition 
+- Go to documentation (open Pursuit)
 - Build, then highlight/jump to errors
 - Answer: "what can I put in here to make it type check?"
+- What options do I have for importing this symbol? Sort by which ones will make the code type check
 - Qualify implicit imports
 - Turn implicit imports into explicit ones
 - Features work or at least are usable using any text editor and psc from the console
+- Find all references (for refactoring / renaming)
