@@ -22,3 +22,4 @@
 - Answer: "what can I put in here to make it type check?"
 - Qualify implicit imports
 - Turn implicit imports into explicit ones
+- Features work or at least are usable using any text editor and psc from the console
