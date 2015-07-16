@@ -18,3 +18,4 @@
 - Generate minimal imports
 - Go to definition
 - Open Pursuit documentation
+- Build, then highlight/jump to errors
