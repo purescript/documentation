@@ -19,3 +19,6 @@
 - Go to definition
 - Open Pursuit documentation
 - Build, then highlight/jump to errors
+- Answer: "what can I put in here to make it type check?"
+- Qualify implicit imports
+- Turn implicit imports into explicit ones
