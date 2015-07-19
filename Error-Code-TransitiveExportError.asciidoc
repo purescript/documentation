@@ -18,4 +18,4 @@ execCommand _ -> unit
 
 add `JSCmd(..)` to the list: `module ReCQ (execCommand, JSCmd) ...`.
 
-[See the lang guide on Modules](https://github.com/purescript/purescript/wiki/Language-Guide:-Modules#importing-modules)
+(See the lang guide on Modules)[https://github.com/purescript/purescript/wiki/Language-Guide:-Modules#importing-modules]
