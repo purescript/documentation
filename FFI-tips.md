@@ -119,12 +119,5 @@ By moving the `show` reference out to `showSomething` the compiler will pick the
 
 ## TODO
 
-- Making a normal JavaScript function Eff-typed
-
-    (((mkEff \_ -> ..., extra function FFI wrapping)))
-
 - Why doesn't my Eff work when passed to a normal JS function?
-
-    (((Event listeners not calling the "extra" () etc)))
-
 - Avoiding Duplicate Labels
