@@ -6,11 +6,13 @@ As an introductory example, here is the usual "Hello World" written in PureScrip
 ```purescript
 module Main where
   
-import Debug.Trace
+import Control.Monad.Eff.Console
   
 main = trace "Hello, World!"
 ```
+
 which compiles to the following Javascript (ignoring the Prelude):
+
 ```js
 var Main;
 (function (Main) {
