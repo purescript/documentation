@@ -1,4 +1,4 @@
-The PureScript community has standardized on the NodeJS toolset to a certain extent: we use tools like Pulp, Browserify and Grunt, which run on NodeJS and are installed with NPM, and we use Bower for our package management. However, we have some users who would rather not, or cannot, run NodeJS on their machines. In this short post, I'll demonstrate how to use the PureScript directly on the command line, and how to automate some processes using standard tooling.
+The PureScript community has standardized on the NodeJS toolset to a certain extent: we use tools like Pulp, Browserify and Gulp, which run on NodeJS and are installed with NPM, and we use Bower for our package management. However, we have some users who would rather not, or cannot, run NodeJS on their machines. In this short post, I'll demonstrate how to use the PureScript directly on the command line, and how to automate some processes using standard tooling.
 
 #### Creating a Project
 
