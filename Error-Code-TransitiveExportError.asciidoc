@@ -6,4 +6,16 @@ E.g. if getting:
     An export for execCommand requires the following to also be exported:
     JSCmd
 
-and you have `module ReCQ (execCommand) where`, add `JSCmd` to the list: `module ReCQ (execCommand, JSCmd) ...`.
+For
+
+``` haskell
+module ReCQ export (execCommand) where
+import Prelude
+data JSCmd = JSCmd { type :: String }
+execCommand :: JSCmd -> Unit
+execCommand _ -> unit
+```
+
+add `JSCmd(..)` to the list: `module ReCQ (execCommand, JSCmd) ...`.
+
+[See the lang guide on Modules](https://github.com/purescript/purescript/wiki/Language-Guide:-Modules#importing-modules)
