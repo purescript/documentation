@@ -73,9 +73,9 @@ exports.doSomethingImpl = function(fn, x) {
 };
 ```
 
-Calling these functions directly in the FFI code isn't recommended as it makes the code brittle to changes in the code generator. Additionally, doing this can cause problems when using the `--module` compiler argument, as dead code elimination may remove the functions you're calling - the compiler doesn't attempt to read inline JavaScript FFI definitions.
+Calling these functions directly in the FFI code isn't recommended as it makes the code brittle to changes in the code generator. Additionally, doing this can cause problems when using `psc-bundle` for dead code elimination.
 
-A technique for working around this is to add extra arguments to your FFI-defined function to accept the functions you need to call as arguments:
+The recommended approach is to add extra arguments to your FFI-defined function to accept the functions you need to call as arguments:
 
 ``` haskell
 foreign import doSomethingImpl :: forall a. Fn4 (a -> Maybe a) (Maybe a) (a -> Boolean) a (Maybe a)
@@ -94,9 +94,9 @@ exports.doSomethingImpl = function(just, nothing, fn, value) {
 };
 ```
 
-This way the compiler knows `Just` and `Nothing` are used so you don't need to worry about dead code elimination swiping them away, and also you don't have to deal with any future changes that may happen to the way code is generated for data constructors in the generated output.
+This way the compiler knows `Just` and `Nothing` are used so you don't need to worry about dead code elimination removing them, and also you don't have to deal with any future changes that may happen to the way code is generated for data constructors in the generated output.
 
-This technique also helps when you want to call a function that is a typeclass member via the FFI. A contrived example using `show`:
+This technique also helps when you want to call a function that is a type class member via the FFI. A contrived example using `show`:
 
 ``` haskell
 foreign import showSomethingImpl :: forall a. Fn3 (Maybe a -> Boolean) (a -> String) (Maybe a) String
@@ -117,12 +117,14 @@ exports.doSomethingImpl = function(isJust, show, value) {
 
 By moving the `show` reference out to `showSomething` the compiler will pick the right `Show` instance for us at that point, so we don't have to deal with typeclass dictionaries in `showSomethingImpl`.
 
-## Making a normal JavaScript function Eff-typed
+## TODO
 
-(((mkEff \_ -> ..., extra function FFI wrapping)))
+- Making a normal JavaScript function Eff-typed
 
-## Why doesn't my Eff work when passed to a normal JS function?
+    (((mkEff \_ -> ..., extra function FFI wrapping)))
 
-(((Event listeners not calling the "extra" () etc)))
+- Why doesn't my Eff work when passed to a normal JS function?
 
-## Avoiding Duplicate Labels
+    (((Event listeners not calling the "extra" () etc)))
+
+- Avoiding Duplicate Labels
