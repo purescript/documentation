@@ -42,6 +42,7 @@ PureScript is a small strongly, statically typed compile-to-JS language with a n
 - [FFI Tips](https://github.com/purescript/purescript/wiki/FFI-tips)
 - [Test your Javascript with QuickCheck](http://www.purescript.org/learn/quickcheck/)
 - [PureScript Without Node](https://github.com/purescript/purescript/wiki/PureScript-Without-Node)
+
 ## Language Guides
 
 The [PureScript Book](https://leanpub.com/purescript/read) is the recommended approach to learning the language, since it covers more material in greater depth. Below are quick references:
