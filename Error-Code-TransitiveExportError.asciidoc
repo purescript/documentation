@@ -1,0 +1,9 @@
+Add the export to the list of exported functions.
+
+E.g. if getting:
+
+    Error in module ReCQ:
+    An export for execCommand requires the following to also be exported:
+    JSCmd
+
+and you have `module ReCQ (execCommand) where`, add `JSCmd` to the list: `module ReCQ (execCommand, JSCmd) ...`.
