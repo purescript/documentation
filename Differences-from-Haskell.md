@@ -36,11 +36,11 @@ There is currently only a single native `Number` type which represents JavaScrip
 
 PureScript has a type `Unit` used in place of Haskell's `()`. The `Prelude` module provides a value `unit` that inhabits this type.
 
-### [a]
+### `[a]`
 
-PureScript’s `[a]` represents JavaScript’s array type and operations on it are found in `Data.Array` (from [purescript-arrays](https://github.com/purescript/purescript-arrays)), not `Data.List`.
+PureScript does not provide syntactic sugar for list types. Construct list types using `List` from `Data.List`.
 
-## IO vs Eff
+## `IO` vs `Eff`
 
 Haskell uses the `IO` monad to deal with side effects, in PureScript there is a monad called `Eff` that serves the same purpose but can track side effects with more granularity. For example, in a Haskell program the type signature of `main` will be:
 
