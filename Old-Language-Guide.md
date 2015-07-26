@@ -1,6 +1,6 @@
 # Introduction
 
-___Note___: this guide is out-of-date. You should read the PureScript book instead.
+___Note___: this guide is out-of-date. You should read the [PureScript book](https://leanpub.com/purescript/read) instead, or for a quick introduction, this [guide](http://www.purescript.org/learn/getting-started/).
 
 ## Hello, PureScript!
 
