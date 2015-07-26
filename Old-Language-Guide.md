@@ -1,33 +1,23 @@
-Hello, PureScript!
-------------------
+# Introduction
 
-As an introductory example, here is the usual "Hello World" written in PureScript::
+___Note___: this guide is out-of-date. You should read the PureScript book instead.
+
+## Hello, PureScript!
+
+As an introductory example, here is the usual "Hello World" written in PureScript:
 
 ```purescript
 module Main where
   
 import Control.Monad.Eff.Console
   
-main = trace "Hello, World!"
+main = log "Hello, World!"
 ```
 
-which compiles to the following Javascript (ignoring the Prelude):
+## Another Example
 
-```js
-var Main;
-(function (Main) {
-    var main = trace("Hello, World!");
-    Main.main = main;
-})(Main = Main || {});
-```
-The following command will compile and execute the PureScript code above::
-```sh
-psc input.purs --main | node
-```
-Another Example
----------------
+The following code defines a `Person` data type and a function to generate a string representation for a `Person`:
 
-The following code defines a ``Person`` data type and a function to generate a string representation for a ``Person``:
 ```purescript
 data Person = Person { name :: String, age :: Number }
   
@@ -37,6 +27,7 @@ showPerson (Person o) = o.name ++ ", aged " ++ show o.age
 examplePerson :: Person
 examplePerson = Person { name: "Bonnie", age: 26 }
 ```
+
 Line by line, this reads as follows:
 
 - ``Person`` is a data type with one constructor, also called ``Person``
@@ -45,39 +36,23 @@ Line by line, this reads as follows:
 - ``showPerson`` works by case analysis on its argument, first matching the constructor ``Person`` and then using string concatenation and object accessors to return its result.
 - ``examplePerson`` is a Person object, made with the ``Person`` constructor and given the String "Bonnie" for the name value and the Number 26 for the age value.
 
-The generated Javascript is:
-```js
-    var Person = (function () {
-        function Person(value0) {
-            this.value0 = value0;
-        };
-        Person.create = function (value0) {
-            return new Person(value0);
-        };
-        return Person;
-    })();
-    var showPerson = function (_25) {
-        return _25.value0.name + (", aged " + Prelude.show(Prelude.showNumber)(_25.value0.age));
-    };
-    var examplePerson = new Person({
-        name: "Bonnie",
-        age: 26
-    });
-```
+# Getting Started
 
-Installation
----------------------
+## Installation
 
 Compiler binaries are available on [the download page](http://www.purescript.org/download/), and through several Mac and Linux package managers, including Homebrew, Arch, and Nix.
 
 ### Compiling from source
 
-If you have Haskell Plaform installed, then you can install the latest released version from Hackage:
+If you have GHC and Cabal installed, then you can install the latest released version from Hackage:
+
 ```sh
 cabal update
 cabal install purescript
 ```
+
 If you would like to build the latest version of the code, clone this repository and build:
+
 ```sh
 git clone git@github.com:purescript/purescript.git
 cd purescript
@@ -86,12 +61,14 @@ cabal build
 cabal test
 cabal install
 ```
-Alternatively, consider installing PureScript in a Cabal sandbox using ``cabal sandbox init``.
 
-Creating a new PureScript project
----------------------------------
+Consider installing PureScript in a Cabal sandbox using ``cabal sandbox init``.
+
+## Creating a new PureScript project
+
 ### Pulp
 The simplest way to start writing PureScript is with [pulp](https://github.com/bodil/pulp), a build tool for PureScript, available through Node.js (install with `npm install -g pulp`). It will initialize, install dependencies for, build and optimize, and even create documentation for a project.
+
 ```sh
 pulp init
 pulp dep install purescript-tuples
@@ -100,63 +77,50 @@ pulp docs > Foo.md
 ```
 
 However, `pulp`'s duties stop there; loading your code into some HTML is up to you! Consider a shim file, like:
+
 ```html
 <!DOCTYPE HTML>
-<html><head><meta charset="UTF-8"/><title>Foo</title>
-</head><body><script async src="foo.js"></script></body></html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Foo</title>
+  </head>
+  <body>
+    <script async src="foo.js"></script>
+  </body>
+</html>
 ```
 
-### Task runners
+## Task Runners
+
 Complex projects with non-PureScript tasks to run (e.g. compiling Stylus/SASS/LESS to CSS, compiling Jade/CoffeeCup/Blaze to HTML) usually rely on a *task runner*.
 
-#### Grunt
-You can create a new PureScript project using ``grunt-init`` and [this PureScript project template](https://github.com/purescript-contrib/grunt-init-purescript). This will give you a project that uses [Grunt](http://gruntjs.com) as its build tool and [Bower](http://bower.io) for dependency management. See the [README](https://github.com/purescript-contrib/grunt-init-purescript) for step-by-step instructions.
+## Grunt/Gulp
 
-#### Other alternatives
-If you don't want to use Grunt, you might consider [gulp-purescript](https://github.com/purescript-contrib/gulp-purescript) or [generator-purescript](https://github.com/joneshf/generator-purescript) for Yeoman.
+Plugins are available for [Grunt](https://github.com/purescript-contrib/grunt-purescript) and [Gulp](https://github.com/purescript-contrib/gulp-purescript) if you need more control over your build.
 
-Compiler usage
---------------
+## Compiler usage
 
-The `psc` executable takes a list of PureScript source files as arguments and by default writes out its errors or output to the console.
+You might also like to run the compiler manually, without using a tool.
+
+The `psc` executable takes a list of PureScript source files as arguments and makes a CommonJS module from each PureScript module.
 
 The following options are supported:
 
 Option                 | Description
 -----------------------|----
---stdin                | Read input from standard input instead of from files.
 --output               | Write the generated Javascript to the specified file.
---externs              | Write a list of foreign imports declarations to the specified file in addition to generating Javascript output.
 --no-tco               | Turn off tail-call elimination.
---no-prelude           | Do not include the Prelude in the generated Javascript.
 --no-magic-do          | Turn off optimizations which inline calls to ``>>=`` for the ``Eff`` monad.
 --no-opts              | Disable all optimizations.
---main                 | Generate a call to ``main`` in the specified module after all other generated Javascript. Defaults to ``Main`` if the option is used but no value is provided.
---module               | If specified, any code which is not referenced transitively from this module will be removed. This argument can be used multiple times.
---codegen              | A list of modules for which Javascript and externs should be generated. This argument can be used multiple times.
---browser-namespace    | Specify the namespace that PureScript modules will be exported to when running in the browser.
 --verbose-errors       | Generate verbose error messages.
 
-psc-make
---------
-
-The ``psc-make`` executable takes a list of PureScript source files as arguments and makes a CommonJS module from each PureScript module. Unlike ``psc``, this does not perform dead code elimination. This method does, however, perform incremental compilation by only compiling modules which have changed timestamps and modules which depend on those changed modules.
-
-The following command line options are supported:
-
-Option                 | Description
------------------------|----
---output=VAL           | The output directory. Default: ``output``.
---verbose-errors       | Display verbose error messages.
---help=FMT             | Show this help in format FMT (``pager``, ``plain``, or ``groff``). Default: ``pager``.
---no-magic-do          | Disable the optimization that overloads the ``do`` keyword to generate efficient code specifically for the ``Eff`` monad.
---no-opts              | Skip the optimization phase.
---no-prelude           | Omit the Prelude.
---no-tco               | Disable tail call optimizations
+# Types
 
 The type system defines the following types:
 
 - Primitive Types: Number, String, Boolean
+- Integers
 - Arrays 
 - Records
 - Tagged Unions
@@ -167,23 +131,23 @@ The type system defines the following types:
 - Type Synonyms
 - Rows
 
-Primitive Types
----------------
+## Primitive Types
 
-The three primitive types ``String``, ``Number`` and ``Boolean`` correspond to their Javascript equivalents at runtime.
+The primitive types ``String``, ``Number`` and ``Boolean`` correspond to their Javascript equivalents at runtime.
 
-Arrays
-------
+## Integers
+
+The `Int` type represents integer values.
+
+## Arrays
 
 PureScript arrays correspond to Javascript arrays at runtime, but all elements in an array must have the same type.
 
-Records
--------
+## Records
 
 PureScript records correspond to Javascript objects. They may have zero or more named fields, each with their own types.
 
-Tagged Unions
--------------
+## Tagged Unions
 
 Tagged unions consist of one or more constructors, each of which takes zero or more arguments.
 
@@ -202,12 +166,13 @@ In the example, Foo is a tagged union type which has two constructors. Its first
 
 ``runFoo`` is an example of pattern matching on a tagged union type to discover its constructor, and the last line shows how to construct values of type ``Foo``.
 
-Newtypes
---------
+## Newtypes
 
-Newtypes are like data types introduced with the ``data`` keyword, but are restricted to a single contructor which contains a single argument. Newtypes are introduced with the ``newtype`` keyword::
+Newtypes are like data types (which are introduced with the ``data`` keyword), but are restricted to a single constructor which contains a single argument. Newtypes are introduced with the ``newtype`` keyword::
 
-  newtype Percentage = Percentage Number
+```purescript
+newtype Percentage = Percentage Number
+```
 
 The representation of a newtype at runtime is the same as the underlying data type. For example, a value of type ``Percentage`` is just a JavaScript number at runtime.
   
@@ -216,39 +181,42 @@ Newtypes can be assigned their own type class instances, so for example, ``Perce
   instance showPercentage :: Show Percentage where
     show (Percentage n) = show n ++ "%"
 
-Functions
----------
+## Functions
 
 Functions in PureScript are like their Javascript counterparts, but always have exactly one argument.
 
-Polymorphic Types
------------------
+## Polymorphic Types
 
-Expressions defined at the top level may have polymorphic types.
+Expressions can have polymorphic types:
 
-Here is an example::
-
-  identity x = x
+```purescript
+identity x = x
+```
 
 ``identity`` is inferred to have (polymorphic) type ``forall t0. t0 -> t0``. This means that for any type ``t0``, ``identity`` can be given a value of type ``t0`` and will give back a value of the same type.
 
 A type annotation can also be provided::
 
-  identity :: forall a. a -> a
-  identity x = x
+```purescript
+identity :: forall a. a -> a
+identity x = x
+```
 
-Row Polymorphism
-----------------
+## Row Polymorphism
 
 Polymorphism is not limited to abstracting over types. Values may also be polymorphic in types with other kinds, such as rows or effects (see "Kind System").
 
 For example, the following function accesses two properties on a record::
 
-  addProps o = o.foo + o.bar
+```purescript
+addProps o = o.foo + o.bar
+```
     
 The inferred type of ``addProps`` is::
 
-  forall r. { foo :: Number, bar :: Number | r } -> Number
+```purescript
+forall r. { foo :: Number, bar :: Number | r } -> Number
+```
   
 Here, the type variable ``r`` has kind ``# *`` - it represents a `row` of `types`. It can be instantiated with any row of named types.
 
@@ -256,16 +224,19 @@ In other words, ``addProps`` accepts any record which has properties ``foo`` and
 
 Therefore, the following application compiles::
 
-  addProps { foo: 1, bar: 2, baz: 3 }
+```purescript
+addProps { foo: 1, bar: 2, baz: 3 }
+```
     
 even though the type of ``addProps`` does not mention the property ``baz``. However, the following does not compile::
 
-  addProps { foo: 1 }
+```purescript
+addProps { foo: 1 }
+```
     
 since the ``bar`` property is missing.
 
-Rank N Types
-------------
+## Rank N Types
 
 It is also possible for the ``forall`` quantifier to appear on the left of a function arrow, inside types record fields and data constructors, and in type synonyms.
 
@@ -273,19 +244,22 @@ In most cases, a type annotation is necessary when using this feature.
 
 As an example, we can pass a polymorphic function as an argument to another function::
 
-  poly :: (forall a. a -> a) -> Boolean
-  poly f = (f 0 < 1) == f true
+```purescript
+poly :: (forall a. a -> a) -> Boolean
+poly f = (f 0 < 1) == f true
+```
 
 Notice that the polymorphic function's type argument is instantiated to both ``Number`` and ``Boolean``.
 
 An argument to ``poly`` must indeed be polymorphic. For example, the following fails::
 
-  test = poly (\n -> n + 1)
+```purescript
+test = poly (\n -> n + 1)
+```
 
 since the skolemized type variable ``a`` does not unify with ``Number``.
 
-Rows
-----
+## Rows
 
 A row of types represents an unordered collection of named types without duplicates.
 
@@ -293,40 +267,44 @@ Rows have kind ``# k`` for some kind ``k``, and so values do not have types whic
 
 To denote a closed row, separate the fields with commas, with each label separated from its type with a double colon::
 
-  (name :: String, age :: Number)
-  
+```purescript
+(name :: String, age :: Number)
+```
+
 It may be necessary, depending on the context, to surround a row in parentheses.
 
 To denote an open row (i.e. one which may unify with another row to add new fields), separate the specified terms from a row variable by a pipe::
 
-  (name :: String, age :: Number | r)
+```purescript
+(name :: String, age :: Number | r)
+```
 
-Type Synonyms
--------------
+## Type Synonyms
 
 For convenience, it is possible to declare a synonym for a type using the ``type`` keyword. Type synonyms can include type arguments.
 
 For example::
 
-  type Foo = { foo :: Number, bar :: Number }
+```purescript
+type Foo = { foo :: Number, bar :: Number }
   
-  addFoo :: Foo -> Number
-  addFoo = \o -> o.foo + o.bar
+addFoo :: Foo -> Number
+addFoo = \o -> o.foo + o.bar
+```
   
-Constrained Types
------------------
+## Constrained Types
 
 Polymorphic types may be predicated on one or more ``constraints``. See the chapter on type classes for more information.
 
-Type Annotations
-----------------
+## Type Annotations
 
 Most types can be inferred (not including Rank N Types and constrained types), but annotations can optionally be provided using a double-colon::
 
-  one = 1 :: Number
+```purescript
+one = 1 :: Number
+```
 
-Kind System
-===========
+## Kind System
 
 The kind system defines the following kinds:
 
@@ -335,19 +313,19 @@ The kind system defines the following kinds:
 - Arrow kinds ``k1 -> k2``
 - Row kinds ``# k``
 
-Row Kinds
----------
+## Row Kinds
 
 The kind ``# k`` of rows is used to classify labelled, unordered collections of types of kind ``k``. 
 
 For example ``# *`` is the kind of rows of types, as used to define records, and ``# !`` is the kind of rows of effects, used to define the monad ``Eff`` of extensible effects.
 
-Quantification
---------------
+## Quantification
 
 A type variable can refer to not only a type or a row, but a type constructor, or row constructor etc., and type variables with those kinds can be bound inside a ``forall`` quantifier.
 
-# Whitespace Rules
+# Syntax
+
+## Whitespace Rules
 
 Syntax is whitespace sensitive. The general rule of thumb is that declarations which span multiple lines should be indented past the column on which they were first defined on their subsequent lines.
 
@@ -365,7 +343,7 @@ foo = bar +
 baz
 ```
 
-# Comments
+## Comments
 
 A single line comment starts with `--`:
 
@@ -383,7 +361,7 @@ Multi-line comments are enclosed in `{-` and `-}`. These can be nested:
 -}
 ```
 
-# Top-level declarations
+## Top-level declarations
 
 Values at the top level of a module are defined by providing a name followed by an equals sign and then the value to associate:
 
@@ -397,7 +375,7 @@ Functions can also be defined at the top level by providing a list of patterns o
 add x y = x + y
 ```
 
-See [[the page on pattern matching|Language Guide: Pattern Matching]] for more details about the kinds of patterns that can be used here.
+See the section on pattern matching for more details about the kinds of patterns that can be used here.
 
 Functions using pattern matching may be defined multiple times to handle different pattern matches:
 
@@ -417,14 +395,14 @@ isEmptyAlt _ = false
 
 A top level declaration is generally defined with a type signature:
 
-``` purescript
+```purescript
 multiply :: Number -> Number -> Number
 multiply x y = x * y
 ```
 
-Type signatures are not required for top-level declarations in general, but is good practice to do so. See [[the page on types for more details|Language Guide: Types]].
+Type signatures are not required for top-level declarations in general, but is good practice to do so. See the section on types for more details.
 
-# Function application
+## Function application
 
 Function application is indicated by just the juxtaposition of a function with its arguments:
 
@@ -442,12 +420,12 @@ add10 = add 10
 
 ## Numbers
 
-Numeric literals can be integers or floating point numbers. Numbers in hexadecimal notation should be preceded by the characters `0x`:
+Numeric literals can be integers (type `Int`) or floating point numbers (type `Number`). Floating point numbers are identified by a decimal point. Integers in hexadecimal notation should be preceded by the characters `0x`:
 
 ``` purescript
-16
-16.0
-0xF0
+16 :: Int
+0xF0 :: Int
+16.0 :: Float
 ```
 
 ## Strings
@@ -461,7 +439,7 @@ String literals are enclosed in double-quotes and may extend over multiple lines
 \World"
 ```
 
-Line breaks will be ommitted from the string when written this way. If line breaks are required in the output, they can be inserted with `\n`, or by using an alternate string syntax, where the string is enclosed in triple double-quotes. This also allows the use of double quotes within the string with no need to escape them, this is commonly used when making definitions for the FFI:
+Line breaks will be omitted from the string when written this way. If line breaks are required in the output, they can be inserted with `\n`, or by using an alternate string syntax, where the string is enclosed in triple double-quotes. This also allows the use of double quotes within the string with no need to escape them, this is commonly used when making definitions for the FFI:
 
 ``` purescript
 """
@@ -502,7 +480,7 @@ Array literals are surrounded by square brackets, as in JavaScript:
 [1, 2, 3]
 ```
 
-### Array indexing
+## Array Indexing
 
 The `Prelude.Unsafe` module defines the `unsafeIndex` function which retrieves the element of an array at an index:
 
@@ -514,7 +492,7 @@ The code generator will turn the expression `unsafeIndex arr index` into the sim
 
 The [`purescript-arrays`](https://github.com/purescript/purescript-arrays) library defines an alternative safe version, `index`, also available as infix `!!`, which checks arrays bounds and returns a value of type `Maybe a`:
 
-``` purescript
+```purescript
 safeHead xs = xs !! 0
 ```
 
@@ -539,7 +517,7 @@ is equivalent to:
 \foo bar -> { foo: foo, bar: bar }
 ```
 
-### Property accessors
+## Property Accessors
 
 To access a property of a record, use a dot followed by the property name, as in JavaScript:
 
@@ -559,7 +537,7 @@ This is equivalent to:
 \rec -> rec.propertyName
 ```
 
-### Record updates
+## Record Updates
 
 Properties on records can be updated using the following syntax:
 
@@ -597,7 +575,7 @@ This is equivalent to:
 \rec -> rec { foo = 1 }
 ```
 
-# Operators
+## Operators
 
 Operators in PureScript are just regular functions. The [`Prelude`](https://github.com/purescript/purescript/tree/master/prelude) defines a number of operators which correspond to JavaScript operators.
 
@@ -694,7 +672,7 @@ infixr 9 ^^
 
 See [[Understanding fixity declarations]] for more information about these declarations.
 
-# If-Then-Else expressions
+## If-Then-Else expressions
 
 The `if`, `then` and `else` keywords can be used to create conditional expressions similar to a JavaScript ternary expression. The `else` block is always required:
 
@@ -702,15 +680,15 @@ The `if`, `then` and `else` keywords can be used to create conditional expressio
 conditional = if 2 > 1 then "ok" else "oops"
 ```
 
-# Let and where bindings
+## Let and where bindings
 
 The `let` keyword a collection of local declarations, which may be mutually recursive, and which may include type declarations::
 
 ``` purescript
-factorial :: Number -> Number
+factorial :: Int -> Int
 factorial =
   let
-    go :: Number -> Number -> Number
+    go :: Int -> Int -> Int
     go acc 1 = acc
     go acc n = go (acc * n) (n - 1)
   in
@@ -728,7 +706,7 @@ factorial = go 1
   go acc n = go (acc * n) (n - 1)
 ```
 
-# Do notation
+## Do notation
 
 The `do` keyword introduces simple syntactic sugar for monadic expressions.
 
@@ -763,14 +741,13 @@ maybeSum a b =
       in return result
 ```
 
+# Type Classes
+
 PureScript has basic support for type classes via the ``class`` and ``instance`` keywords. 
 
 Types appearing in class instances are must be of the form ``String``, ``Number``, ``Boolean``, or ``C t1 ... tn`` where ``C`` is a type constructor (including ``[]`` and ``->`` and ``t_i`` are types of the same form).
 
 Type class instances are resolved based on the order in which they appeared in the source files. Overlapping instances will result in a compilation error.
-
-Example
--------
 
 Here is an example of the ``Show`` typeclass, with instances for ``String``, ``Booleans`` and ``[]``::
 
@@ -785,8 +762,7 @@ Here is an example of the ``Show`` typeclass, with instances for ``String``, ``B
     show false = "false"
   
   instance showArray :: (Show a) => Show [a] where
-    show [] = "[]"
-    show (x:xs) = show x ++ " : " ++ showArray xs
+    show xs = "[" ++ joinWith ", " (map show xs) ++ "]"
   
   example = show [true, false]
 
@@ -804,10 +780,11 @@ Superclass instances will be used when searching for an instance of a subclass. 
   assert true = return unit
   assert false = fail "Assertion failed"
   
-Type Annotations
-----------------
+## Type Annotations
 
 A constrained type will never be inferred for a top-level declaration without an explicit type signature. 
+
+# Pattern Matching
 
 Pattern matching deconstructs a value to bring zero or more expressions into scope. Pattern matches are introduced with the `case` keyword.
 
@@ -832,7 +809,6 @@ The following pattern types are supported:
 - Literal patterns
 - Variable pattern
 - Array patterns
-- Cons patterns
 - Constructor patterns
 - Record patterns
 - Named patterns
@@ -880,20 +856,6 @@ Array patterns match an input which is an array, and bring its elements into sco
 Here, the first pattern only matches arrays of length one, and brings the first element of the array into scope.
 
 The second pattern matches arrays with two elements, and brings the first and second elements into scope.
-
-Cons Patterns
--------------
-
-The head and tail of a non-empty array can be matched by using a cons pattern::
-
-  sum [] = 0
-  sum (x : xs) = x + sum xs
-
-``:`` associates to the right::
-
-  addPairs (x : y : xs) = x * y + addPairs xs
-  addPairs _ = 0
-
 
 Constructor patterns
 --------------------
@@ -945,6 +907,8 @@ When using patterns to define a function at the top level, guards appear after a
 
   greater x y | x > y = true
   greater _ _ = false
+
+# Modules
 
 All code in PureScript is contained in a module. Modules are introduced using the ``module`` keyword::
 
@@ -1017,24 +981,14 @@ import B
 data ...
 ```
 
+# FFI
+
 Importing Values
 ----------------
 
 The ``foreign import`` keywords declare a value which is defined in Javascript, and its type::
 
   foreign import pow :: Number -> Number -> Number
-
-Inline Javascript
------------------
-
-A foreign import declaration may optionally contain its definition in Javascript as a string literal. If this is provided, the string will be inserted directly into the generated Javascript before the current module definition::
-
-  foreign import pow 
-    """function pow(n) {
-      return function(p) {
-        return Math.pow(n, p);
-      };
-    }""" :: Number -> Number -> Number
 
 Importing Types
 ---------------
@@ -1047,12 +1001,7 @@ To declare a new abstract type (with no constructors), use ``foreign import data
     createElement :: String -> DOM  
   }
 
-Importing Type Class Instances
-------------------------------
-
-Type class instances can be imported with ``foreign import instance``::
-
-  foreign import instance showString :: Prelude.Show String
+# Records
 
 Record literals are surrounded by braces, as in JavaScript:
 
