@@ -45,18 +45,9 @@ PureScript is a small strongly, statically typed compile-to-JS language with a n
 
 ## Language Guides
 
-The [PureScript Book](https://leanpub.com/purescript/read) is the recommended approach to learning the language, since it covers more material in greater depth. Below are quick references:
+The [PureScript Book](https://leanpub.com/purescript/read) is the recommended approach to learning the language, since it covers more material in greater depth. Here is the old (now out-of-date) language guide:
 
-- [Intro](https://github.com/purescript/purescript/wiki/Language-Guide:-Intro)
-- [Getting Started](https://github.com/purescript/purescript/wiki/Language-Guide:-Getting-Started)
-- [Types](https://github.com/purescript/purescript/wiki/Language-Guide:-Types)
-- [Kinds](https://github.com/purescript/purescript/wiki/Language-Guide:-Kinds)
-- [Syntax](https://github.com/purescript/purescript/wiki/Language-Guide:-Syntax)
-- [Type Classes](https://github.com/purescript/purescript/wiki/Language-Guide:-Type-Classes)
-- [Pattern Matching](https://github.com/purescript/purescript/wiki/Language-Guide:-Pattern-Matching)
-- [Modules](https://github.com/purescript/purescript/wiki/Language-Guide:-Modules)
-- [FFI](https://github.com/purescript/purescript/wiki/Language-Guide:-FFI)
-- [Records](https://github.com/purescript/purescript/wiki/Language-Guide:-Records)
+- [Old Language Guide](https://github.com/purescript/purescript/wiki/Old-Language-Guide)
 
 ## Related Languages
 
