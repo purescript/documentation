@@ -9,6 +9,8 @@
 - [Sublime Text 2](https://sublime.wbond.net/search/PureScript)
 - [Vim](https://github.com/raichoo/purescript-vim)
 - [IntelliJ IDEA](https://github.com/ikarienator/pure-idea)
+- General 
+  - To generate `TAGS` files, use `psc-docs --format etags` (or `-- format ctags`)
 
 ## Build tools
 
