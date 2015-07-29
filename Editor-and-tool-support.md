@@ -31,3 +31,4 @@
 - Turn implicit imports into explicit ones
 - Features work or at least are usable using any text editor and psc from the console
 - Find all references (for refactoring / renaming)
+- Fix `TransitiveExportError` ("An export of X requires Y to also be exported") automatically
