@@ -5,7 +5,7 @@
   - [dysinger/purescript-mode](https://github.com/dysinger/purescript-mode) was adapted from haskell-mode
   - [emacs-pe/purescript-mode](https://github.com/emacs-pe/purescript-mode) is an alpha-stage greenfield mode
   - [ardumont/psci-mode](https://github.com/ardumont/emacs-psci) is a REPL minor mode
-  - [spion/purscheck](https://github.com/spion/purscheck) provides flycheck support; see also [Bodil's emacs config](https://github.com/bodil/emacs.d/blob/master/bodil/bodil-purescript.el)
+  - [spion/purscheck](https://github.com/spion/purscheck) provides flycheck support.
 - [Sublime Text 2](https://sublime.wbond.net/search/PureScript)
 - [Vim](https://github.com/raichoo/purescript-vim)
 - [IntelliJ IDEA](https://github.com/ikarienator/pure-idea)
