@@ -1,3 +1,5 @@
+This page aims to provide general information about interpreting error messages rather than those relating to a specific error. There are a number of other pages on the wiki that should cover specific errors in more detail.
+
 ## `_0`...`_n` types
 
 When there is an error message from the type checker that contains a type like `_0` or `_27` or any other number after an underscore, this means the type is an "unknown" - in other words the typechecker has no information at all about it.
