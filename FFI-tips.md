@@ -2,7 +2,7 @@
 
 All functions in PureScript take exactly one argument, but when writing an interface to an existing JavaScript library often there is a need to expose multiple argument functions. One way to deal with this is to write some inline FFI code that "manually" curries a version of the function you want to bring in to PureScript:
 
-``` haskell
+```purescript
 module Path where
 
 foreign import joinPath :: FilePath -> FilePath -> FilePath
@@ -20,7 +20,7 @@ exports.joinPath = function(start) {
 
 This is quite tedious and error prone, so there's an alternative representation of function types, `Fn0` up to `Fn10` available from the module `Data.Function` (included with the compiler). Making use of these types allows us to greatly simplify the previous example:
 
-``` haskell
+```purescript
 module Path where
 
 foreign import joinPathImpl :: Fn2 FilePath FilePath FilePath
@@ -36,7 +36,7 @@ However, these `Fn0`..`Fn10` types cannot be applied as normal PureScript functi
 
 Taking the previous example again, to avoid having to use `runFn2` every time we want to make use of `joinPath`, the usual way of doing this would be to suffix the foreign import with "Impl" and then define a more PureScript-friendly version that uses `runFn2`:
 
-```haskell
+```purescript
 foreign import joinPathImpl :: Fn2 FilePath FilePath FilePath
 
 joinPath :: FilePath -> FilePath -> FilePath
@@ -47,7 +47,7 @@ The module would then hide the `joinPathImpl` export, only revealing our nice `j
 
 Special support has been added to the compiler as of PureScript 0.5.4 to inline `runFn` calls when they are fully saturated (that is, applied with all the arguments at once), so it is recommended to avoid point-free style when making definitions that use `runFn`. Taking the above example again:
 
-```haskell
+```purescript
 joinPath :: FilePath -> FilePath -> FilePath
 joinPath start end = runFn2 joinPathImpl start end
 ```
@@ -56,7 +56,7 @@ joinPath start end = runFn2 joinPathImpl start end
 
 When implementing things in the FFI, sometimes it's useful to be able to call other functions or make use of data constructors defined in PureScript. For example, if you wanted to write a function that returned a `Maybe` you might do something like this:
 
-``` haskell
+```purescript
 foreign import doSomethingImpl :: forall a. Fn2 (a -> Boolean) a (Maybe a)
 
 doSomething :: forall a. (a -> Boolean) -> a -> Maybe a
@@ -77,7 +77,7 @@ Calling these functions directly in the FFI code isn't recommended as it makes t
 
 The recommended approach is to add extra arguments to your FFI-defined function to accept the functions you need to call as arguments:
 
-``` haskell
+```purescript
 foreign import doSomethingImpl :: forall a. Fn4 (a -> Maybe a) (Maybe a) (a -> Boolean) a (Maybe a)
 
 doSomething :: forall a. (a -> Boolean) -> a -> Maybe a
@@ -98,7 +98,7 @@ This way the compiler knows `Just` and `Nothing` are used so you don't need to w
 
 This technique also helps when you want to call a function that is a type class member via the FFI. A contrived example using `show`:
 
-``` haskell
+```purescript
 foreign import showSomethingImpl :: forall a. Fn3 (Maybe a -> Boolean) (a -> String) (Maybe a) String
 
 showSomething :: forall a. (Show a) => Maybe a -> String
@@ -117,7 +117,24 @@ exports.doSomethingImpl = function(isJust, show, value) {
 
 By moving the `show` reference out to `showSomething` the compiler will pick the right `Show` instance for us at that point, so we don't have to deal with typeclass dictionaries in `showSomethingImpl`.
 
-## TODO
+## Why Doesn't my `Eff` Work When Passed to a Normal JS Function?
+["Representing Side Effects"](https://leanpub.com/purescript/read#leanpub-auto-representing-side-effects) in *PureScript by Example*.
 
-- Why doesn't my Eff work when passed to a normal JS function?
+In order to avoid prematurely evaluating effects (or evaluating effects that should not be evaluated at all), PureScript wraps them in constant functions:
+```javascript
+exports.myEff = function() {
+  return doSomethingEffectful(1, 2, 3);
+}
+```
+which is imported to PureScript as:
+```purescript
+foreign import myEff :: forall eff. Eff (myEff :: MYEFF | eff) SomeType
+```
+
+## FFI Libraries
+There are a number of libraries for easing the process or writing FFI code. @paf31 wrote an [introduction](https://gist.github.com/paf31/8e9177b20ee920480fbc#day-3---purescript-easy-ffi-and-purescript-oo-ffi) to these in his 2014 ["24 Days of PureScript"](https://gist.github.com/paf31/8e9177b20ee920480fbc). Note that it shows the now deprecated (as of PureScript 0.7.0) inline FFI.
+
+**TODO** Performance and other considerations such as Browserify (`require`ing modules dynamically)
+
+## TODO
 - Avoiding Duplicate Labels
