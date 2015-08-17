@@ -19,11 +19,15 @@ The PureScript core libraries are good examples of how to put these guidelines i
 
 - Include tests with your project, so that contributors can easily verify their changes.
 - PureScript has several excellent testing libraries, which you can take advantage of:
-  - [`purescript-test-unit`](https://github.com/bodil/purescript-test-unit)
+  - [`purescript-test-unit`](https://github.com/bodil/purescript-test-unit) (not yet updated for 0.7)
   - [`purescript-featurespec`](https://github.com/joneshf/purescript-featurespec)
   - [`purescript-quickcheck`](https://github.com/purescript/purescript-quickcheck)
   - [`purescript-strongcheck`](https://github.com/purescript-contrib/purescript-strongcheck)
   - [`purescript-assert`](https://github.com/purescript/purescript-assert)
+  - [`purescript-spec`](https://github.com/owickstrom/purescript-spec)
+    - [`purescript-spec-quickcheck`](https://github.com/owickstrom/purescript-spec-quickcheck)
+    - [`purescript-spec-reporter-xunit`](https://github.com/owickstrom/purescript-spec-reporter-xunit)
+    - [`purescript-spec-reporter-mocha`](https://github.com/owickstrom/purescript-spec-reporter-mocha)
 - Also consider using the following libraries, which integrate into existing JavaScript testing tools (such as [Karma](http://karma-runner.github.io/0.12/index.html)):
   - [`purescript-mocha`](https://github.com/CapillarySoftware/purescript-mocha)
   - [`purescript-chai`](https://github.com/CapillarySoftware/purescript-chai)
