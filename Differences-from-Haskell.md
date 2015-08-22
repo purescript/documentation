@@ -40,6 +40,8 @@ PureScript has a type `Unit` used in place of Haskell's `()`. The `Prelude` modu
 
 PureScript does not provide syntactic sugar for list types. Construct list types using `List` from `Data.List`.
 
+There is also an `Array` type for native JavaScript arrays, but this does not have the same performance characteristics as `List`. `Array` _values_ can be constructed with `[x, y, z]` literals, but the type still needs to be annotated as `Array a`.
+
 ## `IO` vs `Eff`
 
 Haskell uses the `IO` monad to deal with side effects, in PureScript there is a monad called `Eff` that serves the same purpose but can track side effects with more granularity. For example, in a Haskell program the type signature of `main` will be:
@@ -77,13 +79,13 @@ y :: Point -> Number
 However in PureScript this only introduces a `Point` constructor that accepts an object type. In fact, often we might not need a data constructor at all when using object types:
 
 ``` haskell
-type Point' = { x :: Number, y :: Number }
+type PointRec = { x :: Number, y :: Number }
 ```
 
 Objects are constructed with syntax similar to that of JavaScript (and the type definition):
 
 ``` haskell
-origin :: Point'
+origin :: PointRec 
 origin = { x: 0, y: 0 }
 ```
 
@@ -97,7 +99,7 @@ originX  = origin.x
 PureScript also provides a record update syntax similar to Haskell's:
 
 ``` haskell
-setX :: Number -> Point' -> Point'
+setX :: Number -> PointRec -> PointRec 
 setX val point = point { x = val }
 ```
 
@@ -137,7 +139,7 @@ instance arbitraryUnit :: Arbitrary Unit where
   ...
 ```
 
-Overlapping instances are still disallowed, like in Haskell; instance names are there to help the readability of compiled JavaScript.
+Overlapping instances are still disallowed, like in Haskell. The instance names are used to help the readability of compiled JavaScript.
 
 ### Default members
 
@@ -177,10 +179,10 @@ However, the most general type of this function is `forall a. (Num a) => a -> a`
 
 ```
 Error in declaration square:
-No instance found for Prelude.Num u1
+No instance found for Prelude.Num _1
 ```
 
-Here, `u1` is an unknown type. To solve this problem, we can give the intended type for `square`:
+Here, `_1` is an unknown type. To solve this problem, we can give the intended type for `square`:
 
 ```haskell
 square :: Number -> Number
@@ -197,7 +199,7 @@ PureScript does not provide special syntax for array comprehensions. Instead, us
 import Data.Array
 import Data.Tuple
 
-factors :: Number -> [Tuple Number Number]
+factors :: Number -> Array (Tuple Number Number)
 factors n = do
   a <- 1 .. n
   b <- 1 .. a
