@@ -6,6 +6,12 @@ As the evaluation strategy matches JavaScript, interoperability with existing co
 
 Keeping strict evaluation also means there is no need for a runtime system or overly complicated JavaScript output. It should also be possible to write higher performance code when needed, as introducing laziness on top of JavaScript comes with an unavoidable overhead.
 
+## Prelude/base
+
+There is no implicit `Prelude` import in PureScript, the `Prelude` module is just like any other. Also, no libraries are distrubted with the compiler at all.
+
+The generally accepted "standard" `Prelude` is the [`purescript-prelude`](https://github.com/purescript/purescript-prelude) library.
+
 ## Types
 
 ### Explicit forall
