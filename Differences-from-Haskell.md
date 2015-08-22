@@ -30,7 +30,7 @@ ap :: forall m a b. (Monad m) => m (a -> b) -> m a -> m b
 
 ### Numbers
 
-There is currently only a single native `Number` type which represents JavaScript's standard IEEE 754 float.
+There is a native `Number` type which represents JavaScript's standard IEEE 754 float and an `Int` which is restricted to the range of 32bit integers. In JavaScript the `Int` values and operations are generated with a `|0` prefix to achieve this, e.g. `((x + y)|0 * z)|0`.
 
 ### Unit
 
