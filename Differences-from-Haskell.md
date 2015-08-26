@@ -25,7 +25,7 @@ length :: [a] -> Int
 In PureScript this will fail with the error `Type variable a is undefined`. The PureScript equivalent is:
 
 ``` haskell
-length :: forall a. [a] -> Number
+length :: forall a. Array a -> Number
 ```
 
 A `forall` can declare multiple type variables at once, and should appear before typeclass constraints:
