@@ -8,7 +8,7 @@ Keeping strict evaluation also means there is no need for a runtime system or ov
 
 ## Prelude/base
 
-There is no implicit `Prelude` import in PureScript, the `Prelude` module is just like any other. Also, no libraries are distrubted with the compiler at all.
+There is no implicit `Prelude` import in PureScript, the `Prelude` module is just like any other. Also, no libraries are distributed with the compiler at all.
 
 The generally accepted "standard" `Prelude` is the [`purescript-prelude`](https://github.com/purescript/purescript-prelude) library.
 
