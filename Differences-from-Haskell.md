@@ -258,7 +258,11 @@ The PureScript compiler does not support GHC-like language extensions. However, 
 * RankNTypes
 * ScopedTypeVariables
 
-## TODO
+## Where is ... from Haskell?
 
-- Separate items "by design" from items which we plan to implement.
-- List pros and cons for each item.
+As PureScript has not inherited Haskell's legacy code, some operators and functions that are common in Haskell have different names in PureScript:
+
+- `(>>)` is `(*>)`, as `Apply` is a superclass of `Monad` so there is no need to have an `Monad`-specialised version.
+- `mapM` is `traverse`, as this is a more general form that applies to any traversable structure, not just lists.
+- Many functions that are part of `Data.List` in Haskell are provided in a more generic form in `Data.Foldable` or `Data.Traversable`.
+- `some` and `many` are defined with the type of list they operate on (`Data.Array` or `Data.List`).
