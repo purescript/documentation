@@ -25,6 +25,8 @@ The compiler and many of its tools are written in Haskell, so if you are a begin
 
 If you would like to create a project in PureScript itself, but unsure what to work on, then the community can suggest some projects which will have immediate value for users.
 
+Consult the _Style Guide_ and _Contrib Guidelines_ pages for notes on producing high-quality PureScript libraries.
+
 ### FFI Bindings
 
 FFI bindings are a good source of project ideas, since we can build on the success of existing JavaScript libraries.
@@ -42,3 +44,10 @@ FFI bindings are a good source of project ideas, since we can build on the succe
 - Automatic differentiation
 - Interval trees (this could also reuse a lot of the code in [purescript-sequences](/hdgarrood/purescript-sequences))
 - Efficient set and map union
+
+### Improving Core/Contrib Libraries
+
+- `purescript-graphs` would benefit from some additional basic graph operations.
+- `purescript-parsing` is in need of performance improvements.
+- `purescript-jquery` is missing lots of basic functionality from jQuery.
+- Help is needed to add support for the full DOM IDL to `purescript-dom`.
