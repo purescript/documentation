@@ -7,7 +7,6 @@ This page is a list of possible project ideas for PureScript newcomers who would
 - Type-safe cookie library wrappers
 - Type-safe Indexed DB wrapper
 - Type-safe Koa.js server wrapper
-- Type-safe Node.js `http` wrapper, for HTTP servers
 - Type-safe wrapper for [unicode-properties](https://github.com/devongovett/unicode-properties) (`isLetter`, `isLower`, `isUpper`, `isPunctuation`, ...)
 
 ## Tools
