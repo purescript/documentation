@@ -13,6 +13,7 @@ This page is a list of possible project ideas for PureScript newcomers who would
 
 - An automatic way of sharing types between Haskell and PureScript safely
 - An embedded WebGL shader DSL
+- A tool for producing FFI bindings from an input file containing definitions (YAML perhaps? `.d.ts` files have been suggested before, but the types don't quite work out)
 
 ## Data Structures & Algorithms
 
