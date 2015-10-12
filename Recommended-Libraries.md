@@ -33,6 +33,10 @@ This page lists third-party libraries which can be used to perform common tasks.
 - [purescript-contrib/purescript-lists](http://github.com/purescript-contrib/purescript-lists)
 - [joneshf/purescript-index](https://github.com/joneshf/purescript-index)
 
+## Database
+
+- [epost/purescript-node-postgres](https://github.com/epost/purescript-node-postgres) – PureScript wrapper for [brianc/node-postgres](https://github.com/brianc/node-postgres)
+
 ## DOM
 
 - [paf31/purescript-thermite](https://github.com/paf31/purescript-thermite) &mdash; A set of easy-to-use React bindings for PureScript
