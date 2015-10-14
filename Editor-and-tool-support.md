@@ -20,6 +20,7 @@
 - [Grunt task](https://github.com/purescript-contrib/grunt-purescript) (`grunt-purescript` in `npm`)
 - [Gulp task](https://github.com/purescript-contrib/gulp-purescript) (`gulp-purescript` in `npm`)
 - [psvm-js](https://github.com/ThomasCrvsr/psvm-js) - PureScript Version Manager
+- [purs-loader](https://github.com/ethul/purs-loader/) - PureScript loader for WebPack
 
 ## Wish List
 
