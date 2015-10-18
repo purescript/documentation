@@ -35,7 +35,8 @@ This page lists third-party libraries which can be used to perform common tasks.
 
 ## Database
 
-- [epost/purescript-node-postgres](https://github.com/epost/purescript-node-postgres) – PureScript wrapper for [brianc/node-postgres](https://github.com/brianc/node-postgres)
+- [epost/purescript-node-postgres](https://github.com/epost/purescript-node-postgres) – PureScript bindings for [brianc/node-postgres](https://github.com/brianc/node-postgres)
+- [epost/purescript-any-db](https://github.com/epost/purescript-any-db) – PureScript bindings for [grncdr/node-any-db](https://github.com/grncdr/node-any-db), supports Postgres, MySQL, MS SQL, SQLite3.
 
 ## DOM
 
