@@ -258,6 +258,16 @@ The PureScript compiler does not support GHC-like language extensions. However, 
 * RankNTypes
 * ScopedTypeVariables
 
+## `error` and `undefined`
+
+Neither of these exist in PureScript. If you want to approximate them, you can do so as follows:
+
+`error` can be emulated with `Control.Monad.Eff.runPure <<< Control.Monad.Eff.Exception.throwException <<< Control.Monad.Eff.Exception.error`
+
+`undefined` can be emulated with `Unsafe.Coerce.unsafeCoerce unit :: forall a. a` (from purescript-unsafe-coerce).
+
+Although note that these might have different behaviour to the Haskell versions due to PureScript's strictness.
+
 ## Where is ... from Haskell?
 
 As PureScript has not inherited Haskell's legacy code, some operators and functions that are common in Haskell have different names in PureScript:
