@@ -262,7 +262,7 @@ The PureScript compiler does not support GHC-like language extensions. However, 
 
 Neither of these exist in PureScript. If you want to approximate them, you can do so as follows:
 
-`error` can be emulated with `Control.Monad.Eff.runPure <<< Control.Monad.Eff.Exception.throwException <<< Control.Monad.Eff.Exception.error`
+`error` can be emulated with `Control.Monad.Eff.runPure <<< Control.Monad.Eff.Unsafe.unsafeInterleaveEff <<< Control.Monad.Eff.Exception.throwException <<< Control.Monad.Eff.Exception.error`
 
 `undefined` can be emulated with `Unsafe.Coerce.unsafeCoerce unit :: forall a. a` (from purescript-unsafe-coerce).
 
