@@ -1,4 +1,4 @@
-This error occurs when the name already used earlier.
+This warning occurs when a name was already used earlier. Consider renaming the second occurrence of the name, since multiple uses might make it easy to refer to the wrong value.
 
 For example:
 
