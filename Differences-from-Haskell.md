@@ -260,11 +260,9 @@ The PureScript compiler does not support GHC-like language extensions. However, 
 
 ## `error` and `undefined`
 
-Neither of these exist in PureScript. If you want to approximate them, you can do so as follows:
+For `error`, you can use `Control.Monad.Eff.Exception.Unsafe.unsafeThrow`, in the `purescript-exceptions` package.
 
-`error` can be emulated with `Control.Monad.Eff.runPure <<< Control.Monad.Eff.Unsafe.unsafeInterleaveEff <<< Control.Monad.Eff.Exception.throwException <<< Control.Monad.Eff.Exception.error`
-
-`undefined` can be emulated with `Unsafe.Coerce.unsafeCoerce unit :: forall a. a` (from purescript-unsafe-coerce).
+`undefined` can be emulated with `Unsafe.Coerce.unsafeCoerce unit :: forall a. a`, which is in the `purescript-unsafe-coerce` package. See also https://github.com/purescript/purescript-prelude/issues/44.
 
 Although note that these might have different behaviour to the Haskell versions due to PureScript's strictness.
 
