@@ -52,7 +52,7 @@ joinPath :: FilePath -> FilePath -> FilePath
 joinPath start end = runFn2 joinPathImpl start end
 ```
 
-## Avoid calling PS code from within JS directly
+## Avoid directly calling PS code from foreign modules
 
 When implementing things in the FFI, sometimes it's useful to be able to call other functions or make use of data constructors defined in PureScript. For example, if you wanted to write a function that returned a `Maybe` you might do something like this:
 
