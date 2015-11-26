@@ -8,7 +8,9 @@
   - [spion/purscheck](https://github.com/spion/purscheck) provides flycheck support.
   - [epost/psc-ide-emacs](https://github.com/epost/psc-ide-emacs) is an alpha stage Emacs binding for [kRITZCREEK/psc-ide](https://github.com/kRITZCREEK/psc-ide)
 - [Sublime Text 2](https://sublime.wbond.net/search/PureScript)
-- [Vim](https://github.com/raichoo/purescript-vim)
+- Vim
+  - [purescript-vim](https://github.com/raichoo/purescript-vim) syntax highlighting and indentation
+  - [FrigoEU/psc-ide-vim](https://github.com/FrigoEU/psc-ide-vim/)
 - [IntelliJ IDEA](https://github.com/ikarienator/pure-idea)
 - General
   - [kRITZCREEK/psc-ide](https://github.com/kRITZCREEK/psc-ide) is a client and server that provides  generic editor support
