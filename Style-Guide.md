@@ -64,7 +64,7 @@ The PureScript core libraries are good examples of how to put these guidelines i
   - Bower works with git tags, but does not require any present tags to publish. Please run `bower version 0.0.0` and push tags for your initial release (this prevents interim work not intended for publication from leaking on `0.0.0` libs).
   - Considering that you may need to be editing your library live as a part of the development of your main project, check out `bower link` (learn all about it [here](https://oncletom.io/2013/live-development-bower-component/)). This will enable you to keep the repos in sync as you work, and facilitate publishing when ready.
   - `bower link` can also be useful if you plan on contributing to a package needed by your project. Simply fork the repo, and link. Once you have your additional bindings, or features needed for your project working, you can contribute them back to the source repo easily with a Pull Request.
-- Share your library on [Pursuit](http://new-pursuit.purescript.org), so that developers can search your library documentation.
+- Share your library on [Pursuit](http://pursuit.purescript.org), so that developers can search your library documentation.
   - Include the `Pursuit` version badge in your `README` file, with a link to your documentation on Pursuit.
 
 ## Types
