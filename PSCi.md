@@ -1,5 +1,21 @@
 PSCi "PureScript Interactive" is the REPL for PureScript. It is often a good way to explore your code, do some basic testing, or to get a feel for a new library.
 
+## What's all this about `purescript-console`?
+
+```
+:? shows help
+PSCi requires the purescript-console module to be installed.
+For help getting started, visit http://wiki.purescript.org/PSCi
+```
+
+The PureScript compiler suite (`psc`, `psci`, etc), unlike most compilers, does not ship with a standard library. In PureScript, `Prelude` is a normal module, just like any other.
+
+Consequentially, `psci` requires a specific library to be installed in order to be able to do things like printing results to the console - namely, `purescript-console`.
+
+In addition, `psci` has no expected source file paths hardcoded in, and so it needs to be told where to load PureScript source files from. This can be done by writing a `.psci` file.
+
+However, normally, you won't need to worry about these things. Most people use tools which take care of these things for you, such as `pulp`. For help getting started with a development environment, see [this guide](http://www.purescript.org/learn/getting-started/).
+
 ## Basic usage
 
 Type expressions into the REPL to have them evaluated:
