@@ -1,6 +1,6 @@
 There are various alternatives to `psc`'s default JavaScript backend:
 
-| source code                                                                           | PS version | target        |       |                        | 
+| source code                                                                           | PS version | target        | status   | comments               | 
 |:--------------------------------------------------------------------------------------|:-----------|:--------------|:------|:-----------------------|
 | [andyarvanitis/pure11](https://github.com/andyarvanitis/pure11)                       | 0.7.6.1    | C++11         | active | all tests in examples/passing are passing |
 | [andyarvanitis/pure14](https://github.com/andyarvanitis/pure14)                       | 0.7.4.1    | C++14         | TBD |  focus shifted to pure11 for now  |
