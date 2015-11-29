@@ -3,10 +3,10 @@ You can control what gets exported from a module by using an export list. When a
 ```purescript
 module Test (exported) where
 
-exported :: Number -> Number
+exported :: Int -> Int
 exported = (+1) <<< notExported
 
-notExported :: Number -> Number
+notExported :: Int -> Int
 notExported = (*3)
 ```
 
