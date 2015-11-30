@@ -703,18 +703,24 @@ Pattern matching deconstructs a value to bring zero or more expressions into sco
 
 Pattern matches have the following general form::
 
-  case value of
-    pattern -> result
-    ...
-    pattern -> result
+```
+case value of
+  pattern -> result
+  ...
+  pattern -> result
+```
 
 Pattern matching can also be used in the declaration of functions, as we have already seen::
 
-  fn pattern_1 ... pattern_n = result
+```
+fn pattern_1 ... pattern_n = result
+```
 
 Patterns can also be used when introducing functions. For example::
 
-  example x y z = x * y + z
+```
+example x y z = x * y + z
+```
 
 The following pattern types are supported:
 
@@ -734,21 +740,25 @@ Wildcard Patterns
 
 The wilcard `_` matches any input and brings nothing into scope::
 
-  f _ = 0
+```
+f _ = 0
+```
       
 Literal Patterns
 ----------------
 
 Literal patterns are provided to match on primitives::
 
-  f true = 0
-  f false = 1
+```
+f true = 0
+f false = 1
     
-  g "Foo" = 0
-  g _ = 1
+g "Foo" = 0
+g _ = 1
   
-  h 0 = 0
-  h _ = 1
+h 0 = 0
+h _ = 1
+```
 
 Variable Patterns
 -----------------
@@ -762,9 +772,11 @@ Array Patterns
 
 Array patterns match an input which is an array, and bring its elements into scope. For example::
 
-  f [x] = x
-  f [x, y] = x * y
-  f _ = 0
+```
+f [x] = x
+f [x, y] = x * y
+f _ = 0
+```
 
 Here, the first pattern only matches arrays of length one, and brings the first element of the array into scope.
 
@@ -775,35 +787,43 @@ Constructor patterns
 
 Constructor patterns match a data constructor and its arguments::
 
-  data Foo = Foo String | Bar Number Boolean
+```
+data Foo = Foo String | Bar Number Boolean
 
-  foo (Foo s) = true
-  foo (Bar _ b) = b
+foo (Foo s) = true
+foo (Bar _ b) = b
+```
 
 Record Patterns
 ---------------
 
 Record patterns match an input which is a record, and bring its properties into scope::
 
-  f { foo = "Foo", bar = n } = n
-  f _ = 0
+```
+f { foo = "Foo", bar = n } = n
+f _ = 0
+```
 
 Nested Patterns
 ---------------
 
 The patterns above can be combined to create larger patterns. For example::
 
-  f { arr = [x, _], take = "firstOfTwo" } = x
-  f { arr = [_, x, _] take = "secondOfThree" } = x
-  f _ = 0
+```
+f { arr = [x, _], take = "firstOfTwo" } = x
+f { arr = [_, x, _] take = "secondOfThree" } = x
+f _ = 0
+```
 
 Named Patterns
 --------------
 
 Named patterns bring additional names into scope when using nested patterns. Any pattern can be named by using the ``@`` symbol::
 
-  f a@[_, _] = true
-  f _ = false
+```
+f a@[_, _] = true
+f _ = false
+```
      
 Here, in the first pattern, any array with exactly two elements will be matched and bound to the variable ``a``.
 
@@ -812,61 +832,77 @@ Guards
 
 Guards are used to impose additional constraints inside a pattern using boolean-valued expressions, and are introduced with a pipe after the pattern::
 
-  evens :: List Int -> Int
-  evens Nil = 0
-  evens (Cons x xs) | x % 2 == 0 = 1 + evens xs
-  evens (Cons _ xs) = evens xs
+```
+evens :: List Int -> Int
+evens Nil = 0
+evens (Cons x xs) | x % 2 == 0 = 1 + evens xs
+evens (Cons _ xs) = evens xs
+```
 
 When using patterns to define a function at the top level, guards appear after all patterns::
 
-  greater x y | x > y = true
-  greater _ _ = false
+```
+greater x y | x > y = true
+greater _ _ = false
+```
 
 # Modules
 
 All code in PureScript is contained in a module. Modules are introduced using the ``module`` keyword::
 
-  module A where
+```
+module A where
   
-  id x = x
+id x = x
+```
 
 When referencing values or data types in another module, names may be qualified by using a dot::
 
-  module B where
+```
+module B where
   
-  foo = A.id
+foo = A.id
+```
 
 Importing Modules
 -----------------
 
 A module can be imported using the ``import`` keyword. This will create aliases for all of the values and types in the imported module::
 
-  module B where
+```
+module B where
   
-  import A
+import A
+```
 
 Alternatively, a list of names to import can be provided in parentheses::
 
-  module B where
+```
+module B where
   
-  import A (runFoo)
+import A (runFoo)
+```
 
 Values, type constructors and data constructors can all be explicitly imported. A type constructor should be followed by a list of associated data constructors to import in parentheses. A double dot (``..``) can be used to import all data constructors for a given type constructor::
 
-  module B where
+```
+module B where
 
-  import A (runFoo, Foo(..), Bar(Bar))
+import A (runFoo, Foo(..), Bar(Bar))
+```
   
 Qualified Imports
 -----------------
   
 Modules can also be imported qualified, which means that their names will not be brought directly into scope, but rather, aliased to a different module name. This can be helpful when avoiding naming conflicts::
 
-  module Main where
+```
+module Main where
   
-  import Data.Array as Array
+import Data.Array as Array
   
-  null = ...
+null = ...
+```
   
 Here, the name ``null`` would ordinarily conflict with ``null`` from ``Data.Array``, but the qualified import solves this problem. ``Data.Array.null`` can be referenced using ``Array.null`` instead.
 
@@ -902,24 +938,28 @@ Importing Values
 
 The ``foreign import`` keywords declare a value which is defined in Javascript, and its type::
 
-  foreign import pow :: Number -> Number -> Number
+```
+foreign import pow :: Number -> Number -> Number
+```
 
 Importing Types
 ---------------
 
 To declare a new abstract type (with no constructors), use ``foreign import data`` and provide the kind::
 
-  foreign import data DOM :: *
+```
+foreign import data DOM :: *
   	
-  foreign import document :: { 
-    createElement :: String -> DOM  
-  }
+foreign import document :: { 
+  createElement :: String -> DOM  
+}
+```
 
 # Records
 
 Record literals are surrounded by braces, as in JavaScript:
 
-```haskell
+```purescript
 author :: { name :: String, interests :: Array String }
 author =
     { name: "Phil"
@@ -949,13 +989,13 @@ The Object type constructor is parameterized by a row of types. In kind notation
 
 It is possible to define an extensible record
 
-```haskell
+```purescript
 type Lang l = { language :: String | l }
 ```
 
 that can then be extended like:
 
-```haskell
+```purescript
 type Language = Lang ( country :: String )
 ```
 
@@ -965,12 +1005,12 @@ The `Language` type synonym would then be equivalent to `{ language :: String, c
 
 Record literals with wildcards can be used to create a function that produces the record instead:
 
-```haskell
+```purescript
 { foo: _, bar: _ }
 ```
 is equivalent to:
 
-```haskell
+```purescript
 \foo bar -> { foo: foo, bar: bar }
 ```
 
@@ -978,7 +1018,7 @@ is equivalent to:
 
 PureScript also provides a record update syntax similar to Haskell's:
 
-```haskell
+```purescript
 setX :: Number -> Point -> Point
 setX val point = point { x = val }
 ```
