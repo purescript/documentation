@@ -72,12 +72,14 @@ Tagged unions can only be created using their constructors, and deconstructed th
 
 For example::
 
-  data Foo = Foo | Bar String
+```
+data Foo = Foo | Bar String
   
-  runFoo Foo = "It's a Foo"
-  runFoo (Bar s) = "It's a Bar. The string is " ++ s
+runFoo Foo = "It's a Foo"
+runFoo (Bar s) = "It's a Bar. The string is " ++ s
   
-  test = runFoo Foo ++ runFoo (Bar "Test")
+test = runFoo Foo ++ runFoo (Bar "Test")
+```
 
 In the example, Foo is a tagged union type which has two constructors. Its first constructor ``Foo`` takes no arguments, and its second ``Bar`` takes one, which must be a String.
 
