@@ -72,7 +72,7 @@ Tagged unions can only be created using their constructors, and deconstructed th
 
 For example::
 
-```
+```purescript
 data Foo = Foo | Bar String
   
 runFoo Foo = "It's a Foo"
@@ -571,13 +571,13 @@ For example, to create an infix synonym for the [`Data.Array.range`](https://git
 
 This function can be used as follows::
 
-```
+```purescript
 oneToTen = 1 .. 10
 ```
 
 The associativity and precedence level of operators can be defined with the `infix` (no associativity), `infixl` (left associative), and `infixr` (right associative) top-level declarations:
 
-```
+```purescript
 infix 5 ..
 infixl 7 %%
 infixr 9 ^^
@@ -703,7 +703,7 @@ Pattern matching deconstructs a value to bring zero or more expressions into sco
 
 Pattern matches have the following general form::
 
-```
+```purescript
 case value of
   pattern -> result
   ...
@@ -712,13 +712,13 @@ case value of
 
 Pattern matching can also be used in the declaration of functions, as we have already seen::
 
-```
+```purescript
 fn pattern_1 ... pattern_n = result
 ```
 
 Patterns can also be used when introducing functions. For example::
 
-```
+```purescript
 example x y z = x * y + z
 ```
 
@@ -740,7 +740,7 @@ Wildcard Patterns
 
 The wilcard `_` matches any input and brings nothing into scope::
 
-```
+```purescript
 f _ = 0
 ```
       
@@ -749,7 +749,7 @@ Literal Patterns
 
 Literal patterns are provided to match on primitives::
 
-```
+```purescript
 f true = 0
 f false = 1
     
@@ -772,7 +772,7 @@ Array Patterns
 
 Array patterns match an input which is an array, and bring its elements into scope. For example::
 
-```
+```purescript
 f [x] = x
 f [x, y] = x * y
 f _ = 0
@@ -787,7 +787,7 @@ Constructor patterns
 
 Constructor patterns match a data constructor and its arguments::
 
-```
+```purescript
 data Foo = Foo String | Bar Number Boolean
 
 foo (Foo s) = true
@@ -799,7 +799,7 @@ Record Patterns
 
 Record patterns match an input which is a record, and bring its properties into scope::
 
-```
+```purescript
 f { foo = "Foo", bar = n } = n
 f _ = 0
 ```
@@ -809,7 +809,7 @@ Nested Patterns
 
 The patterns above can be combined to create larger patterns. For example::
 
-```
+```purescript
 f { arr = [x, _], take = "firstOfTwo" } = x
 f { arr = [_, x, _] take = "secondOfThree" } = x
 f _ = 0
@@ -820,7 +820,7 @@ Named Patterns
 
 Named patterns bring additional names into scope when using nested patterns. Any pattern can be named by using the ``@`` symbol::
 
-```
+```purescript
 f a@[_, _] = true
 f _ = false
 ```
@@ -832,7 +832,7 @@ Guards
 
 Guards are used to impose additional constraints inside a pattern using boolean-valued expressions, and are introduced with a pipe after the pattern::
 
-```
+```purescript
 evens :: List Int -> Int
 evens Nil = 0
 evens (Cons x xs) | x % 2 == 0 = 1 + evens xs
@@ -841,7 +841,7 @@ evens (Cons _ xs) = evens xs
 
 When using patterns to define a function at the top level, guards appear after all patterns::
 
-```
+```purescript
 greater x y | x > y = true
 greater _ _ = false
 ```
@@ -850,7 +850,7 @@ greater _ _ = false
 
 All code in PureScript is contained in a module. Modules are introduced using the ``module`` keyword::
 
-```
+```purescript
 module A where
   
 id x = x
@@ -858,7 +858,7 @@ id x = x
 
 When referencing values or data types in another module, names may be qualified by using a dot::
 
-```
+```purescript
 module B where
   
 foo = A.id
@@ -869,7 +869,7 @@ Importing Modules
 
 A module can be imported using the ``import`` keyword. This will create aliases for all of the values and types in the imported module::
 
-```
+```purescript
 module B where
   
 import A
@@ -877,7 +877,7 @@ import A
 
 Alternatively, a list of names to import can be provided in parentheses::
 
-```
+```purescript
 module B where
   
 import A (runFoo)
@@ -885,7 +885,7 @@ import A (runFoo)
 
 Values, type constructors and data constructors can all be explicitly imported. A type constructor should be followed by a list of associated data constructors to import in parentheses. A double dot (``..``) can be used to import all data constructors for a given type constructor::
 
-```
+```purescript
 module B where
 
 import A (runFoo, Foo(..), Bar(Bar))
@@ -896,7 +896,7 @@ Qualified Imports
   
 Modules can also be imported qualified, which means that their names will not be brought directly into scope, but rather, aliased to a different module name. This can be helpful when avoiding naming conflicts::
 
-```
+```purescript
 module Main where
   
 import Data.Array as Array
@@ -938,7 +938,7 @@ Importing Values
 
 The ``foreign import`` keywords declare a value which is defined in Javascript, and its type::
 
-```
+```purescript
 foreign import pow :: Number -> Number -> Number
 ```
 
@@ -947,7 +947,7 @@ Importing Types
 
 To declare a new abstract type (with no constructors), use ``foreign import data`` and provide the kind::
 
-```
+```purescript
 foreign import data DOM :: *
   	
 foreign import document :: { 
@@ -969,7 +969,7 @@ author =
 
 Fields of records can be accessed using a dot, followed by the label of the field to access:
 
-```
+```purescript
 > author.name
 "Phil"
 
