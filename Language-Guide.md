@@ -1,7 +1,3 @@
-# Introduction
-
-___Note___: this guide is out-of-date. You should read the [PureScript book](https://leanpub.com/purescript/read) instead, or for a quick introduction, the [getting started article](http://www.purescript.org/learn/getting-started/).
-
 ## Hello, PureScript!
 
 As an introductory example, here is the usual "Hello World" written in PureScript:
@@ -36,85 +32,6 @@ Line by line, this reads as follows:
 - ``showPerson`` works by case analysis on its argument, first matching the constructor ``Person`` and then using string concatenation and object accessors to return its result.
 - ``examplePerson`` is a Person object, made with the ``Person`` constructor and given the String "Bonnie" for the name value and the Number 26 for the age value.
 
-# Getting Started
-
-## Installation
-
-Compiler binaries are available on [the download page](http://www.purescript.org/download/), and through several Mac and Linux package managers, including Homebrew, Arch, and Nix.
-
-### Compiling from source
-
-If you have GHC and Cabal installed, then you can install the latest released version from Hackage:
-
-```sh
-cabal update
-cabal install purescript
-```
-
-If you would like to build the latest version of the code, clone this repository and build:
-
-```sh
-git clone git@github.com:purescript/purescript.git
-cd purescript
-cabal configure --enable-tests
-cabal build
-cabal test
-cabal install
-```
-
-Consider installing PureScript in a Cabal sandbox using ``cabal sandbox init``.
-
-## Creating a new PureScript project
-
-### Pulp
-The simplest way to start writing PureScript is with [pulp](https://github.com/bodil/pulp), a build tool for PureScript, available through Node.js (install with `npm install -g pulp`). It will initialize, install dependencies for, build and optimize, and even create documentation for a project.
-
-```sh
-pulp init
-pulp dep install purescript-tuples
-pulp build -O --to foo.js
-pulp docs > Foo.md
-```
-
-However, `pulp`'s duties stop there; loading your code into some HTML is up to you! Consider a shim file, like:
-
-```html
-<!DOCTYPE HTML>
-<html>
-  <head>
-    <meta charset="UTF-8"/>
-    <title>Foo</title>
-  </head>
-  <body>
-    <script async src="foo.js"></script>
-  </body>
-</html>
-```
-
-## Task Runners
-
-Complex projects with non-PureScript tasks to run (e.g. compiling Stylus/SASS/LESS to CSS, compiling Jade/CoffeeCup/Blaze to HTML) usually rely on a *task runner*.
-
-## Grunt/Gulp
-
-Plugins are available for [Grunt](https://github.com/purescript-contrib/grunt-purescript) and [Gulp](https://github.com/purescript-contrib/gulp-purescript) if you need more control over your build.
-
-## Compiler usage
-
-You might also like to run the compiler manually, without using a tool.
-
-The `psc` executable takes a list of PureScript source files as arguments and makes a CommonJS module from each PureScript module.
-
-The following options are supported:
-
-Option                 | Description
------------------------|----
---output               | Write the generated Javascript to the specified file.
---no-tco               | Turn off tail-call elimination.
---no-magic-do          | Turn off optimizations which inline calls to ``>>=`` for the ``Eff`` monad.
---no-opts              | Disable all optimizations.
---verbose-errors       | Generate verbose error messages.
-
 # Types
 
 The type system defines the following types:
@@ -137,7 +54,7 @@ The primitive types ``String``, ``Number`` and ``Boolean`` correspond to their J
 
 ## Integers
 
-The `Int` type represents integer values.
+The `Int` type represents integer values. The runtime representation is also a normal JavaScript Number; however, operations like `(+)` on `Int` values are defined differently in order to ensure that you always get `Int` values as a result.
 
 ## Arrays
 
@@ -209,13 +126,13 @@ Polymorphism is not limited to abstracting over types. Values may also be polymo
 For example, the following function accesses two properties on a record::
 
 ```purescript
-addProps o = o.foo + o.bar
+addProps o = o.foo + o.bar + 1
 ```
     
 The inferred type of ``addProps`` is::
 
 ```purescript
-forall r. { foo :: Number, bar :: Number | r } -> Number
+forall r. { foo :: Int, bar :: Int | r } -> Number
 ```
   
 Here, the type variable ``r`` has kind ``# *`` - it represents a `row` of `types`. It can be instantiated with any row of named types.
@@ -257,7 +174,7 @@ An argument to ``poly`` must indeed be polymorphic. For example, the following f
 test = poly (\n -> n + 1)
 ```
 
-since the skolemized type variable ``a`` does not unify with ``Number``.
+since the skolemized type variable ``a`` does not unify with ``Int``.
 
 ## Rows
 
@@ -271,7 +188,7 @@ To denote a closed row, separate the fields with commas, with each label separat
 (name :: String, age :: Number)
 ```
 
-It may be necessary, depending on the context, to surround a row in parentheses.
+It may be necessary, depending on the context, to surround a row in parentheses. (However, see #
 
 To denote an open row (i.e. one which may unify with another row to add new fields), separate the specified terms from a row variable by a pipe::
 
@@ -289,7 +206,12 @@ For example::
 type Foo = { foo :: Number, bar :: Number }
   
 addFoo :: Foo -> Number
-addFoo = \o -> o.foo + o.bar
+addFoo o = o.foo + o.bar
+
+type Bar a = { foo :: a, bar :: a }
+
+combineBar :: forall a b. (a -> a -> b) -> Bar a -> b
+combineBar f o = f o.foo o.bar
 ```
   
 ## Constrained Types
@@ -301,7 +223,11 @@ Polymorphic types may be predicated on one or more ``constraints``. See the chap
 Most types can be inferred (not including Rank N Types and constrained types), but annotations can optionally be provided using a double-colon::
 
 ```purescript
-one = 1 :: Number
+one = 1 :: Int
+
+-- Either of the following will type check, because the first is a more general form of the second
+x = one :: forall a. (Semiring a) => a
+x = one :: Int
 ```
 
 ## Kind System
@@ -439,10 +365,11 @@ String literals are enclosed in double-quotes and may extend over multiple lines
 \World"
 ```
 
-Line breaks will be omitted from the string when written this way. If line breaks are required in the output, they can be inserted with `\n`, or by using an alternate string syntax, where the string is enclosed in triple double-quotes. This also allows the use of double quotes within the string with no need to escape them, this is commonly used when making definitions for the FFI:
+Line breaks will be omitted from the string when written this way. If line breaks are required in the output, they can be inserted with `\n`, or by using an alternate string syntax, where the string is enclosed in triple double-quotes. This also allows the use of double quotes within the string with no need to escape them:
 
 ``` purescript
-"""
+jsIsHello :: String
+jsIsHello = """
 function isHello(greeting) {
   return greeting === "Hello";
 }
@@ -478,22 +405,6 @@ Array literals are surrounded by square brackets, as in JavaScript:
 ``` purescript
 []
 [1, 2, 3]
-```
-
-## Array Indexing
-
-The `Prelude.Unsafe` module defines the `unsafeIndex` function which retrieves the element of an array at an index:
-
-``` purescript
-head xs = unsafeIndex xs 0
-```
-
-The code generator will turn the expression `unsafeIndex arr index` into the simplified JavaScript `arr[index]`.
-
-The [`purescript-arrays`](https://github.com/purescript/purescript-arrays) library defines an alternative safe version, `index`, also available as infix `!!`, which checks arrays bounds and returns a value of type `Maybe a`:
-
-```purescript
-safeHead xs = xs !! 0
 ```
 
 ## Records
@@ -612,7 +523,7 @@ Function   | JS Operator | Meaning
 `zshr`     | `>>>`       | Zero-fill Shift Right
 `++`       | `+`         | String concatenation*
 
-_* PureScript's `++` is an operator for `Semigroup`s in general, not just strings._
+Many of these operators are defined in type classes and work with lots of different types. For example, `+` and `*` work with not only `Int` or `Number`, but any `Semiring` (see "Type classes").
 
 ## Operators as values
 
@@ -814,7 +725,7 @@ The following pattern types are supported:
 - Named patterns
 - Guards
 
-Patterns need not be exhaustive. A pattern match failed exception will be thrown at runtime if no pattern matches the input.
+Patterns need not be exhaustive. A pattern match failed exception will be thrown at runtime if no pattern matches the input. Patterns which are not exhaustive will generate warnings at compile time, however.
 
 Wildcard Patterns
 -----------------
@@ -880,8 +791,8 @@ Nested Patterns
 
 The patterns above can be combined to create larger patterns. For example::
 
-  f { arr = x : _, take = "car" } = x
-  f { arr = _ : x : _, take = "cadr" } = x
+  f { arr = [x, _], take = "firstOfTwo" } = x
+  f { arr = [_, x, _] take = "secondOfThree" } = x
   f _ = 0
 
 Named Patterns
@@ -889,19 +800,20 @@ Named Patterns
 
 Named patterns bring additional names into scope when using nested patterns. Any pattern can be named by using the ``@`` symbol::
 
-  f a@(_ : _ : _) = true
+  f a@[_, _] = true
   f _ = false
      
-Here, in the first pattern, any array with two or more elements will be matched and bound to the variable ``a``.
+Here, in the first pattern, any array with exactly two elements will be matched and bound to the variable ``a``.
 
 Guards
 ------
 
 Guards are used to impose additional constraints inside a pattern using boolean-valued expressions, and are introduced with a pipe after the pattern::
 
-  evens [] = 0
-  evens (x : xs) | x % 2 == 0 = 1 + evens xs
-  evens (_ : xs) = evens xs
+  evens :: List Int -> Int
+  evens Nil = 0
+  evens (Cons x xs) | x % 2 == 0 = 1 + evens xs
+  evens (Cons _ xs) = evens xs
 
 When using patterns to define a function at the top level, guards appear after all patterns::
 
@@ -946,15 +858,15 @@ Values, type constructors and data constructors can all be explicitly imported. 
 Qualified Imports
 -----------------
   
-Modules can also be imported `qualified`, which means that their names will not be brought directly into scope, but rather, aliased to a different module name. This can be helpful when avoiding naming conflicts::
+Modules can also be imported qualified, which means that their names will not be brought directly into scope, but rather, aliased to a different module name. This can be helpful when avoiding naming conflicts::
 
   module Main where
   
-  import qualified Data.Array as A
+  import Data.Array as Array
   
   null = ...
   
-Here, the name ``null`` would ordinarily conflict with ``null`` from ``Data.Array``, but the qualified import solves this problem. ``Data.Array.null`` can be referenced using ``A.null`` instead.
+Here, the name ``null`` would ordinarily conflict with ``null`` from ``Data.Array``, but the qualified import solves this problem. ``Data.Array.null`` can be referenced using ``Array.null`` instead.
 
 Module Exports
 --------------
@@ -1006,7 +918,7 @@ To declare a new abstract type (with no constructors), use ``foreign import data
 Record literals are surrounded by braces, as in JavaScript:
 
 ```haskell
-author :: { name :: String, interests :: [String] }
+author :: { name :: String, interests :: Array String }
 author =
     { name: "Phil"
     , interests: ["Functional Programming", "JavaScript"]
@@ -1044,6 +956,8 @@ that can then be extended like:
 ```haskell
 type Language = Lang ( country :: String )
 ```
+
+The `Language` type synonym would then be equivalent to `{ language :: String, country :: String }`.
 
 ## Wildcards
 
