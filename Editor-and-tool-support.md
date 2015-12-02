@@ -12,6 +12,7 @@
   - [purescript-vim](https://github.com/raichoo/purescript-vim) syntax highlighting and indentation
   - [FrigoEU/psc-ide-vim](https://github.com/FrigoEU/psc-ide-vim/)
 - [IntelliJ IDEA](https://github.com/ikarienator/pure-idea)
+- Visual Studio - [nwolverson/vscode-ide-purescript](https://github.com/nwolverson/vscode-ide-purescript)
 - General
   - [kRITZCREEK/psc-ide](https://github.com/kRITZCREEK/psc-ide) is a client and server that provides  generic editor support
   - To generate `TAGS` files, use `psc-docs --format etags` (or `--format ctags`)
