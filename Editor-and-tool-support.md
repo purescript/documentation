@@ -1,17 +1,17 @@
 ## Editors
 
-- [Atom](https://github.com/darinmorrison/atom-language-purescript)
+- Atom - [darinmorrison/atom-language-purescript](https://github.com/darinmorrison/atom-language-purescript)
 - Emacs
   - [dysinger/purescript-mode](https://github.com/dysinger/purescript-mode) was adapted from haskell-mode
   - [emacs-pe/purescript-mode](https://github.com/emacs-pe/purescript-mode) is an alpha-stage greenfield mode
   - [ardumont/psci-mode](https://github.com/ardumont/emacs-psci) is a REPL minor mode
   - [spion/purscheck](https://github.com/spion/purscheck) provides flycheck support.
   - [epost/psc-ide-emacs](https://github.com/epost/psc-ide-emacs) is an alpha stage Emacs binding for [kRITZCREEK/psc-ide](https://github.com/kRITZCREEK/psc-ide)
-- [Sublime Text 2](https://sublime.wbond.net/search/PureScript)
+- Sublime Text 2 - [PureScript package](https://sublime.wbond.net/search/PureScript) by joneshf
 - Vim
   - [purescript-vim](https://github.com/raichoo/purescript-vim) syntax highlighting and indentation
   - [FrigoEU/psc-ide-vim](https://github.com/FrigoEU/psc-ide-vim/)
-- [IntelliJ IDEA](https://github.com/ikarienator/pure-idea)
+- IntelliJ IDEA - [ikarienator/pure-idea](https://github.com/ikarienator/pure-idea)
 - Visual Studio - [nwolverson/vscode-ide-purescript](https://github.com/nwolverson/vscode-ide-purescript)
 - General
   - [kRITZCREEK/psc-ide](https://github.com/kRITZCREEK/psc-ide) is a client and server that provides  generic editor support
