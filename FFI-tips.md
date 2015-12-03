@@ -18,7 +18,7 @@ exports.joinPath = function(start) {
 };
 ```
 
-This is quite tedious and error prone, so there's an alternative representation of function types, `Fn0` up to `Fn10` available from the module `Data.Function` (included with the compiler). Making use of these types allows us to greatly simplify the previous example:
+This is quite tedious and error prone, so there's an alternative representation of function types, `Fn0` up to `Fn10` available from the module `Data.Function` (from [`purescript-functions`](https://github.com/purescript/purescript-functions)). Making use of these types allows us to greatly simplify the previous example:
 
 ```purescript
 module Path where
