@@ -1,1 +1,1 @@
-You have a bad FFI file, have a look at how to define them: https://github.com/purescript/purescript/wiki/Language-Guide:-FFI
+You have a bad FFI file; have a look at how to define them: http://www.purescript.org/learn/ffi/#foreign-modules
