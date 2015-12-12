@@ -14,7 +14,46 @@ Consequentially, `psci` requires a specific library to be installed in order to 
 
 In addition, `psci` has no expected source file paths hardcoded in, and so it needs to be told where to load PureScript source files from. This can be done by writing a `.psci` file.
 
-However, normally, you won't need to worry about these things. Most people use tools which take care of these things for you, such as `pulp`. For help getting started with a development environment, see [this guide](http://www.purescript.org/learn/getting-started/).
+However, normally, you won't need to worry about these things. Most people use tools which take care of these things for you, such as `pulp`. Here's an example of how to use `pulp` to start up a working `psci`:
+
+```bash
+# Install pulp
+npm install -g pulp
+# Enter an empty folder
+cd path/to/my/project
+# Initialize a pulp environment
+pulp init
+# Install the purescript-console package
+pulp dep -i purescript-console --save
+# Fire up the interpreter psci
+psci
+```
+
+Then psci will be able to print to the screen, and you can do so directly by importing `Control.Monad.Eff.Console` and calling `log`. Note that you have to `import Prelude` if you want to be able to use functions like `(+)`.
+
+```
+ ____                 ____            _       _
+|  _ \ _   _ _ __ ___/ ___|  ___ _ __(_)_ __ | |_
+| |_) | | | | '__/ _ \___ \ / __| '__| | '_ \| __|
+|  __/| |_| | | |  __/___) | (__| |  | | |_) | |_
+|_|    \__,_|_|  \___|____/ \___|_|  |_| .__/ \__|
+                                       |_|
+
+:? shows help
+> "hello"
+"hello"
+
+> import Prelude
+> 1 + 2 * 3
+7
+
+> import Control.Monad.Eff.Console
+> log "print this to the screen"
+print this to the screen
+unit
+```
+
+For more information about getting started with a development environment, see [this guide](http://www.purescript.org/learn/getting-started/).
 
 ## Basic usage
 
