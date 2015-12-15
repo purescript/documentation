@@ -24,7 +24,7 @@ cd path/to/my/project
 # Initialize a pulp environment
 pulp init
 # Install the purescript-console package
-pulp dep -i purescript-console --save
+pulp dep i purescript-console --save
 # Fire up the interpreter psci
 psci
 ```
