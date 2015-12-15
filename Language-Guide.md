@@ -1,3 +1,75 @@
+## Table of Contents
+
+-   Hello, PureScript!
+-   Another Example
+-   Types
+    -   Primitive Types
+    -   Integers
+    -   Arrays
+    -   Records
+    -   Tagged Unions
+    -   Newtypes
+    -   Functions
+    -   Polymorphic Types
+    -   Row Polymorphism
+    -   Rank N Types
+    -   Rows
+    -   Type Synonyms
+    -   Constrained Types
+    -   Type Annotations
+    -   Kind System
+    -   Row Kinds
+    -   Quantification
+-   Syntax
+    -   Whitespace Rules
+    -   Comments
+    -   Top-level declarations
+    -   Function application
+-   Values
+    -   Numbers
+    -   Strings
+    -   Booleans
+    -   Functions
+    -   Arrays
+    -   Records
+    -   Property Accessors
+    -   Record Updates
+    -   Operators
+    -   Unary operators
+    -   Binary operators
+    -   Operators as values
+    -   Operator sections
+    -   Functions as operators
+    -   User-defined operators
+    -   If-Then-Else expressions
+    -   Let and where bindings
+    -   Do notation
+-   Type Classes
+    -   Superclasses
+    -   Type Annotations
+-   Pattern Matching
+    -   Wildcard Patterns
+    -   Literal Patterns
+    -   Variable Patterns
+    -   Array Patterns
+    -   Constructor patterns
+    -   Record Patterns
+    -   Nested Patterns
+    -   Named Patterns
+    -   Guards
+-   Modules
+    -   Importing Modules
+    -   Qualified Imports
+    -   Module Exports
+-   FFI
+    -   Importing Values
+    -   Importing Types
+-   Records
+    -   Kinds
+    -   Extending Records
+    -   Wildcards
+    -   Record Update
+
 ## Hello, PureScript!
 
 As an introductory example, here is the usual "Hello World" written in PureScript:
