@@ -19,14 +19,15 @@ However, normally, you won't need to worry about these things. Most people use t
 ```bash
 # Install pulp
 npm install -g pulp
+
 # Enter an empty folder
 cd path/to/my/project
+
 # Initialize a pulp environment
 pulp init
-# Install the purescript-console package
-pulp dep i purescript-console --save
+
 # Fire up the interpreter psci
-psci
+pulp psci
 ```
 
 Then psci will be able to print to the screen, and you can do so directly by importing `Control.Monad.Eff.Console` and calling `log`. Note that you have to `import Prelude` if you want to be able to use functions like `(+)`.
