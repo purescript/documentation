@@ -18,7 +18,7 @@ A possible fix is to add an instance for the relevant type. Following from the e
 "Foo"
 ```
 
-This error can also arise as a result of #202: currently, the compiler cannot infer type class constraints. That means that the following will not work:
+This error can also arise as a result of [#202](https://github.com/purescript/purescript/issues/202): currently, the compiler cannot infer type class constraints. That means that the following will not work:
 
 ```purescript
 myAdd x y = x + y
