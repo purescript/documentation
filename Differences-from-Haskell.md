@@ -24,13 +24,13 @@ length :: [a] -> Int
 
 In PureScript this will fail with the error `Type variable a is undefined`. The PureScript equivalent is:
 
-``` haskell
+``` purescript
 length :: forall a. Array a -> Number
 ```
 
 A `forall` can declare multiple type variables at once, and should appear before typeclass constraints:
 
-``` haskell
+``` purescript
 ap :: forall m a b. (Monad m) => m (a -> b) -> m a -> m b
 ```
 
@@ -58,7 +58,7 @@ main :: IO ()
 
 This doesn't tell us much specifically about what `main` might do. In PureScript the type may be something like this:
 
-``` haskell
+``` purescript
 main :: forall e. Eff (fs :: FS, trace :: Trace, process :: Process | e) Unit
 ```
 
@@ -70,7 +70,7 @@ For more details about using Eff, how it works, and how to define your own side 
 
 PureScript can encode JavaScript-style objects directly by using row types, so Haskell-style record definitions actually have quite a different meaning in PureScript:
 
-``` haskell
+``` purescript
 data Point = Point { x :: Number, y :: Number }
 ```
 
@@ -84,41 +84,41 @@ y :: Point -> Number
 
 However in PureScript this only introduces a `Point` constructor that accepts an object type. In fact, often we might not need a data constructor at all when using object types:
 
-``` haskell
+``` purescript
 type PointRec = { x :: Number, y :: Number }
 ```
 
 Objects are constructed with syntax similar to that of JavaScript (and the type definition):
 
-``` haskell
+``` purescript
 origin :: PointRec 
 origin = { x: 0, y: 0 }
 ```
 
 And instead of introducing `x` and `y` accessor functions, `x` and `y` can be read like JavaScript properties:
 
-``` haskell
+``` purescript
 originX :: Number
 originX  = origin.x
 ```
 
 PureScript also provides a record update syntax similar to Haskell's:
 
-``` haskell
+``` purescript
 setX :: Number -> PointRec -> PointRec 
 setX val point = point { x = val }
 ```
 
 A common mistake to look out for is when writing a function that accepts a data type like the original `Point` above, is that the object is still wrapped inside `Point` so something like this will fail:
 
-``` haskell
+``` purescript
 showPoint :: Point -> String
 showPoint p = show p.x ++ ", " ++ show p.y
 ```
 
 Instead we need to destructure `Point` to get at the object:
 
-``` haskell
+``` purescript
 showPoint :: Point -> String
 showPoint (Point obj) = show obj.x ++ ", " ++ show obj.y
 ```
@@ -189,7 +189,7 @@ Unlike in Haskell (with `+XNoMonomorphismRestriction`), PureScript will not infe
 
 In practice, this can lead to some potentially-confusing type errors. For example, a beginner might expect the following code to type check:
 
-```haskell
+```purescript
 square x = x * x
 ```
 
@@ -202,7 +202,7 @@ No instance found for Prelude.Num _1
 
 Here, `_1` is an unknown type. To solve this problem, we can give the intended type for `square`:
 
-```haskell
+```purescript
 square :: Number -> Number
 square x = x * x
 ```
@@ -213,7 +213,7 @@ This restriction can result in unexpected errors for many of the overloaded oper
 
 PureScript does not provide special syntax for array comprehensions. Instead, use `do`-notation. The `guard` function from the `Control.MonadPlus` module in `purescript-control` can be used to filter results:
 
-```haskell
+```purescript
 import Data.Array
 import Data.Tuple
 
@@ -249,7 +249,7 @@ f $ x = f x
 
 In PureScript, the operator must be named with parentheses:
 
-```haskell
+```purescript
 ($) f x = f x
 ```
 
