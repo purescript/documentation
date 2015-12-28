@@ -1,6 +1,8 @@
 ## Editors
 
-- Atom - [darinmorrison/atom-language-purescript](https://github.com/darinmorrison/atom-language-purescript)
+- Atom 
+  - [purescript-contrib/atom-language-purescript](https://github.com/purescript-contrib/atom-language-purescript) provides syntax highlighting
+  - [nwolverson/atom-ide-purescript](https://github.com/nwolverson/atom-ide-purescript) provides build support,   REPL, and autocomplete etc. via [kRITZCREEK/psc-ide](https://github.com/kRITZCREEK/psc-ide)
 - Emacs
   - [dysinger/purescript-mode](https://github.com/dysinger/purescript-mode) was adapted from haskell-mode
   - [emacs-pe/purescript-mode](https://github.com/emacs-pe/purescript-mode) is an alpha-stage greenfield mode
