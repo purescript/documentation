@@ -26,6 +26,7 @@
 - [Gulp task](https://github.com/purescript-contrib/gulp-purescript) (`gulp-purescript` in `npm`)
 - [psvm-js](https://github.com/ThomasCrvsr/psvm-js) - PureScript Version Manager
 - [purs-loader](https://github.com/ethul/purs-loader/) - PureScript loader for WebPack
+- [psc-pane](https://github.com/anttih/psc-pane) - Auto reloading compiler which formats a single error to fit the window
 
 ## Wish List
 
