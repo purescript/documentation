@@ -47,6 +47,35 @@ main' addToDOM = do
     return unit
 ```
 
+the error:
+
+```
+  at Broken1.purs line 34, column 19 - line 36, column 5
+
+    Could not match type
+
+      a2
+
+    with type
+
+      a1
+
+
+  while trying to match type a2
+    with type a1
+  while checking that expression driver
+    has type Query a1 -> Aff ( avar :: AVAR
+                             , err :: EXCEPTION
+                             , dom :: DOM
+                             | eff1
+                             )
+                         a1
+  in value declaration main'
+
+  See https://github.com/purescript/purescript/wiki/Error-Code-TypesDoNotUnify for more information,
+  or to contribute content related to this error.
+```
+
 If I omit the type signature for `driver'`, things are fine.  If I ask `psc` for a signature, I will get roughly the same one (except for type synonym replacement and anonymous variable renamings), and if I cut&paste that into the code, I get the same error again.
 
 Any help appreciated!  Hope it's ok to abuse these pages for support requests.  (-:
