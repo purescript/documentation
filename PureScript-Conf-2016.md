@@ -9,7 +9,7 @@ _Location and time TBD_
 ## Instructions for Attendees
 
 - Install the PureScript compiler for your operating system (usually just `npm install -g pulp purescript`)
-- Make sure `psc` and `psc-make` are on your PATH and that you can use `pulp` to build an empty project.
+- Make sure `psc` and `pulp` are on your PATH and that you can use `pulp` to build an empty project.
 
 ## Speakers/Schedule
 
