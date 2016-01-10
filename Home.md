@@ -58,5 +58,5 @@ The [PureScript Book](https://leanpub.com/purescript/read) is the recommended ap
 ## TL;DR
 * [Install PureScript](http://www.purescript.org/download/)
 * [Install Node.js](https://nodejs.org/): `brew install node`/`pacman -S nodejs`/`choco install nodejs`/[Download Node.js](https://nodejs.org/)
-* [Install Pulp](https://github.com/bodil/pulp): `npm install -g pulp`
+* [Install Pulp](https://github.com/bodil/pulp): `npm install -g pulp bower`
 * GO: `pulp init`, `pulp dep install purescript-tuples`, `pulp build --to output.js`, etc.
