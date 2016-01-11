@@ -2,9 +2,9 @@ PureScript Conf is a _free_, one-day conference concentrating on the PureScript 
 
 ## When and Where?
 
-PureScript Conf will be colocated with [LambdaConf 2016](http://lambdaconf.us).
+PureScript Conf will be colocated with [LambdaConf 2016](http://lambdaconf.us). It will be held _before_ LambdaConf, on Wednesday 25th May.
 
-_Location and time TBD_
+_Location TBD_
 
 ## Instructions for Attendees
 
