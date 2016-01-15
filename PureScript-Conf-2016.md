@@ -21,6 +21,12 @@ _Location TBD_
 
 Let's discuss the interesting developments over the past year, the current state of PureScript, and plans for the future.
 
+### Teaching PureScript for JavaScript-ers
+
+**@AppShipIt**
+
+Applying experience from Elm to make PureScript less intimidating to newcomers by deferring perceived incidental complexity.
+
 ### Call for Speakers
 
 _Anyone_ who would like to present a topic related to PureScript development is more than welcome to do so. Any level of experience is appropriate, although we would like to encourage speakers to prepare something appropriate for a beginner-level audience. If you have a topic, please add the title and a brief description above.
@@ -54,6 +60,7 @@ _Add your name below_
 - Gary Burgess (@garyb)
 - Beau Lyddon (@lyddonb)
 - David Koontz (@dkoontz)
+- Texas Toland (@AppShipIt)
 
 ## Code of Conduct
 
