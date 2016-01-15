@@ -25,6 +25,24 @@ Let's discuss the interesting developments over the past year, the current state
 
 _Anyone_ who would like to present a topic related to PureScript development is more than welcome to do so. Any level of experience is appropriate, although we would like to encourage speakers to prepare something appropriate for a beginner-level audience. If you have a topic, please add the title and a brief description above.
 
+#### Suggested Presentations
+
+- PureScript on Node/iOS/Android/AWS/_insert platform here_
+- Haskell and PureScript interop
+- Build a game with PureScript
+- Build a parser with PureScript
+- Build a webapp with Halogen/Thermite/OpticUI/other
+- HTML5 Canvas with PureScript
+- Intro to PureScript compiler internals
+- Build an interpreter/compiler in PureScript
+- PureScript for commercial applications
+- PureScript vs Language X
+- Building the PureScript community
+- PureScript as a teaching language
+- _Anything else_
+
+#purescript IRC is a great place to discuss presentation ideas if you're unsure. 
+
 ## Attendees
 
 _Add your name below_
