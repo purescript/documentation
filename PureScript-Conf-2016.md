@@ -41,7 +41,7 @@ _Anyone_ who would like to present a topic related to PureScript development is 
 - PureScript as a teaching language
 - _Anything else_
 
-#purescript IRC is a great place to discuss presentation ideas if you're unsure. 
+\#purescript IRC is a great place to discuss presentation ideas if you're unsure. 
 
 ## Attendees
 
