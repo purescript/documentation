@@ -61,6 +61,7 @@ _Add your name below_
 - Beau Lyddon (@lyddonb)
 - David Koontz (@dkoontz)
 - Texas Toland (@AppShipIt)
+- Jake Brownson
 
 ## Code of Conduct
 
