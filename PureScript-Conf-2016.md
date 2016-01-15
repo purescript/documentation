@@ -54,3 +54,7 @@ _Add your name below_
 - Gary Burgess (@garyb)
 - Beau Lyddon (@lyddonb)
 - David Koontz (@dkoontz)
+
+## Code of Conduct
+
+PureScript Conf assumes the same code of conduct as [LambdaConf](http://lambdaconf.us).
