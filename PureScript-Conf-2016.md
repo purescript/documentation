@@ -62,6 +62,7 @@ _Add your name below_
 - David Koontz (@dkoontz)
 - Texas Toland (@AppShipIt)
 - Jake Brownson
+- Andy Arvanitis
 
 ## Code of Conduct
 
