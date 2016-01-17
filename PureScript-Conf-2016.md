@@ -25,7 +25,7 @@ Let's discuss the interesting developments over the past year, the current state
 
 **@AppShipIt**
 
-Applying experience from Elm to make PureScript less intimidating to newcomers by deferring perceived incidental complexity.
+Adapting Elm's pedagogical philosophy to make PureScript less intimidating to newcomers by deferring perceived sources of incidental complexity in an intrinsically simple language.
 
 ### Call for Speakers
 
