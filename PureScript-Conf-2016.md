@@ -25,7 +25,7 @@ Let's discuss the interesting developments over the past year, the current state
 
 **@AppShipIt**
 
-Adapting [Elm's pedagogical philosophy](https://youtu.be/oYk8CKH7OhE) to make PureScript less intimidating to newcomers by deferring perceived sources I perceive as [_accidentally_ complex](https://en.wikipedia.org/wiki/No_Silver_Bullet) in an _essentially_ [simple](https://github.com/matthiasn/talk-transcripts/blob/master/Hickey_Rich/SimpleMadeEasy.md) language.
+Adapting [Elm's pedagogical philosophy](https://youtu.be/oYk8CKH7OhE) to make PureScript less intimidating to newcomers by deferring potential sources of [_accidental_ complexity](https://en.wikipedia.org/wiki/No_Silver_Bullet) in an _essentially_ [simple](https://github.com/matthiasn/talk-transcripts/blob/master/Hickey_Rich/SimpleMadeEasy.md) language.
 
 ### Call for Speakers
 
