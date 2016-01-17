@@ -36,6 +36,12 @@ The first version of PureScript was released in September 2013 by Phil Freeman. 
 
 Ascending by date:
 
+### Academic Papers
+
+| Date | Author | Context | Link |
+|--:|---|---|---|
+| Jun 12, 2015 | Michal Srb | Imperial College London | [Haskell-Like S-Expression-Based Language Designed for an IDE](http://www.doc.ic.ac.uk/teaching/distinguished-projects/2015/m.srb.pdf) |
+
 ### Conference Videos
 
 | Date | Author | Context | Link |
