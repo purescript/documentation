@@ -21,7 +21,7 @@ _Location TBD_
 
 Let's discuss the interesting developments over the past year, the current state of PureScript, and plans for the future.
 
-### Teaching PureScript for JavaScript-ers
+### How to Teach PureScript to JavaScript-ers
 
 **@AppShipIt**
 
