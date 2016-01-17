@@ -32,7 +32,7 @@ The first version of PureScript was released in September 2013 by Phil Freeman. 
 
 ## Syntax
 
-## Wikipedia Sources
+## [Notable Sources](https://en.wikipedia.org/wiki/Wikipedia:Notability#General_notability_guideline)
 
 Ascending by date:
 
