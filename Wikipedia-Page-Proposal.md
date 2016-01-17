@@ -38,13 +38,19 @@ Ascending by date:
 
 ### Academic Papers
 
-| Date | Author | Context | Link |
+| Date | Individual | Group | Link |
 |--:|---|---|---|
 | Jun 12, 2015 | Michal Srb | Imperial College London | [Haskell-Like S-Expression-Based Language Designed for an IDE](http://www.doc.ic.ac.uk/teaching/distinguished-projects/2015/m.srb.pdf) |
 
+### News Articles
+
+| Date | Individual | Group | Link |
+|--:|---|---|---|
+| Sep 22, 2014 | Sergio De Simone | InfoQ | [PureScript: A Haskell-like Language that Compiles to JavaScript](http://www.infoq.com/news/2014/09/purescript-haskell-javascript) |
+
 ### Conference Videos
 
-| Date | Author | Context | Link |
+| Date | Individual | Group | Link |
 |--:|---|---|---|
 | Sep 21, 2014 | Bodil Stokke | Strange Loop | [PureScript (Maybe This Time We Get JavaScript Right)](https://youtu.be/yIlDBPiMb0o) |
 | Jul 9, 2015 | Bodil Stokke | PolyConf | [Post FRP Frontend Programming](https://youtu.be/X5YBsy6PaDw) |
