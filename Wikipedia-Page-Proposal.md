@@ -1,0 +1,1 @@
+PureScript is a purely functional programming language which compiles to Javascript.
