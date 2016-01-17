@@ -1,10 +1,30 @@
 PureScript is a purely functional programming language which compiles to Javascript.
 
-PureScript features strict evaluation, row polymorphism, and an expressive type system.
+PureScript uses strict evaluation, and provides an expressive type system featuring higher-kinded polymorphism, type classes, row polymorphism and rank N types.
 
 The first version of PureScript was released in September 2013 by Phil Freeman. As of January 2016, the project has over 60 contributors on GitHub.
 
 ## Features
+
+### Type System
+
+#### Algebraic Data Types
+
+#### Type Inference
+
+#### Type Classes
+
+#### Higher Kinded Types
+
+#### Rank-N types
+
+#### Extensible Records
+
+#### Extensible Effects
+
+#### Foreign Function Interface
+
+#### No Runtime
 
 ## History
 
