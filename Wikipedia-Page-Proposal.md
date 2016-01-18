@@ -10,17 +10,47 @@ The first version of PureScript was released in September 2013 by Phil Freeman. 
 
 #### Algebraic Data Types
 
+PureScript features _algebraic data types_, using a syntax similar to that of Haskell:
+
+```purescript
+data List a = Nil | Cons a (List a)
+```
+
 #### Type Inference
+
+PureScript types are _inferred_ by the compiler, based on the types of subexpressions. For example:
+
+```purescript
+map f Nil = Nil
+map f (Cons x xs) = Cons (f x) (map f xs)
+```
+
+Here, the type of `f` does not need to be specified. PureScript will infer the correct type `forall a b. (a -> b) -> List a -> List b`.
+
+The PureScript compiler provides warnings when type signatures are not provided on top-level declarations, encouraging users to provide types as a form of documentation.
 
 #### Type Classes
 
-#### Higher Kinded Types
+PureScript supports type classes using a dictionary-passing transformation. 
+
+For example, a type class for types with decidable equality is defined in the Prelude library:
+
+```purescript
+class Eq a where
+  eq :: a -> a -> Bool
+```
+
+PureScript functions which are constrained by the `Eq` class are compiled to JavaScript functions, with an additional function argument which carries the `Eq` implementation as an object.
+
+#### Higher-Kinded Types
 
 #### Rank-N Types
 
 #### Extensible Records
 
 #### Extensible Effects
+
+#### Generic Programming
 
 ### Foreign Function Interface
 
