@@ -54,9 +54,14 @@ class Eq a where
 
 PureScript functions which are constrained by the `Eq` class are compiled to JavaScript functions, with an additional function argument which carries the `Eq` implementation as an object.
 
-#### Higher-Kinded Types
+Type class instances are named in PureScript, using a double colon to separate an instance name from the instance head, as in a type declaration:
 
-#### Rank-N Types
+```purescript
+instance eqList :: Eq a => Eq (List a) where
+  eq Nil         Nil         = true
+  eq (Cons x xs) (Cons y ys) = x == y && xs == ys
+  eq _           _           = false
+```
 
 #### Extensible Records
 
