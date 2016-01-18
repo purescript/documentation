@@ -4,6 +4,18 @@ PureScript uses strict evaluation, and provides an expressive type system featur
 
 The first version of PureScript was released in September 2013 by Phil Freeman. As of January 2016, the project has over 60 contributors on GitHub. PureScript took part in the 2015 Google Summer of Code.
 
+## Examples
+
+### Hello World
+
+```purescript
+module Main where
+
+import Control.Monad.Eff.Console (log)
+
+main = log "Hello, World!"
+```
+
 ## Features
 
 ### Type System
