@@ -36,17 +36,30 @@ The first version of PureScript was released in September 2013 by Phil Freeman. 
 
 Ascending by date:
 
-### Academic Papers
+### First-Party
+
+- [Homepage](http://www.purescript.org)
+- [Compiler repository](https://github.com/purescript/purescript)
+- [Pursuit package search](http://pursuit.purescript.org)
+- [eBook](https://leanpub.com/purescript)
+- [Community Wiki](https://github.com/purescript/purescript/wiki)
+- [Google Group](https://groups.google.com/group/purescript)
+
+### Academic
 
 | Date | Individual | Group | Link |
 |--:|---|---|---|
+| Apr 28, 2015 | Harry Garrood | Google Summer of Code | [Pursuit enhancements](https://www.google-melange.com/gsoc/project/details/google/gsoc2015/hdgarrood/5717271485874176) |
+| Apr 28, 2015 | Nicolas Del Piano | Google Summer of Code | [Exhaustiveness Checker for PureScript](https://www.google-melange.com/gsoc/project/details/google/gsoc2015/ndelpiano/5685265389584384) |
 | Jun 12, 2015 | Michal Srb | Imperial College London | [Haskell-Like S-Expression-Based Language Designed for an IDE](http://www.doc.ic.ac.uk/teaching/distinguished-projects/2015/m.srb.pdf) |
 
-### News Articles
+### News
 
 | Date | Individual | Group | Link |
 |--:|---|---|---|
 | Sep 22, 2014 | Sergio De Simone | InfoQ | [PureScript: A Haskell-like Language that Compiles to JavaScript](http://www.infoq.com/news/2014/09/purescript-haskell-javascript) |
+| Sep 15, 2015 | Steven Proctor | Functional Geekery | [Episode 26](https://www.functionalgeekery.com/episode-26-phil-freeman/) |
+| Dec 9, 2015 | Joe Eames | JavaScript Jabber | [PureScript with John A. De Goes and Phil Freeman](https://devchat.tv/js-jabber/189-jsj-purescript-with-john-a-de-goes-and-phil-freeman) |
 
 ### Conference Videos
 
