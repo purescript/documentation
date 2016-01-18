@@ -65,9 +65,30 @@ instance eqList :: Eq a => Eq (List a) where
 
 #### Extensible Records
 
+PureScript represents records using Javascript objects at runtime, and implements _extensible records_ using row polymorphism.
+
+For example, it is possible to write a PureScript function which extracts a `name` value from any record with a `name` property:
+
+```purescript
+getName rec = rec.name
+```
+
+PureScript will infer the following type for `getName`:
+
+```purescript
+getName :: forall r a. { name :: a | r } -> a
+getName rec = rec.name
+```
+
+The type signature indicates that not only the type of the `name` field, but also the _remaining fields_ in the record, are left polymorphic.
+
+Row polymorphism is also used to implement features such as record updates.
+
 #### Extensible Effects
 
-#### Generic Programming
+PureScript makes use of row polymorphism to implement its effect system.
+
+### Generic Programming
 
 ### Foreign Function Interface
 
@@ -76,8 +97,6 @@ instance eqList :: Eq a => Eq (List a) where
 ### Tools
 
 ## History
-
-## Syntax
 
 ## [Notable Sources](https://en.wikipedia.org/wiki/Wikipedia:Notability#General_notability_guideline)
 
