@@ -34,8 +34,6 @@ The first version of PureScript was released in September 2013 by Phil Freeman. 
 
 ## [Notable Sources](https://en.wikipedia.org/wiki/Wikipedia:Notability#General_notability_guideline)
 
-Ascending by date:
-
 ### First-Party
 
 - [Homepage](http://www.purescript.org)
@@ -44,6 +42,8 @@ Ascending by date:
 - [eBook](https://leanpub.com/purescript)
 - [Community Wiki](https://github.com/purescript/purescript/wiki)
 - [Google Group](https://groups.google.com/group/purescript)
+
+Ascending by date:
 
 ### Academic
 
