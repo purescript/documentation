@@ -2,7 +2,9 @@ PureScript is a purely functional programming language which compiles to Javascr
 
 PureScript uses strict evaluation, and provides an expressive type system featuring a kind system, type classes, row polymorphism and rank-N types.
 
-The first version of PureScript was released in September 2013 by Phil Freeman. As of January 2016, the project has over 60 contributors on GitHub. PureScript took part in the 2015 Google Summer of Code.
+The first version of PureScript was released in September 2013 by Phil Freeman. As of January 2016, the project has over 60 contributors on GitHub. PureScript took part in the 2015 Google Summer of Code. 
+
+[PureScript Conf 2015](https://github.com/purescript/purescript/wiki/PureScript-Conf-2015) was the first conference devoted to the PureScript language, with the [2016 edition](https://github.com/purescript/purescript/wiki/PureScript-Conf-2016) scheduled for May 2016. A [book](https://leanpub.com/purescript) on the language was released in 2015.
 
 ## Examples
 
