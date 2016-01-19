@@ -63,6 +63,7 @@ _Add your name below_
 - Texas Toland (@AppShipIt)
 - Jake Brownson
 - Andy Arvanitis (@andyarvanitis)
+- Maxim Zimaliev (@cryogenian)
 
 ## Code of Conduct
 
