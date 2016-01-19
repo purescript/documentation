@@ -121,7 +121,7 @@ A `Generic` instance can be used to implement data-type generic functionality su
 
 ### Foreign Function Interface
 
-PureScript is designed specifically with compilation to Javascript in mind, and the quality of the generated Javascript is cited as one of PureScript's design goals, and one of its strengths.
+PureScript is designed specifically with compilation to Javascript in mind, and its Javascript interoperability is cited as one of PureScript's design goals, and one of its strengths.
 
 Javascript functions can be used from PureScript by assigning types in `foreign import` declarations:
 
