@@ -88,11 +88,60 @@ Row polymorphism is also used to implement features such as record updates.
 
 #### Extensible Effects
 
-PureScript makes use of row polymorphism to implement its effect system.
+PureScript makes use of row polymorphism to implement its effect system. PureScript's core libraries define the `Eff` type constructor, which is used to represent effectful values. `Eff` is parameterized by a row of effect labels, and row polymorphism is used to combine computations which make use of different combinations of effects.
+
+For example, the PureScript compiler is able to infer the most general type of the following computation which makes use of the `RANDOM` and `CONSOLE` effects, even if the type signature is omitted:
+
+```purescript
+printRandom :: forall eff. Eff ( random :: RANDOM
+                               , console :: CONSOLE 
+                               | eff
+                               ) Unit
+printRandom = do
+  n <- random
+  print n
+```
+
+Developers are able to define new effect types using the foreign function interface. It is possible to assert that a function only uses a specific set of effects by using a type signature.
 
 ### Generic Programming
 
+PureScript supports generic programming using type classes and _generic deriving_. The `Generic` type class can be defined for data types using the `derive` keyword:
+
+```purescript
+newtype Person = Person
+  { name :: String
+  , location :: String
+  }
+
+derive instance genericPerson :: Generic Person
+```
+
+A `Generic` instance can be used to implement data-type generic functionality such as equality testing, comparison, pretty-printing, and JSON serialization and deserialization.
+
 ### Foreign Function Interface
+
+PureScript is designed specifically with compilation to Javascript in mind, and the quality of the generated Javascript is cited as one of PureScript's design goals, and one of its strengths.
+
+Javascript functions can be used from PureScript by assigning types in `foreign import` declarations:
+
+```purescript
+module FFI.Example where
+
+foreign import shout :: String -> String
+```
+
+Every module has an optional companion CommonJS module which contains its foreign function implementations. For example, the function defined above might be defined in a CommonJS module as follows:
+
+```javascript
+// module FFI.Example
+
+exports.shout = function(s) {
+    return s + "!";
+};
+```
+
+Conversely, PureScript functions and values can be used from Javascript, since PureScript compiles to CommonJS modules. Developers of new foreign types are expected to document the representation of those types in Javascript.
 
 ### Code Generation
 
