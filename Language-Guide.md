@@ -361,6 +361,27 @@ Multi-line comments are enclosed in `{-` and `-}`. These can be nested:
 -}
 ```
 
+Comments that start with a pipe character, `|`, are considered documentation, and will appear in the output of tools like `psc-docs` and Pursuit. For example:
+
+``` purescript
+-- | `bool` performs case analysis for the `Boolean` data type, like an `if` statement.
+bool :: forall a. Boolean -> a -> a -> a
+bool true x _ = x
+bool false _ x = x
+```
+
+Note that, unlike Haskell, every line which should be considered documentation must start with a pipe. This allows you to do things like:
+
+``` purescript
+-- | Sort an array based on its `Ord` instance.
+-- |
+-- | This implementation runs in `O(n^2)` time, where `n` is the length of the
+-- | input array.
+-- TODO: try to optimise this?
+sort :: forall a. (Ord a) => Array a -> Array a
+sort xs = [...]
+```
+
 ## Top-level declarations
 
 Values at the top level of a module are defined by providing a name followed by an equals sign and then the value to associate:
