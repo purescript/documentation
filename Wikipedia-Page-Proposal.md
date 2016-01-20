@@ -162,7 +162,7 @@ Conversely, PureScript functions and values can be used from Javascript, since P
 
 ### Popular Libraries
 
-Descending by rating (> 100 stars)
+Descending by rating (>100 stars)
 
 - [Halogen](https://github.com/slamdata/purescript-halogen)
 - [Pulp](https://github.com/bodil/pulp)
@@ -180,6 +180,7 @@ Ascending by date:
 | Apr 28, 2015 | Harry Garrood | Google Summer of Code | [Pursuit enhancements](https://www.google-melange.com/gsoc/project/details/google/gsoc2015/hdgarrood/5717271485874176) |
 | Apr 28, 2015 | Nicolas Del Piano | Google Summer of Code | [Exhaustiveness Checker for PureScript](https://www.google-melange.com/gsoc/project/details/google/gsoc2015/ndelpiano/5685265389584384) |
 | Jun 12, 2015 | Michal Srb | Imperial College London | [Haskell-Like S-Expression-Based Language Designed for an IDE](http://www.doc.ic.ac.uk/teaching/distinguished-projects/2015/m.srb.pdf) |
+| Aug 8, 2015 | Phil Freeman | self-published | [Stack Safety for Free](http://functorial.com/stack-safety-for-free/index.pdf) |
 
 ### News
 
