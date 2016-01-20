@@ -280,7 +280,7 @@ Although note that these might have different behaviour to the Haskell versions 
 
 ## Documentation comments
 
-When writing documentation, the pipe character `|` must appear at the start of every comment line, not just the first. See [https://github.com/purescript/purescript/wiki/Language-Guide/#comments](the language guide) for more details.
+When writing documentation, the pipe character `|` must appear at the start of every comment line, not just the first. See [the Language Guide](https://github.com/purescript/purescript/wiki/Language-Guide/#comments) for more details.
 
 ## Where is ... from Haskell?
 
