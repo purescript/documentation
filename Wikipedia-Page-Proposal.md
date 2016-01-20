@@ -160,6 +160,17 @@ Conversely, PureScript functions and values can be used from Javascript, since P
 - [Community Wiki](https://github.com/purescript/purescript/wiki)
 - [Google Group](https://groups.google.com/group/purescript)
 
+### Popular Libraries
+
+Descending by rating (> 100 stars)
+
+- [Halogen](https://github.com/slamdata/purescript-halogen)
+- [Pulp](https://github.com/bodil/pulp)
+- [React bindings](https://github.com/purescript-contrib/purescript-react)
+- [Signal](https://github.com/bodil/purescript-signal)
+- [Thermite](https://github.com/paf31/purescript-thermite)
+
+---
 Ascending by date:
 
 ### Academic
