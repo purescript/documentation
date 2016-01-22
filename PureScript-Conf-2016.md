@@ -64,6 +64,7 @@ _Add your name below_
 - Jake Brownson
 - Andy Arvanitis (@andyarvanitis)
 - Maxim Zimaliev (@cryogenian)
+- Kris Nuttycombe (@nuttycom)
 
 ## Code of Conduct
 
