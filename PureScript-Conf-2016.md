@@ -65,6 +65,7 @@ _Add your name below_
 - Andy Arvanitis (@andyarvanitis)
 - Maxim Zimaliev (@cryogenian)
 - Kris Nuttycombe (@nuttycom)
+- Robert Kluin (@robertkluin)
 
 ## Code of Conduct
 
