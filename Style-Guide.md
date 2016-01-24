@@ -19,7 +19,7 @@ The PureScript core libraries are good examples of how to put these guidelines i
 
 - Include tests with your project, so that contributors can easily verify their changes.
 - PureScript has several excellent testing libraries, which you can take advantage of:
-  - [`purescript-test-unit`](https://github.com/bodil/purescript-test-unit) (not yet updated for 0.7)
+  - [`purescript-test-unit`](https://github.com/bodil/purescript-test-unit)
   - [`purescript-featurespec`](https://github.com/joneshf/purescript-featurespec)
   - [`purescript-quickcheck`](https://github.com/purescript/purescript-quickcheck)
   - [`purescript-strongcheck`](https://github.com/purescript-contrib/purescript-strongcheck)
