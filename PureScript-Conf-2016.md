@@ -27,6 +27,12 @@ Let's discuss the interesting developments over the past year, the current state
 
 Adapting [Elm's pedagogical philosophy](https://youtu.be/oYk8CKH7OhE) to make PureScript less intimidating to newcomers by deferring potential sources of [_accidental_ complexity](https://en.wikipedia.org/wiki/No_Silver_Bullet) in an _essentially_ [simple](https://github.com/matthiasn/talk-transcripts/blob/master/Hickey_Rich/SimpleMadeEasy.md) language.
 
+### Integrating Purescript into a legacy Javascript codebase
+
+**@dkoontz**
+
+What happens when the miraculous occurs, you get the go ahead to use Purescript in your production app? What doesn't happen is that you stop, rewrite everything in Purescript, and then start again. This talk will cover the challenges and solutions developed while introducing Purescript into an Electron powered desktop application.
+
 ### Call for Speakers
 
 _Anyone_ who would like to present a topic related to PureScript development is more than welcome to do so. Any level of experience is appropriate, although we would like to encourage speakers to prepare something appropriate for a beginner-level audience. If you have a topic, please add the title and a brief description above.
