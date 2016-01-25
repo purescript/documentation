@@ -29,7 +29,7 @@ Adapting [Elm's pedagogical philosophy](https://youtu.be/oYk8CKH7OhE) to make Pu
 
 ### Integrating Purescript into a legacy Javascript codebase
 
-**@dkoontz**
+**@dkoontz** talk can be scaled from **30 minutes** to **1 hour**
 
 What happens when the miraculous occurs, you get the go ahead to use Purescript in your production app? What doesn't happen is that you stop, rewrite everything in Purescript, and then start again. This talk will cover the challenges and solutions developed while introducing Purescript into an Electron powered desktop application.
 
