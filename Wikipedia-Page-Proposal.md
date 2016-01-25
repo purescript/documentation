@@ -145,9 +145,23 @@ Conversely, PureScript functions and values can be used from Javascript, since P
 
 ### Code Generation
 
+The PureScript compiler generates CommonJS modules by default, but can also bundle JavaScript modules for use in the browser, including the removal of unused code.
+
 ### Tools
 
+The PureScript compiler distribution includes tools for generating documentation in Markdown, Ctags and Etags formats, as well as a custom format which is used by the Pursuit package database.
+
+Plugins are available for many popular text editors, including Emacs, Vim, Atom, and Visual Studio Code, with features such as syntax highlighting, autocompletion, jump to error, and smart replace. The psc-ide project defines a JSON protocol so that editors can query program metadata in a standard way.
+
 ## History
+
+PureScript was created by Phil Freeman in 2013. The initial goal was to create a small language which could be used to create domain specific languages, using type system features which were unavailable in many other AltJS languages (algebraic data types, extensible records). Since then, the project focus has shifted, and PureScript is now a general-purpose language for client and server development.
+
+The PureScript compiler is currently maintained by Phil Freeman and Gary Burgess, with other contributors being responsible for large portions of the compiler distribution, such as the interactive mode PSCi and the documentation tools.
+
+The PureScript community maintains a collection of standard libraries, which aim for compatibility with the compiler.
+
+In 2015, PureScript took part in the Google Summer of Code program, resulting in two successful projects - a database of PureScript libraries and documentation with type-directed search, and the addition of an exhaustivity and redundancy analysis pass to the compiler.
 
 ## [Notable Sources](https://en.wikipedia.org/wiki/Wikipedia:Notability#General_notability_guideline)
 
