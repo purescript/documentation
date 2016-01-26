@@ -211,6 +211,7 @@ Ascending by date:
 | Sep 21, 2014 | Bodil Stokke | Strange Loop | [PureScript (Maybe This Time We Get JavaScript Right)](https://youtu.be/yIlDBPiMb0o) |
 | Jul 9, 2015 | Bodil Stokke | PolyConf | [Post FRP Frontend Programming](https://youtu.be/X5YBsy6PaDw) |
 | Jul 20, 2015 | Boros Márton | Open Academy | [PureScript: the solution to the problem Javascript](https://youtu.be/WjlYD7HreAE) |
+| Jul, 2015 | Tim Docker | FP-Syd | [PureScript: An Overview for Haskellers by Tim Docker](https://www.youtube.com/watch?v=udg01o2M4iY) 
 | Oct 8, 2015 | Vagmi Mudumbai | FnConf | [Pure functional programming in your browser & server with PureScript](https://youtu.be/fb44xcwHx0U) |
 | Oct 17, 2015 | Michael Ficarra | Lambda Jam | [Getting Started With Purescript](https://youtu.be/OdenKPwSPss) |
 | Oct 22, 2015 | Taylor Fausak | OrgSync| [Better know a language: PureScript](https://youtu.be/4bAYr90dkls) |
