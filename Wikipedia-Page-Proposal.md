@@ -213,7 +213,8 @@ Ascending by date:
 | Jul 20, 2015 | Boros Márton | Open Academy | [PureScript: the solution to the problem Javascript](https://youtu.be/WjlYD7HreAE) |
 | Oct 8, 2015 | Vagmi Mudumbai | FnConf | [Pure functional programming in your browser & server with PureScript](https://youtu.be/fb44xcwHx0U) |
 | Oct 17, 2015 | Michael Ficarra | Lambda Jam | [Getting Started With Purescript](https://youtu.be/OdenKPwSPss) |
+| Oct 22, 2015 | Taylor Fausak | OrgSync| [Better know a language: PureScript](https://youtu.be/4bAYr90dkls) |
+| Oct 24, 2015 | Luis A. Vicente | Lambda World | [Purify your Lambdas](https://youtu.be/bsKEAF2FCME) |
+| Nov 19, 2015 | Michael Trotter | Utah Haskell Meetup| [Intro to PureScript](https://youtu.be/9a57V3bvzaI) |
 | Dec 30, 2015 | John De Goes | LambdaConf | [Learn Functional Programming with PureScript](https://youtu.be/LqYfdmb0eUU) |
 | Dec 30, 2015 | Phil Freeman | LambdaConf | [Purely Functional Web Apps using React and PureScript](https://youtu.be/qTYsxou0RE8) |
-| Nov 19, 2015 | Michael Trotter | Utah Haskell Meetup| [Intro to PureScript](https://youtu.be/9a57V3bvzaI) |
-| Oct 22, 2015 | Taylor Fausak | OrgSync| [Better know a language: PureScript](https://youtu.be/4bAYr90dkls) |
