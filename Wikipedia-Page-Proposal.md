@@ -218,4 +218,4 @@ Ascending by date:
 | Nov 19, 2015 | Michael Trotter | Utah Haskell Meetup| [Intro to PureScript](https://youtu.be/9a57V3bvzaI) |
 | Dec 30, 2015 | John De Goes | LambdaConf | [Learn Functional Programming with PureScript](https://youtu.be/LqYfdmb0eUU) |
 | Dec 30, 2015 | Phil Freeman | LambdaConf | [Purely Functional Web Apps using React and PureScript](https://youtu.be/qTYsxou0RE8) |
-| Jan 19, 2065 | Christoph Hegemann | f(by) | [PureScript – Fearless Programming for the Web](https://youtu.be/rigzJSI-FPA) |
+| Jan 19, 2016 | Christoph Hegemann | f(by) | [PureScript – Fearless Programming for the Web](https://youtu.be/rigzJSI-FPA) |
