@@ -215,3 +215,5 @@ Ascending by date:
 | Oct 17, 2015 | Michael Ficarra | Lambda Jam | [Getting Started With Purescript](https://youtu.be/OdenKPwSPss) |
 | Dec 30, 2015 | John De Goes | LambdaConf | [Learn Functional Programming with PureScript](https://youtu.be/LqYfdmb0eUU) |
 | Dec 30, 2015 | Phil Freeman | LambdaConf | [Purely Functional Web Apps using React and PureScript](https://youtu.be/qTYsxou0RE8) |
+| Nov 19, 2015 | Michael Trotter | Utah Haskell Meetup| [Intro to PureScript](https://youtu.be/9a57V3bvzaI) |
+| Oct 22, 2015 | Taylor Fausak | OrgSync| [Better know a language: PureScript](https://youtu.be/4bAYr90dkls) |
