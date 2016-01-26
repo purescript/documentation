@@ -74,6 +74,7 @@ _Add your name below_
 - Kris Nuttycombe (@nuttycom)
 - Robert Kluin (@robertkluin)
 - Michael Trotter (@spicydonuts)
+- Julia Gao (@ryoia)
 
 ## Code of Conduct
 
