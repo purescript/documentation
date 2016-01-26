@@ -73,6 +73,7 @@ _Add your name below_
 - Maxim Zimaliev (@cryogenian)
 - Kris Nuttycombe (@nuttycom)
 - Robert Kluin (@robertkluin)
+- Michael Trotter (@spicydonuts)
 
 ## Code of Conduct
 
