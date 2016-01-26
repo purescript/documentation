@@ -75,6 +75,7 @@ _Add your name below_
 - Robert Kluin (@robertkluin)
 - Michael Trotter (@spicydonuts)
 - Julia Gao (@ryoia)
+- Murphy Randle (@splodingsocks)
 
 ## Code of Conduct
 
