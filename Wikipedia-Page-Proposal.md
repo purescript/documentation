@@ -219,6 +219,9 @@ Ascending by date:
 | Dec 30, 2015 | Phil Freeman | LambdaConf | [Purely Functional Web Apps using React and PureScript](https://youtu.be/qTYsxou0RE8) |
 
 ### Meetup Videos
+
+Do not meet notability criteria:
+
 | Date | Individual | Group | Link |
 |--:|---|---|---|
 | Jul 22, 2015 | Tim Docker | FP-Syd | [PureScript: An Overview for Haskellers](https://youtu.be/udg01o2M4iY) 
