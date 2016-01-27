@@ -36,7 +36,6 @@ FFI bindings are a good source of project ideas, since we can build on the succe
 - Type-safe cookie library wrappers
 - Type-safe Indexed DB wrapper
 - Type-safe Koa.js server wrapper
-- Type-safe wrapper for [unicode-properties](https://github.com/devongovett/unicode-properties) (`isLetter`, `isLower`, `isUpper`, `isPunctuation`, ...)
 
 ### Data Structures & Algorithms
 
