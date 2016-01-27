@@ -174,7 +174,7 @@ In 2015, PureScript took part in the Google Summer of Code program, resulting in
 - [Community Wiki](https://github.com/purescript/purescript/wiki)
 - [Google Group](https://groups.google.com/group/purescript)
 
-### Popular Libraries
+### [Popular Libraries](https://github.com/search?l=&o=desc&q=language%3APureScript&s=stars)
 
 Descending by rating (>100 stars)
 
