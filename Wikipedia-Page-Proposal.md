@@ -217,6 +217,6 @@ Ascending by date:
 | Oct 22, 2015 | Taylor Fausak | OrgSync| [Better know a language: PureScript](https://youtu.be/4bAYr90dkls) |
 | Oct 24, 2015 | Luis A. Vicente | Lambda World | [Purify your Lambdas](https://youtu.be/bsKEAF2FCME) |
 | Nov 19, 2015 | Michael Trotter | Utah Haskell Meetup| [Intro to PureScript](https://youtu.be/9a57V3bvzaI) |
+| Nov 28, 2015 | Christoph Hegemann | f(by) | [PureScript – Fearless Programming for the Web](https://youtu.be/rigzJSI-FPA) |
 | Dec 30, 2015 | John De Goes | LambdaConf | [Learn Functional Programming with PureScript](https://youtu.be/LqYfdmb0eUU) |
 | Dec 30, 2015 | Phil Freeman | LambdaConf | [Purely Functional Web Apps using React and PureScript](https://youtu.be/qTYsxou0RE8) |
-| Jan 19, 2016 | Christoph Hegemann | f(by) | [PureScript – Fearless Programming for the Web](https://youtu.be/rigzJSI-FPA) |
