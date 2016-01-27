@@ -211,12 +211,16 @@ Ascending by date:
 | Sep 21, 2014 | Bodil Stokke | Strange Loop | [PureScript (Maybe This Time We Get JavaScript Right)](https://youtu.be/yIlDBPiMb0o) |
 | Jul 9, 2015 | Bodil Stokke | PolyConf | [Post FRP Frontend Programming](https://youtu.be/X5YBsy6PaDw) |
 | Jul 20, 2015 | Boros Márton | Open Academy | [PureScript: the solution to the problem Javascript](https://youtu.be/WjlYD7HreAE) |
-| Jul 22, 2015 | Tim Docker | FP-Syd | [PureScript: An Overview for Haskellers](https://youtu.be/udg01o2M4iY) 
 | Oct 8, 2015 | Vagmi Mudumbai | FnConf | [Pure functional programming in your browser & server with PureScript](https://youtu.be/fb44xcwHx0U) |
 | Oct 17, 2015 | Michael Ficarra | Lambda Jam | [Getting Started With Purescript](https://youtu.be/OdenKPwSPss) |
-| Oct 22, 2015 | Taylor Fausak | OrgSync| [Better know a language: PureScript](https://youtu.be/4bAYr90dkls) |
-| Oct 24, 2015 | Luis A. Vicente | Lambda World | [Purify your Lambdas](https://youtu.be/bsKEAF2FCME) |
-| Nov 19, 2015 | Michael Trotter | Utah Haskell Meetup| [Intro to PureScript](https://youtu.be/9a57V3bvzaI) |
+| Oct 24, 2015 | Luis Vicente | Lambda World | [Purify your Lambdas](https://youtu.be/bsKEAF2FCME) |
 | Nov 28, 2015 | Christoph Hegemann | f(by) | [PureScript – Fearless Programming for the Web](https://youtu.be/rigzJSI-FPA) |
 | Dec 30, 2015 | John De Goes | LambdaConf | [Learn Functional Programming with PureScript](https://youtu.be/LqYfdmb0eUU) |
 | Dec 30, 2015 | Phil Freeman | LambdaConf | [Purely Functional Web Apps using React and PureScript](https://youtu.be/qTYsxou0RE8) |
+
+### Meetup Videos
+| Date | Individual | Group | Link |
+|--:|---|---|---|
+| Jul 22, 2015 | Tim Docker | FP-Syd | [PureScript: An Overview for Haskellers](https://youtu.be/udg01o2M4iY) 
+| Oct 22, 2015 | Taylor Fausak | OrgSync Dev Lunch & Learn | [Better know a language: PureScript](https://youtu.be/4bAYr90dkls) |
+| Nov 19, 2015 | Michael Trotter | Utah Haskell Meetup | [Intro to PureScript](https://youtu.be/9a57V3bvzaI) |
