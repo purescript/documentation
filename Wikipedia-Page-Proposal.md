@@ -46,7 +46,7 @@ import Control.Monad.Eff.Console (log)
 main = log "Hello, World!"
 ```
 
-> I'd prefer two examples:
+> I'd prefer two examples (backed up in Gist for http://try.purescript.org):
 
 > 1. Simple HTML output (using either DOM or Thermite instead of console)
 > 2. Simple algorithm (like binary search, quick sort, or Fibonacci)
