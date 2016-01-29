@@ -1,38 +1,24 @@
-PureScript is a purely functional programming language which compiles to Javascript.
-
-PureScript uses strict evaluation, and provides an expressive type system featuring a kind system, type classes, row polymorphism and rank-N types.
-
-> Could we boil these two sentences down to one? Mention Haskell and highlight differentiators between it, Elm, and TypeScript.
-
-> @xixixao wrote:
->> PureScript is a strict (not lazy), Haskell-like language which strives to compile to readable JavaScript without having to provide a large runtime library.
-
-> My attempt (I'll add links in my draft on WP):
->> PureScript is a strict, purely functional, modular (no runtime dependency), programming language inspired by Haskell which compiles to readable JavaScript with a nominal foreign function interface.
-
-The first version of PureScript was released in September 2013 by Phil Freeman. As of January 2016, the project has over 60 contributors on GitHub. PureScript took part in the 2015 Google Summer of Code. 
-
-> 76 contributors not counting Prelude but let's avoid quantifying measures. They change over time but this is intended to be encyclopedic.
-
-[PureScript Conf 2015](https://github.com/purescript/purescript/wiki/PureScript-Conf-2015) was the first conference devoted to the PureScript language, with the [2016 edition](https://github.com/purescript/purescript/wiki/PureScript-Conf-2016) scheduled for May 2016. A [book](https://leanpub.com/purescript) on the language was released in 2015.
-
-> Merge the preceding paragraphs into [History](#history). They're redundant.
+PureScript is a strict, purely functional, modular (no runtime dependency), programming language inspired by Haskell which compiles to readable JavaScript with a nominal foreign function interface.
 
 ## History
 
-PureScript was created by Phil Freeman in 2013. The initial goal was to create a small language which could be used to create domain specific languages, using type system features which were unavailable in many other AltJS languages (algebraic data types, extensible records). Since then, the project focus has shifted, and PureScript is now a general-purpose language for client and server development.
+PureScript was created by Phil Freeman in 2013. _talk about making a language with Haskell type system features and ex. records, designed for compilation to JS_.
 
-> You'd did a much better job explaining on [JavaScript Jabber](#news). Could you adapt the transcript from there? For instance it's not clear what changed in design between DSLs and general-purpose. You also make no mention of positive language influences (TypeScript, Haskell, Adga, Elm?) which would provide valuable backlinks.
+> > The initial goal was to create a small language which could be used to create domain specific languages, using type system features which were unavailable in many other AltJS languages (algebraic data types, extensible records).
 
-The PureScript compiler is currently maintained by Phil Freeman and Gary Burgess, with other contributors being responsible for large portions of the compiler distribution, such as the interactive mode PSCi and the documentation tools.
+> You'd did a much better job explaining on [JavaScript Jabber](#news). Could you adapt the transcript from there? You also make no mention of positive language influences which would provide valuable backlinks.
 
-> I think tools should be delegated to its own section and say something like <q>with substantial contributions from dozens of community members including Harry Garrood.</q> We could alternatively mention him in Tools but @hdgarrood contributed as many LOC last year as @garb.
+The PureScript compiler and its standard libraries are currently maintained by Phil Freeman and Gary Burgess.
+
+> Historical note: first SlamData PS commit on May 9, 2014 (https://github.com/slamdata/slamdata-nodewebkit/commit/73e3c9d5710ebf21552699e6bbe87f412171aec8)
 
 The PureScript community maintains a collection of standard libraries, which aim for compatibility with the compiler.
 
 > You mentioned making this its own section. I can add it to Tools.
 
 In 2015, PureScript took part in the Google Summer of Code program, resulting in two successful projects - a database of PureScript libraries and documentation with type-directed search, and the addition of an exhaustivity and redundancy analysis pass to the compiler.
+
+[PureScript Conf 2015](https://github.com/purescript/purescript/wiki/PureScript-Conf-2015) was the first conference devoted to the PureScript language, with the [2016 edition](https://github.com/purescript/purescript/wiki/PureScript-Conf-2016) scheduled for May 2016. A [book](https://leanpub.com/purescript) on the language was released in 2015.
 
 ## Examples
 
@@ -180,11 +166,19 @@ Conversely, PureScript functions and values can be used from Javascript, since P
 
 The PureScript compiler generates CommonJS modules by default, but can also bundle JavaScript modules for use in the browser, including the removal of unused code.
 
-### Tools
+## Tools
 
 The PureScript compiler distribution includes tools for generating documentation in Markdown, Ctags and Etags formats, as well as a custom format which is used by the Pursuit package database.
 
 Plugins are available for many popular text editors, including Emacs, Vim, Atom, and Visual Studio Code, with features such as syntax highlighting, autocompletion, jump to error, and smart replace. The psc-ide project defines a JSON protocol so that editors can query program metadata in a standard way.
+
+### Pursuit
+
+Mention Harry Garrood
+
+### Pulp
+
+Mention Bodil
 
 ## [Notable Sources](https://en.wikipedia.org/wiki/Wikipedia:Notability#General_notability_guideline)
 
