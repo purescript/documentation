@@ -88,6 +88,7 @@ _Add your name below_
 - Michael Trotter (@spicydonuts)
 - Julia Gao (@ryoia)
 - Murphy Randle (@splodingsocks)
+- Michael Gilliland (@mjgpy3)
 
 ## Code of Conduct
 
