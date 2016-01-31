@@ -44,6 +44,12 @@ Halogen is a popular choice for building front-end user-interfaces with PureScri
 
 In this presentation, John presents a high-level summary of where Halogen has come from, how it works right now, and what some of the improvements we can expect to see before a proper 1.0 release of the library. While not a tutorial on how to use Halogen, you will gain some insight into some of the tradeoffs that Halogen makes, and why it might (or might not) be a good choice for your next front-end application.
 
+#### A reintroduction to the PureScript compiler internals
+
+**@garyb**
+
+It's been quite a while since Phil presented the [original compiler internals talk](https://www.youtube.com/watch?v=Y3P1dxqwFiE) and things have moved on a lot since then, so in this talk we'll dive back into the compiler and take a look at how it works.
+
 ### Call for Speakers
 
 Anyone who would like to present a topic related to PureScript development is more than welcome to do so. Any level of experience is appropriate, although we would like to encourage speakers to prepare something appropriate for a beginner-level audience. If you have a topic, please add the title and a brief description above. If you are unsure whether or not a topic is appropriate, please ask on Twitter or IRC, or see the suggestions below:
@@ -56,7 +62,6 @@ Anyone who would like to present a topic related to PureScript development is mo
 - Build a parser with PureScript
 - Build a webapp with Halogen/Thermite/OpticUI/other
 - HTML5 Canvas with PureScript
-- Intro to PureScript compiler internals
 - Build an interpreter/compiler in PureScript
 - PureScript for commercial applications
 - PureScript vs Language X
