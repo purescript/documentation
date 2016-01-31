@@ -23,8 +23,6 @@ _Location TBD_
 
 Let's discuss the interesting developments over the past year, the current state of PureScript, and plans for the future.
 
-### Proposed Talks
-
 #### How to Teach PureScript to JavaScript-ers
 
 **@AppShipIt**
@@ -46,9 +44,9 @@ Halogen is a popular choice for building front-end user-interfaces with PureScri
 
 In this presentation, John presents a high-level summary of where Halogen has come from, how it works right now, and what some of the improvements we can expect to see before a proper 1.0 release of the library. While not a tutorial on how to use Halogen, you will gain some insight into some of the tradeoffs that Halogen makes, and why it might (or might not) be a good choice for your next front-end application.
 
-#### Call for Speakers
+### Call for Speakers
 
-_Anyone_ who would like to present a topic related to PureScript development is more than welcome to do so. Any level of experience is appropriate, although we would like to encourage speakers to prepare something appropriate for a beginner-level audience. If you have a topic, please add the title and a brief description above.
+Anyone who would like to present a topic related to PureScript development is more than welcome to do so. Any level of experience is appropriate, although we would like to encourage speakers to prepare something appropriate for a beginner-level audience. If you have a topic, please add the title and a brief description above. If you are unsure whether or not a topic is appropriate, please ask on Twitter or IRC, or see the suggestions below:
 
 #### Suggested Presentations
 
@@ -64,7 +62,6 @@ _Anyone_ who would like to present a topic related to PureScript development is 
 - PureScript vs Language X
 - Building the PureScript community
 - PureScript as a teaching language
-- _Anything else_
 
 \#purescript IRC is a great place to discuss presentation ideas if you're unsure. 
 
