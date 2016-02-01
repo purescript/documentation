@@ -45,9 +45,9 @@ PureScript is a small strongly, statically typed compile-to-JS language with a n
 
 ## Language Guides
 
-The [PureScript Book](https://leanpub.com/purescript/read) is the recommended approach to learning the language, since it covers more material in greater depth. Here is the old (now out-of-date) language guide:
+The [PureScript Book](https://leanpub.com/purescript/read) is the recommended approach to learning the language, since it covers more material in greater depth. There is also a language guide, which is more useful as a reference:
 
-- [Old Language Guide](https://github.com/purescript/purescript/wiki/Old-Language-Guide)
+- [[Language Guide]]
 
 ## Related Languages
 
