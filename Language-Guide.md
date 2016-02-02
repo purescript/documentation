@@ -757,6 +757,7 @@ Type class instances are resolved based on the order in which they appeared in t
 
 Here is an example of the ``Show`` typeclass, with instances for ``String``, ``Booleans`` and ``[]``::
 
+```purescript
   class Show a where
     show :: a -> String
   
@@ -771,15 +772,18 @@ Here is an example of the ``Show`` typeclass, with instances for ``String``, ``B
     show xs = "[" ++ joinWith ", " (map show xs) ++ "]"
   
   example = show [true, false]
+```
 
 Superclasses
 ------------
 
 Superclass implications can be indicated in a class declaration with a backwards fat arrow ``<=``::
 
+```purescript
   class (Monad m) <= MonadFail m where
     fail :: forall a. String -> m a
-    
+```
+
 Superclass instances will be used when searching for an instance of a subclass. For example, in the code below, the ``Monad`` constraint introduced by the ``return`` function can be discharged since ``Monad`` is a superclass of ``MonadFail``::
 
   assert :: forall m. (MonadFail m) => Boolean -> m Unit
@@ -831,7 +835,7 @@ Patterns need not be exhaustive. A pattern match failed exception will be thrown
 Wildcard Patterns
 -----------------
 
-The wilcard `_` matches any input and brings nothing into scope::
+The wildcard `_` matches any input and brings nothing into scope::
 
 ```purescript
 f _ = 0
@@ -858,7 +862,9 @@ Variable Patterns
 
 A variable pattern matches any input and binds that input to its name::
 
+```purescript
   double x = x * 2
+```
 
 Array Patterns
 --------------
