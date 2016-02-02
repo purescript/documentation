@@ -1,3 +1,5 @@
+https://en.wikipedia.org/wiki/User:Dnalot/PureScript
+
 PureScript is a strict, purely functional, modular (no runtime dependency), programming language inspired by Haskell which compiles to readable JavaScript with a nominal foreign function interface.
 
 ## History
