@@ -91,6 +91,7 @@ _Add your name below_
 - Julia Gao (@ryoia)
 - Murphy Randle (@splodingsocks)
 - Michael Gilliland (@mjgpy3)
+- Chris Esther (@chrisestherlaw)
 
 ## Code of Conduct
 
