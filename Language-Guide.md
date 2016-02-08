@@ -746,6 +746,7 @@ maybeSum a b =
       let result = n + m
       in return result
 ```
+Note: (>>=) is the `bind` function for the `Bind` type as defined in the [Prelude package](https://pursuit.purescript.org/packages/purescript-prelude/0.1.3/docs/Prelude#t:Bind).
 
 # Type Classes
 
