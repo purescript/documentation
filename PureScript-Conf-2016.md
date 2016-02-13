@@ -99,6 +99,7 @@ _Add your name below_
 - Michael Gilliland (@mjgpy3)
 - Chris Esther (@chrisestherlaw)
 - Jake Engleman
+- Kevin Beam
 
 ## Code of Conduct
 
