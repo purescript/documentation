@@ -1,5 +1,7 @@
 PureScript Conf is a _free_, one-day conference concentrating on the PureScript language and its libraries.
 
+See the [Lanyrd page](http://lanyrd.com/2016/purescript/) for the event.
+
 ## When and Where?
 
 PureScript Conf will be colocated with [LambdaConf 2016](http://lambdaconf.us). It will be held _before_ LambdaConf, on Wednesday 25th May.
