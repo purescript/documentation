@@ -6,28 +6,7 @@ See the [Lanyrd page](http://lanyrd.com/2016/purescript/) for more details.
 
 ## Attendees
 
-_Add your name below_
-
-- Phil Freeman (@paf31)
-- John A. De Goes (@jdegoes)
-- Paul Young (@paulyoung)
-- Simon Yang (@_simonyang)
-- Gary Burgess (@garyb)
-- Beau Lyddon (@lyddonb)
-- David Koontz (@dkoontz)
-- Texas Toland (@AppShipIt)
-- Jake Brownson
-- Andy Arvanitis (@andyarvanitis)
-- Maxim Zimaliev (@cryogenian)
-- Kris Nuttycombe (@nuttycom)
-- Robert Kluin (@robertkluin)
-- Michael Trotter (@spicydonuts)
-- Julia Gao (@ryoia)
-- Murphy Randle (@splodingsocks)
-- Michael Gilliland (@mjgpy3)
-- Chris Esther (@chrisestherlaw)
-- Jake Engleman
-- Kevin Beam
+If you plan to attend, please add yourself to the list of attendees on [Lanyrd](http://lanyrd.com/2016/purescript).
 
 ## Code of Conduct
 
