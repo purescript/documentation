@@ -8,6 +8,7 @@
   - [emacs-pe/purescript-mode](https://github.com/emacs-pe/purescript-mode) is an alpha-stage greenfield mode
   - [ardumont/psci-mode](https://github.com/ardumont/emacs-psci) is a REPL minor mode
   - [spion/purscheck](https://github.com/spion/purscheck) provides flycheck support.
+  - [emacs-pe/flycheck-purescript](https://github.com/emacs-pe/flycheck-purescript) provides flycheck support.
   - [epost/psc-ide-emacs](https://github.com/epost/psc-ide-emacs) is an alpha stage Emacs binding for [kRITZCREEK/psc-ide](https://github.com/kRITZCREEK/psc-ide)
 - Sublime Text 2 - [PureScript package](https://sublime.wbond.net/search/PureScript) by joneshf
 - Vim
