@@ -12,7 +12,7 @@ class Computer f where
 data Box = Box Int
 
 instance computerBox :: Computer Box where
-  compute (Box x) = x + 1
+  compute (Box x) = x
 
 foreign import triplicate :: forall c. (Computer c) => c -> Int
 ```
@@ -58,7 +58,12 @@ But now someone could use the unsafe `triplicateImpl`. There is a trivial soluti
 
 ```purescript
 -- PureScript code
-module ComputerTools (Computer,Box, triplicate) where
+module ComputerTools
+  ( Computer
+  , Box(..)
+  , compute
+  , triplicate
+  ) where
 
 class Computer f where
   compute :: f -> Int
@@ -66,20 +71,21 @@ class Computer f where
 data Box = Box Int
 
 instance computerBox :: Computer Box where
-  compute (Box x) = x + 1
+  compute (Box x) = x
 
 foreign import triplicateImpl :: forall a. (a -> Int) -> a -> Int
 
-triplicate :: forall c. (Computer c) => c -> Int                   
+triplicate :: forall c. (Computer c) => c -> Int
 triplicate = triplicateImpl compute
 ```
 
 ```js
-//Foreign code
+// module ComputerTools 
+ 
+exports.triplicateImpl = function(shouldBeComputeFunction) { 
+  return function(shouldBeComputerInstance) { 
+    return 3*shouldBeComputeFunction(shouldBeComputerInstance); 
+  }; 
+}; 
 
-exports.triplicateImpl = function(shouldBeComputeFunction) {
-  return function(shouldBeComputerInstance) {
-    return 3*shouldBeComputeFunction(shouldBeComputerInstance);
-  };
-};
 ```
