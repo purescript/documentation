@@ -1,6 +1,7 @@
 ### PureScript code
 
-```class Computer f where
+```
+class Computer f where
   compute :: f -> Int
 
 data Box = Box Int
