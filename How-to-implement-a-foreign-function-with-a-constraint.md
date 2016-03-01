@@ -9,12 +9,14 @@ module ComputerTools where
 class Computer f where
   compute :: f -> Int
 
+foreign import triplicate :: forall c. (Computer c) => c -> Int
+
+--
+
 data Box = Box Int
 
 instance computerBox :: Computer Box where
   compute (Box x) = x
-
-foreign import triplicate :: forall c. (Computer c) => c -> Int
 ```
 
 Though `triplicate` takes only one argument in PureScript side, its definition in foreign side needs one more: a `Computer` type-class dictionary ([PureScript by Example 10.9](https://leanpub.com/purescript/read#leanpub-auto-representing-constrained-types))
@@ -57,26 +59,28 @@ and then you’d have a non-foreign wrapper, that actually has the constraint, a
 But now someone could use the unsafe `triplicateImpl`. There is a trivial solution for thar problem: you don’t export the foreign function,  you only export your wrapper that takes the constraint.
 
 ```purescript
--- PureScript code
-module ComputerTools
+-- PureScript codemodule ComputerTools
   ( Computer
-  , Box(..)
   , compute
   , triplicate
+  , Box(..)
   ) where
 
 class Computer f where
   compute :: f -> Int
+
+foreign import triplicateImpl :: forall a. (a -> Int) -> a -> Int
+
+triplicate :: forall c. (Computer c) => c -> Int
+triplicate = triplicateImpl compute
+
+--
 
 data Box = Box Int
 
 instance computerBox :: Computer Box where
   compute (Box x) = x
 
-foreign import triplicateImpl :: forall a. (a -> Int) -> a -> Int
-
-triplicate :: forall c. (Computer c) => c -> Int
-triplicate = triplicateImpl compute
 ```
 
 ```js
