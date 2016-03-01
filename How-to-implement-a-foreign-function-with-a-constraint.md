@@ -3,7 +3,6 @@
 Suppose that you wish to have a safe foreign function that can only be used with instances of a given typeclass. For example:
 
 ```purescript
--- PureScript code
 module ComputerTools where
 
 class Computer f where
@@ -22,7 +21,7 @@ instance computerBox :: Computer Box where
 Though `triplicate` takes only one argument in PureScript side, its definition in foreign side needs one more: a `Computer` type-class dictionary ([PureScript by Example 10.9](https://leanpub.com/purescript/read#leanpub-auto-representing-constrained-types))
 
 ```js
-//Foreign code
+// module ComputerTools 
 
 exports.triplicate = function(aComputerDictionary) {
   return function(aComputerInstance) {
