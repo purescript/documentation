@@ -1,6 +1,6 @@
 ### PureScript code
 
-```
+```purescript
 class Computer f where
   compute :: f -> Int
 
@@ -13,7 +13,7 @@ foreign import triplicate :: forall c. (Computer c) => c -> Int
 ```
 
 ### Foreign code
-```
+```purescript
 exports.triplicate = function(aComputerDictionary) {
   return function(aComputerInstance) {
     return 3*aComputerDictionary.compute(aComputerInstance);
