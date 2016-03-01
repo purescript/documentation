@@ -68,8 +68,8 @@ data Box = Box Int
 instance computerBox :: Computer Box where
   compute (Box x) = x + 1
 
-foreign import triplicateImpl :: forall a. (a -> Int) -> a -> Int  -- c have to be a Computer instance
-                                                                   -- but the type checker can't verify this
+foreign import triplicateImpl :: forall a. (a -> Int) -> a -> Int
+
 triplicate :: forall c. (Computer c) => c -> Int                   
 triplicate = triplicateImpl compute
 ```
