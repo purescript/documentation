@@ -13,7 +13,7 @@ foreign import triplicate :: forall c. (Computer c) => c -> Int
 ```
 
 ### Foreign code
-```purescript
+```js
 exports.triplicate = function(aComputerDictionary) {
   return function(aComputerInstance) {
     return 3*aComputerDictionary.compute(aComputerInstance);
