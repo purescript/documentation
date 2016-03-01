@@ -55,7 +55,7 @@ triplicate = triplicateImpl compute
 
 and then you’d have a non-foreign wrapper, that actually has the constraint, and you’d just pass in `compute` to the foreign function. 
 
-But now someone could use the unsafe `triplicateImpl`. There is a trivial solution for thar problem: you don’t export the foreign function,  you only export your wrapper that takes the constraint.
+But now someone could use the unsafe `triplicateImpl`. There is a trivial solution for that problem: you don’t export the foreign function,  you only export your wrapper that takes the constraint.
 
 ```purescript
 module ComputerTools
