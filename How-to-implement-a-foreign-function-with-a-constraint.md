@@ -39,11 +39,16 @@ foreign import triplicate :: forall c. (Computer c) => c -> Int
 
 you would do
 
-```
-foreign import triplicateImpl :: forall a. (a -> Int) -> a -> Int  -- c have to be a Computer instance
-                                                                    -- but the type checker can't verify this
+```purescript
 
-triplicate :: forall c. (Computer c) => c -> Int                    -- now triplicate is not foreign
+-- This function is unsafe:
+--   c should be a Computer instance
+--   but the type checker can't verify this
+
+foreign import triplicateImpl :: forall a. (a -> Int) -> a -> Int   
+                                                                    
+-- now triplicate is not foreign
+triplicate :: forall c. (Computer c) => c -> Int
 triplicate = triplicateImpl compute
 ```
 
