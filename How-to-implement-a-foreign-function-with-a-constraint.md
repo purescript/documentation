@@ -1,4 +1,4 @@
-### Implementing the constrain
+### Implementing the constraint
 
 Suppose that you wish to have a safe foreign function that can only be used with instances of a given typeclass. For example:
 
