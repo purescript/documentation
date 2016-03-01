@@ -9,13 +9,6 @@ class Computer f where
   compute :: f -> Int
 
 foreign import triplicate :: forall c. (Computer c) => c -> Int
-
---
-
-data Box = Box Int
-
-instance computerBox :: Computer Box where
-  compute (Box x) = x
 ```
 
 Though `triplicate` takes only one argument in PureScript side, its definition in foreign side needs one more: a `Computer` type-class dictionary ([PureScript by Example 10.9](https://leanpub.com/purescript/read#leanpub-auto-representing-constrained-types))
@@ -62,7 +55,6 @@ module ComputerTools
   ( Computer
   , compute
   , triplicate
-  , Box(..)
   ) where
 
 class Computer f where
@@ -72,14 +64,6 @@ foreign import triplicateImpl :: forall a. (a -> Int) -> a -> Int
 
 triplicate :: forall c. (Computer c) => c -> Int
 triplicate = triplicateImpl compute
-
---
-
-data Box = Box Int
-
-instance computerBox :: Computer Box where
-  compute (Box x) = x
-
 ```
 
 ```js
