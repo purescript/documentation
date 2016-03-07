@@ -37,5 +37,3 @@ import qualified Prelude as P
 id :: Number
 id = 1
 ```
-
-In the context of PSCI, a function named "main" is pre-defined by PSCI. Therefore, importing a module which also defines a function named "main" will cause PSCI to emit this ConflictingImport error. This error can be resolved by importing the external module using the `qualified` or `hiding` keywords, as shown above.
