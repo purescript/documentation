@@ -23,7 +23,7 @@
 ## Build tools
 
 - [Pulp](https://github.com/bodil/pulp) - a standalone build system for PureScript ([pulp](https://www.npmjs.com/package/pulp) in `npm`)
-- [Grunt task](https://github.com/purescript-contrib/grunt-purescript) (`grunt-purescript` in `npm`)
+- [Grunt task](https://github.com/purescript-contrib/grunt-purescript) (`grunt-purescript` in `npm`) (deprecated)
 - [Gulp task](https://github.com/purescript-contrib/gulp-purescript) (`gulp-purescript` in `npm`)
 - [psvm-js](https://github.com/ThomasCrvsr/psvm-js) - PureScript Version Manager
 - [purs-loader](https://github.com/ethul/purs-loader/) - PureScript loader for WebPack
