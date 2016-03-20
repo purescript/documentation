@@ -28,6 +28,7 @@
 - [psvm-js](https://github.com/ThomasCrvsr/psvm-js) - PureScript Version Manager
 - [purs-loader](https://github.com/ethul/purs-loader/) - PureScript loader for WebPack
 - [psc-pane](https://github.com/anttih/psc-pane) - Auto reloading compiler which formats a single error to fit the window
+- [purescript-psa](https://github.com/natefaubion/purescript-psa) - A pretty, flexible error/warning reporting frontend for `psc` featuring colours, original source spans in errors, warning filtering and persistence.
 
 ## Wish List
 
