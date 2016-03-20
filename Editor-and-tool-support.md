@@ -17,7 +17,7 @@
 - IntelliJ IDEA - [ikarienator/pure-idea](https://github.com/ikarienator/pure-idea)
 - Visual Studio - [nwolverson/vscode-ide-purescript](https://github.com/nwolverson/vscode-ide-purescript)
 - General
-  - [kRITZCREEK/psc-ide](https://github.com/kRITZCREEK/psc-ide) is a client and server that provides  generic editor support
+  - [kRITZCREEK/psc-ide](https://github.com/kRITZCREEK/psc-ide) (bundled with the compiler from version 0.8.2) is a client and server that provides  generic editor support
   - To generate `TAGS` files, use `psc-docs --format etags` (or `--format ctags`)
 
 ## Build tools
