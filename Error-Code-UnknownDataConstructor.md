@@ -26,4 +26,4 @@ Which will generate the error...
 Unknown data constructor Just
 ```
 
-Because `Just` is defined in the Data.Maybe package and Data.Maybe package has not be imported.
+Because `Just` is defined in the Data.Maybe package and Data.Maybe package has not been imported.
