@@ -247,10 +247,11 @@ In Haskell, it is possible to define an operator with the following natural synt
 f $ x = f x
 ```
 
-In PureScript, the operator must be named with parentheses:
+In PureScript, you provide an operator alias for a named function. Defining functions using operators is deprecated and will be removed in 0.9.
 
 ```purescript
-($) f x = f x
+apply f x = f x
+infixr 0 apply as $
 ```
 
 ## Export lists
