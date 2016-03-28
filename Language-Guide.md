@@ -654,12 +654,12 @@ fooBy2 = (`foo` 2)
 
 ## User-defined operators
 
-User-defined infix operators can be defined by enclosing names in parentheses.
+User-defined infix operators can be defined by providing an operator alias for an existing function.
 
-For example, to create an infix synonym for the [`Data.Array.range`](https://github.com/purescript/purescript-arrays) function:
+For example, to create an operator alias for the [`Data.Array.range`](https://github.com/purescript/purescript-arrays) function:
 
 ``` purescript
-(..) = Data.Array.range
+infix 5 Data.Array.range as ..
 ```
 
 This function can be used as follows::
@@ -671,9 +671,9 @@ oneToTen = 1 .. 10
 The associativity and precedence level of operators can be defined with the `infix` (no associativity), `infixl` (left associative), and `infixr` (right associative) top-level declarations:
 
 ```purescript
-infix 5 ..
-infixl 7 %%
-infixr 9 ^^
+infix 5 range as ..
+infixl 7 foo as %%
+infixr 9 bar as ^^
 ```
 
 See [[Understanding fixity declarations]] for more information about these declarations.
