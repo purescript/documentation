@@ -1,4 +1,4 @@
-Code such as `infixl 4 map as <$>` is called a _fixity declaration_, and is made up of three parts:
+Code such as `infixl 4 map as <$>` is called a _fixity declaration_, and is made up of four parts:
 
 * The associativity: either `infixl`, `infixr`, or `infix`.
 * The precedence: an integer, between 0 and 9. Here, it is 4.
