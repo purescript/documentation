@@ -1,7 +1,8 @@
-Code such as `infixl 4 <$>` is called a _fixity declaration_, and is made up of three parts:
+Code such as `infixl 4 map as <$>` is called a _fixity declaration_, and is made up of three parts:
 
 * The associativity: either `infixl`, `infixr`, or `infix`.
 * The precedence: an integer, between 0 and 9. Here, it is 4.
+* The function to alias: here, `map`
 * The operator: here, `<$>`.
 
 It determines how expressions involving this operator are bracketed.
