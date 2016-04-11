@@ -15,3 +15,17 @@ Even though the type of the effect (`Test.Assert.ASSERT`) is correct, the name d
 *When using Halogen*
 
 If you are seeing this error in relation to the definition of a component try checking the type signatures  of the component and child component's slot addresses, query types and state types against the examples in the purescript halogen repository.
+
+### Eff <-> Function
+
+If you get this error message:
+
+    Could not match type
+
+      Eff
+
+    with type
+
+      Function
+
+... then check to see whether you might have written a "do" block but forgotten to actually say `do`.
