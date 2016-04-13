@@ -37,5 +37,7 @@ A: https://github.com/purescript/purescript/tree/master/psc-ide-server
 ## Parsing the externs failed...
 
 Step 1: Delete your `output/` folder and recompile your project
+
 Step 2: Check if you have an old psc-ide lying around (think stack, npm or cabal)
+
 Step 3: Hop onto IRC and start a debugging session with @kritzcreek
