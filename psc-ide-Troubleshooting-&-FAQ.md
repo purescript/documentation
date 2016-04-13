@@ -38,6 +38,8 @@ A: https://github.com/purescript/purescript/tree/master/psc-ide-server
 
 Step 1: Delete your `output/` folder and recompile your project
 
-Step 2: Check if you have an old psc-ide lying around (think stack, npm or cabal)
+Step 2: Check if your `psc --version` and `psc-ide-server --version` match
 
-Step 3: Hop onto IRC and start a debugging session with @kritzcreek
+Step 3: Check if you have an old psc-ide lying around (think stack, npm or cabal)
+
+Step 4: Hop onto IRC and start a debugging session with @kritzcreek
