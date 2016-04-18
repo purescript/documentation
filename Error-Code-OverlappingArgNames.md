@@ -8,7 +8,7 @@ instance eqNonEmpty :: (Eq a) => Eq (NonEmpty a) where
 ```
 
 To further illustrate...
-```
+```purs
 -- This code throws error
 -- "Overlapping names in function/binder in declaration reverseAndCombine"
 reverseAndCombine :: String -> String -> String
