@@ -1,3 +1,5 @@
+### Matching effect names
+
 ```
 Error checking that type
   Control.Monad.Eff.Eff (assert :: Test.Assert.ASSERT | _0) Prelude.Unit
