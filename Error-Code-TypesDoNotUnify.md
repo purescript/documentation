@@ -29,3 +29,15 @@ If you get this error message:
       Function
 
 ... then check to see whether you might have written a "do" block but forgotten to actually say `do`.
+
+If, on the other hand, the message has the types reversed:
+
+    Could not match type
+
+      Eff
+
+    with type
+
+      Function
+
+Then you may have neglected to provide all the required arguments in one of the lines of a do-statement, leaving a function that takes the missing args, rather than the result type of Eff.
