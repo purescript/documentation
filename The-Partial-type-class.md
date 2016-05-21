@@ -118,7 +118,7 @@ dot :: V3 -> V3 -> Number
 dot (V3 [x1, x2, x3]) (V3 [y1, y2, y3]) = x1*y1 + x2*y2 + x3*y3
 ```
 
-We know this is ok, but the compiler shouts at us:
+We know this is ok, but the compiler disallows it:
 
 ```
 A case expression could not be determined to cover all inputs.
