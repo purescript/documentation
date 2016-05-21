@@ -21,10 +21,11 @@ performance is important, for instance.
 
 Previously, partial functions have been indicated by putting the word "unsafe"
 at the start of their names, or by putting them in an "Unsafe" module. For
-instance, there was previously an `unsafeIndex` function in `Data.Array.Unsafe,
-and `fromJust` used to be in `Data.Maybe.Unsafe`. However, this is not ideal,
-because there was no information in the type about what this function does, and
-therefore little to stop you from using it in an inappropriate manner by
+instance, there was previously an `unsafeIndex` function in
+`Data.Array.Unsafe`, and `fromJust` used to be in `Data.Maybe.Unsafe`. However,
+this is not ideal, because the fact that these functions are partial, and
+therefore unsafe if used carelessly, does not appear in the type. Consequently,
+there is little to stop you from using it in an inappropriate manner by
 accident.
 
 The Partial type class allows us to put this information back into the types,
@@ -65,7 +66,7 @@ at src/Main.purs line 8, column 1 - line 8, column 56
 The solution is usually to add an application of `unsafePartial` somewhere,
 like this:
 
-```
+```purescript
 module Main where
 
 import Prelude
@@ -163,7 +164,7 @@ Both implementations will behave in the same way.
 In this case, we know our `dot` implementation is fine, and so users of it
 should not have to worry about its partiality, so it makes sense to avoid
 propagating the constraint. Now, we will see another case where a `Partial`
-constraint should be propagated.
+constraint *should* be propagated.
 
 Let us suppose we want a `foldr1` function, which works in a very similar way
 to `foldr` on Lists, except that it doesn't require an initial value to be
@@ -192,15 +193,15 @@ minimumP = foldr1 min
 
 Again, the compiler infers the correct type:
 
-```
+```purescript
 minimumP :: forall a. (Partial, Ord a) => List a -> a
 ```
 
 Notice that the `Partial` constraint is automatically propagated to the
 `minimumP` function because of the use of another partial function in its
-definition, namely `foldr1`. In this case, we should propagate the `Partial`
-constraint, because it is still the caller's responsibility to make sure they
-supply a non-empty list.
+definition, namely `foldr1`. In this case, this is what we want; we should
+propagate the `Partial` constraint, because it is still the caller's
+responsibility to make sure they supply a non-empty list.
 
 So hopefully it is now clear why this partiality checking is implemented in
 terms of a type class: it allows us to elegantly reuse existing machinery in
