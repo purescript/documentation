@@ -18,21 +18,6 @@ A possible fix is to add an instance for the relevant type. Following from the e
 "Foo"
 ```
 
-This error can also arise as a result of [#202](https://github.com/purescript/purescript/issues/202): currently, the compiler cannot infer type class constraints. That means that the following will not work:
+This error can also arise in situations where there is no problem with your code, because the compiler is not yet capable of inferring more complex constraints. In these cases, the solution is to add a type signature.
 
-```purescript
-myAdd x y = x + y
-```
-
-This fails because `(+)` has a type class constraint, which means that `myAdd` will also need a type class constraint, but the compiler cannot infer the type. The error will look something like this:
-
-```
-No instance found for Prelude.Semiring _67
-```
-
-The solution is to add an explicit type signature:
-
-```purescript
-myAdd :: forall a. (Semiring a) => a -> a -> a
-myAdd x y = x + y
-```
+Finally, this error can occur if your code fails to propagate `Partial` constraints properly. For an introduction to the `Partial` type class, please see [[The Partial type class]].
