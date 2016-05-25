@@ -81,7 +81,7 @@ The recommended approach is to add extra arguments to your FFI-defined function 
 foreign import doSomethingImpl :: forall a. Fn4 (a -> Maybe a) (Maybe a) (a -> Boolean) a (Maybe a)
 
 doSomething :: forall a. (a -> Boolean) -> a -> Maybe a
-doSomething fn x = runFn2 doSomethingImpl Just Nothing fn x
+doSomething fn x = runFn4 doSomethingImpl Just Nothing fn x
 ```
 
 ```javascript
