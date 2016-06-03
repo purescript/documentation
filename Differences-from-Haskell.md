@@ -36,7 +36,7 @@ ap :: forall m a b. (Monad m) => m (a -> b) -> m a -> m b
 
 ### Numbers
 
-There is a native `Number` type which represents JavaScript's standard IEEE 754 float and an `Int` which is restricted to the range of 32bit integers. In JavaScript the `Int` values and operations are generated with a `|0` postfix to achieve this, e.g. `((x + y)|0 * z)|0`.
+There is a native `Number` type which represents JavaScript's standard IEEE 754 float and an `Int` which is restricted to the range of 32bit integers. In JavaScript the `Int` values and operations are generated with a `|0` postfix to achieve this, e.g. if you have variables `x`, `y`, and `z` of type `Int`, then the PureScript expression `(x + y) * z` would compile to `((x + y)|0 * z)|0`.
 
 ### Unit
 
