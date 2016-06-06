@@ -35,13 +35,13 @@ Note that, without Bower as our dependency manager, it's necessary to install al
 
 #### Building Sources
 
-Now we can build our project. It is necessary to provide all source files, including dependencies and foreign modules (via `--ffi`), explicitly to `psc`. The simplest way is to use a set of globs:
+Now we can build our project. It is necessary to provide all source files explicitly to `psc`. The simplest way is to use a set of globs:
 
 ```text
-$ psc src/Main.purs \
-        'dependencies/purescript-*/src/**/*.purs' \
-  --ffi 'dependencies/purescript-*/src/**/*.js'
+$ psc src/Main.purs 'dependencies/purescript-*/src/**/*.purs'
 ```
+
+Note: FFI files are automatically discovered when a PureScript file uses `foreign import` and are not required in the globs.
 
 If everything worked, you should see a collection of lines like this
 
