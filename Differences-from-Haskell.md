@@ -113,14 +113,14 @@ A common mistake to look out for is when writing a function that accepts a data 
 
 ``` purescript
 showPoint :: Point -> String
-showPoint p = show p.x ++ ", " ++ show p.y
+showPoint p = show p.x <> ", " <> show p.y
 ```
 
 Instead we need to destructure `Point` to get at the object:
 
 ``` purescript
 showPoint :: Point -> String
-showPoint (Point obj) = show obj.x ++ ", " ++ show obj.y
+showPoint (Point obj) = show obj.x <> ", " <> show obj.y
 ```
 
 ## Type classes
@@ -262,6 +262,7 @@ When writing documentation, the pipe character `|` must appear at the start of e
 As PureScript has not inherited Haskell's legacy code, some operators and functions that are common in Haskell have different names in PureScript:
 
 - `(>>)` is `(*>)`, as `Apply` is a superclass of `Monad` so there is no need to have an `Monad`-specialised version.
+- Since 0.9.1, the Prelude library does not contain `(++)` as a second alias for `append` (`(<>)`; also `mappend` in Haskell) anymore.
 - `mapM` is `traverse`, as this is a more general form that applies to any traversable structure, not just lists. Also it only requires `Applicative` rather than `Monad`.
 - Many functions that are part of `Data.List` in Haskell are provided in a more generic form in `Data.Foldable` or `Data.Traversable`.
 - `some` and `many` are defined with the type of list they operate on (`Data.Array` or `Data.List`).
