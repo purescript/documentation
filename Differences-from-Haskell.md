@@ -221,7 +221,7 @@ In Haskell, it is possible to define an operator with the following natural synt
 f $ x = f x
 ```
 
-In PureScript, you provide an operator alias for a named function. Defining functions using operators is deprecated and will be removed in 0.9.
+In PureScript, you provide an operator alias for a named function. Defining functions using operators is removed since version 0.9.
 
 ```purescript
 apply f x = f x
