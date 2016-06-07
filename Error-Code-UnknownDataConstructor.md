@@ -13,11 +13,11 @@ main = do
   ctx <- getContext2D canvas
   setFillStyle "#00ff00" ctx
   fillPath ctx $ rect ctx
-       { x: 0.0
-       , y: 0.0
-       , w:300.0
-       , h:100.0
-       }
+    { x: 0.0
+    , y: 0.0
+    , w: 300.0
+    , h: 100.0
+    }
 ```
 
 Which will generate the error...
