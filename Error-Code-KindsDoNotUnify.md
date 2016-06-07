@@ -37,12 +37,12 @@ To further illustrate why the type parameter is superfluous, we can compare the 
 
 ```purs
 class Show a where
-show :: a -> String
+  show :: a -> String
 ```
 
 This is different from the `Functor` type class which accepts a _type constructor_ `f`, which is used to create a new type `f a` and `f b`.
 
 ```purs
 class Functor f where
-map :: forall a b. (a -> b) -> f a -> f b
+  map :: forall a b. (a -> b) -> f a -> f b
 ```
