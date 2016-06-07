@@ -167,10 +167,12 @@ newtype Percentage = Percentage Number
 
 The representation of a newtype at runtime is the same as the underlying data type. For example, a value of type ``Percentage`` is just a JavaScript number at runtime.
   
-Newtypes can be assigned their own type class instances, so for example, ``Percentage`` can be given its own ``Show`` instance::
+Newtypes can be assigned their own type class instances, so for example, ``Percentage`` can be given its own ``Show`` instance:
 
-  instance showPercentage :: Show Percentage where
-    show (Percentage n) = show n <> "%"
+```purescript
+instance showPercentage :: Show Percentage where
+  show (Percentage n) = show n <> "%"
+```
 
 ## Functions
 
@@ -267,7 +269,7 @@ It may be necessary, depending on the context, to surround a row in parentheses.
 To denote an open row (i.e. one which may unify with another row to add new fields), separate the specified terms from a row variable by a pipe::
 
 ```purescript
-(name :: String, age :: Number | r)
+forall r. (name :: String, age :: Number | r)
 ```
 
 ## Type Synonyms
@@ -630,11 +632,11 @@ and = (&&)
 
 ## Operator sections
 
-Binary operators can be partially applied by listing them with one operand surrounded by parentheses:
+Binary operators can be partially applied by surrounding them with parentheses and using `_` as one of the operands:
 
 ``` purescript
-half = (/ 2)
-double = (2 *)
+half = (_ / 2)
+double = (2 * _)
 ```
 
 ## Functions as operators
@@ -649,7 +651,7 @@ test = 10 `foo` 20
 Operator sections also work for functions used this way:
 
 ``` purescript
-fooBy2 = (`foo` 2)
+fooBy2 = (_ `foo` 2)
 ```
 
 ## User-defined operators
@@ -688,7 +690,7 @@ conditional = if 2 > 1 then "ok" else "oops"
 
 ## Let and where bindings
 
-The `let` keyword a collection of local declarations, which may be mutually recursive, and which may include type declarations::
+The `let` keyword a collection of local declarations, which may be mutually recursive, and which may include type declarations:
 
 ``` purescript
 factorial :: Int -> Int
@@ -750,47 +752,47 @@ Note: (>>=) is the `bind` function for the `Bind` type as defined in the [Prelud
 
 # Type Classes
 
-PureScript has basic support for type classes via the ``class`` and ``instance`` keywords. 
+PureScript has basic support for type classes via the `class` and `instance` keywords. 
 
-Types appearing in class instances are must be of the form ``String``, ``Number``, ``Boolean``, or ``C t1 ... tn`` where ``C`` is a type constructor (including ``[]`` and ``->`` and ``t_i`` are types of the same form).
+Types appearing in class instances are must be of the form `String`, `Number`, `Boolean`, or `C t1 ... tn` where `C` is a type constructor (including `->` and `t_i` are types of the same form).
 
 Type class instances are resolved based on the order in which they appeared in the source files. Overlapping instances will result in a compilation error.
 
-Here is an example of the ``Show`` typeclass, with instances for ``String``, ``Booleans`` and ``[]``::
+Here is an example of the `Show` typeclass, with instances for `String`, `Boolean` and `Array`:
 
 ```purescript
-  class Show a where
-    show :: a -> String
+class Show a where
+  show :: a -> String
   
-  instance showString :: Show String where
-    show s = s
+instance showString :: Show String where
+  show s = s
   
-  instance showBoolean :: Show Boolean where
-    show true = "true"
-    show false = "false"
+instance showBoolean :: Show Boolean where
+  show true = "true"
+  show false = "false"
   
-  instance showArray :: (Show a) => Show [a] where
-    show xs = "[" <> joinWith ", " (map show xs) <> "]"
+instance showArray :: (Show a) => Show (Array a) where
+  show xs = "[" <> joinWith ", " (map show xs) <> "]"
   
-  example = show [true, false]
+example = show [true, false]
 ```
 
 Superclasses
 ------------
 
-Superclass implications can be indicated in a class declaration with a backwards fat arrow ``<=``::
+Superclass implications can be indicated in a class declaration with a backwards fat arrow `<=`:
 
 ```purescript
-  class (Monad m) <= MonadFail m where
-    fail :: forall a. String -> m a
+class (Monad m) <= MonadFail m where
+  fail :: forall a. String -> m a
 ```
 
-Superclass instances will be used when searching for an instance of a subclass. For example, in the code below, the ``Monad`` constraint introduced by the ``return`` function can be discharged since ``Monad`` is a superclass of ``MonadFail``::
+Superclass instances will be used when searching for an instance of a subclass. For example, in the code below, the `Monad` constraint introduced by the `return` function can be discharged since `Monad` is a superclass of `MonadFail`:
 
 ```purescript
-  assert :: forall m. (MonadFail m) => Boolean -> m Unit
-  assert true = return unit
-  assert false = fail "Assertion failed"
+assert :: forall m. (MonadFail m) => Boolean -> m Unit
+assert true = return unit
+assert false = fail "Assertion failed"
 ```
   
 ## Type Annotations
@@ -801,7 +803,7 @@ A constrained type will never be inferred for a top-level declaration without an
 
 Pattern matching deconstructs a value to bring zero or more expressions into scope. Pattern matches are introduced with the `case` keyword.
 
-Pattern matches have the following general form::
+Pattern matches have the following general form:
 
 ```purescript
 case value of
@@ -810,13 +812,13 @@ case value of
   pattern -> result
 ```
 
-Pattern matching can also be used in the declaration of functions, as we have already seen::
+Pattern matching can also be used in the declaration of functions, as we have already seen:
 
 ```purescript
 fn pattern_1 ... pattern_n = result
 ```
 
-Patterns can also be used when introducing functions. For example::
+Patterns can also be used when introducing functions. For example:
 
 ```purescript
 example x y z = x * y + z
@@ -838,7 +840,7 @@ Patterns need not be exhaustive. A pattern match failed exception will be thrown
 Wildcard Patterns
 -----------------
 
-The wildcard `_` matches any input and brings nothing into scope::
+The wildcard `_` matches any input and brings nothing into scope:
 
 ```purescript
 f _ = 0
@@ -847,7 +849,7 @@ f _ = 0
 Literal Patterns
 ----------------
 
-Literal patterns are provided to match on primitives::
+Literal patterns are provided to match on primitives:
 
 ```purescript
 f true = 0
@@ -863,16 +865,16 @@ h _ = 1
 Variable Patterns
 -----------------
 
-A variable pattern matches any input and binds that input to its name::
+A variable pattern matches any input and binds that input to its name:
 
 ```purescript
-  double x = x * 2
+double x = x * 2
 ```
 
 Array Patterns
 --------------
 
-Array patterns match an input which is an array, and bring its elements into scope. For example::
+Array patterns match an input which is an array, and bring its elements into scope. For example:
 
 ```purescript
 f [x] = x
@@ -887,7 +889,7 @@ The second pattern matches arrays with two elements, and brings the first and se
 Constructor patterns
 --------------------
 
-Constructor patterns match a data constructor and its arguments::
+Constructor patterns match a data constructor and its arguments:
 
 ```purescript
 data Foo = Foo String | Bar Number Boolean
@@ -899,7 +901,7 @@ foo (Bar _ b) = b
 Record Patterns
 ---------------
 
-Record patterns match an input which is a record, and bring its properties into scope::
+Record patterns match an input which is a record, and bring its properties into scope:
 
 ```purescript
 f { foo = "Foo", bar = n } = n
@@ -909,7 +911,7 @@ f _ = 0
 Nested Patterns
 ---------------
 
-The patterns above can be combined to create larger patterns. For example::
+The patterns above can be combined to create larger patterns. For example:
 
 ```purescript
 f { arr = [x, _], take = "firstOfTwo" } = x
@@ -920,14 +922,14 @@ f _ = 0
 Named Patterns
 --------------
 
-Named patterns bring additional names into scope when using nested patterns. Any pattern can be named by using the ``@`` symbol::
+Named patterns bring additional names into scope when using nested patterns. Any pattern can be named by using the ``@`` symbol:
 
 ```purescript
 f a@[_, _] = true
 f _ = false
 ```
      
-Here, in the first pattern, any array with exactly two elements will be matched and bound to the variable ``a``.
+Here, in the first pattern, any array with exactly two elements will be matched and bound to the variable `a`.
 
 Guards
 ------
@@ -941,7 +943,7 @@ evens (Cons x xs) | x % 2 == 0 = 1 + evens xs
 evens (Cons _ xs) = evens xs
 ```
 
-When using patterns to define a function at the top level, guards appear after all patterns::
+When using patterns to define a function at the top level, guards appear after all patterns:
 
 ```purescript
 greater x y | x > y = true
@@ -950,7 +952,7 @@ greater _ _ = false
 
 # Modules
 
-All code in PureScript is contained in a module. Modules are introduced using the ``module`` keyword::
+All code in PureScript is contained in a module. Modules are introduced using the `module` keyword:
 
 ```purescript
 module A where
@@ -958,7 +960,7 @@ module A where
 id x = x
 ```
 
-When referencing values or data types in another module, names may be qualified by using a dot::
+When referencing values or data types in another module, names may be qualified by using a dot:
 
 ```purescript
 module B where
@@ -969,7 +971,7 @@ foo = A.id
 Importing Modules
 -----------------
 
-A module can be imported using the ``import`` keyword. This will create aliases for all of the values and types in the imported module::
+A module can be imported using the `import` keyword. This will create aliases for all of the values and types in the imported module:
 
 ```purescript
 module B where
@@ -977,7 +979,7 @@ module B where
 import A
 ```
 
-Alternatively, a list of names to import can be provided in parentheses::
+Alternatively, a list of names to import can be provided in parentheses:
 
 ```purescript
 module B where
@@ -985,7 +987,7 @@ module B where
 import A (runFoo)
 ```
 
-Values, type constructors and data constructors can all be explicitly imported. A type constructor should be followed by a list of associated data constructors to import in parentheses. A double dot (``..``) can be used to import all data constructors for a given type constructor::
+Values, type constructors and data constructors can all be explicitly imported. A type constructor should be followed by a list of associated data constructors to import in parentheses. A double dot (`..`) can be used to import all data constructors for a given type constructor:
 
 ```purescript
 module B where
@@ -996,7 +998,7 @@ import A (runFoo, Foo(..), Bar(Bar))
 Qualified Imports
 -----------------
   
-Modules can also be imported qualified, which means that their names will not be brought directly into scope, but rather, aliased to a different module name. This can be helpful when avoiding naming conflicts::
+Modules can also be imported qualified, which means that their names will not be brought directly into scope, but rather, aliased to a different module name. This can be helpful when avoiding naming conflicts:
 
 ```purescript
 module Main where
@@ -1011,7 +1013,7 @@ Here, the name ``null`` would ordinarily conflict with ``null`` from ``Data.Arra
 Module Exports
 --------------
 
-Module exports can be restricted to a set of names by providing that set in parentheses in the module declaration::
+Module exports can be restricted to a set of names by providing that set in parentheses in the module declaration:
 
 ```purescript
 module A (runFoo, Foo(..)) where
@@ -1038,7 +1040,7 @@ data ...
 Importing Values
 ----------------
 
-The ``foreign import`` keywords declare a value which is defined in Javascript, and its type::
+The ``foreign import`` keywords declare a value which is defined in Javascript, and its type:
 
 ```purescript
 foreign import pow :: Number -> Number -> Number
@@ -1081,7 +1083,7 @@ Fields of records can be accessed using a dot, followed by the label of the fiel
 
 ## Kinds
 
-`{ ... }` is just syntactic sugar for the `Object` type constructor, so `{ language ::  String }` is the same as `Object ( language :: String )`.
+`{ ... }` is just syntactic sugar for the `Record` type constructor, so `{ language ::  String }` is the same as `Record ( language :: String )`.
 
 The Object type constructor is parameterized by a row of types. In kind notation, `Object` has kind `# * -> *`. That is, it takes a row of types to a type.
 
