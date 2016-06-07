@@ -12,10 +12,10 @@ To further illustrate...
 -- This code throws error
 -- "Overlapping names in function/binder in declaration reverseAndCombine"
 reverseAndCombine :: String -> String -> String
-reverseAndCombine a a = (reverse a) ++ (reverse b)
+reverseAndCombine a a = (reverse a) <> (reverse b)
   where
     reverse :: String -> String
-    reverse val = foldr (\acc val -> val ++ acc)
+    reverse val = foldr (\acc val -> val <> acc)
                   ""
                   (Data.String.split "" val)
 ```
