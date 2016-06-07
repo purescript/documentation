@@ -6,7 +6,7 @@ For example, take this expression:
 [] == [unit]
 ```
 
-`[]` has type `forall a. [a]`, but `[unit]` has type `[Unit]`. These types are not the same. But the type checker is able to determine that the type `Unit` may be chosen for the type variable `a`, so the types do become the same. We say that the type checker successfully unifies `forall a. [a]` with `[Unit]` in this case.
+`[]` has type `forall a. Array a`, but `[unit]` has type `Array Unit`. These types are not the same. But the type checker is able to determine that the type `Unit` may be chosen for the type variable `a`, so the types do become the same. We say that the type checker successfully unifies `forall a. Array a` with `Array Unit` in this case.
 
 Another example:
 
