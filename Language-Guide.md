@@ -904,7 +904,7 @@ Record Patterns
 Record patterns match an input which is a record, and bring its properties into scope:
 
 ```purescript
-f { foo = "Foo", bar = n } = n
+f { foo: "Foo", bar: n } = n
 f _ = 0
 ```
 
