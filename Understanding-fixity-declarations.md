@@ -52,13 +52,13 @@ is bracketed as:
 Precedence determines the order in which operators are bracketed. Operators with a higher precedence will be bracketed earlier. For example, take `<$>` and `<#>` from Prelude. `<$>` is precedence 4, whereas `<#>` is precedence 1. If we write:
 
 ```
-(+1) <$> [1,2,3] <#> (*2)
+(_ + 1) <$> [1,2,3] <#> (_ * 2)
 ```
 
 then this is bracketed as follows:
 
 ```
-((+1) <$> [1,2,3]) <#> (*2)
+((_ + 1) <$> [1,2,3]) <#> (_ * 2)
 ```
 
 ## Default fixity
