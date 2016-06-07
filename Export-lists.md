@@ -4,10 +4,10 @@ You can control what gets exported from a module by using an export list. When a
 module Test (exported) where
 
 exported :: Int -> Int
-exported = (+1) <<< notExported
+exported = (_ + 1) <<< notExported
 
 notExported :: Int -> Int
-notExported = (*3)
+notExported = (_ * 3)
 ```
 
 In this case, modules importing `Test` will not be able to see the `notExported` function.
