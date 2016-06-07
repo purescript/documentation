@@ -90,7 +90,7 @@ The following code defines a `Person` data type and a function to generate a str
 data Person = Person { name :: String, age :: Number }
   
 showPerson :: Person -> String
-showPerson (Person o) = o.name ++ ", aged " ++ show o.age
+showPerson (Person o) = o.name <> ", aged " <> show o.age
   
 examplePerson :: Person
 examplePerson = Person { name: "Bonnie", age: 26 }
@@ -148,9 +148,9 @@ For example::
 data Foo = Foo | Bar String
   
 runFoo Foo = "It's a Foo"
-runFoo (Bar s) = "It's a Bar. The string is " ++ s
+runFoo (Bar s) = "It's a Bar. The string is " <> s
   
-test = runFoo Foo ++ runFoo (Bar "Test")
+test = runFoo Foo <> runFoo (Bar "Test")
 ```
 
 In the example, Foo is a tagged union type which has two constructors. Its first constructor ``Foo`` takes no arguments, and its second ``Bar`` takes one, which must be a String.
@@ -170,7 +170,7 @@ The representation of a newtype at runtime is the same as the underlying data ty
 Newtypes can be assigned their own type class instances, so for example, ``Percentage`` can be given its own ``Show`` instance::
 
   instance showPercentage :: Show Percentage where
-    show (Percentage n) = show n ++ "%"
+    show (Percentage n) = show n <> "%"
 
 ## Functions
 
@@ -616,7 +616,7 @@ Function   | JS Operator | Meaning
 `shl`      | `<<`        | Shift Left
 `shr`      | `>>`        | Shift Right
 `zshr`     | `>>>`       | Zero-fill Shift Right
-`++`       | `+`         | String concatenation*
+`<>`       | `+`         | String concatenation
 
 Many of these operators are defined in type classes and work with lots of different types. For example, `+` and `*` work with not only `Int` or `Number`, but any `Semiring` (see "Type classes").
 
@@ -770,7 +770,7 @@ Here is an example of the ``Show`` typeclass, with instances for ``String``, ``B
     show false = "false"
   
   instance showArray :: (Show a) => Show [a] where
-    show xs = "[" ++ joinWith ", " (map show xs) ++ "]"
+    show xs = "[" <> joinWith ", " (map show xs) <> "]"
   
   example = show [true, false]
 ```
