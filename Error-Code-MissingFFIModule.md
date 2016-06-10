@@ -1,8 +1,9 @@
-This error means that a foreign module could not be found. Make sure you have specified the required foreign files (`--ffi`) correctly.
+This error means that a foreign module could not be found. Usually, this means that you declared a foreign import in the PureScript module but didn't create a corresponding FFI module yet.
 
-For example, say `psc` can't find the Prelude module (in versions 0.7.0 and later) but you have already installed it with `bower install purescript-prelude`. Then you could call `psc` with something like
+If a module uses any foreign imports, like this:
 
-    $(npm bin)/psc --ffi 'bower_components/purescript-*/src/**/*.js' \
-      'bower_components/purescript-*/src/**/*.purs' mymodule.purs
+```purescript
+foreign import myFunction :: Foo -> Bar
+```
 
-in order to let `psc` find the installed module's `.js` files.
+Then the PureScript compiler will expect to find an FFI module by taking the source file path, and replacing `.purs` with `.js`. So if you have `src/Foo/Bar.purs`, `psc` will look for the foreign module at `src/Foo/Bar.js`.
