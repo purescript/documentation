@@ -10,7 +10,7 @@ This page lists third-party libraries which can be used to perform common tasks.
 
 ## Audio
 
-- [waterson/purescript-webaudio](http://github.com/waterson/purescript-webaudio)
+- [sseefried/purescript-webaudio](http://github.com/sseefried/purescript-webaudio)
 
 ## Build Tools
 
