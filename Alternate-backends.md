@@ -8,5 +8,6 @@ There are various alternatives to `psc`'s default JavaScript backend:
 | [andyarvanitis/purescript-clojure](https://github.com/andyarvanitis/purescript-clojure) |          | Clojure (JVM) | experimental |                 |
 | [slamdata/truffled-purescript](https://github.com/slamdata/truffled-purescript)       | 0.7.5.x    | Truffle (JVM) | stale | translates CoreFN JSON |
 | [osa1/psc-lua](https://github.com/osa1/psc-lua)                                       | 0.5.x      | Lua           | stale |                        |
+| [PyreScript](https://github.com/joneshf/pyrescript)                                   | 0.9.1      | Python        | alpha |                        |
 | [Gabriel439/Purescript-to-Python](https://github.com/Gabriel439/Purescript-to-Python) |            | Python        | unusable atm |                        |
 | [epost/psc-query](https://github.com/epost/psc-query)                                 | 0.7.3.0    | Datalog       | toy   |                        |
