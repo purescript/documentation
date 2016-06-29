@@ -25,7 +25,7 @@ length :: [a] -> Int
 In PureScript this will fail with the error `Type variable a is undefined`. The PureScript equivalent is:
 
 ``` purescript
-length :: forall a. Array a -> Number
+length :: forall a. Array a -> Int
 ```
 
 A `forall` can declare multiple type variables at once, and should appear before typeclass constraints:
@@ -263,6 +263,6 @@ As PureScript has not inherited Haskell's legacy code, some operators and functi
 
 - `(>>)` is `(*>)`, as `Apply` is a superclass of `Monad` so there is no need to have an `Monad`-specialised version.
 - Since 0.9.1, the Prelude library does not contain `(++)` as a second alias for `append` / `(<>)` (`mappend` in Haskell) anymore.
-- `mapM` is `traverse`, as this is a more general form that applies to any traversable structure, not just lists. Also it only requires `Applicative` rather than `Monad`.
+- `mapM` is `traverse`, as this is a more general form that applies to any traversable structure, not just lists. Also it only requires `Applicative` rather than `Monad`. Similarly, `liftM` is `map`.
 - Many functions that are part of `Data.List` in Haskell are provided in a more generic form in `Data.Foldable` or `Data.Traversable`.
 - `some` and `many` are defined with the type of list they operate on (`Data.Array` or `Data.List`).
