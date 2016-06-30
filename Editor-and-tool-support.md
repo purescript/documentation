@@ -2,14 +2,15 @@
 
 - Atom 
   - [purescript-contrib/atom-language-purescript](https://github.com/purescript-contrib/atom-language-purescript) provides syntax highlighting
-  - [nwolverson/atom-ide-purescript](https://github.com/nwolverson/atom-ide-purescript) provides build support,   REPL, and autocomplete etc. via [kRITZCREEK/psc-ide](https://github.com/kRITZCREEK/psc-ide)
+  - [nwolverson/atom-ide-purescript](https://github.com/nwolverson/atom-ide-purescript) provides build support,   REPL, and autocomplete etc. via [psc-ide](https://github.com/purescript/purescript/tree/master/psc-ide-server)
 - Emacs
   - [dysinger/purescript-mode](https://github.com/dysinger/purescript-mode) was adapted from haskell-mode
+  - [epost/psc-ide-emacs](https://github.com/epost/psc-ide-emacs) offers Emacs support for [psc-ide](https://github.com/purescript/purescript/tree/master/psc-ide-server)
   - [emacs-pe/purescript-mode](https://github.com/emacs-pe/purescript-mode) is an alpha-stage greenfield mode
   - [ardumont/psci-mode](https://github.com/ardumont/emacs-psci) is a REPL minor mode
   - [spion/purscheck](https://github.com/spion/purscheck) provides flycheck support.
   - [emacs-pe/flycheck-purescript](https://github.com/emacs-pe/flycheck-purescript) provides flycheck support.
-  - [epost/psc-ide-emacs](https://github.com/epost/psc-ide-emacs) is an alpha stage Emacs binding for [kRITZCREEK/psc-ide](https://github.com/kRITZCREEK/psc-ide)
+
 - Sublime Text 2 - [PureScript package](https://sublime.wbond.net/search/PureScript) by joneshf
 - Vim
   - [purescript-vim](https://github.com/raichoo/purescript-vim) syntax highlighting and indentation
