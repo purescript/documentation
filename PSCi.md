@@ -12,7 +12,7 @@ The PureScript compiler suite (`psc`, `psci`, etc), unlike most compilers, does 
 
 Consequentially, `psci` requires a specific library to be installed in order to be able to do things like printing results to the console - namely, `purescript-console`.
 
-In addition, `psci` has no expected source file paths hardcoded in, and so it needs to be told where to load PureScript source files from. This can be done by writing a `.psci` file.
+In addition, `psci` has no expected source file paths hardcoded in, and so it needs to be told where to load PureScript source files from. This can be done by writing a `.psci` file (in purescript < 0.9). 
 
 However, normally, you won't need to worry about these things. Most people use tools which take care of these things for you, such as `pulp`. Here's an example of how to use `pulp` to start up a working `psci`:
 
@@ -76,7 +76,7 @@ You can also define data types, type classes, and type class instances (you may 
     > class (Monoid v) <= Measured a v where measure :: a -> v
     > instance measuredMeasured :: (Monoid a) => Measured a a where measure = id
 
-## Loading and importing modules
+## Loading and importing modules (pre 0.9)
 
 You can load a file containing PureScript source code with the `:load` directive:
 
