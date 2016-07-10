@@ -267,7 +267,7 @@ To denote a closed row, separate the fields with commas, with each label separat
 To denote an open row (i.e. one which may unify with another row to add new fields), separate the specified terms from a row variable by a pipe::
 
 ```purescript
-forall r. (name :: String, age :: Number | r)
+(name :: String, age :: Number | r)
 ```
 
 ## Type Synonyms
