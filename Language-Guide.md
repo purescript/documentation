@@ -833,7 +833,8 @@ The following pattern types are supported:
 - Named patterns
 - Guards
 
-Patterns need not be exhaustive. A pattern match failed exception will be thrown at runtime if no pattern matches the input. Patterns which are not exhaustive will generate warnings at compile time, however.
+The exhaustivity checker will introduce a `Partial` constraint for any pattern which is not exhaustive. 
+By default, patterns must be exhaustive, since this `Partial` constraint will not be satisfied. The error can be silenced, however, by adding a local `Partial` constraint to your function.
 
 Wildcard Patterns
 -----------------
@@ -985,7 +986,7 @@ module B where
 import A (runFoo)
 ```
 
-Values, type constructors and data constructors can all be explicitly imported. A type constructor should be followed by a list of associated data constructors to import in parentheses. A double dot (`..`) can be used to import all data constructors for a given type constructor:
+Values, type constructors and data constructors can all be explicitly imported. A type constructor can be followed by a list of associated data constructors to import in parentheses. A double dot (`..`) can be used to import all data constructors for a given type constructor:
 
 ```purescript
 module B where
