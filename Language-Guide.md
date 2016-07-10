@@ -959,14 +959,6 @@ module A where
 id x = x
 ```
 
-When referencing values or data types in another module, names may be qualified by using a dot:
-
-```purescript
-module B where
-  
-foo = A.id
-```
-
 Importing Modules
 -----------------
 
@@ -1005,6 +997,8 @@ module Main where
 import Data.Array as Array
   
 null = ...
+
+test = Array.null [1, 2, 3]
 ```
   
 Here, the name ``null`` would ordinarily conflict with ``null`` from ``Data.Array``, but the qualified import solves this problem. ``Data.Array.null`` can be referenced using ``Array.null`` instead.
@@ -1020,17 +1014,21 @@ module A (runFoo, Foo(..)) where
 
 The types of names which can be exported is the same as for module imports.
 
-Currently, individual imported values and types cannot be re-exported by a module. However, as of PureScript release 0.7, imported modules can be re-exported in their entirety:
+Imported modules can be re-exported in their entirety:
 
 ```purescript
 module A (module B) where
+
 import B
 ```
+
 When re-exporting other modules, all local values and types can also be exported by specifying the module itself as an export:
 
 ```purescript
 module A (module A, module B) where
+
 import B
+
 data ...
 ```
 
