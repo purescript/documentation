@@ -264,8 +264,6 @@ To denote a closed row, separate the fields with commas, with each label separat
 (name :: String, age :: Number)
 ```
 
-It may be necessary, depending on the context, to surround a row in parentheses. (However, see #
-
 To denote an open row (i.e. one which may unify with another row to add new fields), separate the specified terms from a row variable by a pipe::
 
 ```purescript
