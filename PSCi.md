@@ -17,9 +17,7 @@ The PureScript compiler suite (`psc`, `psci`, etc), unlike most compilers, does 
 
 Consequentially, `psci` requires a specific library to be installed in order to be able to evauluate terms in the REPL `purescript-psci-support` defines the `Eval` type class for this purpose.
 
-In addition, `psci` has no expected source file paths hardcoded in, and so it needs to be told where to load PureScript source files from. This can be done by writing a `.psci` file (in purescript < 0.9). 
-
-However, normally, you won't need to worry about these things. Most people use tools which take care of these things for you, such as `pulp`. Here's an example of how to use `pulp` to start up a working `psci`:
+However, normally, you won't need to worry about this, because Pulp takes care of installing `purescript-psci-support` by default:
 
 ```text
 $ npm install -g pulp # Install pulp
