@@ -2,13 +2,15 @@ Add the export to the list of exported functions.
 
 E.g. if getting:
 
-    Error in module M:
+```text
+Error in module M:
 
-    An export for foo requires the following to also be exported:
+An export for foo requires the following to also be exported:
     
-    Bar
+Bar
+```
 
-For
+for
 
 ``` haskell
 module M (foo) where
@@ -19,7 +21,9 @@ foo :: Bar -> Bar
 foo x = x
 ```
 
-add `Bar` to the export list: 
+The problem is that PureScript requires you to export any types involved in the type signature for `foo`. Similar restrictions apply to things like type classes and type class member exports.
+
+Add `Bar` to the export list: 
 
 ``` haskell
 module M (foo, Bar) where
