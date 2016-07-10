@@ -1,23 +1,8 @@
 PSCi "PureScript Interactive" is the REPL for PureScript. It is often a good way to explore your code, do some basic testing, or to get a feel for a new library.
 
-## `purescript-psci-support`
+## Getting Started
 
-```text
-$ psci
-
-PSCi requires the purescript-psci-support package to be installed.
-You can install it using Bower as follows:
-
-  bower i purescript-psci-support --save-dev
-
-For help getting started, visit http://wiki.purescript.org/PSCi
-```
-
-The PureScript compiler suite (`psc`, `psci`, etc), unlike most compilers, does not ship with a standard library. In PureScript, even `Prelude` is a normal module, just like any other.
-
-Consequentially, `psci` requires a specific library to be installed in order to be able to evauluate terms in the REPL `purescript-psci-support` defines the `Eval` type class for this purpose.
-
-However, normally, you won't need to worry about this, because Pulp takes care of installing `purescript-psci-support` by default:
+Use Pulp to configure and start PSCi:
 
 ```text
 $ npm install -g pulp # Install pulp
@@ -66,6 +51,23 @@ You can also define data types, type classes, and type class instances (you may 
     > data Season = Spring | Summer | Autumn | Winter
     > class Shout a where shout :: a -> a
     > instance shoutString :: Shout String where shout s = s <> "!"
+
+## `purescript-psci-support`
+
+```text
+$ psci
+
+PSCi requires the purescript-psci-support package to be installed.
+You can install it using Bower as follows:
+
+  bower i purescript-psci-support --save-dev
+
+For help getting started, visit http://wiki.purescript.org/PSCi
+```
+
+The PureScript compiler suite (`psc`, `psci`, etc), unlike most compilers, does not ship with a standard library. In PureScript, even `Prelude` is a normal module, just like any other. Consequentially, `psci` requires a specific library to be installed in order to be able to evaluate terms in the REPL.
+
+`purescript-psci-support` defines the `Eval` type class for this purpose. Instances of `Eval` are provided for `Show`able types, and for `Eff`, so that we can evaluate actions in the REPL. Library implementors might like to provide `Eval` instances for their own `Eff`-like types.
 
 ## PSCi Without Pulp
 
