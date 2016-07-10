@@ -20,7 +20,7 @@ while trying to match type [C]
      [D]
 
 while checking that expression [E]   <-- Pay close attention here!
-  has type Eff
+  has type
 
      [F]
 
