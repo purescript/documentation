@@ -9,9 +9,7 @@ It determines how expressions involving this operator are bracketed.
 
 ## Associativity
 
-**Warning**: In most cases, "associativity" refers to the algebraic sense, which is defined as follows: an operator `*` is _associative_ if for all values of `x`, `y`, and `z`, `x * (y * z) = (x * y) * z`. Unfortunately there's a very confusing naming conflict here: in the context of fixity declarations, "associativity" is to do with how your code gets parsed, not its semantics.
-
-`infixl`, or "left-associative", means that repeated applications are bracketed starting from the left. For example, `#` from Prelude is left-associative, meaning that an expression such as:
+`infixl` means that repeated applications are bracketed starting from the left. For example, `#` from Prelude is left-associative, meaning that an expression such as:
 
 ```
 products # filter isInStock # groupBy productCategory # length
@@ -63,4 +61,4 @@ then this is bracketed as follows:
 
 ## Default fixity
 
-If you define an operator and don't give it a fixity declaration, then it is assigned the default fixity, which is left-associative with a precedence of -1. This is arguably a bug, since it's not possible to give a precedence of -1 with an explicit declaration. Therefore, this behaviour might well change in a future version of the compiler, and it's probably best to give all your operators explicit fixity declarations to avoid any issues.
+If you define an operator and don't give it a fixity declaration, then it is assigned the default fixity, which is left-associative with a precedence of -1. This is arguably a bug, since it's not possible to give a precedence of -1 with an explicit declaration. Therefore, this behavior might well change in a future version of the compiler, and it's probably best to give all your operators explicit fixity declarations to avoid any issues.
