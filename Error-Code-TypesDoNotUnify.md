@@ -5,7 +5,7 @@ Error found:
 in module Main
 at src/Main.purs line 51, column 9 - line 51, column 9
 
-  Could not match type
+  Could not match type 
 
     [A]
 
@@ -48,10 +48,6 @@ Error at /.../Main.purs line 7, column 3 - line 7, column 10:
 ```
 
 Even though the type of the effect (`Test.Assert.ASSERT`) is correct, the name does not match. The effect name *must* match. So to fix this error, change `a` to `assert`. 
-
-*When using Halogen*
-
-If you are seeing this error in relation to the definition of a component try checking the type signatures  of the component and child component's slot addresses, query types and state types against the examples in the purescript halogen repository.
 
 ### Eff <-> Function
 
