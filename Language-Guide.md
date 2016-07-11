@@ -913,8 +913,8 @@ Nested Patterns
 The patterns above can be combined to create larger patterns. For example:
 
 ```purescript
-f { arr = [x, _], take = "firstOfTwo" } = x
-f { arr = [_, x, _] take = "secondOfThree" } = x
+f { arr: [x, _], take: "firstOfTwo" } = x
+f { arr: [_, x, _], take: "secondOfThree" } = x
 f _ = 0
 ```
 
