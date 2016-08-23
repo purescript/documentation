@@ -1082,9 +1082,9 @@ Fields of records can be accessed using a dot, followed by the label of the fiel
 
 `{ ... }` is just syntactic sugar for the `Record` type constructor, so `{ language ::  String }` is the same as `Record ( language :: String )`.
 
-The Object type constructor is parameterized by a row of types. In kind notation, `Object` has kind `# * -> *`. That is, it takes a row of types to a type.
+The Record type constructor is parameterized by a row of types. In kind notation, `Record` has kind `# * -> *`. That is, it takes a row of types to a type.
 
-`( language :: String )` denotes a row of types (something of kind `# *`), so it can be passed to `Object` to construct a type, namely `Object ( language :: String )`.
+`( language :: String )` denotes a row of types (something of kind `# *`), so it can be passed to `Record` to construct a type, namely `Record ( language :: String )`.
 
 ## Extending Records
 
