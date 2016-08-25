@@ -67,10 +67,10 @@ If, on the other hand, the message has the types reversed:
 
     Could not match type
 
-      Eff
+      Function
 
     with type
 
-      Function
+      Eff
 
 Then you may have neglected to provide all the required arguments in one of the lines of a do-statement, leaving a function that takes the missing args, rather than the result type of Eff.
