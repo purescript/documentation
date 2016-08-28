@@ -102,7 +102,7 @@ This technique also helps when you want to call a function that is a type class 
 foreign import showSomethingImpl :: forall a. Fn3 (Maybe a -> Boolean) (a -> String) (Maybe a) String
 
 showSomething :: forall a. (Show a) => Maybe a -> String
-showSomething x = runFn2 showSomethingImpl isJust show x
+showSomething x = runFn3 showSomethingImpl isJust show x
 ```
 
 ```javascript
