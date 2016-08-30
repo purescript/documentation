@@ -14,7 +14,7 @@ The generally accepted "standard" `Prelude` is the [`purescript-prelude`](https:
 
 ## Module Imports
 
-Type classes in modules can be specifically imported using the `class` keyword.
+Type classes in modules must be specifically imported using the `class` keyword.
 
 ```purescript
 module B where
