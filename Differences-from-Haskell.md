@@ -12,6 +12,16 @@ There is no implicit `Prelude` import in PureScript, the `Prelude` module is jus
 
 The generally accepted "standard" `Prelude` is the [`purescript-prelude`](https://github.com/purescript/purescript-prelude) library.
 
+## Module Imports
+
+Type classes in modules can be specifically imported using the `class` keyword.
+
+```purescript
+module B where
+
+import A (class Fab)
+```
+
 ## Types
 
 ### Explicit forall
