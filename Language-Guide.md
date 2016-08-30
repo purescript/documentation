@@ -978,14 +978,22 @@ module B where
 import A (runFoo)
 ```
 
-Values, type constructors and data constructors can all be explicitly imported. A type constructor can be followed by a list of associated data constructors to import in parentheses. A double dot (`..`) can be used to import all data constructors for a given type constructor:
+Values, type constructors, data constructors, and type classes can all be explicitly imported. A type constructor can be followed by a list of associated data constructors to import in parentheses. A double dot (`..`) can be used to import all data constructors for a given type constructor:
 
 ```purescript
 module B where
 
 import A (runFoo, Foo(..), Bar(Bar))
 ```
-  
+
+Type classes are imported using the `class` keyword:
+
+```purescript
+module B where
+
+import A (class Fab)
+```
+
 Qualified Imports
 -----------------
   
