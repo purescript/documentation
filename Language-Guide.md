@@ -1,74 +1,75 @@
-## Table of Contents
-
--   Hello, PureScript!
--   Another Example
--   Types
-    -   Primitive Types
-    -   Integers
-    -   Arrays
-    -   Records
-    -   Tagged Unions
-    -   Newtypes
-    -   Functions
-    -   Polymorphic Types
-    -   Row Polymorphism
-    -   Rank N Types
-    -   Rows
-    -   Type Synonyms
-    -   Constrained Types
-    -   Type Annotations
-    -   Kind System
-    -   Row Kinds
-    -   Quantification
--   Syntax
-    -   Whitespace Rules
-    -   Comments
-    -   Top-level declarations
-    -   Function application
--   Values
-    -   Numbers
-    -   Strings
-    -   Booleans
-    -   Functions
-    -   Arrays
-    -   Records
-    -   Property Accessors
-    -   Record Updates
-    -   Operators
-    -   Unary operators
-    -   Binary operators
-    -   Operators as values
-    -   Operator sections
-    -   Functions as operators
-    -   User-defined operators
-    -   If-Then-Else expressions
-    -   Let and where bindings
-    -   Do notation
--   Type Classes
-    -   Superclasses
-    -   Type Annotations
--   Pattern Matching
-    -   Wildcard Patterns
-    -   Literal Patterns
-    -   Variable Patterns
-    -   Array Patterns
-    -   Constructor patterns
-    -   Record Patterns
-    -   Nested Patterns
-    -   Named Patterns
-    -   Guards
--   Modules
-    -   Importing Modules
-    -   Qualified Imports
-    -   Module Exports
--   FFI
-    -   Importing Values
-    -   Importing Types
--   Records
-    -   Kinds
-    -   Extending Records
-    -   Wildcards
-    -   Record Update
+Table of Contents
+=================
+  * [Hello, PureScript!](#hello-purescript)
+  * [Another Example](#another-example)
+  * [Types](#types)
+    * [Primitive Types](#primitive-types)
+    * [Integers](#integers)
+    * [Arrays](#arrays)
+    * [Records](#records)
+    * [Tagged Unions](#tagged-unions)
+    * [Newtypes](#newtypes)
+    * [Functions](#functions)
+    * [Polymorphic Types](#polymorphic-types)
+    * [Row Polymorphism](#row-polymorphism)
+    * [Rank N Types](#rank-n-types)
+    * [Rows](#rows)
+    * [Type Synonyms](#type-synonyms)
+    * [Constrained Types](#constrained-types)
+    * [Type Annotations](#type-annotations)
+    * [Kind System](#kind-system)
+    * [Row Kinds](#row-kinds)
+    * [Quantification](#quantification)
+  * [Syntax](#syntax)
+    * [Whitespace Rules](#whitespace-rules)
+    * [Comments](#comments)
+    * [Top-level declarations](#top-level-declarations)
+    * [Function application](#function-application)
+  * [Values](#values)
+    * [Numbers](#numbers)
+    * [Strings](#strings)
+    * [Booleans](#booleans)
+    * [Functions](#functions-1)
+    * [Arrays](#arrays-1)
+    * [Records](#records-1)
+    * [Property Accessors](#property-accessors)
+    * [Record Updates](#record-updates)
+    * [Operators](#operators)
+    * [Unary operators](#unary-operators)
+    * [Binary operators](#binary-operators)
+    * [Operators as values](#operators-as-values)
+    * [Operator sections](#operator-sections)
+    * [Functions as operators](#functions-as-operators)
+    * [User-defined operators](#user-defined-operators)
+    * [If-Then-Else expressions](#if-then-else-expressions)
+    * [Let and where bindings](#let-and-where-bindings)
+    * [Do notation](#do-notation)
+  * [Type Classes](#type-classes)
+    * [Superclasses](#superclasses)
+    * [Type Annotations](#type-annotations-1)
+  * [Pattern Matching](#pattern-matching)
+    * [Wildcard Patterns](#wildcard-patterns)
+    * [Literal Patterns](#literal-patterns)
+    * [Variable Patterns](#variable-patterns)
+    * [Array Patterns](#array-patterns)
+    * [Constructor patterns](#constructor-patterns)
+    * [Record Patterns](#record-patterns)
+    * [Nested Patterns](#nested-patterns)
+    * [Named Patterns](#named-patterns)
+    * [Guards](#guards)
+  * [Modules](#modules)
+    * [Importing Modules](#importing-modules)
+    * [Qualified Imports](#qualified-imports)
+    * [Module Exports](#module-exports)
+  * [FFI](#ffi)
+    * [Importing Values](#importing-values)
+    * [Importing Types](#importing-types)
+  * [Records](#records-2)
+    * [Kinds](#kinds)
+    * [Extending Records](#extending-records)
+    * [Wildcards](#wildcards)
+    * [Record Update](#record-update)
+  * [Table of Contents](#table-of-contents-1)
 
 ## Hello, PureScript!
 
