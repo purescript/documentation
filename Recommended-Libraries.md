@@ -44,7 +44,6 @@ This page lists third-party libraries which can be used to perform common tasks.
 - [slamdata/purescript-halogen](http://github.com/slamdata/purescript-halogen)
 - [purescript-contrib/purescript-react](http://github.com/purescript-contrib/purescript-react)
 - [purescript-contrib/purescript-jquery](http://github.com/purescript-contrib/purescript-jquery)
-- [aktowns/purescript-simple-dom](http://github.com/aktowns/purescript-simple-dom)
 - [purescript-contrib/purescript-angular](http://github.com/purescript-contrib/purescript-angular)
 - [purescript-contrib/purescript-virtual-dom](http://github.com/purescript-contrib/purescript-virtual-dom)
 - [bodil/purescript-smolder](http://github.com/bodil/purescript-smolder)
