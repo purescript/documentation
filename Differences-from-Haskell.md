@@ -175,12 +175,6 @@ Many type class hierarchies are more granular than in Haskell. For example:
 * `Monoid` has a superclass `Semigroup`, which provides `(<>)`, and does not require an identity.
 * `Applicative` has a superclass `Apply`, which provides `(<*>)` and does not require an implementation for `pure`.
 
-### Functional Dependencies and Type Families
-
-Purescript currently does not support functional dependencies or type families.  This can cause some code not to work in Purescript even though it would work in Haskell.  Two oft-used classes in Haskell that use functional dependencies are `MonadState` and `MonadReader`.  [Here](https://github.com/purescript/purescript-transformers/issues/64) is an example of a program that can't compile because of this.
-
-There are [plans](https://github.com/purescript/purescript/issues/1580) to add either functional dependencies or type families to Purescript.
-
 ## Tuples
 
 PureScript has no special syntax for tuples as records can fulfill the same role that *n*-tuples do with the advantage of having more meaningful types and accessors.
