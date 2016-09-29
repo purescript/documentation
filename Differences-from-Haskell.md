@@ -247,6 +247,7 @@ The PureScript compiler does not support GHC-like language extensions. However, 
 * MultiParameterTypeClasses
 * PartialTypeSignatures
 * RankNTypes
+* RebindableSyntax
 * ScopedTypeVariables
 
 ## `error` and `undefined`
