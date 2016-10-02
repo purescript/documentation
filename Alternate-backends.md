@@ -10,4 +10,4 @@ There are various alternatives to `psc`'s default JavaScript backend:
 | [PyreScript](https://github.com/joneshf/pyrescript)                                   | 0.9.1      | Python        | alpha |                        |
 | [Gabriel439/Purescript-to-Python](https://github.com/Gabriel439/Purescript-to-Python) |            | Python        | unusable atm |                        |
 | [epost/psc-query](https://github.com/epost/psc-query)                                 | 0.7.3.0    | Datalog       | toy   |                        |
-| [purerl/purescript](https://github.com/purerl/purescript) | 0.9.1 | Erlang | experimental |
+| [purerl/purescript](https://github.com/purerl/purescript) | 0.10.1 | Erlang | experimental |
