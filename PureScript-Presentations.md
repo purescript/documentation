@@ -1,5 +1,5 @@
 
-Feel free to add links to helpful presentations on PureScript topics.
+Feel free to add links to helpful presentations on PureScript topics. Contact [@alex_berg](https://twitter.com/alex_berg) on Twitter to add videos to these playlists, or just add a link here.
 
 ## Conferences
 
