@@ -187,20 +187,26 @@ PureScript uses `<<<` rather than `.` for right-to-left composition of functions
 
 The `<<<` operator is actually a more general morphism composition operator that applies to semigroupoids and categories, and the `Prelude` module provides a `Semigroupoid` instance for the `->` type, which gives us function composition.
 
+## `return`
+
+In the past, PureScript used `return`. However, it is now removed and replaced with [`pure`](https://pursuit.purescript.org/packages/purescript-prelude/1.1.0/docs/Control.Applicative#v:pure). It was always an alias for pure, which means this change was implemented by simply removing the alias.
+
 ## Array Comprehensions
 
 PureScript does not provide special syntax for array comprehensions. Instead, use `do`-notation. The `guard` function from the `Control.MonadPlus` module in `purescript-control` can be used to filter results:
 
 ```purescript
-import Data.Array
-import Data.Tuple
+import Prelude (($), (*), (==), bind, pure)
+import Data.Array ((..))
+import Data.Tuple (Tuple(..))
+import Control.MonadZero (guard)
 
-factors :: Number -> Array (Tuple Number Number)
+factors :: Int -> Array (Tuple Int Int)
 factors n = do
   a <- 1 .. n
   b <- 1 .. a
   guard $ a * b == n
-  return $ Tuple a b
+  pure $ Tuple a b
 ```
 
 ## No special treatment of `$`
