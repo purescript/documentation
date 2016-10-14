@@ -1,5 +1,6 @@
 I'm working through the "Getting Started Guide" at the beginning of chapter 3, and I get this error, which refer's me to this page?
 
+```
 $ pulp psci
 Compiling PSCI.Support
 Error found:
@@ -12,3 +13,4 @@ at /Users/globalkeith/code/ps/address-book/bower_components/purescript-psci-supp
 
 See https://github.com/purescript/purescript/wiki/Error-Code-UnknownImport for more information,
 or to contribute content related to this error.
+```
