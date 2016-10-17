@@ -18,6 +18,9 @@ Add topics you'd like documented, followed by specific questions about the topic
 -- Faculties of editor plugins. Using pscid as editor-independent alternative.
 -- Iterating module while testing in psci.
 
+- Generics
+-- How to use generics to `encodeJson` from argonaut?
+
 ## Documentation System
 
 We currently use GitHub Wiki to host documentation pages because it was simple to start and the documentation needs of a young project are few. We would like to use a file-based documentation system, such as the one used by ReadTheDocs, for many reasons: 1) PR-based doc updates imply peer-review, which inspires belief that content is correct, 2) documentation is versioned with the code, which enables users of any version of the compiler to find valid documentation, 3) allow international users to submit translations.
