@@ -20,6 +20,7 @@ Add topics you'd like documented, followed by specific questions about the topic
 
 - Generics
 -- How to use generics to `encodeJson` from argonaut?
+-- Old generics (purescript-generics) vs new generics (purescript-generics-rep, enabled by fun-deps)
 
 ## Documentation System
 
