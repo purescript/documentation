@@ -74,3 +74,6 @@ If, on the other hand, the message has the types reversed:
       Eff
 
 Then you may have neglected to provide all the required arguments in one of the lines of a do-statement, leaving a function that takes the missing args, rather than the result type of Eff.
+
+### Removing effect rows
+You may see this error if all effect rows have been removed (using `Control.Monad.Eff.Exception.catchException` or `Control.Monad.Eff.Exception.try` for example). You can use `Control.Monad.Eff.runPure` to safely remove the `Eff`.
