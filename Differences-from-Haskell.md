@@ -250,6 +250,7 @@ The PureScript compiler does not support GHC-like language extensions. However, 
 * ExplicitForAll
 * FlexibleContexts
 * FlexibleInstances
+* FunctionalDependencies
 * MultiParameterTypeClasses
 * PartialTypeSignatures
 * RankNTypes
