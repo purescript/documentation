@@ -2,7 +2,7 @@ There are various alternatives to `psc`'s default JavaScript backend:
 
 | source code                                                                           | PS version | target        | status   | comments               | 
 |:--------------------------------------------------------------------------------------|:-----------|:--------------|:------|:-----------------------|
-| [pure11/pure11](https://github.com/pure11/pure11)  [(readme.md)](https://github.com/andyarvanitis/pure11/blob/master/README.md)            | 0.10.1    | C++11         | active | all tests in `./examples/passing` are passing |
+| [pure11/pure11](https://github.com/pure11/pure11)  [(readme.md)](https://github.com/andyarvanitis/pure11/blob/master/README.md)            | 0.10.2    | C++11         | active | all tests in `./examples/passing` are passing |
 | [lua-purescript/purescript](https://github.com/lua-purescript/purescript) | 0.9.1.0 | Lua | experimental | Very new and probably full of bugs. Largely untested |
 | [andyarvanitis/purescript-clojure](https://github.com/andyarvanitis/purescript-clojure) |          | Clojure (JVM) | experimental |                 |
 | [slamdata/truffled-purescript](https://github.com/slamdata/truffled-purescript)       | 0.7.5.x    | Truffle (JVM) | stale | translates CoreFN JSON |
