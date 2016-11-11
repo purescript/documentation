@@ -278,4 +278,5 @@ As PureScript has not inherited Haskell's legacy code, some operators and functi
 - `mapM` is `traverse`, as this is a more general form that applies to any traversable structure, not just lists. Also it only requires `Applicative` rather than `Monad`. Similarly, `liftM` is `map`.
 - Many functions that are part of `Data.List` in Haskell are provided in a more generic form in `Data.Foldable` or `Data.Traversable`.
 - `some` and `many` are defined with the type of list they operate on (`Data.Array` or `Data.List`).
-- Instead of `_foo` for typed holes, use `?foo`.
+- Instead of `_foo` for typed holes, use `?foo`. You have to name the hole; `?` is not allowed.
+ 
