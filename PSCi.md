@@ -52,9 +52,9 @@ You can also define data types, type classes, and type class instances (you may 
     > class Shout a where shout :: a -> a
     > instance shoutString :: Shout String where shout s = s <> "!"
 
-## `paste-mode` (previously `multi-line-mode`)
+## Paste mode (previously `--multi-line-mode`)
 
-Enter `:paste` (or `-p`) to start with `multi-line` mode. Terminate it with `Control-D` key.
+Enter `:paste` (or `:p`) to enter multi-line (or "paste") mode. Terminate it with `Control-D` key.
 
 ```
 > import Prelude                                                                 
@@ -63,6 +63,7 @@ Enter `:paste` (or `-p`) to start with `multi-line` mode. Terminate it with `Con
 …     add :: Int -> Int -> Int
 …     add = \x y -> x + y      
 > add 10 20
+> (^D)
 30                                             
 ```
 
