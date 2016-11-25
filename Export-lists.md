@@ -44,7 +44,7 @@ class Foldable f where
 Then you can export the class with:
 
 ```purescript
-module Test (Foldable, foldr, foldl, foldMap) where
+module Test (class Foldable, foldr, foldl, foldMap) where
 ```
 
 If a type class is exported, then all of its members must also be exported. Likewise, if a type class member is exported, the type class it belongs to must also be exported.
