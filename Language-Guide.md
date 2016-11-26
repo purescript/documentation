@@ -28,6 +28,7 @@ Table of Contents
   * [Values](#values)
     * [Numbers](#numbers)
     * [Strings](#strings)
+      * [Triple-quote Strings](#triple-quote-strings)
     * [Booleans](#booleans)
     * [Functions](#functions-1)
     * [Arrays](#arrays-1)
@@ -461,7 +462,11 @@ String literals are enclosed in double-quotes and may extend over multiple lines
 \World"
 ```
 
-Line breaks will be omitted from the string when written this way. If line breaks are required in the output, they can be inserted with `\n`, or by using an alternate string syntax, where the string is enclosed in triple double-quotes. This also allows the use of double quotes within the string with no need to escape them:
+Line breaks will be omitted from the string when written this way.
+
+### Triple-quote Strings
+
+If line breaks are required in the output, they can be inserted with `\n`. Alternatively, you can use triple double-quotes to prevent special parsing of escaped symbols. This also allows the use of double quotes within the string with no need to escape them:
 
 ``` purescript
 jsIsHello :: String
@@ -471,6 +476,15 @@ function isHello(greeting) {
 }
 """
 ```
+
+This method of declaring strings is especially useful when writing regular expression strings.
+
+```
+regex ".+@.+\\..+" noFlags
+regex """.+@.+\..+""" noFlags
+```
+
+The example regular expression above is a very simple email address validator. Both are equivalent, but the second one, using triple double-quotes, is much easier to write and maintain. This is even more true when writing complex regular expressions, as many are.
 
 ## Booleans
 
