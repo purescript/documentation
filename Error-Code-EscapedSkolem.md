@@ -30,7 +30,7 @@ validatePassword rec =
   rec { password = _ } <$> (lengthGreaterThan "Password" 8 rec.password *> pure rec.password)
 ```
 
-Later, you decide to make this function re-usable, as it should work for any *any* record having a password field, so you change the function's type signature to tell the compiler this. Here's your first attempt:
+Later, you decide to make this function re-usable, as it should work for *any* record having a password field, so you change the function's type signature to tell the compiler this. Here's your first attempt:
 
 ``` purescript
 type PasswordRecord = forall r. { password :: String | r}
