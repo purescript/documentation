@@ -43,9 +43,10 @@ PureScript is a small strongly, statically typed compile-to-JS language with a n
 - [Test your Javascript with QuickCheck](http://www.purescript.org/learn/quickcheck/)
 - [PureScript Without Node](https://github.com/purescript/purescript/wiki/PureScript-Without-Node)
 
-## Talks
+## Talks/Meetups
 
 - [PureScript Presentations](https://github.com/purescript/purescript/wiki/PureScript-Presentations)
+- [[PureScript Meetups|Purescript-Meetups]]
 
 ## Language Guides
 
