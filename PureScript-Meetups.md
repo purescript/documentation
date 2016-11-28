@@ -7,6 +7,9 @@
 * [Web Conference Room Links](#web-conference-room-links)
 
 
+***
+
+
 ## PureScript Unscripted
 
 We video conference once a month to learn about projects and concepts within our community! They're currently limited to 50 participants but will also be uploaded to our [YouTube channel](https://www.youtube.com/channel/UCPtHLGu_WXh-OvX8NAVtDEw). Bring your own pizza ;)
@@ -25,6 +28,8 @@ Second Saturday of the Month, 1 pm Pacific Time - [WorldTimeBuddy TimeConverter]
 
 PureScript Community Zoom Room (see below)
 
+
+***
 
 
 ## PureScript Hack Session
@@ -46,6 +51,8 @@ Fourth Saturday of the Month, 1 pm Pacific Time - [WorldTimeBuddy TimeConverter]
 PureScript Community Zoom Room (see below)
 
 
+***
+
 
 ## PureScript Co-Learning Sessions
 
@@ -55,18 +62,14 @@ Unraveling an error message or a algebraic concept can be incredibly frustrating
 
 ### Schedule
 
-Sundays, 1pm Pacific Time
-Same time in other time zones (care for DST changes):
-* California (PT): 1 PM
-* New York (ET): 4 PM
-* United Kingdom (BT): 9 PM
-* Finland (EET): 11 PM
-* Victoria/NSW (AET): 6 AM (Monday)
+Sundays, 1pm Pacific Time - [WorldTimeBuddy TimeConverter](http://www.worldtimebuddy.com/?qm=1&lid=5391959,2643743,658225,2147714&h=5391959&date=2016-4-23&sln=13-15)
 
 ### Web Conference Room:
 
-PureScript Community Zoom Room (see below) - [WorldTimeBuddy TimeConverter](http://www.worldtimebuddy.com/?qm=1&lid=5391959,2643743,658225,2147714&h=5391959&date=2016-4-23&sln=13-15)
+PureScript Community Zoom Room (see below)
 
+
+***
 
 
 ## Web Conference Room Links
