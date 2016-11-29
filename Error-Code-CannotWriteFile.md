@@ -1,3 +1,6 @@
+#### 2016-11-29 20:32 AEST
+This happened to me (different person) and I closed Atom which was open to the project folder and it solved it. Opened atom again and problem was back again. So check what might have a lock on the directory. Sucks to need to close the editor but its a workaround.
+
 #### 2016-08-19 15:37 AEST
 Actually this just happened to me again (in a different directory), when trying to evaluate `ints` inside psci with a Main that contained `ints = [1, 3, 5, 7, 11, 13, 17, 23]`.  Again, it worked fine the second time.  So it's not related to anything specific in Global...
 
