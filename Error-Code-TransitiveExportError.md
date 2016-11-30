@@ -34,4 +34,4 @@ foo :: Bar -> Bar
 foo x = x
 ```
 
-See the [language guide page on modules](https://github.com/purescript/purescript/wiki/Language-Guide:-Modules#importing-modules).
+See the [language guide page on modules](Language-Guide:-Modules#importing-modules.md).

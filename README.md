@@ -20,18 +20,18 @@ PureScript is a small strongly, statically typed compile-to-JS language with a n
 
 ## Libraries
 
-- [Recommended Libraries](https://github.com/purescript/purescript/wiki/Recommended-Libraries)
-- [Style Guide](https://github.com/purescript/purescript/wiki/Style-Guide)
+- [Recommended Libraries](Recommended-Libraries.md)
+- [Style Guide](Style-Guide.md)
 - [24 Days of PureScript 2014](https://gist.github.com/paf31/8e9177b20ee920480fbc)
 
 ## Tools
 
-- [Editor and tool support](https://github.com/purescript/purescript/wiki/Editor-and-tool-support)
+- [Editor and tool support](Editor-and-tool-support.md)
 - [Pursuit search engine](http://pursuit.purescript.org)
 
 ## Development Environments
 
-- [PureScript and Docker](https://github.com/purescript/purescript/wiki/PureScript-and-Docker)
+- [PureScript and Docker](PureScript-and-Docker.md)
 - [PureScript and NixOS](https://pr06lefs.wordpress.com/2015/01/11/get-started-with-purescript-on-nixos/)
 
 ## Articles
@@ -39,26 +39,26 @@ PureScript is a small strongly, statically typed compile-to-JS language with a n
 - [First Steps With PureScript - Solving Project Euler #1](http://www.purescript.org/learn/getting-started/)
 - [The Foreign Function Interface](http://www.purescript.org/learn/ffi/)
 - [Handling Native Effects with the Eff Monad](http://www.purescript.org/learn/eff/)
-- [FFI Tips](https://github.com/purescript/purescript/wiki/FFI-tips)
+- [FFI Tips](FFI-tips.md)
 - [Test your Javascript with QuickCheck](http://www.purescript.org/learn/quickcheck/)
-- [PureScript Without Node](https://github.com/purescript/purescript/wiki/PureScript-Without-Node)
+- [PureScript Without Node](PureScript-Without-Node.md)
 
 ## Talks/Meetups
 
-- [PureScript Presentations](https://github.com/purescript/purescript/wiki/PureScript-Presentations)
-- [[PureScript Meetups|Purescript-Meetups]]
+- [PureScript Presentations](PureScript-Presentations.md)
+- [PureScript Meetups](Purescript-Meetups.md)
 
 ## Language Guides
 
 The [PureScript Book](https://leanpub.com/purescript/read) is the recommended approach to learning the language, since it covers more material in greater depth. There is also a language guide, which is more useful as a reference:
 
-- [[Language Guide]]
+- [Language Guide](Language-Guide.md)
 
 ## Related Languages
 
-- [Related Projects](https://github.com/purescript/purescript/wiki/Related-Projects)
-- [Differences from Haskell](https://github.com/purescript/purescript/wiki/Differences-from-Haskell)
-- [Alternate compiler backends](https://github.com/purescript/purescript/wiki/Alternate-backends) for various target languages
+- [Related Projects](Related-Projects.md)
+- [Differences from Haskell](Differences-from-Haskell.md)
+- [Alternate compiler backends](Alternate-backends.md) for various target languages
 
 ## TL;DR
 * [Install PureScript](http://www.purescript.org/download/)

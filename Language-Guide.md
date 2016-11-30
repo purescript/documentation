@@ -691,7 +691,7 @@ infixl 7 foo as %%
 infixr 9 bar as ^^
 ```
 
-See [[Understanding fixity declarations]] for more information about these declarations.
+See [Understanding fixity declarations](Understanding-fixity-declarations.md) for more information about these declarations.
 
 ## If-Then-Else expressions
 
