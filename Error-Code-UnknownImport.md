@@ -14,3 +14,13 @@ at /Users/globalkeith/code/ps/address-book/bower_components/purescript-psci-supp
 See https://github.com/purescript/purescript/wiki/Error-Code-UnknownImport for more information,
 or to contribute content related to this error.
 ```
+
+---
+
+## remark
+I was able to solve this by removing all dependencies from `bower.json` and then:
+
+- `pulp build` to see the next *missing* dependency `abc`
+- lookup the corresponding package to `abc`-> `purescript-xzy`
+- `bower install --save purescript-xyz`
+- rinse and repeat till it builds
