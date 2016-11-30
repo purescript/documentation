@@ -242,15 +242,66 @@ This function can be used as follows::
 oneToTen = 1 .. 10
 ```
 
-The associativity and precedence level of operators can be defined with the `infix` (no associativity), `infixl` (left associative), and `infixr` (right associative) top-level declarations:
+Operator alias declarations are made up of four parts:
 
-```purescript
-infix 5 range as ..
-infixl 7 foo as %%
-infixr 9 bar as ^^
+* The associativity: either `infixl`, `infixr`, or `infix`.
+* The precedence: an integer, between 0 and 9. Here, it is 5.
+* The function to alias: here, `Data.Array.range`
+* The operator: here, `..`.
+
+The declaration determines how expressions involving this operator are bracketed.
+
+### Associativity
+
+`infixl` means that repeated applications are bracketed starting from the left. For example, `#` from Prelude is left-associative, meaning that an expression such as:
+
+```
+products # filter isInStock # groupBy productCategory # length
 ```
 
-See [Understanding fixity declarations](Understanding-fixity-declarations.md) for more information about these declarations.
+is bracketed as:
+
+```
+((products # filter isInStock) # groupBy productCategory) # length
+```
+
+Similarly, `infixr` means "right-associative", and repeated applications are bracketed starting from the right. For example, `$` from Prelude is right-associative, so an expression like this:
+
+```
+length $ groupBy productCategory $ filter isInStock $ products
+```
+
+is bracketed as:
+
+```
+length $ (groupBy productCategory $ (filter isInStock $ products))
+```
+
+`infix` means "non-associative", and the parser will bracket up repeated applications in such a way as to minimise the depth of the resulting syntax tree. For example, `==` from Prelude is non-associative, and so:
+
+```
+true == false == false == true
+```
+
+is bracketed as:
+
+```
+(true == false) == (false == true)
+```
+
+### Precedence
+
+Precedence determines the order in which operators are bracketed. Operators with a higher precedence will be bracketed earlier. For example, take `<$>` and `<#>` from Prelude. `<$>` is precedence 4, whereas `<#>` is precedence 1. If we write:
+
+```
+(_ + 1) <$> [1,2,3] <#> (_ * 2)
+```
+
+then this is bracketed as follows:
+
+```
+((_ + 1) <$> [1,2,3]) <#> (_ * 2)
+```
 
 ## If-Then-Else expressions
 
