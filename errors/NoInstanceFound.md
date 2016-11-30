@@ -20,7 +20,7 @@ A possible fix is to add an instance for the relevant type. Following from the e
 
 This error can also arise in situations where there is no problem with your code, because the compiler is not yet capable of inferring more complex constraints. In these cases, the solution is to add a type signature.
 
-Finally, this error can occur if your code fails to propagate `Partial` constraints properly. For an introduction to the `Partial` type class, please see [The Partial type class](../The-Partial-type-class.md).
+Finally, this error can occur if your code fails to propagate `Partial` constraints properly. For an introduction to the `Partial` type class, please see [The Partial type class](../language/The-Partial-type-class.md).
 
 ---
 

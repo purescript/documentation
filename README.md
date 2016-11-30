@@ -52,12 +52,12 @@ PureScript is a small strongly, statically typed compile-to-JS language with a n
 
 The [PureScript Book](https://leanpub.com/purescript/read) is the recommended approach to learning the language, since it covers more material in greater depth. There is also a language guide, which is more useful as a reference:
 
-- [Language Guide](Language-Guide.md)
+- [Language Guide](language/Language-Guide.md)
 
 ## Related Languages
 
 - [Related Projects](Related-Projects.md)
-- [Differences from Haskell](Differences-from-Haskell.md)
+- [Differences from Haskell](language/Differences-from-Haskell.md)
 - [Alternate compiler backends](Alternate-backends.md) for various target languages
 
 ## TL;DR
