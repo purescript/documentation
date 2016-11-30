@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+set -e -u
+
+convert-page() {
+  # Convert [[foo|bar]] style wiki links
+  sed 's/\[\[\(.*\)|\(.*\)\]\]/[\1](\2.md)/g' |
+  # Fix markdown links which explictly link to other wiki pages
+  sed 's:\[\(.*\)\](https\://github.com/purescript/purescript/wiki/\(.*\)):[\1](\2.md):g' |
+  # Convert [[foo]] style wiki links
+  ruby convert-wiki-style-links.rb
+}
+
+for page in docs/*
+do
+  convert-page <$page >"${page}.tmp"
+  mv "${page}.tmp" $page
+done
