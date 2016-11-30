@@ -12,7 +12,7 @@ There is no implicit `Prelude` import in PureScript, the `Prelude` module is jus
 
 The generally accepted "standard" `Prelude` is the [`purescript-prelude`](https://github.com/purescript/purescript-prelude) library.
 
-## Module Imports
+## Module Imports / Exports
 
 Type classes in modules must be specifically imported using the `class` keyword.
 
@@ -21,6 +21,10 @@ module B where
 
 import A (class Fab)
 ```
+
+There is no `qualified` keyword in PureScript. Writing `import Data.List as List` has the same effect as writing `import qualified Data.List as List` in Haskell.
+
+Module imports and exports are fully documented on the [Modules](Modules.md) page.
 
 ## Types
 
@@ -237,10 +241,6 @@ In PureScript, you provide an operator alias for a named function. Defining func
 apply f x = f x
 infixr 0 apply as $
 ```
-
-## Export lists
-
-Documented at: [Export lists](Export-lists.md)
 
 ## Extensions
 
