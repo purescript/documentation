@@ -66,13 +66,13 @@ Run `psc-bundle` with the following arguments:
 $ psc-bundle output/*/{index,foreign}.js --module Main --main Main
 ```
 
-The `--module` argument specifies an _entry-point_ module, which will be used to determine dead code which can be removed. For our purposes, we only care about bundling Javascript code which is a transitive dependency of the `Main` module.
+The `--module` argument specifies an _entry-point_ module, which will be used to determine dead code which can be removed. For our purposes, we only care about bundling the CommonJS module corresponding to the Main PureScript module and its transitive dependencies.
 
-The `--main` argument will generate a piece of Javascript to run our `main` action in the `Main` module, after all other generated code.
+The `--main` argument will make the output JavaScript file an executable by adding a line of JavaScript to it which runs the `main` function in the specified module.
 
-If everything worked, you should see about 100 lines of Javascript printed out. This can optionally be redirected to a file with the `-o` argument.
+If everything worked, you should see about 100 lines of JavaScript printed out. This can optionally be redirected to a file with the `--output`/`-o` argument.
 
-You should be able to execute the generated Javascript in the browser, or using NodeJS.
+You should be able to execute the generated JavaScript using NodeJS. If your PureScript code uses FFI files which `require` NPM modules, you'll need to use a JavaScript bundler, like Webpack or Browserify, before running it in the browser.
 
 #### Conclusion
 
