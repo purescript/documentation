@@ -1,3 +1,15 @@
+Note: many of the following issues have been addressed and mostly or completely
+resolved. The things that remain are:
+
+* Semver tutorial - doesn't exist AFAIK. Should go in this docs repo probably.
+* Verified semver - psc-package is under development now
+* Explicit imports - we now have compiler warnings for this kind of risky
+  importing. We also have compiler suggestions and editor plugins to make it
+  easy to see how to import modules in a forwards-compatible way and to do this
+  automatically.
+
+---
+
 Here are the minutes from our meeting at LambdaConf 2015.
 
 @michaelficarra @chexxor @andyarvanitis @benburdette
