@@ -14,4 +14,4 @@ id :: forall a. a -> a
 id x = x
 ```
 
-See also [Differences from Haskell](Differences-from-Haskell.md).
+See also [Differences from Haskell](../Differences-from-Haskell.md).
