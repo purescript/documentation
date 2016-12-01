@@ -51,7 +51,7 @@ main = do
 
 In the example, Foo is a tagged union type which has two constructors. Its first constructor `Foo` takes no arguments, and its second `Bar` takes one, which must be a String.
 
-`runFoo` is an example of pattern matching on a tagged union type to discover its constructor, and the last line shows how to construct values of type `Foo`.
+`runFoo` is an example of pattern matching on a tagged union type to discover its constructor, and the last two lines show how to construct values of type `Foo`.
 
 ## Newtypes
 
