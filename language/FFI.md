@@ -14,7 +14,7 @@ foreign import pow :: Number -> Number -> Number
 When importing values from the FFI, the values themselves are defined in separate files. The filename should be the same as the PureScript source file name, except with the ".purs" replaced with a file extension depending on the backend. For example, if the above code had been written in `src/Math.purs`, then the corresponding FFI file would be at `src/Math.js`, and it might look like this:
 
 ```javascript
--- src/Math.js
+// src/Math.js
 "use strict";
 exports.pow = function(x) {
   return function(y) {
