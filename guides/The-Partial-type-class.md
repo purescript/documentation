@@ -1,8 +1,3 @@
-*Note: This tutorial is written with version 0.9 of the compiler and versions
-1.0.0 (or higher) of the core libraries in mind. While much of this tutorial is
-still applicable to earlier versions, a few functions have moved around or
-have been renamed.*
-
 ## Why have a Partial type class?
 
 Every now and then, you will want to use *partial functions;* that is,
