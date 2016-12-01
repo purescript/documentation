@@ -3,7 +3,7 @@
 The type system defines the following types:
 
 - Primitive Types: `Int`, `Number`, `String`, `Char`, `Boolean`
-- Arrays 
+- Arrays
 - Records
 - Tagged Unions
 - Newtypes
@@ -23,27 +23,30 @@ The `Int` type represents integer values. The runtime representation is also a n
 
 ## Arrays
 
-PureScript arrays correspond to Javascript arrays at runtime, but all elements in an array must have the same type.The `Array` type takes one type argument to specify what type this is. For example, an array of integers would have the type `Array Int`, and an array of strings would have the type `Array String`.
+PureScript arrays correspond to Javascript arrays at runtime, but all elements in an array must have the same type. The `Array` type takes one type argument to specify what type this is. For example, an array of integers would have the type `Array Int`, and an array of strings would have the type `Array String`.
 
 ## Records
 
-PureScript records correspond to Javascript objects. They may have zero or more named fields, each with their own types.
+PureScript records correspond to JavaScript objects. They may have zero or more named fields, each with their own types. For example: `{ name :: String, greet :: String -> String }` corresponds to a JavaScript object with precisely two fields: `name`, which is a `String`, and `greet`, which is a function that takes a `String` and returns a `String`.
 
 ## Tagged Unions
 
 Tagged unions consist of one or more constructors, each of which takes zero or more arguments.
 
-Tagged unions can only be created using their constructors, and deconstructed through pattern matching (see later).
+Tagged unions can only be created using their constructors, and deconstructed through pattern matching (a more thorough treatment of pattern matching will be provided later).
 
 For example:
 
 ```purescript
 data Foo = Foo | Bar String
-  
+
+runFoo :: Foo -> String
 runFoo Foo = "It's a Foo"
 runFoo (Bar s) = "It's a Bar. The string is " <> s
-  
-test = runFoo Foo <> runFoo (Bar "Test")
+
+main = do
+  log (runFoo Foo)
+  log (runFoo (Bar "Test"))
 ```
 
 In the example, Foo is a tagged union type which has two constructors. Its first constructor `Foo` takes no arguments, and its second `Bar` takes one, which must be a String.
@@ -59,7 +62,9 @@ newtype Percentage = Percentage Number
 ```
 
 The representation of a newtype at runtime is the same as the underlying data type. For example, a value of type `Percentage` is just a JavaScript number at runtime.
-  
+
+Newtypes are considered different from their underlying types by the type checker. For example, if you try to apply a function to a `Percentage` where it expects a `Number`, the type checker will reject your program.
+
 Newtypes can be assigned their own type class instances, so for example, `Percentage` can be given its own `Show` instance:
 
 ```purescript
@@ -97,13 +102,13 @@ For example, the following function accesses two properties on a record::
 ```purescript
 addProps o = o.foo + o.bar + 1
 ```
-    
+
 The inferred type of ``addProps`` is::
 
 ```purescript
 forall r. { foo :: Int, bar :: Int | r } -> Number
 ```
-  
+
 Here, the type variable ``r`` has kind ``# *`` - it represents a `row` of `types`. It can be instantiated with any row of named types.
 
 In other words, ``addProps`` accepts any record which has properties ``foo`` and ``bar``, and *any other record properties*.
@@ -113,13 +118,13 @@ Therefore, the following application compiles:
 ```purescript
 addProps { foo: 1, bar: 2, baz: 3 }
 ```
-    
+
 even though the type of ``addProps`` does not mention the property ``baz``. However, the following does not compile:
 
 ```purescript
 addProps { foo: 1 }
 ```
-    
+
 since the ``bar`` property is missing.
 
 ## Rank N Types
@@ -171,7 +176,7 @@ For example::
 
 ```purescript
 type Foo = { foo :: Number, bar :: Number }
-  
+
 addFoo :: Foo -> Number
 addFoo o = o.foo + o.bar
 
@@ -180,7 +185,7 @@ type Bar a = { foo :: a, bar :: a }
 combineBar :: forall a b. (a -> a -> b) -> Bar a -> b
 combineBar f o = f o.foo o.bar
 ```
-  
+
 ## Constrained Types
 
 Polymorphic types may be predicated on one or more ``constraints``. See the chapter on type classes for more information.
@@ -208,7 +213,7 @@ The kind system defines the following kinds:
 
 ## Row Kinds
 
-The kind ``# k`` of rows is used to classify labelled, unordered collections of types of kind ``k``. 
+The kind ``# k`` of rows is used to classify labelled, unordered collections of types of kind ``k``.
 
 For example ``# *`` is the kind of rows of types, as used to define records, and ``# !`` is the kind of rows of effects, used to define the monad ``Eff`` of extensible effects.
 
