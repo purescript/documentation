@@ -34,7 +34,7 @@ The following pattern types are supported:
 - Named patterns
 - Guards
 
-The exhaustivity checker will introduce a `Partial` constraint for any pattern which is not exhaustive. 
+The exhaustivity checker will introduce a `Partial` constraint for any pattern which is not exhaustive.
 By default, patterns must be exhaustive, since this `Partial` constraint will not be satisfied. The error can be silenced, however, by adding a local `Partial` constraint to your function.
 
 Wildcard Patterns
@@ -45,7 +45,7 @@ The wildcard `_` matches any input and brings nothing into scope:
 ```purescript
 f _ = 0
 ```
-      
+
 Literal Patterns
 ----------------
 
@@ -54,10 +54,10 @@ Literal patterns are provided to match on primitives:
 ```purescript
 f true = 0
 f false = 1
-    
+
 g "Foo" = 0
 g _ = 1
-  
+
 h 0 = 0
 h _ = 1
 ```
@@ -128,7 +128,7 @@ Named patterns bring additional names into scope when using nested patterns. Any
 f a@[_, _] = true
 f _ = false
 ```
-     
+
 Here, in the first pattern, any array with exactly two elements will be matched and bound to the variable `a`.
 
 Guards
