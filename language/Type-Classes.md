@@ -25,6 +25,10 @@ instance showArray :: (Show a) => Show (Array a) where
 example = show [true, false]
 ```
 
+## Multi-Parameter Type Classes
+
+TODO
+
 ## Superclasses
 
 Superclass implications can be indicated in a class declaration with a backwards fat arrow `<=`:
@@ -43,3 +47,53 @@ assert :: forall m. (MonadFail m) => Boolean -> m Unit
 assert true = pure unit
 assert false = fail "Assertion failed"
 ```
+
+## Orphan Instances
+
+Type class instances which are defined outside of both the module which defined the class and the module which defined the type are called *orphan instances*. Some programming languages (including Haskell) allow orphan instances with a warning, but in PureScript, they are forbidden. Any attempt to define an orphan instance in PureScript will mean that your program does not pass type checking.
+
+For example, the `Semigroup` type class is defined in the module `Data.Semigroup`, and the `Int` type is defined in the module `Prim`. If we attempt to define a `Semigroup Int` instance like this:
+
+```purescript
+module MyModule where
+
+import Prelude
+
+instance semigroupInt :: Semigroup Int where
+  append = (+)
+```
+
+This will fail, because `semigroupInt` is an orphan instance. You can use a `newtype` to get around this:
+
+```purescript
+module MyModule where
+
+import Prelude
+
+newtype AddInt = AddInt Int
+
+instance semigroupAddInt :: Semigroup AddInt where
+  append (AddInt x) (AddInt y) = AddInt (x + y)
+```
+
+In fact, a type similar to this `AddInt` is provided in `Data.Monoid.Additive`, in the `monoid` package.
+
+For multi-parameter type classes, the orphan instance check requires that the instance is either in the same module as the class, or the same module as at least one of the types occurring in the instance. (TODO: example)
+
+
+## Functional Dependencies
+
+TODO
+
+## Type Class Deriving
+
+Some type class instances can be derived automatically by the PureScript compiler. To derive a type class instance, use the `derive instance` keywords:
+
+```purescript
+newtype Person = Person { name :: String, age :: Int }
+
+derive instance eqPerson :: Eq Person
+derive instance ordPerson :: Ord Person
+```
+
+TODO: list derivable type classes
