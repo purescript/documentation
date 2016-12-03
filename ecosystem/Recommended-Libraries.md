@@ -8,10 +8,6 @@ This page lists third-party libraries which can be used to perform common tasks.
 
 - [slamdata/purescript-aff](http://github.com/slamdata/purescript-aff)
 
-## Audio
-
-- [sseefried/purescript-webaudio](http://github.com/sseefried/purescript-webaudio)
-
 ## Build Tools
 
 - [bodil/pulp](https://github.com/bodil/pulp)
@@ -30,13 +26,11 @@ This page lists third-party libraries which can be used to perform common tasks.
 - [purescript/purescript-maps](http://github.com/purescript/purescript-maps)
 - [purescript/purescript-sets](http://github.com/purescript/purescript-sets)
 - [purescript-contrib/purescript-lens](http://github.com/purescript-contrib/purescript-lens)
-- [purescript-contrib/purescript-lists](http://github.com/purescript-contrib/purescript-lists)
-- [joneshf/purescript-index](https://github.com/joneshf/purescript-index)
+- [purescript/purescript-lists](http://github.com/purescript/purescript-lists)
 
 ## Database
 
 - [epost/purescript-node-postgres](https://github.com/epost/purescript-node-postgres) – PureScript bindings for [brianc/node-postgres](https://github.com/brianc/node-postgres)
-- [epost/purescript-any-db](https://github.com/epost/purescript-any-db) – PureScript bindings for [grncdr/node-any-db](https://github.com/grncdr/node-any-db), supports Postgres, MySQL, MS SQL, SQLite3.
 
 ## DOM
 
@@ -44,10 +38,7 @@ This page lists third-party libraries which can be used to perform common tasks.
 - [slamdata/purescript-halogen](http://github.com/slamdata/purescript-halogen)
 - [purescript-contrib/purescript-react](http://github.com/purescript-contrib/purescript-react)
 - [purescript-contrib/purescript-jquery](http://github.com/purescript-contrib/purescript-jquery)
-- [purescript-contrib/purescript-angular](http://github.com/purescript-contrib/purescript-angular)
-- [purescript-contrib/purescript-virtual-dom](http://github.com/purescript-contrib/purescript-virtual-dom)
 - [bodil/purescript-smolder](http://github.com/bodil/purescript-smolder)
-- [zrho/purescript-optic-ui](http://github.com/zrho/purescript-optic-ui)
 
 ## Events
 
@@ -56,10 +47,6 @@ This page lists third-party libraries which can be used to perform common tasks.
 ## Filesystem
 
 - [purescript-contrib/purescript-node-fs](http://github.com/purescript-contrib/purescript-node-fs)
-
-## FFI
- 
-- [pelotom/purescript-easy-ffi](http://github.com/pelotom/purescript-easy-ffi)
 
 ## FRP
 
@@ -84,12 +71,10 @@ This page lists third-party libraries which can be used to perform common tasks.
 
 - [purescript/purescript-foreign](http://github.com/purescript/purescript-foreign)
 - [purescript-contrib/purescript-argonaut](http://github.com/purescript-contrib/purescript-argonaut) &mdash; Fast, feature-rich, type-safe JSON library for processing and serialization.
-- [philopon/purescript-json](http://github.com/philopon/purescript-json)
 
 ## Markdown
 
 - [slamdata/purescript-markdown](http://github.com/slamdata/purescript-markdown) &mdash; Markdown parser, ADT, and renderer in 100% Purescript
-- [joneshf/purescript-showdown](https://github.com/joneshf/purescript-showdown)
 
 ## Parsing
 
@@ -108,6 +93,9 @@ This page lists third-party libraries which can be used to perform common tasks.
 
 - [purescript/purescript-quickcheck](http://github.com/purescript/purescript-quickcheck)
 - [purescript-contrib/purescript-strongcheck](http://github.com/purescript-contrib/purescript-strongcheck) &mdash; A full-featured, rigorous property- and unit-based testing library for functional programs.
+- [jystic/purescript-jack](https://github.com/jystic/purescript-jack) &mdash; QuickCheck with shrinking for free.
+- [purescript-assert](https://github.com/purescript/purescript-assert) &mdash; Very basic assertions.
+- [purescript-spec](https://github.com/owickstrom/purescript-spec)
 
 ## Validation
 
@@ -116,4 +104,3 @@ This page lists third-party libraries which can be used to perform common tasks.
 ## Web Frameworks
 
 - [dancingrobot84/purescript-express](http://github.com/dancingrobot84/purescript-express)
-- [mpietrzak/yesod-purescript](http://github.com/mpietrzak/yesod-purescript)
