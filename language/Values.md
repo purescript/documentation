@@ -157,7 +157,7 @@ This is equivalent to:
 
 ## Operators
 
-Operators in PureScript are just regular functions. The [`Prelude`](https://github.com/purescript/purescript/tree/master/prelude) defines a number of operators which correspond to JavaScript operators.
+Operators in PureScript are just regular functions. The [`Prelude`](https://github.com/purescript/purescript-prelude) defines a number of operators which correspond to JavaScript operators.
 
 ## Unary operators
 
@@ -371,4 +371,4 @@ maybeSum a b =
       let result = n + m
       in return result
 ```
-Note: (>>=) is the `bind` function for the `Bind` type as defined in the [Prelude package](https://pursuit.purescript.org/packages/purescript-prelude/0.1.3/docs/Prelude#t:Bind).
+Note: (>>=) is the `bind` function for the `Bind` type as defined in the [Prelude package](https://pursuit.purescript.org/packages/purescript-prelude/2.1.0/docs/Prelude#t:Bind).

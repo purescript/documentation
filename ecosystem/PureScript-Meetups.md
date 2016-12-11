@@ -18,7 +18,7 @@ Write down questions you'd like answered about topics to give to speakers.
 
 [PureScript Community Playlist on Youtube](https://www.youtube.com/playlist?list=PLQDWDZypikvGSNomRZNzBF2ARFLgW4TOV)
 
-What do you wanna learn? Wanna present your topic? [Email us](purescript.community@gmail.com) or DM @alex_berg on Twitter! Alternatively vote for topics on [AllOurIdeas.org/purescript-unscripted-topics](http://www.allourideas.org/purescript-unscripted-topics/)
+What do you wanna learn? Wanna present your topic? [Email us](mailto:purescript.community@gmail.com) or DM @alex_berg on Twitter! Alternatively vote for topics on [AllOurIdeas.org/purescript-unscripted-topics](http://www.allourideas.org/purescript-unscripted-topics/)
 
 ### Schedule
 
@@ -40,7 +40,7 @@ Anyone is welcome to intro their PureScript project (including written in Haskel
 
 What do you wanna hack? Wanna pitch your project?
 
-[Email us](purescript.community@gmail.com) or DM @alex_berg on Twitter?
+[Email us](mailto:purescript.community@gmail.com) or DM @alex_berg on Twitter?
 
 ### Schedule
 
@@ -81,8 +81,7 @@ Currently owned by Alex Berg, so requires him to start and host. (We need a back
 Join from PC, Mac, Linux, iOS or Android: https://zoom.us/j/118616185
 
 Or iPhone one-tap (US Toll): +16465588656,118616185# or +14086380968,118616185#
-Or Telephone: 
-Dial: +1 646 558 8656 (US Toll) or +1 408 638 0968 (US Toll) 
-Meeting ID: 118 616 185 
+Or Telephone:
+Dial: +1 646 558 8656 (US Toll) or +1 408 638 0968 (US Toll)
+Meeting ID: 118 616 185
 International numbers available: https://zoom.us/zoomconference?m=w4bACzc4b_ocxEMimJTL9bn04r0jrDVv
-

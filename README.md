@@ -20,18 +20,17 @@ PureScript is a small strongly, statically typed compile-to-JS language with a n
 
 ## Libraries
 
-- [Recommended Libraries](Recommended-Libraries.md)
+- [Recommended Libraries](ecosystem/Recommended-Libraries.md)
 - [Style Guide](Style-Guide.md)
 - [24 Days of PureScript 2014](https://gist.github.com/paf31/8e9177b20ee920480fbc)
 
 ## Tools
 
-- [Editor and tool support](Editor-and-tool-support.md)
+- [Editor and tool support](ecosystem/Editor-and-tool-support.md)
 - [Pursuit search engine](http://pursuit.purescript.org)
 
 ## Development Environments
 
-- [PureScript and Docker](PureScript-and-Docker.md)
 - [PureScript and NixOS](https://pr06lefs.wordpress.com/2015/01/11/get-started-with-purescript-on-nixos/)
 
 ## Articles
@@ -45,20 +44,20 @@ PureScript is a small strongly, statically typed compile-to-JS language with a n
 
 ## Talks/Meetups
 
-- [PureScript Presentations](PureScript-Presentations.md)
-- [PureScript Meetups](Purescript-Meetups.md)
+- [PureScript Presentations](ecosystem/PureScript-Presentations.md)
+- [PureScript Meetups](ecosystem/Purescript-Meetups.md)
 
 ## Language Guides
 
 The [PureScript Book](https://leanpub.com/purescript/read) is the recommended approach to learning the language, since it covers more material in greater depth. There is also a language guide, which is more useful as a reference:
 
-- [Language Guide](language/Language-Guide.md)
+- [Language Reference](language/README.md)
 
 ## Related Languages
 
 - [Related Projects](Related-Projects.md)
 - [Differences from Haskell](language/Differences-from-Haskell.md)
-- [Alternate compiler backends](Alternate-backends.md) for various target languages
+- [Alternate compiler backends](ecosystem/Alternate-backends.md) for various target languages
 
 ## TL;DR
 * [Install PureScript](http://www.purescript.org/download/)

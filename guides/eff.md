@@ -217,7 +217,7 @@ We can therefore implement a simple action as follows:
 foreign import incrCounter :: forall e. Eff (counter :: COUNTER | e) Number
 ```
 
-and in the corresponding [native module](../ffi/):
+and in the corresponding [native module](ffi.md):
 
 ```javascript
 exports.incrCounter = function() {
@@ -351,4 +351,3 @@ var collatz = function (n) {
 #### Conclusion
 
 The `Eff` monad provides a way to use native effects in PureScript, in such a way that different types of effects can be interleaved, and such that the generated Javascript is relatively simple.
-

@@ -1,1 +1,1 @@
-see https://github.com/purescript/purescript/wiki/Error-Code-ConflictingImport, perhaps?
+see [ConflictingImport](ConflictingImport.md), perhaps?
