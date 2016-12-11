@@ -1,7 +1,7 @@
 # PureScript Community Meetups
 
 
-* [PureScript Unscripted](#purescript-nscripted)
+* [PureScript Unscripted](#purescript-unscripted)
 * [PureScript Hack Session](#purescript-hack-session)
 * [PureScript Co-Learning Sessions](#purescript-co-learning-sessions)
 * [Web Conference Room Links](#web-conference-room-links)
@@ -22,7 +22,10 @@ What do you wanna learn? Wanna present your topic? [Email us](purescript.communi
 
 ### Schedule
 
-Second Saturday of the Month, 1 pm Pacific Time - [WorldTimeBuddy TimeConverter](http://www.worldtimebuddy.com/?qm=1&lid=5391959,2643743,658225,2147714&h=5391959&date=2016-4-23&sln=13-15)
+Second Saturday of the Month, 1 pm Pacific Time
+
+- [WorldTimeBuddy TimeConverter](http://www.worldtimebuddy.com/?qm=1&lid=5391959,2643743,658225,2147714&h=5391959&date=2016-4-23&sln=13-15)
+- [Google Calendar: PureScript Unscripted](https://calendar.google.com/calendar/embed?src=Ym03N2g1cmlhYW8wc2s2anBlczBrOGx2NGtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ)
 
 ### Web Conference Room
 
@@ -44,7 +47,10 @@ What do you wanna hack? Wanna pitch your project?
 
 ### Schedule
 
-Fourth Saturday of the Month, 1 pm Pacific Time - [WorldTimeBuddy TimeConverter](http://www.worldtimebuddy.com/?qm=1&lid=5391959,2643743,658225,2147714&h=5391959&date=2016-4-23&sln=13-15)
+Fourth Saturday of the Month, 1 pm Pacific Time
+
+- [WorldTimeBuddy TimeConverter](http://www.worldtimebuddy.com/?qm=1&lid=5391959,2643743,658225,2147714&h=5391959&date=2016-4-23&sln=13-15)
+- [Google Calendar: PureScript Hack Sessions](https://calendar.google.com/calendar/embed?src=cTA1aW9sZjZpaWltZGQ1NmhrcnJiOXJhMzBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ)
 
 ### Web Conference Room
 
@@ -62,7 +68,10 @@ Unraveling an error message or a algebraic concept can be incredibly frustrating
 
 ### Schedule
 
-Sundays, 1pm Pacific Time - [WorldTimeBuddy TimeConverter](http://www.worldtimebuddy.com/?qm=1&lid=5391959,2643743,658225,2147714&h=5391959&date=2016-4-23&sln=13-15)
+Sundays, 1pm Pacific Time
+
+- [WorldTimeBuddy TimeConverter](http://www.worldtimebuddy.com/?qm=1&lid=5391959,2643743,658225,2147714&h=5391959&date=2016-4-23&sln=13-15)
+- [Google Calendar: PureScript Co-learning Sessions](https://calendar.google.com/calendar/embed?src=cHVyZXNjcmlwdC5jb21tdW5pdHlAZ21haWwuY29t)
 
 ### Web Conference Room:
 
