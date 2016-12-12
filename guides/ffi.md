@@ -202,7 +202,7 @@ Notice that the `calculateInterest` functions defined above were _pure_: they ha
 
 The PureScript function type `a -> b` does not allow for side-effects, so it would be incorrect to assign a function type to a Javascript computation with side-effects. The correct approach in this case is to use the `Eff` type constructor, defined in the `purescript-eff` package, to assign a type to the computation.
 
-The `Eff` type constructor and its usage is documented [on the wiki](https://github.com/purescript/purescript/wiki/Handling-Native-Effects-with-the-Eff-Monad).
+The `Eff` type constructor and its usage is documented [on the eff page](eff.md).
 
 #### Santizing Foreign Data With Data.Foreign
 
@@ -233,4 +233,3 @@ Developers who define their own foreign data types should take care to document 
 I have hopefully shown that interoperating with Javascript is simple in both directions, once a few small implementation details are understood. You should now be able to wrap your Javascript libraries for use in PureScript, and vice versa.
 
 The [PureScript book](https://leanpub.com/purescript/read#leanpub-auto-the-foreign-function-interface) contains more information on the FFI, and plenty of examples and exercises for any interested readers.
-

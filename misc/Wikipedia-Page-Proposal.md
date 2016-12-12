@@ -20,7 +20,7 @@ The PureScript community maintains a collection of standard libraries, which aim
 
 In 2015, PureScript took part in the Google Summer of Code program, resulting in two successful projects - a database of PureScript libraries and documentation with type-directed search, and the addition of an exhaustivity and redundancy analysis pass to the compiler.
 
-[PureScript Conf 2015](https://github.com/purescript/purescript/wiki/PureScript-Conf-2015) was the first conference devoted to the PureScript language, with the [2016 edition](PureScript-Conf-2016) scheduled for May 2016. A [book](https://leanpub.com/purescript.md) on the language was released in 2015.
+[PureScript Conf 2015](https://github.com/purescript/purescript/wiki/PureScript-Conf-2015) was the first conference devoted to the PureScript language, with the [2016 edition](https://github.com/purescript/purescript/wiki/PureScript-Conf-2016) scheduled for May 2016. A [book](https://leanpub.com/purescript.md) on the language was released in 2015.
 
 ## Examples
 

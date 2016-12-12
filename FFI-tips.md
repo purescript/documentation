@@ -132,7 +132,7 @@ foreign import myEff :: forall eff. Eff (myEff :: MYEFF | eff) SomeType
 ```
 
 ## FFI Libraries
-There are a number of libraries for easing the process or writing FFI code. @paf31 wrote an [introduction](https://gist.github.com/paf31/8e9177b20ee920480fbc#day-3---purescript-easy-ffi-and-purescript-oo-ffi) to these in his 2014 ["24 Days of PureScript"](https://gist.github.com/paf31/8e9177b20ee920480fbc). Note that it shows the now deprecated (as of PureScript 0.7.0) inline FFI.
+There are a number of libraries for easing the process or writing FFI code. @paf31 wrote an [introduction](https://github.com/paf31/24-days-of-purescript-2014/blob/master/3.markdown) to these in his 2014 ["24 Days of PureScript"](https://gist.github.com/paf31/8e9177b20ee920480fbc). Note that it shows the now deprecated (as of PureScript 0.7.0) inline FFI.
 
 **TODO** Performance and other considerations such as Browserify (`require`ing modules dynamically)
 
