@@ -6,10 +6,10 @@ PureScript is a small strongly, statically typed compile-to-JS language with a n
 
 - Type Inference
 - Higher Kinded Polymorphism
-- Support for basic Javascript types
+- Support for basic JavaScript types
 - Extensible records
 - Extensible effects
-- Optimizer rules for generation of efficient Javascript
+- Optimizer rules for generation of efficient JavaScript
 - Pattern matching
 - Simple FFI
 - Modules
@@ -17,12 +17,12 @@ PureScript is a small strongly, statically typed compile-to-JS language with a n
 - Do Notation
 - Tail-call elimination
 - Type Classes
+- Functional Dependencies
 
 ## Libraries
 
 - [Recommended Libraries](ecosystem/Recommended-Libraries.md)
 - [Style Guide](Style-Guide.md)
-- [24 Days of PureScript 2014](https://gist.github.com/paf31/8e9177b20ee920480fbc)
 
 ## Tools
 
@@ -39,8 +39,9 @@ PureScript is a small strongly, statically typed compile-to-JS language with a n
 - [The Foreign Function Interface](http://www.purescript.org/learn/ffi/)
 - [Handling Native Effects with the Eff Monad](http://www.purescript.org/learn/eff/)
 - [FFI Tips](FFI-tips.md)
-- [Test your Javascript with QuickCheck](http://www.purescript.org/learn/quickcheck/)
+- [Test your JavaScript with QuickCheck](http://www.purescript.org/learn/quickcheck/)
 - [PureScript Without Node](PureScript-Without-Node.md)
+- [24 Days of PureScript 2016](https://github.com/paf31/24-days-of-purescript-2016)
 
 ## Talks/Meetups
 
@@ -63,4 +64,4 @@ The [PureScript Book](https://leanpub.com/purescript/read) is the recommended ap
 * [Install PureScript](http://www.purescript.org/download/)
 * [Install Node.js](https://nodejs.org/): `brew install node`/`pacman -S nodejs`/`choco install nodejs`/[Download Node.js](https://nodejs.org/)
 * [Install Pulp](https://github.com/bodil/pulp): `npm install -g pulp bower`
-* GO: `pulp init`, `pulp dep install purescript-tuples`, `pulp build --to output.js`, etc.
+* GO: `pulp init`, `bower install --save purescript-tuples`, `pulp build --to output.js`, etc.
