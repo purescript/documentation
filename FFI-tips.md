@@ -32,7 +32,7 @@ foreign import joinPathImpl :: Fn2 FilePath FilePath FilePath
 exports.joinPathImpl = require('path').join;
 ```
 
-However, these `Fn0`..`Fn10` types cannot be applied as normal PureScript functions, the require a corresponding `runFn0`..`runFn10` call to execute. The `runFn` definitions essentially do the work of taking a multi-argument function and returning a curried version for you.
+However, these `Fn0`..`Fn10` types cannot be applied as normal PureScript functions, they require a corresponding `runFn0`..`runFn10` call to execute. The `runFn` definitions essentially do the work of taking a multi-argument function and returning a curried version for you.
 
 Taking the previous example again, to avoid having to use `runFn2` every time we want to make use of `joinPath`, the usual way of doing this would be to suffix the foreign import with "Impl" and then define a more PureScript-friendly version that uses `runFn2`:
 
