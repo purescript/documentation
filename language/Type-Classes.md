@@ -4,7 +4,7 @@ PureScript supports type classes via the `class` and `instance` keywords.
 
 Types appearing in class instances are must be of the form `String`, `Number`, `Boolean`, or `C t1 ... tn` where `C` is a type constructor (including `->` and `t_i` are types of the same form).
 
-Type class instances are resolved based on the order in which they appeared in the source files. Overlapping instances will result in a compilation error.
+Type class instances are resolved based on the order in which they appeared in the source files. Overlapping instances are currently permitted but not recommended. In simple cases the compiler will display a warning and list the instances it found and which was chosen. In the future they may be disallowed completely.
 
 Here is an example of the `Show` typeclass, with instances for `String`, `Boolean` and `Array`:
 
