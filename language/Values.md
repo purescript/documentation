@@ -157,7 +157,7 @@ This is equivalent to:
 
 ## Operators
 
-Operators in PureScript are just regular functions. The [`Prelude`](https://github.com/purescript/purescript-prelude) and [`Data.Int.Bits`](https://github.com/purescript/purescript-integers) define a number of operators which correspond to JavaScript operators.
+Operators in PureScript are just regular functions. The [`Prelude`](https://github.com/purescript/purescript-prelude), [`Math`](https://github.com/purescript/purescript-math), and [`Data.Int.Bits`](https://github.com/purescript/purescript-integers) define a number of operators which correspond to JavaScript operators.
 
 ## Unary operators
 
@@ -175,7 +175,8 @@ Function   | JS Operator | Meaning
 `-`        | `-`         | Numeric subtraction
 `*`        | `*`         | Numeric multiplication
 `/`        | `/`         | Numeric division
-`mod`      | `%`         | Numeric modulus
+`%`        | `%`         | Numeric modulus
+`mod`      | `%`         | Integer modulus
 `==`       | `==`        | Equality check
 `/=`       | `!=`        | Inequality check
 `<`        | `<`         | Less than
