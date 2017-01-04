@@ -46,7 +46,7 @@ PureScript is a small strongly, statically typed compile-to-JS language with a n
 ## Talks/Meetups
 
 - [PureScript Presentations](ecosystem/PureScript-Presentations.md)
-- [PureScript Meetups](ecosystem/Purescript-Meetups.md)
+- [PureScript Meetups](ecosystem/PureScript-Meetups.md)
 
 ## Language Guides
 
