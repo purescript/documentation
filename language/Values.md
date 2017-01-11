@@ -338,6 +338,38 @@ factorial = go 1
   go acc n = go (acc * n) (n - 1)
 ```
 
+## Indentation in binding blocks
+
+Indentation of a binding's body is significant. If defining multiple bindings, as in a let-in block, each binding must have the same level of indentation. The body of the binding's definition, then, must be further indented. To illustrate:
+
+``` purescript
+f =
+  -- The `let-in` block starts at an indentation of 2 spaces, so
+  --   the bindings in it must start at an indentation greater than 2.
+  let
+    -- Because `x` is indented 4 spaces, `y` must also be indented 4 spaces.
+    -- Its body, then, must have indentation greater than 4 spaces.
+    x :: Int -> Int
+    x a =
+      -- This body is indented 2 spaces.
+      a
+    y :: Int -> Int
+    y c =
+        -- This body is indented 4 spaces.
+        c
+  in do
+    -- Because `m` is indented 4 spaces from the start of the `let`,
+    --   `n` must also be indented 4 spaces.
+    -- Its body, then, must be greater than 4 spaces.
+    let m =
+          -- This body is indented 2 spaces.
+          x (y 1)
+        n =
+            -- This body is indented 4 spaces.
+            x 1
+    log "test"
+```
+
 ## Do notation
 
 The `do` keyword introduces simple syntactic sugar for monadic expressions.
