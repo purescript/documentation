@@ -277,7 +277,7 @@ This is equivalent to:
 
 Operators in PureScript are just regular binary functions. In particular, no operators are built into the language; an overview of operators defined in libraries such as the `Prelude` is therefore outside the scope of this reference.
 
-Operators can be defined by providing an operator alias for an existing function (which must be binary, i.e. of the form `a -> b -> c`). For example:
+Operators can be defined by providing an operator alias for an existing function (which must be binary, i.e. its type must be of the form `a -> b -> c`). For example:
 
 ``` purescript
 data List a = Nil | Cons a (List a)
