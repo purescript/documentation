@@ -3,7 +3,7 @@ See the [24 days of PureScript 2016 post](https://github.com/paf31/24-days-of-pu
 ## The Warn type class
 
 There is a type class in `Prim` called `Warn` - which, like `Fail` is indexed by a `Symbol`.
-When the compiler solves a `Warn` constraint it will trivially solve the instance an print out the message as a `UserDefinedWarning`.
+When the compiler solves a `Warn` constraint it will trivially solve the instance and print out the message as a user defined warning.
 
 ### Deprecation example
 
