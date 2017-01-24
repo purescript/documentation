@@ -1,3 +1,5 @@
+# Contrib Library Guidelines
+
 `purescript-contrib` is an organization for community-driven libraries. In an effort to avoid bitrotted code, the following guidelines will be enforced on a semi-regular basis:
 
 - Projects should be **maintained**. Each library should have a clearly-identified maintainer who is responsible for responding to pull requests and issues. To yield maintainership, the maintainer should simply open an issue and we'll find a new maintainer or deprecate the library.

@@ -22,7 +22,8 @@ PureScript is a small strongly, statically typed compile-to-JS language with a n
 ## Libraries
 
 - [Maintained Packages](ecosystem/Maintained-Packages.md)
-- [Style Guide](Style-Guide.md)
+- [Style Guide](guides/Style-Guide.md)
+- [Related Projects](language/Related-Projects.md)
 
 ## Tools
 
@@ -35,13 +36,18 @@ PureScript is a small strongly, statically typed compile-to-JS language with a n
 
 ## Articles
 
-- [First Steps With PureScript - Solving Project Euler #1](http://www.purescript.org/learn/getting-started/)
-- [The Foreign Function Interface](http://www.purescript.org/learn/ffi/)
-- [Handling Native Effects with the Eff Monad](http://www.purescript.org/learn/eff/)
-- [FFI Tips](FFI-tips.md)
-- [Test your JavaScript with QuickCheck](http://www.purescript.org/learn/quickcheck/)
-- [PureScript Without Node](PureScript-Without-Node.md)
-- [24 Days of PureScript 2016](https://github.com/paf31/24-days-of-purescript-2016)
+- Articles from the ["Learn"](http://www.purescript.org/learn) section of the PureScript website:
+  - [First Steps With PureScript - Solving Project Euler #1](http://www.purescript.org/learn/getting-started/)
+  - [The Foreign Function Interface](http://www.purescript.org/learn/ffi/)
+  - [Handling Native Effects with the Eff Monad](http://www.purescript.org/learn/eff/)
+  - [Test your JavaScript with QuickCheck](http://www.purescript.org/learn/quickcheck/)
+- Articles in progress:
+  - [FFI Tips](guides/FFI-Tips.md)
+  - [PSCi](guides/PSCi.md)
+  - [Custom Type Errors](guides/Custom-Type-Errors.md)
+  - [PureScript Without Node](guides/PureScript-Without-Node.md)
+- Other Articles:
+  - [24 Days of PureScript 2016](https://github.com/paf31/24-days-of-purescript-2016)
 
 ## Talks/Meetups
 

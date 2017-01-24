@@ -1,3 +1,5 @@
+# Related Projects
+
 PureScript might be compared to other AltJS projects such as Roy, Haste, Fay, Elm and GHCJS. Certainly, there is a lot of overlap in terms of syntax, but the goals of PureScript listed above separate it in one or more ways from each of these languages.
 
 ## Roy
@@ -6,7 +8,7 @@ Roy is probably the most similar language on the list, and was a large influence
 
 ## Haste, Fay, GHCJS
 
-Projects such as Haste, Fay and GHCJS aim to compile Haskell (or a subset) to Javascript, while preserving Haskell's semantics. 
+Projects such as Haste, Fay and GHCJS aim to compile Haskell (or a subset) to Javascript, while preserving Haskell's semantics.
 
 This approach gives the advantage that tools and libraries can be shared with Haskell, but often at the cost of the size of the generated Javascript. This is the main practical difference between PureScript and these projects.
 
