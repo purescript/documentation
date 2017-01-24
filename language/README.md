@@ -1,4 +1,4 @@
-# PureScript language reference
+# PureScript Language Reference
 
 As an introductory example, here is the usual "Hello World" written in PureScript:
 

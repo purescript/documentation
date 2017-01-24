@@ -1,3 +1,5 @@
+# PureScript FFI Tips
+
 ## Use `mkFn` and `runFn`
 
 All functions in PureScript take exactly one argument, but when writing an interface to an existing JavaScript library often there is a need to expose multiple argument functions. One way to deal with this is to write some inline FFI code that "manually" curries a version of the function you want to bring in to PureScript:
@@ -9,8 +11,6 @@ foreign import joinPath :: FilePath -> FilePath -> FilePath
 ```
 
 ```javascript
-// module Path
-
 exports.joinPath = function(start) {
   return function(end) {
     return require('path').join(start, end);
@@ -27,8 +27,6 @@ foreign import joinPathImpl :: Fn2 FilePath FilePath FilePath
 ```
 
 ```javascript
-// module Path
-
 exports.joinPathImpl = require('path').join;
 ```
 
@@ -118,23 +116,19 @@ exports.doSomethingImpl = function(isJust, show, value) {
 By moving the `show` reference out to `showSomething` the compiler will pick the right `Show` instance for us at that point, so we don't have to deal with typeclass dictionaries in `showSomethingImpl`.
 
 ## Why Doesn't my `Eff` Work When Passed to a Normal JS Function?
+
 ["Representing Side Effects"](https://leanpub.com/purescript/read#leanpub-auto-representing-side-effects) in *PureScript by Example*.
 
 In order to avoid prematurely evaluating effects (or evaluating effects that should not be evaluated at all), PureScript wraps them in constant functions:
+
 ```javascript
 exports.myEff = function() {
   return doSomethingEffectful(1, 2, 3);
 }
 ```
+
 which is imported to PureScript as:
+
 ```purescript
 foreign import myEff :: forall eff. Eff (myEff :: MYEFF | eff) SomeType
 ```
-
-## FFI Libraries
-There are a number of libraries for easing the process or writing FFI code. @paf31 wrote an [introduction](https://github.com/paf31/24-days-of-purescript-2014/blob/master/3.markdown) to these in his 2014 ["24 Days of PureScript"](https://gist.github.com/paf31/8e9177b20ee920480fbc). Note that it shows the now deprecated (as of PureScript 0.7.0) inline FFI.
-
-**TODO** Performance and other considerations such as Browserify (`require`ing modules dynamically)
-
-## TODO
-- Avoiding Duplicate Labels
