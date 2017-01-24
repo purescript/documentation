@@ -1,7 +1,16 @@
-You have a bad FFI file; have a look at how to define them: http://www.purescript.org/learn/ffi/#foreign-modules
+# `ErrorParsingFFIModule` Error
 
-Each foreign module file should have a comment `// module X.Y.Z` where `X.Y.Z` is the name of the module it is associated with.
+## Cause
 
-Values should be provided in the form `exports.foo = ...`, similar to a CommonJS module.
+This error occurs when the compiler cannot verify foreign declarations in JavaScript code,
+because it was unable to parse a JavaScript file.
 
-An example can be found [here](https://github.com/purescript/purescript-eff/blob/v0.1.0-rc.1/src/Control/Monad/Eff.js).
+## Fix
+
+- Verify the JavaScript code in your foreign modules.
+- Values in foreign modules should be provided in the form `exports.name = value;`.
+
+## Notes
+
+- This [article](../guides/FFI.md) explains how to create foreign modules.
+- An example can be found [here](https://github.com/purescript/purescript-eff/blob/v1.0.0/src/Control/Monad/Eff.js).
