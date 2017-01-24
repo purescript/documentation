@@ -8,7 +8,7 @@ because it was unable to parse a JavaScript file.
 ## Fix
 
 - Verify the JavaScript code in your foreign modules.
-- Values in foreign modules should be provided in the form `exports.name = value;`.
+- Foreign modules should conform to the ES5 specification. Values in foreign modules should be provided in the form `exports.name = value;`.
 
 ## Notes
 
