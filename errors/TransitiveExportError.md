@@ -42,4 +42,4 @@ PureScript requires any types appearing inside a type declaration to also be exp
 
 ## Notes
 
-See the [language guide page on modules](Language-Guide:-Modules#importing-modules.md).
+See the [language guide page on modules](../language/Modules.md#module-exports).
