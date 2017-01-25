@@ -1,4 +1,4 @@
-# `UnusedImport` Error
+# `UnknownImport` Error
 
 ## Example
 

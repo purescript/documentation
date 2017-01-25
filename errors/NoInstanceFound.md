@@ -48,7 +48,7 @@ Finally, this error can occur if your code fails to propagate `Partial` constrai
 
 ### Exhaustivity Errors
 
-The `NoInstanceFound` error occurs when a pattern matching definition has **non-exhaustive** patterns.
+The `NoInstanceFound` error can also occur when a pattern matching definition has **non-exhaustive** patterns.
 
 As an example of this situation, consider the following definition:
 
