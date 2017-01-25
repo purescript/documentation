@@ -1,4 +1,25 @@
-# Cannot unify kind * with kind # *
+# `KindsDoNotUnify` Error
+
+## Example
+
+```purescript
+module ShortFailingExample where
+
+...
+```
+
+## Cause
+
+Explain why a user might see this error.
+
+## Fix
+
+- Suggest possible solutions.
+
+## Notes
+
+### Cannot unify kind * with kind # *
+
 This can happen when a function is declared without kind `*`, like a function that attempts to return a row:
 
 ```purs
