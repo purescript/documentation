@@ -1,23 +1,22 @@
-This error occurs when you attempt to bind the same variable to different function arguments, e.g.
+# `OverlappingArgNames` Error
 
-```purs
--- This type class instance throws an error.
--- Note 'b' is being bound twice
-instance eqNonEmpty :: (Eq a) => Eq (NonEmpty a) where
-  eq (NonEmpty a b) (NonEmpty b d) = (a == b) && (b == d)
+## Example
+
+```purescript
+> let f x x = x
+Error found:
+in module $PSCI
+at line 1, column 5 - line 1, column 13
+
+  Overlapping names in function/binder in declaration f
 ```
 
-To further illustrate...
-```purs
--- This code throws error
--- "Overlapping names in function/binder in declaration reverseAndCombine"
-reverseAndCombine :: String -> String -> String
-reverseAndCombine a a = (reverse a) <> (reverse b)
-  where
-    reverse :: String -> String
-    reverse val = foldr (\acc val -> val <> acc)
-                  ""
-                  (Data.String.split "" val)
-```
+## Cause
 
-This error is mostly likely due to a coding typo.
+This error occurs when you attempt to bind the same variable to different function arguments.
+
+## Fix
+
+- Rename one of the duplicate function arguments.
+
+## Notes

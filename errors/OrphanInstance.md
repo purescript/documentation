@@ -1,28 +1,41 @@
-This error occurs when an instance is declared outside of the module that declares the class it is for, and also none of the instance's types are declared in the same module.
+# `OrphanInstance` Error
 
-For example:
+## Example
 
-``` purescript
+```purescript
 module A where
 
-  class SomeClass a where
-    someAction :: a -> a
-
-module B where
-
-  data SomeData = SomeData
-
-module C where
-
-  import A
-  import B
-
-  instance someInstance :: SomeClass SomeData where
-    someAction d = d
+class SomeClass a
 ```
 
-`someInstance` is an orphan here as it is defined in a module separate from both `SomeData` and `SomeClass`.
+```purescript
+module B where
 
-In a case where a class has multiple type variables (`class SomeClass a b c ...`) and an instance is being declared in a different module, the instance only needs to provide one type from the current module for the instance to not be considered an orphan.
+data SomeData
+```
 
-Orphan instances are disallowed as they can cause conflicts in instance resolution in unrelated parts of the codebase, and can result in situations where you need odd imports like `import SomeModule ()` to just bring the instances into scope - with this restriction, empty-importing a module is never necessary.
+```purescript
+module C where
+
+import A
+import B
+
+instance someInstance :: SomeClass SomeData
+```
+
+## Cause
+
+This error occurs when an instance is declared outside of the module that declares the class it is for, and also none of the instance's types are declared in the same module.
+
+Above, `someInstance` is an orphan here as it is defined in a module separate from both `SomeData` and `SomeClass`.
+
+## Fix
+
+- If possible, move the instance into an allowed module.
+- Consider adding a `newtype`, and defining the instance in the same module as the `newtype`.
+
+## Notes
+
+### Orphan Instances with Functional Dependencies
+
+When using type classes involving functional dependencies, the rules for orphan instances are a little more complicated. They are explained in [this blog post](https://liamgoodacre.github.io/purescript/type/class/instance/orphan/functional/dependencies/2017/01/22/purescript-orphan-instance-detection.html).

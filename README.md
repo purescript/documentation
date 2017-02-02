@@ -21,8 +21,9 @@ PureScript is a small strongly, statically typed compile-to-JS language with a n
 
 ## Libraries
 
-- [Recommended Libraries](ecosystem/Recommended-Libraries.md)
-- [Style Guide](Style-Guide.md)
+- [Maintained Packages](ecosystem/Maintained-Packages.md)
+- [Style Guide](guides/Style-Guide.md)
+- [Related Projects](language/Related-Projects.md)
 
 ## Tools
 
@@ -35,18 +36,21 @@ PureScript is a small strongly, statically typed compile-to-JS language with a n
 
 ## Articles
 
-- [First Steps With PureScript - Solving Project Euler #1](http://www.purescript.org/learn/getting-started/)
-- [The Foreign Function Interface](http://www.purescript.org/learn/ffi/)
-- [Handling Native Effects with the Eff Monad](http://www.purescript.org/learn/eff/)
-- [FFI Tips](FFI-tips.md)
-- [Test your JavaScript with QuickCheck](http://www.purescript.org/learn/quickcheck/)
-- [PureScript Without Node](PureScript-Without-Node.md)
+- [First Steps With PureScript - Solving Project Euler #1](guides/Getting-Started.md)
+- [The Foreign Function Interface](guides/FFI.md)
+- [FFI Tips](guides/FFI-Tips.md)
+- [Generic Programming](guides/Generic.md)
+- [Handling Native Effects with the Eff Monad](guides/Eff.md)
+- [Test your JavaScript with QuickCheck](guides/QuickCheck.md)
+- [PSCi](guides/PSCi.md)
+- [Custom Type Errors](guides/Custom-Type-Errors.md)
+- [PureScript Without Node](guides/PureScript-Without-Node.md)
 - [24 Days of PureScript 2016](https://github.com/paf31/24-days-of-purescript-2016)
 
 ## Talks/Meetups
 
 - [PureScript Presentations](ecosystem/PureScript-Presentations.md)
-- [PureScript Meetups](ecosystem/Purescript-Meetups.md)
+- [PureScript Meetups](ecosystem/PureScript-Meetups.md)
 
 ## Language Guides
 

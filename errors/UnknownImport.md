@@ -1,26 +1,24 @@
-I'm working through the "Getting Started Guide" at the beginning of chapter 3, and I get this error, which refer's me to this page?
+# `UnknownImport` Error
+
+## Example
 
 ```
-$ pulp psci
-Compiling PSCI.Support
+> import Prelude (doesNotExist)
 Error found:
-in module PSCI.Support
-at /Users/globalkeith/code/ps/address-book/bower_components/purescript-psci-support/src/PSCI/Support.purs line 10, column 34 - line 10, column 53
+in module $PSCI
+at line 1, column 17 - line 1, column 29
 
-  Cannot import value unsafeInterleaveEff from module Control.Monad.Eff.Unsafe
+  Cannot import value doesNotExist from module Prelude
   It either does not exist or the module does not export it.
-
-
-See https://github.com/purescript/purescript/wiki/Error-Code-UnknownImport for more information,
-or to contribute content related to this error.
 ```
 
----
+## Cause
 
-## remark
-I was able to solve this by removing all dependencies from `bower.json` and then:
+This error occurs when trying to import a name which does not exist.
 
-- `pulp build` to see the next *missing* dependency `abc`
-- lookup the corresponding package to `abc`-> `purescript-xzy`
-- `bower install --save purescript-xyz`
-- rinse and repeat till it builds
+## Fix
+
+- Check spelling of any imported names.
+- Check dependencies to make sure you are using the correct versions. You can use [Pursuit](https//pursuit.purescript.org/) to check which package versions define the names you are trying to import.
+
+## Notes

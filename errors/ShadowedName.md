@@ -1,29 +1,29 @@
-This warning occurs when a name was already used earlier. Consider renaming the second occurrence of the name, since multiple uses might make it easy to refer to the wrong value.
+# `ShadowedName` Warning
 
-For example:
-
-```purescript
-circle :: Shape
-circle = Circle (Point { x: 0.0, y: 0.0 }) 10.0
-
-rectangle :: Shape
-rectangle = Rectangle (Point { x: 10.0, y: 10.0 }) 10.0 10.0
-
--- | The first declaration of the name "picture"
-picture :: Picture
-picture = [circle, rectangle]
-
-
--- | The warning appears here:
-area :: Shape -> Number
-area s = case s of
-  Circle _ r      -> Math.pi * r * r
-  Rectangle _ w h -> w * h
-  Clipped picture -> boundsArea $ bounds picture
-  otherwise       -> 0.0
-  where
-    boundsArea (Bounds bs) = (bs.right - bs.left) * (bs.bottom - bs.top)
+## Example
 
 ```
+> let x =
+    let x = 1
+    in x
 
-Note that build is success in the above case.
+Warning 1 of 1:
+
+  at line 1, column 1 - line 3, column 7
+
+    Name x was shadowed.
+
+  in value declaration x
+```
+
+## Cause
+
+This warning occurs when a name is brought into scope, but that name is already defined in the current scope. In the example above, `x` is used to refer to both the inner and outer `let` binding.
+
+PureScript warns in this case because multiple uses of the same name might make it easy to refer to the wrong value.
+
+## Fix
+
+- Consider renaming one or other occurrence of the name.
+
+## Notes

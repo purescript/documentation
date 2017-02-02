@@ -1,37 +1,45 @@
-Add the export to the list of exported functions.
+# `TransitiveExportError` Error
 
-E.g. if getting:
+## Example
+
+```purescript
+module Example (foo) where
+
+data Bar
+
+foo :: Bar -> Bar
+foo x = x
+```
+
+## Cause
+
+This error occurs when one name is exported, but exporting that name requires some other name(s) to also be exported.
+
+The example above generates the following error:
 
 ```text
 Error in module M:
 
 An export for foo requires the following to also be exported:
-    
+
 Bar
 ```
 
-for
+PureScript requires any types appearing inside a type declaration to also be exported. Similar restrictions apply to things like type classes and type class member exports.
 
-``` haskell
-module M (foo) where
+## Fix
 
-import Prelude
+- Follow the instructions in the error, and add the required names to the list of exports:
 
-foo :: Bar -> Bar
-foo x = x
-```
+    ```purescript
+    module Example (foo, Bar) where
 
-The problem is that PureScript requires you to export any types involved in the type signature for `foo`. Similar restrictions apply to things like type classes and type class member exports.
+    data Bar
 
-Add `Bar` to the export list: 
+    foo :: Bar -> Bar
+    foo x = x
+    ```
 
-``` haskell
-module M (foo, Bar) where
+## Notes
 
-import Prelude
-
-foo :: Bar -> Bar
-foo x = x
-```
-
-See the [language guide page on modules](Language-Guide:-Modules#importing-modules.md).
+See the [language guide page on modules](../language/Modules.md#module-exports).

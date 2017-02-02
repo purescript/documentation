@@ -1,17 +1,28 @@
-This error occurs when a type variable appears in a type signature without having first been defined.
+# `UndefinedTypeVariable` Error
 
-For example, in this type signature, the type variable `a` is not defined:
+## Example
 
 ```purescript
 id :: a -> a
 id x = x
 ```
 
-A possible fix is to define the variable with a `forall` quantifier:
+## Cause
 
-```purescript
-id :: forall a. a -> a
-id x = x
-```
+This error occurs when an undefined type variable appears in a type signature.
 
-See also [Differences from Haskell](../language/Differences-from-Haskell.md).
+In the example, the type variable `a` is undefined.
+
+Note that PureScript requires all type variables to be defined in type signatures, unlike in Haskell. See also [Differences from Haskell](../language/Differences-from-Haskell.md).
+
+## Fix
+
+- Check the spelling of any type variables.
+- A possible fix is to introduce the variable using a `forall` quantifier:
+
+    ```purescript
+    id :: forall a. a -> a
+    id x = x
+    ```
+
+## Notes

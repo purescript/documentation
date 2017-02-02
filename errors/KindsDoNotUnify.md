@@ -1,48 +1,45 @@
-# Cannot unify kind * with kind # *
-This can happen when a function is declared without kind `*`, like a function that attempts to return a row:
+# `KindsDoNotUnify` Error
 
-```purs
-onClick :: forall a. String -> (click :: String | a)
-onClick s = {click: s}
-```
+## Example
 
-The error message reads along the lines of:
-```purs
-  Prim.String -> (click :: Prim.String | a)
+```purescript
+> import Type.Proxy
+> let x = Proxy :: Proxy Array
+Error found:
+in module $PSCI
+at line 1, column 5 - line 1, column 24
 
-  Cannot unify kind
-    *
+  Could not match kind
+
+    Type
+
   with kind
-    # *
+
+    Type -> Type
+
+
+while checking the kind of Proxy Array
 ```
 
-**Prime suspect:** You are missing an `->` in your type signature.
+## Cause
 
+This error occurs when the compiler requires two _kinds_ to be equal, but they are not equal.
 
-# Cannot unify kind * with kind * -> *
-This error occurs when you try adding a type class instance with a superfluous type parameter, e.g. (from the Purescript by Example book):
-```purs
-data NonEmpty a = NonEmpty a [a]
+In the example above, the type constructor `Proxy` takes an argument of kind `Type`, but `Array` has kind `Type -> Type`, hence the error message.
 
-instance functorNonEmpty :: Functor (NonEmpty a) where
-  (<$>) f (NonEmpty x xs) = NonEmpty (f x) []
-```
-The correct version is (just use `Functor NonEmpty` instead of `Functor (NonEmpty a)`):
-```purs
-instance functorNonEmpty :: Functor NonEmpty where
-  (<$>) f (NonEmpty x xs) = NonEmpty (f x) []
-```
+## Fix
 
-To further illustrate why the type parameter is superfluous, we can compare the `Show` and `Functor` type classes.  Note, that the `Show` type class accepts a _type_ `a`, and the `show` function must accept a value of that type as the first parameter.
+- Look at the information in the error message to find the type with the offending kind.
 
-```purs
-class Show a where
-  show :: a -> String
+## Notes
+
+### Additional/Missing Type Arguments
+
+This error can occur when a type argument is missing, or an additional type argument is provided:
+
+```purescript
+instance functorArray :: Functor (Array a) where
+  ...
 ```
 
-This is different from the `Functor` type class which accepts a _type constructor_ `f`, which is used to create a new type `f a` and `f b`.
-
-```purs
-class Functor f where
-  map :: forall a b. (a -> b) -> f a -> f b
-```
+This results in a kind error, due to the additional type argument `a` passed to `Array` (in `Functor (Array a)`). The solution is to use `Functor Array` instead.

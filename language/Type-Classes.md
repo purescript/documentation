@@ -27,7 +27,7 @@ example = show [true, false]
 
 ## Multi-Parameter Type Classes
 
-TODO
+TODO. For now, see the section in [PureScript by Example](https://leanpub.com/purescript/read#leanpub-auto-multi-parameter-type-classes).
 
 ## Superclasses
 
@@ -83,7 +83,7 @@ For multi-parameter type classes, the orphan instance check requires that the in
 
 ## Functional Dependencies
 
-TODO
+TODO. For now, see the section in [PureScript by Example](https://leanpub.com/purescript/read#leanpub-auto-functional-dependencies).
 
 ## Type Class Deriving
 

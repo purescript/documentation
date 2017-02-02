@@ -1,9 +1,13 @@
-This error means that a foreign module could not be found. Usually, this means that you declared a foreign import in the PureScript module but didn't create a corresponding FFI module yet.
+# `MissingFFIModule` Error
 
-If a module uses any foreign imports, like this:
+## Cause
 
-```purescript
-foreign import myFunction :: Foo -> Bar
-```
+This error occurs if a module uses any foreign imports, but a foreign module could not be found.
 
-Then the PureScript compiler will expect to find an FFI module by taking the source file path, and replacing `.purs` with `.js`. So if you have `src/Foo/Bar.purs`, `psc` will look for the foreign module at `src/Foo/Bar.js`.
+Usually, this means that you declared a foreign import in the PureScript module but didn't create a corresponding FFI module yet.
+
+## Fix
+
+- Check that the foreign module with the matching name exists. The PureScript compiler finds FFI modules by taking the source file path, and replacing the `.purs` extension with `.js`.
+
+## Notes
