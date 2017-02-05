@@ -74,13 +74,16 @@ main :: forall eff. Eff (console :: CONSOLE | eff) Unit
 main = logShow (unsafePartial (fromJust (Just 3)))
 ```
 
-Or, even better than `unsafePartial` is `unsafePartialBecause`, which allows
-us to encode *why* we are confidently using this unsafe function.
+Or, even more informative than `unsafePartial` is `unsafePartialBecause`, which allows
+us to encode *why* we are confidently using this partial function.
 
 ``` purescript
 main :: forall eff. Eff (console :: CONSOLE | eff) Unit
 main = logShow (unsafePartialBecause "Is hardcoded to be Just." (fromJust (Just 3)))
 ```
+
+Note that `unsafePartial` can be inlined by the compiler, so it should
+be preferred in performance-sensitive code.
 
 ## Where should I put unsafePartial?
 
