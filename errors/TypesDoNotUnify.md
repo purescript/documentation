@@ -35,7 +35,7 @@ In the example above, the types `String` and `Int` can never be made equal, henc
 ## Notes
 ### Arrays
 
-Unlike in Javascript, all elements of a PureScript array must be the same type. For example, ```[true, false``` or ```[1, 2, 3]``` work fine but ```[1, false]``` does not.
+Unlike in Javascript, all elements of a PureScript array must be the same type. For example, ```[true, false]``` or ```[1, 2, 3]``` work fine but ```[1, false]``` does not.
 
 ### Another Example
 
