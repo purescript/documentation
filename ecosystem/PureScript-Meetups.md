@@ -6,6 +6,7 @@
 * [PureScript Co-Learning Sessions](#purescript-co-learning-sessions)
 * [Web Conference Room Links](#web-conference-room-links)
 
+Visit [gathering.purescript.org](https://gathering.purescript.org) to see and RSVP for upcoming meetups.
 
 ***
 
