@@ -3,7 +3,6 @@
 
 * [PureScript Unscripted](#purescript-unscripted)
 * [PureScript Hack Session](#purescript-hack-session)
-* [PureScript Co-Learning Sessions](#purescript-co-learning-sessions)
 * [Web Conference Room Links](#web-conference-room-links)
 
 Visit [gathering.purescript.org](https://gathering.purescript.org) to see and RSVP for upcoming meetups.
@@ -54,27 +53,6 @@ Fourth Saturday of the Month, 1 pm Pacific Time
 - [Google Calendar: PureScript Hack Sessions](https://calendar.google.com/calendar/embed?src=cTA1aW9sZjZpaWltZGQ1NmhrcnJiOXJhMzBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ)
 
 ### Web Conference Room
-
-PureScript Community Zoom Room (see below)
-
-
-***
-
-
-## PureScript Co-Learning Sessions
-
-Sit together in a virtual room and help each other learn PureScript. Intended to be a helpful, friendly place for beginners.
-
-Unraveling an error message or a algebraic concept can be incredibly frustrating while learning PureScript, but breaking through such quandaries is greatly eased by working through it with peers. This meetup is intended to provide such an environment to PureScript developers.
-
-### Schedule
-
-Sundays, 1pm Pacific Time
-
-- [WorldTimeBuddy TimeConverter](http://www.worldtimebuddy.com/?qm=1&lid=5391959,2643743,658225,2147714&h=5391959&date=2016-4-23&sln=13-15)
-- [Google Calendar: PureScript Co-learning Sessions](https://calendar.google.com/calendar/embed?src=cHVyZXNjcmlwdC5jb21tdW5pdHlAZ21haWwuY29t)
-
-### Web Conference Room:
 
 PureScript Community Zoom Room (see below)
 
