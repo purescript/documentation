@@ -3,19 +3,11 @@
 ## Example
 
 ```purescript
-module ShortFailingExample where
+module ErrorExample where
 
-...
+applySelf x = x x
 ```
 
 ## Cause
 
-Explain why a user might see this error.
-
-## Fix
-
-- Suggest possible solutions.
-
-## Notes
-
-- Additional notes.
+This fails because x must have a function type, but the domain of the function must be the same type, so we end up with an infinite type `(((... -> r) -> r) -> r) -> r`.
