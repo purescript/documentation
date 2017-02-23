@@ -109,23 +109,7 @@ Currently, the following type classes can be derived:
 Some type classes can be automatically solved by the PureScript Compiler without requiring you place a PureScript statement, like `derive instance`, in your source code.
 
 ``` purescript
-module SolvingIsSymbol where
-
-import Data.Symbol
-
-literalSymbol :: SProxy "literal"
-literalSymbol = SProxy
-
-libReflectSymbol :: forall s. IsSymbol s => SProxy s -> String
-libReflectSymbol = reflectSymbol
-
-main = do
-  let lit = libReflectSymbol literalSymbol
-  when (lit == "literal") (log "Done")
-```
-
-``` purescript
-foo :: forall t. Warn "Custom warning message" => t -> t
+foo :: forall t. (Warn "Custom warning message") => t -> t
 foo x = x
 ```
 
