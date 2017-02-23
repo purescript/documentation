@@ -95,5 +95,9 @@ newtype Person = Person { name :: String, age :: Int }
 derive instance eqPerson :: Eq Person
 derive instance ordPerson :: Ord Person
 ```
-
-TODO: list derivable type classes
+Currently, the following type classes can be derived:
+- Generic
+- Eq
+- Ord
+- Functor
+- Newtype
