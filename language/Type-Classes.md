@@ -131,7 +131,6 @@ foo x = x
 
 Currently, the following type classes can be automatically solved:
 
-- NamedInstance
 - Warn
 - [IsSymbol](https://pursuit.purescript.org/packages/purescript-typelevel-prelude/1.0.0/docs/Type.Data.Symbol#t:IsSymbol)
 - [CompareSymbol](https://pursuit.purescript.org/packages/purescript-typelevel-prelude/1.0.0/docs/Type.Data.Symbol#t:CompareSymbol)
