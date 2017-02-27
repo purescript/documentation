@@ -26,6 +26,10 @@ In the example above, the type of `runST` causes us to check `newSTRef 0` agains
 
 One common pitfall is to use the `runST` or `runPure` functions with the `$` operator. This will often lead to the `EscapedSkolem` error due to instantiation of type variables. Avoid this by using parentheses instead of `$`.
 
+### Pointfree style
+
+In some cases point free style can also leak type variables.
+
 ### Impredicative Types
 
 You can also encounter this error when trying to use impredicative polymorphism, e.g. when a type variable should be instantiated with a polymorphic type. An example could be using a polymorphic type in a data structure, or defining a type alias to a universally quantified type and using it as a type parameter. See [GHC docs](https://ghc.haskell.org/trac/ghc/wiki/ImpredicativePolymorphism) or [this tutorial](http://jozefg.bitbucket.org/posts/2014-12-23-impredicative.html) to learn more about the problem.
