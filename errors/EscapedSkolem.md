@@ -26,7 +26,7 @@ In the example above, the type of `runST` causes us to check `newSTRef 0` agains
 
 One common pitfall is to use the `runST` or `runPure` functions with the `$` operator. This will often lead to the `EscapedSkolem` error due to instantiation of type variables. Avoid this by using parentheses instead of `$`.
 
-### Pointfree style
+### Point free style
 
 In some cases point free style can also leak type variables.
 
