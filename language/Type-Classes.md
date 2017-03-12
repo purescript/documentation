@@ -95,5 +95,27 @@ newtype Person = Person { name :: String, age :: Int }
 derive instance eqPerson :: Eq Person
 derive instance ordPerson :: Ord Person
 ```
+Currently, the following type classes can be derived:
 
-TODO: list derivable type classes
+- [Data.Generic (class Generic)](https://pursuit.purescript.org/packages/purescript-generics/3.3.0/docs/Data.Generic#t:Generic)
+- [Data.Generic.Rep (class Generic)](https://pursuit.purescript.org/packages/purescript-generics-rep/4.1.0/docs/Data.Generic.Rep#t:Generic)
+- [Data.Eq (class Eq)](https://pursuit.purescript.org/packages/purescript-prelude/2.4.0/docs/Data.Eq#t:Eq)
+- [Data.Ord (class Ord)](https://pursuit.purescript.org/packages/purescript-prelude/2.4.0/docs/Data.Ord#t:Ord)
+- [Data.Functor (class Functor)](https://pursuit.purescript.org/packages/purescript-prelude/2.4.0/docs/Data.Functor#t:Functor)
+- [Data.Newtype (class Newtype)](https://pursuit.purescript.org/packages/purescript-newtype/1.3.0/docs/Data.Newtype#t:Newtype)
+
+## Compiler-Solvable Type Classes
+
+Some type classes can be automatically solved by the PureScript Compiler without requiring you place a PureScript statement, like `derive instance`, in your source code.
+
+``` purescript
+foo :: forall t. (Warn "Custom warning message") => t -> t
+foo x = x
+```
+
+Currently, the following type classes can be automatically solved:
+
+- Warn
+- [IsSymbol](https://pursuit.purescript.org/packages/purescript-typelevel-prelude/1.0.0/docs/Type.Data.Symbol#t:IsSymbol)
+- [CompareSymbol](https://pursuit.purescript.org/packages/purescript-typelevel-prelude/1.0.0/docs/Type.Data.Symbol#t:CompareSymbol)
+- [AppendSymbol](https://pursuit.purescript.org/packages/purescript-typelevel-prelude/1.0.0/docs/Type.Data.Symbol#t:AppendSymbol)
