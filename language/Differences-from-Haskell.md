@@ -242,6 +242,22 @@ apply f x = f x
 infixr 0 apply as $
 ```
 
+## Operator Sections
+
+In Haskell, there is syntactic sugar to partially apply infix operators.
+
+```haskell
+(2 ^) -- desugars to `(^) 2`, or `\x -> x ^ 2`
+(^ 2) -- desugars to `flip (^) 2`, or `\x -> 2 ^ x`
+```
+
+In PureScript, operator sections look a little bit different.
+
+```purescript
+(2 ^ _)
+(_ ^ 2)
+```
+
 ## Extensions
 
 The PureScript compiler does not support GHC-like language extensions. However, there are some "built-in" language features that are equivalent (or at least similar) to a number of GHC extensions. These currently are:
