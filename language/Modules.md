@@ -10,7 +10,7 @@ id x = x
 
 ## Importing Modules
 
-A module can be imported using the `import` keyword. This will create aliases for all of the values and types in the imported module:
+A module can be imported using the `import` keyword. This is called an "open import" - it will create aliases for all of the values and types in the imported module:
 
 ```purescript
 module B where
@@ -40,6 +40,17 @@ Type classes are imported using the `class` keyword:
 module B where
 
 import A (class Fab)
+```
+
+### Hiding imports
+
+It is also possible to exclude some names from an open import with the `hiding` keyword. This is useful to avoid import conflicts between modules:
+
+```purescript
+module C where
+  
+import A hiding (runFoo)
+import B (runFoo)
 ```
 
 ## Qualified Imports
