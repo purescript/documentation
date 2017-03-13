@@ -44,7 +44,7 @@ import A (class Fab)
 
 ### Hiding imports
 
-It is also possible to exclude some names from a mass import with the `hiding` keyword. This is useful to avoid import conflicts between modules:
+It is also possible to exclude some names from an open import with the `hiding` keyword. This is useful to avoid import conflicts between modules:
 
 ```purescript
 module C where
