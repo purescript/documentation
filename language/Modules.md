@@ -42,6 +42,17 @@ module B where
 import A (class Fab)
 ```
 
+### Hiding imports
+
+It is also possible to exclude some names from a mass import with the `hiding` keyword. This is useful to avoid import conflicts between modules:
+
+```purescript
+module C where
+  
+import A hiding (runFoo)
+import B (runFoo)
+```
+
 ## Qualified Imports
   
 Modules can also be imported qualified, which means that their names will not be brought directly into scope, but rather, aliased to a different module name. This can be helpful when avoiding naming conflicts:
