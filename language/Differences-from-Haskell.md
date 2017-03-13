@@ -251,7 +251,7 @@ In Haskell, there is syntactic sugar to partially apply infix operators.
 (^ 2) -- desugars to `flip (^) 2`, or `\x -> 2 ^ x`
 ```
 
-In PureScript, you can do the same using partial application notation.
+In PureScript, operator sections look a little bit different.
 
 ```purescript
 (2 ^ _)
