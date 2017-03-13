@@ -10,7 +10,7 @@ id x = x
 
 ## Importing Modules
 
-A module can be imported using the `import` keyword. This will create aliases for all of the values and types in the imported module:
+A module can be imported using the `import` keyword. This is called an "open import" - it will create aliases for all of the values and types in the imported module:
 
 ```purescript
 module B where
