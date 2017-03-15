@@ -26,12 +26,11 @@ A single line comment starts with `--`:
 -- This is a comment
 ```
 
-Multi-line comments are enclosed in `{-` and `-}`. These can be nested:
+Multi-line comments are enclosed in `{-` and `-}`:
 
 ``` purescript
 {-
   Comment
-  {- nested comment -}
   continued comment
 -}
 ```
