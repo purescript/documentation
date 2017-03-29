@@ -206,10 +206,10 @@ x = one :: Int
 
 The kind system defines the following kinds:
 
-- ``*``, the kind of types.
-- ``!``, the kind of effects.
+- ``Type``, the kind of types.
 - Arrow kinds ``k1 -> k2``
 - Row kinds ``# k``
+- User-defined kinds, such as ``Control.Monad.Eff.Effect``, the kind of effects.
 
 ## Row Kinds
 
