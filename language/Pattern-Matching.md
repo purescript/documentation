@@ -139,7 +139,7 @@ Guards are used to impose additional constraints inside a pattern using boolean-
 ```purescript
 evens :: List Int -> Int
 evens Nil = 0
-evens (Cons x xs) | x % 2 == 0 = 1 + evens xs
+evens (Cons x xs) | x `mod` 2 == 0 = 1 + evens xs
 evens (Cons _ xs) = evens xs
 ```
 
