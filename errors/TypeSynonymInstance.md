@@ -20,7 +20,7 @@ Since every value that structually matches the type synonym could be considered 
 
 ## Fix
 
-If a type is wrapped in a [Newtype](https://github.com/purescript/documentation/blob/master/language/Types.md#newtypes) instead, it is considered a different type than the underlying type by the type checker. Newtypes can have type class instances declared for them:
+A [newtype](https://github.com/purescript/documentation/blob/master/language/Types.md#newtypes) declaration generates a brand new type; instead of introducing a synonym for an existing type. However, the runtime representation is the same. Newtypes can have type class instances declared for them:
 
 ```purescript
 newtype Mass = Mass Number
