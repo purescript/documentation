@@ -14,17 +14,13 @@ instance showMass :: Show Mass where
 
 ## Cause
 
-*Type synonyms* are merely aliases (usually created to avoid verbose type annotations) and do not declare a new unique type. It is still possible to use the synonym and its equivalent type interchangeably:
+[Type synonyms](https://github.com/purescript/documentation/blob/master/language/Types.md#type-synonyms) are merely aliases (usually created to avoid verbose type annotations) and do not declare a new unique type. It is still possible to use the synonym and its equivalent type interchangeably.
 
-```purescript
-velocity = 123.456 :: Mass  -- oops
-```
-
-Since every value that structually matches the type synonym could be considered of the same type, it is not allowed to implement type classes based on type synonyms.
+Since every value that structually matches the type synonym could be considered of the same type, it is not allowed to implement [type classes](https://github.com/purescript/documentation/blob/master/language/Type-Classes.md) based on type synonyms.
 
 ## Fix
 
-If a type is wrapped in a **newtype** instead, it becomes a different type than the underlying type. Newtypes can be used as type class instances:
+If a type is wrapped in a [Newtype](https://github.com/purescript/documentation/blob/master/language/Types.md#newtypes) instead, it is considered a different type than the underlying type by the type checker. Newtypes can have type class instances declared for them:
 
 ```purescript
 newtype Mass = Mass Number
