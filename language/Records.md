@@ -65,3 +65,11 @@ PureScript also provides a record update syntax similar to Haskell's:
 setX :: Number -> Point -> Point
 setX val point = point { x = val }
 ```
+
+This can be used to update nested records:
+
+```purescript
+setPersonPostcode :: PostCode -> Person -> Person
+setPersonPostcode pc p = p { address { postCode = pc } }
+```
+
