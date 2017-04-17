@@ -247,8 +247,8 @@ infixr 0 apply as $
 In Haskell, there is syntactic sugar to partially apply infix operators.
 
 ```haskell
-(2 ^) -- desugars to `(^) 2`, or `\x -> x ^ 2`
-(^ 2) -- desugars to `flip (^) 2`, or `\x -> 2 ^ x`
+(2 ^) -- desugars to `(^) 2`, or `\x -> 2 ^ x`
+(^ 2) -- desugars to `flip (^) 2`, or `\x -> x ^ 2`
 ```
 
 In PureScript, operator sections look a little bit different.
