@@ -41,3 +41,14 @@ The `ScopeConflict` error occurs when an attempt is made to define a value or ot
     ```
 
 ## Notes
+
+A common case this arises at the moment is if PureScript 0.11.x libraries are used with the 0.10.x compiler. The resulting error is:
+
+```
+Conflicting definitions are in scope for kind Effect from the following modules:
+
+    Control.Monad.Eff
+    Prim
+```
+
+To fix this either downgrade the libraries, or upgrade the compiler.
