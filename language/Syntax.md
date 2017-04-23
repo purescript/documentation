@@ -122,7 +122,7 @@ Numeric literals can be integers (type `Int`) or floating point numbers (type `N
 ``` purescript
 16 :: Int
 0xF0 :: Int
-16.0 :: Float
+16.0 :: Number
 ```
 
 ### Strings
