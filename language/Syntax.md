@@ -402,7 +402,7 @@ conditional = if 2 > 1 then "ok" else "oops"
 
 ## Let and where bindings
 
-The `let` keyword a collection of local declarations, which may be mutually recursive, and which may include type declarations:
+The `let` keyword defines a collection of local declarations, which may be mutually recursive, and which may include type declarations:
 
 ``` purescript
 factorial :: Int -> Int
@@ -418,10 +418,10 @@ factorial =
 The `where` keyword can also be used to introduce local declarations at the end of a value declaration:
 
 ``` purescript
-factorial :: Number -> Number
+factorial :: Int -> Int
 factorial = go 1
   where
-  go :: Number -> Number -> Number
+  go :: Int -> Int -> Int
   go acc 1 = acc
   go acc n = go (acc * n) (n - 1)
 ```
@@ -470,10 +470,10 @@ maybeSum a b = do
   n <- a
   m <- b
   let result = n + m
-  return result
+  pure result
 ```
 
-`maybeSum` takes two values of type ``Maybe Number`` and returns their sum if neither number is `Nothing`.
+`maybeSum` takes two values of type ``Maybe Number`` and returns their sum if neither value is `Nothing`.
 
 When using `do` notation, there must be a corresponding instance of the `Monad` type class for the return type.
 
@@ -490,6 +490,6 @@ maybeSum a b =
   a >>= \n ->
     b >>= \m ->
       let result = n + m
-      in return result
+      in pure result
 ```
 Note: (>>=) is the `bind` function for the `Bind` type as defined in the [Prelude package](https://pursuit.purescript.org/packages/purescript-prelude/2.1.0/docs/Prelude#t:Bind).
