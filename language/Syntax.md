@@ -402,7 +402,7 @@ conditional = if 2 > 1 then "ok" else "oops"
 
 ## Let and where bindings
 
-`let` expressions encompass a list of local declarations, which may be mutually recursive, and which may include type declarations:
+The `let` keyword creates an expression with local bindings, which may be mutually recursive, and which may include type declarations:
 
 ``` purescript
 factorial :: Int -> Int
@@ -415,7 +415,7 @@ factorial =
     go 1
 ```
 
-`where` clauses can be added at the end of a function declaration, and allow to bind variables that are visible throughout the function:
+The `where` keyword can be used at the end of a value declaration to set up bindings that are visible throughout that value:
 
 ``` purescript
 factorial :: Int -> Int
