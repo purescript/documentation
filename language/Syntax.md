@@ -415,7 +415,7 @@ factorial =
     go 1
 ```
 
-`where` clauses can be added at the end of a function declaration, and allow to bind variables that are visible within the surrounding function context:
+`where` clauses can be added at the end of a function declaration, and allow to bind variables that are visible throughout the function:
 
 ``` purescript
 factorial :: Int -> Int
