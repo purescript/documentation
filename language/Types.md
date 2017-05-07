@@ -179,7 +179,7 @@ To denote an open row (i.e. one which may unify with another row to add new fiel
 
 ## Type Synonyms
 
-For convenience, it is possible to declare a synonym for a type using the ``type`` keyword. Type synonyms can include type arguments but [cannot be partially applied](https://github.com/purescript/documentation/blob/master/errors/PartiallyAppliedSynonym.md#partiallyappliedsynonym-error). Type synonyms can be built with any other types but [cannot refer to each other in a cycle](https://github.com/purescript/documentation/blob/master/errors/CycleInTypeSynonym.md#cycleintypesynonym-error).
+For convenience, it is possible to declare a synonym for a type using the ``type`` keyword. Type synonyms can include type arguments but [cannot be partially applied](../errors/PartiallyAppliedSynonym.md#partiallyappliedsynonym-error). Type synonyms can be built with any other types but [cannot refer to each other in a cycle](../errors/CycleInTypeSynonym.md#cycleintypesynonym-error).
 
 For example:
 
@@ -218,7 +218,7 @@ type RandomConsoleEffects eff = ( random :: RANDOM, console :: CONSOLE | eff )
 type RandomConsoleEffect = RandomConsoleEffects ()
 ```
 
-Unlike newtypes, type synonyms are merely aliases and cannot be distinguished from usages of their expansion. Because of this they cannot be used to declare a type class instance. For more see [``TypeSynonymInstance`` Error](https://github.com/purescript/documentation/blob/master/errors/TypeSynonymInstance.md#typesynonyminstance-error).
+Unlike newtypes, type synonyms are merely aliases and cannot be distinguished from usages of their expansion. Because of this they cannot be used to declare a type class instance. For more see [``TypeSynonymInstance`` Error](../errors/TypeSynonymInstance.md#typesynonyminstance-error).
 
 ## Constrained Types
 
