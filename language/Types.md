@@ -92,7 +92,7 @@ var add = function(x) {
         return x + y;
     };
 };
--- Or with ES6 arrow functions
+// Or with ES6 arrow functions
 var add = x => y => x + y;
 ```
 
