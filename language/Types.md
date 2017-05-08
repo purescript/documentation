@@ -74,16 +74,31 @@ instance showPercentage :: Show Percentage where
 
 ## Functions
 
-Functions in PureScript are like their Javascript counterparts, but always have exactly one argument. Function declarations and lambdas (anonymous functions) with multiple arguments are shorthand for curried lambda abstractions. For example, the following are all equivalent:
+Functions in PureScript are like their Javascript counterparts, but always have exactly one argument at the type level. Writing multiple arguments is shorthand for nested lambda functions. For example, the following are all equivalent:
 
 ```purescript
+add :: Number -> Number -> Number
 add x y = x + y
 add = \x y -> x + y
 add = \x -> \y -> x + y
 add = (+)
 ```
 
-Despite this overwhelming convention, uncurried JavaScript functions are can be used through the [purescript-functions](https://pursuit.purescript.org/packages/purescript-functions/) library. For more information see [The Foreign Function Interface](http://www.purescript.org/learn/ffi/).
+And correspond to this in JavaScript:
+
+```javascript
+var add = function(x) {
+    return function(y) {
+        return x + y;
+    };
+};
+-- Or with ES6 arrow functions
+var add = x => y => x + y;
+```
+
+This is called currying and one of its benefits is partial application. For a guide on how it works in Haskell, not much different from PureScript, see [Currying on the Haskell wiki](https://wiki.haskell.org/Currying).
+
+However, since uncurried JavaScript functions can be more efficient to run, they are provided indirectly through the [purescript-functions](https://pursuit.purescript.org/packages/purescript-functions/) library. This is unnecessary in most cases and should **not** be used for APIs. For more information see [Functions of Multiple Arguments](http://www.purescript.org/learn/ffi/#functions-of-multiple-arguments).
 
 ## Polymorphic Types
 
@@ -161,9 +176,9 @@ since the skolemized type variable ``a`` does not unify with ``Int``.
 
 ## Rows
 
-A row of types represents an unordered collection of named types. Duplicate labels are allowed but are distinct.
+A row of types represents an unordered collection of named types, with duplicates. Duplicate labels have their types collected together in order, as if in a ``NonEmptyList``. This means that, conceptually, a row can be thought of as a type-level ``Map Label (NonEmptyList Type)``.
 
-Rows are not of kind ``Type``: they have kind ``# k`` for some kind ``k``, and so values do not have types which are rows. Rather, rows can be used in type signatures to define record types or other type where labelled, unordered types are useful.
+Rows are not of kind ``Type``: they have kind ``# k`` for some kind ``k``, and so rows cannot exist as a value. Rather, rows can be used in type signatures to define record types or other type where labelled, unordered types are useful.
 
 To denote a closed row, separate the fields with commas, with each label separated from its type with a double colon:
 
