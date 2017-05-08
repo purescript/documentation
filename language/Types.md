@@ -221,8 +221,8 @@ type Baz = Number -> Number -> Bar Number
 mkDoubledFoo :: Baz
 mkDoubledFoo foo bar = { foo: 2.0*foo, bar: 2.0*bar }
 
--- Build on our preious functions to double the values inside any Foo
--- (Rembmer that Bar Number is the same as Foo)
+-- Build on our previous functions to double the values inside any Foo
+-- (Remember that Bar Number is the same as Foo)
 doubleFoo :: Foo -> Foo
 doubleFoo = combineBar mkDoubledFoo
 
