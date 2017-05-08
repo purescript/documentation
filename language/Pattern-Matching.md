@@ -33,6 +33,7 @@ The following pattern types are supported:
 - Record patterns
 - Named patterns
 - Guards
+- Pattern guards
 
 The exhaustivity checker will introduce a `Partial` constraint for any pattern which is not exhaustive.
 By default, patterns must be exhaustive, since this `Partial` constraint will not be satisfied. The error can be silenced, however, by adding a local `Partial` constraint to your function.
@@ -125,8 +126,8 @@ Named Patterns
 Named patterns bring additional names into scope when using nested patterns. Any pattern can be named by using the ``@`` symbol:
 
 ```purescript
-f a@[_, _] = true
-f _ = false
+f a@[_, _] = a
+f _ = []
 ```
 
 Here, in the first pattern, any array with exactly two elements will be matched and bound to the variable `a`.
@@ -134,7 +135,7 @@ Here, in the first pattern, any array with exactly two elements will be matched 
 Guards
 ------
 
-Guards are used to impose additional constraints inside a pattern using boolean-valued expressions, and are introduced with a pipe after the pattern::
+Guards are used to impose additional constraints inside a pattern using boolean-valued expressions, and are introduced with a pipe after the pattern:
 
 ```purescript
 evens :: List Int -> Int
@@ -149,3 +150,43 @@ When using patterns to define a function at the top level, guards appear after a
 greater x y | x > y = true
 greater _ _ = false
 ```
+
+To be considered exhaustive, guards must clearly include a case that is always true. Even though the following makes perfect sense, the compiler cannot determine that is is exhaustive:
+
+```purescript
+compare :: Int -> Int -> Ordering
+compare x y
+    | x > y  = GT
+    | x == y = EQ
+    | x < y  = LT
+```
+
+Either of these will work, since they clearly include a final case:
+
+```purescript
+compare x y
+    | x > y = GT
+    | x < y = LT
+    | otherwise = EQ
+
+compare x y | x > y = GT
+compare x y | x < y = LT
+compare _ _ = EQ
+```
+
+(The name `otherwise` is a commonly-used synonym for `true` used in guards.)
+
+Pattern Guards
+--------------
+
+Pattern guards extend guards with pattern matching, notated with a left arrow. A pattern guard will succeed only if the computation on the right side of the arrow matches the pattern on the left.
+
+For example, we can apply a function `fn` to an argument `x`, succeeding only if
+`fn` returns `Just y` for some `y`, binding `y` at the same time:
+
+```purescript
+bar x | Just y <- fn x = ... -- x and y are both in scope here
+```
+
+Pattern guards can be very useful for expressing certain types of control flow when
+using algebraic data types.
