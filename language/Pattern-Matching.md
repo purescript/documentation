@@ -135,7 +135,7 @@ Here, in the first pattern, any array with exactly two elements will be matched 
 Guards
 ------
 
-Guards are used to impose additional constraints inside a pattern using boolean-valued expressions, and are introduced with a pipe after the pattern::
+Guards are used to impose additional constraints inside a pattern using boolean-valued expressions, and are introduced with a pipe after the pattern:
 
 ```purescript
 evens :: List Int -> Int

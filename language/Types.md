@@ -55,7 +55,7 @@ In the example, Foo is a tagged union type which has two constructors. Its first
 
 ## Newtypes
 
-Newtypes are like data types (which are introduced with the `data` keyword), but are restricted to a single constructor which contains a single argument. Newtypes are introduced with the `newtype` keyword::
+Newtypes are like data types (which are introduced with the `data` keyword), but are restricted to a single constructor which contains a single argument. Newtypes are introduced with the `newtype` keyword:
 
 ```purescript
 newtype Percentage = Percentage Number
@@ -86,7 +86,7 @@ identity x = x
 
 ``identity`` is inferred to have (polymorphic) type ``forall t0. t0 -> t0``. This means that for any type ``t0``, ``identity`` can be given a value of type ``t0`` and will give back a value of the same type.
 
-A type annotation can also be provided::
+A type annotation can also be provided:
 
 ```purescript
 identity :: forall a. a -> a
@@ -133,7 +133,7 @@ It is also possible for the ``forall`` quantifier to appear on the left of a fun
 
 In most cases, a type annotation is necessary when using this feature.
 
-As an example, we can pass a polymorphic function as an argument to another function::
+As an example, we can pass a polymorphic function as an argument to another function:
 
 ```purescript
 poly :: (forall a. a -> a) -> Boolean
@@ -142,7 +142,7 @@ poly f = (f 0 < 1) == f true
 
 Notice that the polymorphic function's type argument is instantiated to both ``Number`` and ``Boolean``.
 
-An argument to ``poly`` must indeed be polymorphic. For example, the following fails::
+An argument to ``poly`` must indeed be polymorphic. For example, the following fails:
 
 ```purescript
 test = poly (\n -> n + 1)
@@ -156,16 +156,16 @@ A row of types represents an unordered collection of named types, with duplicate
 
 Rows are not of kind ``Type``: they have kind ``# k`` for some kind ``k``, and so rows cannot exist as a value. Rather, rows can be used in type signatures to define record types or other type where labelled, unordered types are useful.
 
-To denote a closed row, separate the fields with commas, with each label separated from its type with a double colon::
+To denote a closed row, separate the fields with commas, with each label separated from its type with a double colon:
 
 ```purescript
-(name :: String, age :: Number)
+( name :: String, age :: Number )
 ```
 
-To denote an open row (i.e. one which may unify with another row to add new fields), separate the specified terms from a row variable by a pipe::
+To denote an open row (i.e. one which may unify with another row to add new fields), separate the specified terms from a row variable by a pipe:
 
 ```purescript
-(name :: String, age :: Number | r)
+( name :: String, age :: Number | r )
 ```
 
 ## Type Synonyms
