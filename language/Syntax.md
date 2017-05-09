@@ -234,18 +234,37 @@ This is equivalent to:
 \rec -> rec.propertyName
 ```
 
+These work with any number of levels:
+
+``` purescript
+_.nested.property.name
+```
+
 ### Record Updates
 
 Properties on records can be updated using the following syntax:
 
 ``` purescript
-rec { key1 = value1, ..., keyN = valueN }
+rec { key1 = value1, ..., keyN = valueN, nestedKey { subKey = value, ... } }
 ```
+
+Some or all of the keys may be updated at once, and records inside of records can also be updated.
 
 For example, the following function increments the `foo` property on its argument:
 
 ``` purescript
 \rec -> rec { foo = rec.foo + 1 }
+```
+
+[Nested record updates](https://liamgoodacre.github.io/purescript/records/2017/01/29/nested-record-updates.html) look like this:
+
+``` purescript
+r = { val: -1
+    , level1: { val: -1
+              , level2: { val: -1 }
+              }
+    }
+r' = r { level1 { val = 1 } }
 ```
 
 Wildcards can also be used in updates to produce a partially applied update:
