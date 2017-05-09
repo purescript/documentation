@@ -74,31 +74,7 @@ instance showPercentage :: Show Percentage where
 
 ## Functions
 
-Functions in PureScript are like their Javascript counterparts, but always have exactly one argument at the type level. Writing multiple arguments is shorthand for nested lambda functions. For example, the following are all equivalent:
-
-```purescript
-add :: Number -> Number -> Number
-add x y = x + y
-add = \x y -> x + y
-add = \x -> \y -> x + y
-add = (+)
-```
-
-And correspond to this in JavaScript:
-
-```javascript
-var add = function(x) {
-    return function(y) {
-        return x + y;
-    };
-};
-// Or with ES6 arrow functions
-var add = x => y => x + y;
-```
-
-This is called currying and one of its benefits is partial application. For a guide on how it works in Haskell, not much different from PureScript, see [Currying on the Haskell wiki](https://wiki.haskell.org/Currying).
-
-However, since uncurried JavaScript functions can be more efficient to run, they are provided indirectly through the [purescript-functions](https://pursuit.purescript.org/packages/purescript-functions/) library. This is unnecessary in most cases and should **not** be used for APIs. For more information see [Functions of Multiple Arguments](http://www.purescript.org/learn/ffi/#functions-of-multiple-arguments).
+Functions in PureScript are like their Javascript counterparts, but always have exactly one argument.
 
 ## Polymorphic Types
 
