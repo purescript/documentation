@@ -170,21 +170,46 @@ To denote an open row (i.e. one which may unify with another row to add new fiel
 
 ## Type Synonyms
 
-For convenience, it is possible to declare a synonym for a type using the ``type`` keyword. Type synonyms can include type arguments.
+For convenience, it is possible to declare a synonym for a type using the ``type`` keyword. Type synonyms can include type arguments but [cannot be partially applied](../errors/PartiallyAppliedSynonym.md#partiallyappliedsynonym-error). Type synonyms can be built with any other types but [cannot refer to each other in a cycle](../errors/CycleInTypeSynonym.md#cycleintypesynonym-error).
 
-For example::
+For example:
 
 ```purescript
+-- Create an alias for a record with two fields
 type Foo = { foo :: Number, bar :: Number }
 
+-- Add the two fields together, since they are Numbers
 addFoo :: Foo -> Number
 addFoo o = o.foo + o.bar
 
+-- Create an alias for a polymorphic record with the same shape
 type Bar a = { foo :: a, bar :: a }
+-- Foo is now equivalent to Bar Number
 
+-- Apply the fields of any Bar to a function
 combineBar :: forall a b. (a -> a -> b) -> Bar a -> b
 combineBar f o = f o.foo o.bar
+
+-- Create an alias for a complex function type
+type Baz = Number -> Number -> Bar Number
+
+-- This function will take two arguments and return a record with double the value
+mkDoubledFoo :: Baz
+mkDoubledFoo foo bar = { foo: 2.0*foo, bar: 2.0*bar }
+
+-- Build on our previous functions to double the values inside any Foo
+-- (Remember that Bar Number is the same as Foo)
+doubleFoo :: Foo -> Foo
+doubleFoo = combineBar mkDoubledFoo
+
+-- Define type synonyms to help write complex Effect rows
+-- This will accept further Effects to be added to the row
+type RandomConsoleEffects eff = ( random :: RANDOM, console :: CONSOLE | eff )
+-- This limits the Effects to just RANDOM and CONSOLE
+type RandomConsoleEffect = RandomConsoleEffects ()
 ```
+
+Unlike newtypes, type synonyms are merely aliases and cannot be distinguished from usages of their expansion. Because of this they cannot be used to declare a type class instance. For more see [``TypeSynonymInstance`` Error](../errors/TypeSynonymInstance.md#typesynonyminstance-error).
 
 ## Constrained Types
 
@@ -192,14 +217,23 @@ Polymorphic types may be predicated on one or more ``constraints``. See the chap
 
 ## Type Annotations
 
-Most types can be inferred (not including Rank N Types and constrained types), but annotations can optionally be provided using a double-colon::
+Most types can be inferred (not including Rank N Types and constrained types), but annotations can optionally be provided using a double-colon, either as a declaration or after an expression:
 
 ```purescript
-one = 1 :: Int
+-- Defined in Data.Semiring
+one :: forall a. (Semiring a) => a
 
--- Either of the following will type check, because the first is a more general form of the second
-x = one :: forall a. (Semiring a) => a
-x = one :: Int
+-- This can be constrained to just an Int, since Int is an instance of Semiring
+int1 :: Int
+int1 = one -- x = 1
+-- Or even a Number, which also provides a Semiring
+number1 = one :: Number -- y = 1.0
+-- Or its polymorphism can be kept, so it will work with any Semiring
+-- (This is the default if no annotation is given)
+semiring1 :: forall a. Semiring a => a
+semiring1 = one
+-- It can even be constrained by another type class
+equal1 = one :: forall a. Semiring a => Eq a => a
 ```
 
 ## Kind System
