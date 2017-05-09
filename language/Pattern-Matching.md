@@ -126,8 +126,8 @@ Named Patterns
 Named patterns bring additional names into scope when using nested patterns. Any pattern can be named by using the ``@`` symbol:
 
 ```purescript
-f a@[_, _] = true
-f _ = false
+f a@[_, _] = a
+f _ = []
 ```
 
 Here, in the first pattern, any array with exactly two elements will be matched and bound to the variable `a`.
