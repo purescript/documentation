@@ -42,7 +42,7 @@ that can then be extended like:
 type Language = Lang ( country :: String )
 ```
 
-The `Language` type synonym would then be equivalent to `{ language :: String, country :: String }`.
+The `Language` type synonym would then be equivalent to `{ language :: String, country :: String }`. Note that parentheses must be used for the extension, since `l` has to be a row kind not a record type.
 
 ## Wildcards
 
