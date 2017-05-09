@@ -31,15 +31,15 @@ Importing Types
 To declare a new abstract type (with no constructors), use `foreign import data` and provide the kind:
 
 ```purescript
-foreign import data DOMElement :: *
+foreign import data DOMElement :: Type
 
 foreign import document :: {
   createElement :: String -> DOMElement
 }
 ```
 
-When declaring types in this way, you may declare your type to have any kind, not just `*`. For example, to declare a row of effects:
+When declaring types in this way, you may declare your type to have any kind, not just `Type`. For example, to declare a row of effects:
 
 ```purescript
-foreign import data MyRow :: # !
+foreign import data MyRow :: # Effect
 ```

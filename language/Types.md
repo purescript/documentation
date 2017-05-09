@@ -97,19 +97,19 @@ identity x = x
 
 Polymorphism is not limited to abstracting over types. Values may also be polymorphic in types with other kinds, such as rows or effects (see "Kind System").
 
-For example, the following function accesses two properties on a record::
+For example, the following function accesses two properties on a record:
 
 ```purescript
 addProps o = o.foo + o.bar + 1
 ```
 
-The inferred type of ``addProps`` is::
+The inferred type of ``addProps`` is:
 
 ```purescript
-forall r. { foo :: Int, bar :: Int | r } -> Number
+forall r. { foo :: Int, bar :: Int | r } -> Int
 ```
 
-Here, the type variable ``r`` has kind ``# *`` - it represents a `row` of `types`. It can be instantiated with any row of named types.
+Here, the type variable ``r`` has kind ``# Type`` - it represents a row of types. It can be instantiated with any row of named types.
 
 In other words, ``addProps`` accepts any record which has properties ``foo`` and ``bar``, and *any other record properties*.
 
@@ -152,9 +152,9 @@ since the skolemized type variable ``a`` does not unify with ``Int``.
 
 ## Rows
 
-A row of types represents an unordered collection of named types without duplicates.
+A row of types represents an unordered collection of named types, with duplicates. Duplicate labels have their types collected together in order, as if in a ``NonEmptyList``. This means that, conceptually, a row can be thought of as a type-level ``Map Label (NonEmptyList Type)``.
 
-Rows have kind ``# k`` for some kind ``k``, and so values do not have types which are rows. Rather, rows can be used in type signatures to define record types or other type where labelled, unordered types are useful.
+Rows are not of kind ``Type``: they have kind ``# k`` for some kind ``k``, and so rows cannot exist as a value. Rather, rows can be used in type signatures to define record types or other type where labelled, unordered types are useful.
 
 To denote a closed row, separate the fields with commas, with each label separated from its type with a double colon::
 
@@ -215,7 +215,7 @@ The kind system defines the following kinds:
 
 The kind ``# k`` of rows is used to classify labelled, unordered collections of types of kind ``k``.
 
-For example ``# *`` is the kind of rows of types, as used to define records, and ``# !`` is the kind of rows of effects, used to define the monad ``Eff`` of extensible effects.
+For example ``# Type`` is the kind of rows of types, as used to define records, and ``# Control.Monad.Eff.Effect`` is the kind of rows of effects, used to define the monad ``Control.Monad.Eff.Eff`` of extensible effects.
 
 ## Quantification
 
