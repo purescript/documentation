@@ -23,17 +23,17 @@ Patterns can also be used when introducing functions. For example:
 example x y z = x * y + z
 ```
 
-The following pattern types are supported:
+The following forms can be used for matching:
 
-- Wildcard pattern
+- Wildcard patterns
 - Literal patterns
-- Variable pattern
+- Variable patterns
 - Array patterns
 - Constructor patterns
 - Record patterns
 - Named patterns
-- Guards
-- Pattern guards
+
+Guards and pattern guards are also supported.
 
 The exhaustivity checker will introduce a `Partial` constraint for any pattern which is not exhaustive.
 By default, patterns must be exhaustive, since this `Partial` constraint will not be satisfied. The error can be silenced, however, by adding a local `Partial` constraint to your function.
