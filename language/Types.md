@@ -223,11 +223,11 @@ Most types can be inferred (not including Rank N Types and constrained types), b
 -- Defined in Data.Semiring
 one :: forall a. (Semiring a) => a
 
--- This can be constrained to just an Int, since Int is an instance of Semiring
+-- one can be an Int, since Int is an instance of Semiring where one = 1
 int1 :: Int
-int1 = one -- x = 1
--- Or even a Number, which also provides a Semiring
-number1 = one :: Number -- y = 1.0
+int1 = one -- same as int1 = 1
+-- Or even a Number, which also provides a Semiring instance where one = 1.0
+number1 = one :: Number -- same as number1 = 1.0
 -- Or its polymorphism can be kept, so it will work with any Semiring
 -- (This is the default if no annotation is given)
 semiring1 :: forall a. Semiring a => a
