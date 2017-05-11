@@ -26,20 +26,20 @@ module B where
 import A (runFoo)
 ```
 
-Values, type constructors, data constructors, and type classes can all be explicitly imported. A type constructor can be followed by a list of associated data constructors to import in parentheses. A double dot (`..`) can be used to import all data constructors for a given type constructor:
+Values, operators (wrapped in parentheses), type constructors, data constructors, and type classes can all be explicitly imported. A type constructor can be followed by a list of associated data constructors to import in parentheses. A double dot (`..`) can be used to import all data constructors for a given type constructor:
 
 ```purescript
 module B where
 
-import A (runFoo, Foo(..), Bar(Bar))
+import A (runFoo, (.~), Foo(..), Bar(Bar))
 ```
 
-Type classes are imported using the `class` keyword:
+Type classes are imported using the `class` keyword, kinds with `kind`:
 
 ```purescript
 module B where
 
-import A (class Fab)
+import A (class Fab, kind Effect)
 ```
 
 ### Hiding imports
@@ -59,15 +59,32 @@ Modules can also be imported qualified, which means that their names will not be
 
 ```purescript
 module Main where
-  
+
 import Data.Array as Array
-  
+
 null = ...
 
 test = Array.null [1, 2, 3]
 ```
-  
+
 Here, the name ``null`` would ordinarily conflict with ``null`` from ``Data.Array``, but the qualified import solves this problem. ``Data.Array.null`` can be referenced using ``Array.null`` instead.
+
+Operators can also be referenced this way:
+```purescript
+test' = Array.null ([1, 2, 3] Array.\\ [1, 2, 3])
+```
+
+Modules can be merged under the same name, but it is best to use explicit imports to avoid conflicts, in case modules would want to import the same name:
+
+```purescript
+module Main where
+
+import Data.String.Regex (split) as Re
+import Data.String.Regex.Flags (global) as Re
+import Data.String.Regex.Unsafe (unsafeRegex) as Re
+
+split = Re.split (Re.unsafeRegex "[,;:.]\\s+" Re.global)
+```
 
 ## Module Exports
 
@@ -93,6 +110,15 @@ Imported modules can be re-exported in their entirety:
 module A (module B) where
 
 import B
+```
+
+Qualified and explicit imports can be used also:
+
+```purescript
+module A (module MoreExports) where
+
+import A.Util (useful, usefulFn) as MoreExports
+import A.Type (ADatatype(..)) as MoreExports
 ```
 
 When re-exporting other modules, all local values and types can also be exported by specifying the module itself as an export:

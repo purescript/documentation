@@ -24,9 +24,9 @@ Fields of records can be accessed using a dot, followed by the label of the fiel
 
 `{ ... }` is just syntactic sugar for the `Record` type constructor, so `{ language ::  String }` is the same as `Record ( language :: String )`.
 
-The Record type constructor is parameterized by a row of types. In kind notation, `Record` has kind `# * -> *`. That is, it takes a row of types to a type.
+The Record type constructor is parameterized by a row of types. In kind notation, `Record` has kind `# Type -> Type`. That is, it takes a row of types to a type.
 
-`( language :: String )` denotes a row of types (something of kind `# *`), so it can be passed to `Record` to construct a type, namely `Record ( language :: String )`.
+`( language :: String )` denotes a row of types (something of kind `# Type`), so it can be passed to `Record` to construct a type, namely `Record ( language :: String )`.
 
 ## Extending Records
 
@@ -42,7 +42,7 @@ that can then be extended like:
 type Language = Lang ( country :: String )
 ```
 
-The `Language` type synonym would then be equivalent to `{ language :: String, country :: String }`.
+The `Language` type synonym would then be equivalent to `{ language :: String, country :: String }`. Note that parentheses must be used for the extension, since `l` has to be a row kind not a record type.
 
 ## Wildcards
 
