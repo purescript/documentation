@@ -7,13 +7,20 @@
 - [nwolverson/atom-ide-purescript](https://github.com/nwolverson/atom-ide-purescript) provides build support,   REPL, and autocomplete etc. via [psc-ide](https://github.com/purescript/purescript/tree/master/psc-ide-server)
 
 #### Emacs
-
+ Either use these two:
 - [dysinger/purescript-mode](https://github.com/dysinger/purescript-mode) was adapted from haskell-mode
 - [epost/psc-ide-emacs](https://github.com/epost/psc-ide-emacs) offers Emacs support for [psc-ide](https://github.com/purescript/purescript/tree/master/psc-ide-server)
+
+Or these two, for a more minimal setup:
+
 - [emacs-pe/purescript-mode](https://github.com/emacs-pe/purescript-mode) is an alpha-stage greenfield mode
-- [ardumont/psci-mode](https://github.com/ardumont/emacs-psci) is a REPL minor mode
-- [spion/purscheck](https://github.com/spion/purscheck) provides flycheck support.
 - [emacs-pe/flycheck-purescript](https://github.com/emacs-pe/flycheck-purescript) provides flycheck support.
+
+PSCI support via comint:
+
+- [ardumont/psci-mode](https://github.com/ardumont/emacs-psci) is a REPL minor mode
+
+Spacemacs users can just use the [`purescript` layer](https://github.com/syl20bnr/spacemacs/tree/master/layers/%2Blang/purescript).
 
 #### Sublime Text 2
 
