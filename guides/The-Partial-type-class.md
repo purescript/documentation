@@ -58,8 +58,8 @@ at src/Main.purs line 8, column 1 - line 8, column 56
 
 *Aside: Yes, this is not a fantastic error. It's going to get better soon.*
 
-The solution is usually to add an application of `unsafePartial` somewhere,
-like this:
+The solution is usually to add an application of `unsafePartial`,
+from the [Partial.Unsafe module](https://pursuit.purescript.org/packages/purescript-partial), like this:
 
 ```purescript
 module Main where
@@ -74,9 +74,20 @@ main :: forall eff. Eff (console :: CONSOLE | eff) Unit
 main = logShow (unsafePartial (fromJust (Just 3)))
 ```
 
+Or, even more informative than `unsafePartial` is `unsafePartialBecause`, which allows
+us to encode *why* we are confidently using this partial function.
+
+``` purescript
+main :: forall eff. Eff (console :: CONSOLE | eff) Unit
+main = logShow (unsafePartialBecause "Is hardcoded to be Just." (fromJust (Just 3)))
+```
+
+Note that `unsafePartial` can be inlined by the compiler, so it should
+be preferred in performance-sensitive code.
+
 ## Where should I put unsafePartial?
 
-The rule of thumb is to put `unsafePartial` at the level of your program such
+The rule of thumb is to use `unsafePartial` at the level of your program such
 that the types tell the truth, and the part of your program responsible for
 making sure a use of a partial function is safe is also the part where the
 `unsafePartial` is. This is perhaps best demonstrated with an example.
@@ -127,14 +138,15 @@ Alternatively, add a Partial constraint to the type of the enclosing value.
 in value declaration dot
 ```
 
-In this case, we can use `unsafePartial` to explicitly say that we don't
+In this case, we can use `unsafePartialBecause` to explicitly say that we don't
 actually need to worry about those other cases, and therefore we don't want to
 propagate a `Partial` constraint; users of this `dot` function should not have
 to worry about this partiality. For example:
 
 ```purescript
 dot :: V3 -> V3 -> Number
-dot x y = Partial.Unsafe.unsafePartial (go x y)
+dot x y = Partial.Unsafe.unsafePartialBecause
+    "V3 should have exactly 3 elements, due to non-exported constructor" (go x y)
   where
   go :: Partial => V3 -> V3 -> Number
   go (V3 [x1, x2, x3]) (V3 [y1, y2, y3]) = x1*y1 + x2*y2 + x3*y3
@@ -142,9 +154,6 @@ dot x y = Partial.Unsafe.unsafePartial (go x y)
   -- in case we do get an invalid argument at runtime.
   go _ _ = Partial.crash "Bad argument: expected exactly 3 elements."
 ```
-
-The `unsafePartial` function comes from the `Partial.Unsafe` module, in the
-`purescript-partial` package.
 
 In this case, we could also use `Partial.Unsafe.unsafeCrashWith`:
 
