@@ -4,19 +4,19 @@ author: Phil Freeman
 published: 2016-05-24
 ---
 
-Welcome to the PureScript community blog! In this first post, I'm going to walk through the basics of getting set up to use the PureScript compiler `psc`, and its interactive mode `psci`.
+Welcome to the PureScript community blog! In this first post, I'm going to walk through the basics of getting set up to use the PureScript compiler `purs`, and its interactive mode `purs repl`.
 
-I'll start with the installation of the compiler and Pulp build tool, and then go through the basic usage of `psci`, working towards a solution of problem 1 from [Project Euler](http://projecteuler.net/problem=1).
+I'll start with the installation of the compiler and Pulp build tool, and then go through the basic usage of `purs repl`, working towards a solution of problem 1 from [Project Euler](http://projecteuler.net/problem=1).
 
 #### Installing the Compiler
 
 You'll need [Node.js and npm](https://docs.npmjs.com/getting-started/installing-node) and to be [able to install global packages](https://docs.npmjs.com/getting-started/fixing-npm-permissions#option-1-change-the-permission-to-npm-s-default-directory) to proceed.
 
-The Purescript compiler (`psc`) can be installed with npm:
+The Purescript compiler (`purs`) can be installed with npm:
 
     npm install -g purescript
 
-(It can also be installed from [Hackage](http://hackage.haskell.org/package/purescript), or by downloading the latest [binary bundle](https://github.com/purescript/purescript/releases) for your OS. If you do so, make sure the `psc` executable is on your `$PATH`.)
+(It can also be installed from [Hackage](http://hackage.haskell.org/package/purescript), or by downloading the latest [binary bundle](https://github.com/purescript/purescript/releases) for your OS. If you do so, make sure the `purs` executable is on your `$PATH`.)
 
 #### Setting up the Development Environment
 
@@ -61,7 +61,7 @@ Dependencies can be installed using Bower:
 
 PSCi is the interactive mode of PureScript. It is useful for working with pure computations, and for testing ideas.
 
-Open PSCi by typing `pulp psci` at the command line. Pulp will create a file in your directory called `.psci`, which contains instructions to PSCi to load your modules and dependencies. If you invoke the PSCi executable directly, you would need to load these files by hand.
+Open PSCi by typing `pulp repl` at the command line. Pulp will create a file in your directory called `.purs-repl`, which contains instructions to PSCi to load your modules and dependencies. If you invoke the PSCi executable directly, you would need to load these files by hand.
 
     PSCi, version 0.9.0
     Type :? for help
@@ -112,7 +112,7 @@ The following problem is taken from [Project Euler](http://projecteuler.net/prob
 >
 > Find the sum of all the multiples of 3 or 5 below 1000.
 
-We can solve this problem neatly using functions and function composition, directly in `psci`.
+We can solve this problem neatly using functions and function composition, directly in the REPL.
 
 Let's start by listing all of the natural numbers below 1000 as a list. We can do this using the `range` function from `Data.List`:
 
@@ -148,7 +148,7 @@ When you have finished using PSCi, type `:quit` to quit:
 
 #### Compiling a Solution
 
-Now that we've seen how to use `psci` to reach the answer, let's move our solution into a source file and compile it.
+Now that we've seen how to use the REPL to reach the answer, let's move our solution into a source file and compile it.
 
 Create a new text file `src/Euler.purs` and copy the following code:
 
@@ -167,7 +167,7 @@ multiples = filter (\n -> mod n 3 == 0 || mod n 5 == 0) ns
 answer = sum multiples
 ```
 
-It is possible to load this file directly into PSCi and to continue working:
+It is possible to load this file directly into the REPL and to continue working:
 
     pulp psci
     > import Euler
@@ -176,7 +176,7 @@ It is possible to load this file directly into PSCi and to continue working:
     > :quit
     See ya!
 
-Alternatively, we can use Pulp to compile our new module to Javascript:
+Alternatively, we can use Pulp to compile our new module to JavaScript:
 
     pulp build
 
@@ -231,6 +231,6 @@ The `pulp run` command can be used to compile and run the `Main` module:
 
 #### Conclusion
 
-That's all for this post. We've seen how to use enough of the basics of Pulp and `psci` to compile, execute and test simple PureScript programs.
+That's all for this post. We've seen how to use enough of the basics of Pulp and `purs repl` to compile, execute and test simple PureScript programs.
 
 Until next time...
