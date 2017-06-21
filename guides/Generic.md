@@ -78,7 +78,7 @@ instance decodePerson :: Decode Person where
   decode value = do
     name     <- value ! "name"
     location <- value ! "location"
-    return $ Person { name, location }
+    pure $ Person { name, location }
 ```
 
 This is not too bad, but real-world records often contain many more fields. Also, it would be nice if we could be sure that the corresponding _encoding_ function would always generate compatible data. Let's see how to verify the same data using `Generic`, which will solve both of these problems.
