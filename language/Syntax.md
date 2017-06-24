@@ -410,6 +410,19 @@ Operator sections also work for functions used this way:
 fooBy2 = (_ `foo` 2)
 ```
 
+## Case expressions
+
+The `case` and `of` keywords are used to deconstruct values to create logic based on the value's constructors. You can match on multiple values by delimiting them with `,` in the head and cases.
+
+``` purescript
+f :: Maybe Boolean -> Either Boolean Boolean -> String
+f a b = case a, b of
+  Just true, Right true -> "Both true"
+  Just true, Left _ -> "Just is true"
+  Nothing, Right true -> "Right is true"
+  _, _ -> "Both are false"
+f (Just true) (Right true)
+```
 
 ## If-Then-Else expressions
 
