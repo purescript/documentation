@@ -157,16 +157,13 @@ module Euler where
 
 import Prelude
 
-import Data.List (List, range, filter)
+import Data.List (range, filter)
 import Data.Foldable (sum)
 
-ns :: List Int
 ns = range 0 999
 
-multiples :: List Int
 multiples = filter (\n -> mod n 3 == 0 || mod n 5 == 0) ns
 
-answer :: Int
 answer = sum multiples
 ```
 
@@ -185,6 +182,11 @@ Alternatively, we can use Pulp to compile our new module to JavaScript:
 
 This will compile each module present in `src/` into a separate file in the `output/` directory.
 
+The compiler will display several warnings about missing type declarations. Type declarations
+are an advanced topic, therefore they are left out from this guide. In general it is considered
+good practice to provide explicit type signatures. In their absence, the PureScript compiler
+is able to infer types automatically but will remind us to consider adding them.
+
 #### Writing a Test Suite
 
 To test our code, we'll use the `purescript-assert` library:
@@ -199,10 +201,8 @@ module Test.Main where
 import Prelude
 
 import Euler (answer)
-import Control.Monad.Eff (Eff)
 import Test.Assert (assert, ASSERT)
 
-main :: forall e. Eff (assert :: ASSERT | e) Unit
 main = do
   assert (answer == 233168)
 ```
@@ -219,12 +219,10 @@ We can modify the `main` function in the `src/Main.purs` module to print our res
 module Main where
 
 import Prelude
-import Control.Monad.Eff (Eff)
-import Control.Monad.Eff.Console (CONSOLE, log)
 
 import Euler (answer)
+import Control.Monad.Eff.Console (log)
 
-main :: forall a. Eff ( console :: CONSOLE | a ) Unit
 main = do
   log ("The answer is " <> show answer)
 ```
