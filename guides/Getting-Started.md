@@ -157,13 +157,16 @@ module Euler where
 
 import Prelude
 
-import Data.List (range, filter)
+import Data.List (List, range, filter)
 import Data.Foldable (sum)
 
+ns :: List Int
 ns = range 0 999
 
+multiples :: List Int
 multiples = filter (\n -> mod n 3 == 0 || mod n 5 == 0) ns
 
+answer :: Int
 answer = sum multiples
 ```
 
@@ -196,8 +199,10 @@ module Test.Main where
 import Prelude
 
 import Euler (answer)
-import Test.Assert (assert)
+import Control.Monad.Eff (Eff)
+import Test.Assert (assert, ASSERT)
 
+main :: forall e. Eff (assert :: ASSERT | e) Unit
 main = do
   assert (answer == 233168)
 ```
@@ -214,10 +219,12 @@ We can modify the `main` function in the `src/Main.purs` module to print our res
 module Main where
 
 import Prelude
+import Control.Monad.Eff (Eff)
+import Control.Monad.Eff.Console (CONSOLE, log)
 
 import Euler (answer)
-import Control.Monad.Eff.Console (log)
 
+main :: forall a. Eff ( console :: CONSOLE | a ) Unit
 main = do
   log ("The answer is " <> show answer)
 ```
