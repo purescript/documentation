@@ -3,31 +3,24 @@
 ## Example
 
 ```purescript
-module ShortFailingExample where
+module Example where
 
-...
+-- Notice the typo here: the module we are after is called Control.Monad.Eff.Console.
+import Contorl.Monad.Eff.Console (log)
+
+main = log "Hello, world!"
 ```
 
 ## Cause
 
-You might see this error because you have tried to import a Module that is not available on your system.
+You might see this error because you have attempted to import a module which the compiler was unable to find, or because you mistyped the name of a module.
 
 ## Fix
 
-- Suggest possible solutions.
+Check that:
 
-Its likely you need to install the package which contains the module you are trying to use.
+- you have spelled the name of the module correctly,
+- if the module comes from a library, that you have installed that library in your project,
+- you have supplied the filename of the module to `purs build` on the command line (note that build tools, such as `webpack` or `pulp`, should generally take care of this for you; if in doubt, check their documentation).
 
-A great place to go looking is https://pursuit.purescript.org where you can search for the Module by name, and find out which package you need to install.
-
-To install you'll want to use something like this:
-
-```
-bower install purescript-strings --save
-```
-
-You may need to use a different command, depending on how you have installed Purescript.
-
-## Notes
-
-- Additional notes.
+If you know which module you are looking for but are unsure which library it comes from, you can search for it on <https://pursuit.purescript.org>.
