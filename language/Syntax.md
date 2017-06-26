@@ -424,6 +424,17 @@ f a b = case a, b of
 f (Just true) (Right true)
 ```
 
+Like top-level declarations, `case` expressions support guards.
+``` purescript
+f :: Either Int Unit -> String
+f x = case x of
+  Left x | x == 0 -> "Left zero"
+         | x < 0 -> "Left negative"
+         | otherwise -> "Left positive"
+  Right _ -> "Right"
+```
+
+
 ## If-Then-Else expressions
 
 The `if`, `then` and `else` keywords can be used to create conditional expressions similar to a JavaScript ternary expression. The `else` block is always required:
