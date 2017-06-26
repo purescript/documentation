@@ -122,11 +122,11 @@ You should see a list with 1000 elements printed to the command line.
 
 This value can be given a name, using a `let` binding:
 
-    > let ns = range 0 999
+    > ns = range 0 999
 
 Now let's filter out all of those elements which do not meet the criterion. We can use the `filter` function from `Data.List`, by providing a predicate function as its first argument:
 
-    > let multiples = filter (\n -> mod n 3 == 0 || mod n 5 == 0) ns
+    > multiples = filter (\n -> mod n 3 == 0 || mod n 5 == 0) ns
 
 You can see the result by evaluating `multiples` if you like, or even check its type:
 
@@ -181,6 +181,8 @@ Alternatively, we can use Pulp to compile our new module to JavaScript:
     pulp build
 
 This will compile each module present in `src/` into a separate file in the `output/` directory.
+
+The compiler will display several warnings about missing type declarations. In general it is considered good practice to provide explicit type signatures. In this guide, they are left out for brevity. In the absence of type signatures, the PureScript compiler infers types automatically but will remind us to consider adding them.
 
 #### Writing a Test Suite
 
