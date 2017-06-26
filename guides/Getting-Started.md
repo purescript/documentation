@@ -182,10 +182,7 @@ Alternatively, we can use Pulp to compile our new module to JavaScript:
 
 This will compile each module present in `src/` into a separate file in the `output/` directory.
 
-The compiler will display several warnings about missing type declarations. Type declarations
-are an advanced topic, therefore they are left out from this guide. In general it is considered
-good practice to provide explicit type signatures. In their absence, the PureScript compiler
-is able to infer types automatically but will remind us to consider adding them.
+The compiler will display several warnings about missing type declarations. In general it is considered good practice to provide explicit type signatures. In this guide, they are left out for brevity. In the absence of type signatures, the PureScript compiler infers types automatically but will remind us to consider adding them.
 
 #### Writing a Test Suite
 
