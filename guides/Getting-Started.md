@@ -1,12 +1,8 @@
----
-title: Getting Started with PureScript
-author: Phil Freeman
-published: 2016-05-24
----
+# Getting Started with PureScript
 
-Welcome to the PureScript community blog! In this first post, I'm going to walk through the basics of getting set up to use the PureScript compiler `purs`, and its interactive mode `purs repl`.
+Let's walk through the basics of getting set up to use the PureScript compiler `purs`, and its interactive mode `purs repl`.
 
-I'll start with the installation of the compiler and Pulp build tool, and then go through the basic usage of `purs repl`, working towards a solution of problem 1 from [Project Euler](http://projecteuler.net/problem=1).
+We'll start with the installation of the compiler and Pulp build tool, and then go through the basic usage of `purs repl`, working towards a solution of problem 1 from [Project Euler](http://projecteuler.net/problem=1).
 
 #### Installing the Compiler
 
