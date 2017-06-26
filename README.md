@@ -9,7 +9,7 @@ To get a better overview of PureScript, visit [The PureScript Website](http://pu
 
 ## Getting Started
 
-- [Getting Started guide](http://www.purescript.org/learn/getting-started/): Download PureScript and build your first project
+- [Getting Started](guides/Getting-Started.md): Download PureScript and build your first project
 - [PureScript By Example](https://leanpub.com/purescript/read): A book about PureScript. Learn functional programming for the web by solving practical problems
 - [Try PureScript](http://try.purescript.org): Try PureScript in your browser
 
@@ -27,7 +27,7 @@ To get a better overview of PureScript, visit [The PureScript Website](http://pu
 
 ## Articles
 
-- [Common Operators](https://github.com/purescript/documentation/blob/master/guides/Common-Operators.md)
+- [Common Operators](guides/Common-Operators.md)
 - [The Foreign Function Interface (FFI)](guides/FFI.md)
 - [FFI Tips](guides/FFI-Tips.md)
 - [Generic Programming](guides/Generic.md)
@@ -37,7 +37,7 @@ To get a better overview of PureScript, visit [The PureScript Website](http://pu
 - [PureScript Without Node](guides/PureScript-Without-Node.md)
 - [24 Days of PureScript 2016](https://github.com/paf31/24-days-of-purescript-2016)
 - [Try PureScript Help](https://github.com/purescript/trypurescript/blob/gh-pages/README.md)
-- [More Guides](https://github.com/purescript/documentation/tree/master/guides)
+- [More Guides](guides/)
 
 ## Talks/Meetups
 
