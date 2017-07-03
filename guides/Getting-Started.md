@@ -116,7 +116,7 @@ Let's start by listing all of the natural numbers below 1000 as a list. We can d
 
 You should see a list with 1000 elements printed to the command line.
 
-This value can be given a name, using a `let` binding:
+This value can be given a name:
 
     > ns = range 0 999
 
@@ -127,11 +127,11 @@ Now let's filter out all of those elements which do not meet the criterion. We c
 You can see the result by evaluating `multiples` if you like, or even check its type:
 
     > multiples
-    Cons 0 (Cons 3 (Cons 5 (Cons 6 (Cons ...
+    (0 : 3 : 5 : 6 : ...
     > :type multiples
     List Int
 
-Now we need to find the sum of the `multiples` array, to complete the solution. We can use the `sum` function from the `Data.Foldable` module.
+Now we need to find the sum of the `multiples` list, to complete the solution. We can use the `sum` function from the `Data.Foldable` module.
 
     > import Data.Foldable
     > sum multiples
