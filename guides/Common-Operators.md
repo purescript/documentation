@@ -2,7 +2,7 @@
 
 Or, "what is the PureScript equivalent of \<X operator\> in JS?"
 
-Although the PureScript language defines no built-in operators, plenty are defined in the `Prelude` and other core libraries. This guide gives you a overview of these operators and the corresponding operators in JavaScript.
+Although the PureScript language defines no built-in operators, plenty are defined in the `Prelude` and other core libraries. This guide gives you an overview of these operators and the corresponding operators in JavaScript.
 
 ## JavaScript's unary operators
 
@@ -34,9 +34,9 @@ This means that the PureScript analogues to unary JavaScript operators (other th
 | `>`         | `>`                 | `Data.Ord`            | Greater than                             |
 | `>=`        | `>=`                | `Data.Ord`            | Greater than or equal                    |
 | `&&`        | `&&`                | `Data.HeytingAlgebra` | Boolean AND                              |
-| `||`        | `||`                | `Data.HeytingAlgebra` | Boolean OR                               |
+| `\|\|`      | `\|\|`              | `Data.HeytingAlgebra` | Boolean OR                               |
 | `&`         | `.&.`               | `Data.Int.Bits`       | Bitwise AND                              |
-| `|`         | `.|.`               | `Data.Int.Bits`       | Bitwise OR                               |
+| `\|`        | `.\|.`              | `Data.Int.Bits`       | Bitwise OR                               |
 | `^`         | `.^.`               | `Data.Int.Bits`       | Bitwise XOR                              |
 | `<<`        | `shl`               | `Data.Int.Bits`       | Shift Left                               |
 | `>>`        | `shr`               | `Data.Int.Bits`       | Shift Right                              |
