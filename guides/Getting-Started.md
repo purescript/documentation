@@ -49,7 +49,7 @@ If everything was built successfully, and the tests ran without problems, then t
 
 #### Installing Dependencies
 
-Dependencies can be installed using Bower:
+Dependencies can be installed using Bower. We will be using the `purescript-lists` library shortly, so install it now:
 
     bower install purescript-lists --save
 
