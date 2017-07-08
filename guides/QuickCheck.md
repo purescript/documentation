@@ -84,17 +84,23 @@ Error: Test 1 failed:
 
 #### Example 1 - GCD Function
 
-Let's write an implementation of the _greatest common divisor_ function in PSCi (you will need to enable multiline mode by restarting PSCi with `--multi-line-mode`):
+Let's write an implementation of the _greatest common divisor_ function in PSCi.
+
+This function is easiest to enter in the multi-line input mode, so switch to
+that by entering `:paste` at the prompt:
 
 ```
-> let
-    gcd 0 n = n
-    gcd n 0 = n
-    gcd n m | n < 0 = gcd (-n) m
-    gcd n m | m < 0 = gcd n (-m)
-    gcd n m | n > m = gcd (n - m) m
-    gcd n m = gcd n (m - n)
+> :paste
+… gcd 0 n = n
+… gcd n 0 = n
+… gcd n m | n < 0 = gcd (-n) m
+… gcd n m | m < 0 = gcd n (-m)
+… gcd n m | n > m = gcd (n - m) m
+… gcd n m = gcd n (m - n)
+…
 ```
+
+After typing that in, press Control-D to finish the input.
 
 Now let's assert some basic properties that we expect to hold of the `gcd` function.
 
@@ -151,13 +157,11 @@ The first functor law says that if you map a function which does not modify its 
 
 ```
 > import Data.Array
-
-> let
-    firstFunctorLaw :: Array Int -> Boolean
-    firstFunctorLaw arr = map id arr == arr
-
+> :paste
+… firstFunctorLaw :: Array Int -> Boolean
+… firstFunctorLaw arr = map id arr == arr
+…
 > quickCheck firstFunctorLaw
-
 100/100 test(s) passed.
 unit
 ```
@@ -165,12 +169,11 @@ unit
 The second functor law says that mapping two functions over a structure one-by-one is equivalent to mapping their composition over the structure:
 
 ```
-> let
-    secondFunctorLaw :: (Int -> Int) -> (Int -> Int) -> Array Int -> Boolean
-    secondFunctorLaw f g arr = map f (map g arr) == map (f <<< g) arr
-
+> :paste
+… secondFunctorLaw :: (Int -> Int) -> (Int -> Int) -> Array Int -> Boolean
+… secondFunctorLaw f g arr = map f (map g arr) == map (f <<< g) arr
+…
 > quickCheck secondFunctorLaw
-
 100/100 test(s) passed.
 unit
 ```
@@ -190,12 +193,11 @@ Copy the contents of that file into `src/UnderscoreFFI.purs`, and reload PSCi wi
 The `UnderscoreFFI` module defines a wrapper for the `sortBy` function. Let's test that the function is idempotent:
 
 ```
-> let
-    sortIsIdempotent :: Array Int -> Boolean
-    sortIsIdempotent arr = sortBy id (sortBy id arr) == sortBy id arr
-
+> :paste
+… sortIsIdempotent :: Array Int -> Boolean
+… sortIsIdempotent arr = sortBy id (sortBy id arr) == sortBy id arr
+…
 > quickCheck sortIsIdempotent
-
 100/100 test(s) passed.
 unit
 ```
@@ -203,12 +205,11 @@ unit
 In fact, we don't need to sort by the identity function. Since QuickCheck supports higher-order functions, we can test with a randomly-generated sorting function:
 
 ```
-> let
-    sortIsIdempotent' :: (Int -> Int) -> [Int] -> Boolean
-    sortIsIdempotent' f arr = sortBy f (sortBy f arr) == sortBy f arr
-
+> :paste
+… sortIsIdempotent' :: (Int -> Int) -> Array Int -> Boolean
+… sortIsIdempotent' f arr = sortBy f (sortBy f arr) == sortBy f arr
+…
 > quickCheck sortIsIdempotent
-
 100/100 test(s) passed.
 unit
 ```

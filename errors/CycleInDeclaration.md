@@ -5,7 +5,7 @@
 ```text
 $ pulp psci
 
-> let x = x
+> x = x
 Error found:
 at  line 1, column 5 - line 1, column 9
 

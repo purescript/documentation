@@ -53,7 +53,7 @@ The `NoInstanceFound` error can also occur when a pattern matching definition ha
 As an example of this situation, consider the following definition:
 
 ```
-> let f 0 = 0
+> f 0 = 0
 ```
 
 This function does not handle all possible inputs: it is undefined for all inputs other than zero. Such functions are called *partial* and the compiler will infer a `Partial` constraint:

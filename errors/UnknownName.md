@@ -4,7 +4,7 @@
 
 ```
 > import Prelude
-> let bar x = y + 1
+> x = y + 1
 
 Error found:
 in module $PSCI

@@ -3,9 +3,7 @@
 ## Example
 
 ```
-> let x =
-    let x = 1
-    in x
+> x = let x = 1 in x
 
 Warning 1 of 1:
 
