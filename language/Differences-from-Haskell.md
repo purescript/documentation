@@ -163,7 +163,7 @@ Overlapping instances are still disallowed, like in Haskell. The instance names 
 
 ### Orphan Instances
 
-Unlike Haskell, orphan instances are completely disallowed in Purescript.  It is a compiler error to try to declare orphan instances.
+Unlike Haskell, orphan instances are completely disallowed in PureScript.  It is a compiler error to try to declare orphan instances.
 
 When instances cannot be declared in the same module, one way to work around it is to use [newtype wrappers](http://stackoverflow.com/questions/22080564/whats-the-practical-value-of-all-those-newtype-wrappers-in-data-monoid).
 
