@@ -161,6 +161,40 @@ instance arbitraryUnit :: Arbitrary Unit where
 
 Overlapping instances are still disallowed, like in Haskell. The instance names are used to help the readability of compiled JavaScript.
 
+### Deriving
+
+Unlike Haskell, PureScript doesn't have deriving functionality when declaring
+data types.  For example, the following code does not work in PureScript:
+
+```haskell
+data Foo = Foo Int String deriving (Eq, Ord)
+```
+
+However, PureScript does have `StandaloneDeriving`-type functionality:
+
+```purescript
+data Foo = Foo Int String
+
+derive instance eqFoo :: Eq Foo
+derive instance ordFoo :: Ord Foo
+```
+
+The following type classes can be derived:
+
+- [class Generic (from the Data.Generic module)](https://pursuit.purescript.org/packages/purescript-generics/3.3.0/docs/Data.Generic#t:Generic)
+- [class Generic (from the Data.Generic.Rep module)](https://pursuit.purescript.org/packages/purescript-generics-rep/4.1.0/docs/Data.Generic.Rep#t:Generic)
+- [class Eq](https://pursuit.purescript.org/packages/purescript-prelude/2.4.0/docs/Data.Eq#t:Eq)
+- [class Ord](https://pursuit.purescript.org/packages/purescript-prelude/2.4.0/docs/Data.Ord#t:Ord)
+- [class Functor](https://pursuit.purescript.org/packages/purescript-prelude/2.4.0/docs/Data.Functor#t:Functor)
+- [class Newtype](https://pursuit.purescript.org/packages/purescript-newtype/1.3.0/docs/Data.Newtype#t:Newtype)
+
+Using [generics](https://github.com/purescript/documentation/blob/master/guides/Generic.md), it is also possible to derive the following type classes:
+
+- [class Bounded](https://github.com/purescript/purescript-generics-rep/blob/master/src/Data/Generic/Rep/Bounded.purs)
+- [class Monoid](https://github.com/purescript/purescript-generics-rep/blob/master/src/Data/Generic/Rep/Monoid.purs)
+- [class Semigroup](https://github.com/purescript/purescript-generics-rep/blob/master/src/Data/Generic/Rep/Semigroup.purs)
+- [class Show](https://github.com/purescript/purescript-generics-rep/blob/master/src/Data/Generic/Rep/Show.purs)
+
 ### Orphan Instances
 
 Unlike Haskell, orphan instances are completely disallowed in PureScript.  It is a compiler error to try to declare orphan instances.
