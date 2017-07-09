@@ -3,7 +3,7 @@
 ## Example
 
 ```purescript
-> let f x x = x
+> f x x = x
 Error found:
 in module $PSCI
 at line 1, column 5 - line 1, column 13

@@ -4,7 +4,7 @@
 
 ```purescript
 > import Type.Proxy
-> let x = Proxy :: Proxy Array
+> x = Proxy :: Proxy Array
 Error found:
 in module $PSCI
 at line 1, column 5 - line 1, column 24

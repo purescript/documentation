@@ -40,9 +40,9 @@ Type expressions into the REPL to have them evaluated:
     > 3 + 4
     7
 
-Introduce bindings with `let`:
+Introduce bindings with `=`:
 
-    > let x = 4
+    > x = 4
     > x + 9
     13
 
@@ -57,14 +57,13 @@ You can also define data types, type classes, and type class instances (you may 
 Enter `:paste` (or `:p`) to enter multi-line (or "paste") mode. Terminate it with `Control-D` key.
 
 ```
-> import Prelude                                                                 
-> :paste                                                                         
-… let
-…     add :: Int -> Int -> Int
-…     add = \x y -> x + y      
+> import Prelude
+> :paste
+… add :: Int -> Int -> Int
+… add = \x y -> x + y
 > add 10 20
 > (^D)
-30                                             
+30
 ```
 
 [Demo](https://asciinema.org/a/0y56unmja6fqire01x20zb5xx)
@@ -82,7 +81,7 @@ You can install it using Bower as follows:
 For help getting started, visit http://wiki.purescript.org/PSCi
 ```
 
-The PureScript compiler suite (`psc`, `psci`, etc), unlike most compilers, does not ship with a standard library. In PureScript, even `Prelude` is a normal module, just like any other. Consequentially, `psci` requires a specific library to be installed in order to be able to evaluate terms in the REPL.
+The PureScript compiler suite (i.e. the executable `purs`), unlike most compilers, does not ship with a standard library. In PureScript, even `Prelude` is a normal module, just like any other. Consequentially, `psci` requires a specific library to be installed in order to be able to evaluate terms in the REPL.
 
 `purescript-psci-support` defines the `Eval` type class for this purpose. Instances of `Eval` are provided for `Show`able types, and for `Eff`, so that we can evaluate actions in the REPL. Library implementors might like to provide `Eval` instances for their own `Eff`-like types.
 
