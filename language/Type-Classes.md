@@ -80,27 +80,50 @@ In fact, a type similar to this `AddInt` is provided in `Data.Monoid.Additive`, 
 
 For multi-parameter type classes, the orphan instance check requires that the instance is either in the same module as the class, or the same module as at least one of the types occurring in the instance. (TODO: example)
 
+## Kinds
+
+A typeclass's parameter can specify the Kind. If it doesn't specify the type's Kind, it can be inferred by methods in the class.
+
+``` purescript
+class A a
+-- `a` is kind `Type`
+class B (b :: Type)
+-- `b` is kind `Type`
+class C c
+  f :: forall a b. (a -> b) -> c a -> c b
+-- `c` is kind `Type -> Type`
+class D (d :: Type -> Type)
+-- `d` is kind `Type -> Type`
+class E (e :: # Type)
+-- `e` is kind `# Type`
+```
+
+If a typeclass's parameter's Kind is `Type`, an instance cannot be made for a type of kind `# Type` or `Type -> Type`.
+
 ## Rows
 
-Rows can't appear in instances as the head.
+Concrete Row literals cannot appear in instances.
 
 ``` purescript
 class M t
--- XXX Can't write an instance for a specific row.
+-- Can't write an instance for a specific row.
 instance mClosedRow :: M ()
+class M' (t :: # Type)
+-- Can write an instance for a generic row.
+instance mAnyRow :: M r
 ```
 
-Instance selection works by looking at the "head" types of each type class parameter. Functional dependencies also plays a role, but we'll not consider that for now to simplify the explanation. The "head" of a type is the top-most type constructor, for example the head of `Array Int` is `Array` and the head of `Record r` is `Record`. Row is of kind `# Type`, and this kind is simply restricted from being the head in an instance.
+Instance selection works by looking at the "head" types of each type class parameter. Functional dependencies also plays a role, but we'll not consider that for now to simplify the explanation. The "head" of a type is the top-most type constructor, for example the head of `Array Int` is `Array` and the head of `Record r` is `Record`.
 
 As rows and records can easily be conflated to refer to the same thing, their difference is important to note here. `Record` is a simple type constructor in PureScript and therefore can be a head in an instance.
 
 ``` purescript
 class M t
--- OOO Can write an instance for a `Record` without specifying the row inside.
+-- Can write an instance for a `Record` without specifying a concrete row inside.
 instance mRec :: M (Record r)
--- XXX Can't specify a Record having an empty row, specifically.
+-- Can't specify a Record having an empty row, specifically.
 instance mRec' :: M (Record ())
--- XXX Further, can't specify a Record having a one-label row, specifically.
+-- Further, can't specify a Record having a one-label row, specifically.
 instance mRec'' :: M (Record (a :: Int))
 ```
 
