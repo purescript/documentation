@@ -80,6 +80,26 @@ In fact, a type similar to this `AddInt` is provided in `Data.Monoid.Additive`, 
 
 For multi-parameter type classes, the orphan instance check requires that the instance is either in the same module as the class, or the same module as at least one of the types occurring in the instance. (TODO: example)
 
+## Rows
+
+Rows can't appear in instances as the head. Following is an explanation for this.
+
+Instance selection works by looking at the "head" types of each type class parameter. Functional dependencies also plays a role, but we'll not consider that for now to simplify the explanation. The "head" of a type is the top-most type constructor, for example the head of `Array Int` is `Array` and the head of `Record r` is `Record`. Row is of kind `# Type`, and this kind is simply restricted from being the head in an instance.
+
+As rows and records can easily be conflated to refer to the same thing, their difference is important to note here. `Record` is a simple type constructor in PureScript and therefore can be a head in an instance. Rows, however, can not. See this example:
+
+```
+class M t
+-- OOO We can write an instance for a generic `Record`.
+instance mRec :: M (Record r)
+-- But we *can't* write one for a "specific" Record row.
+-- XXX Can't specify an empty row.
+instance mRec' :: M (Record ())
+-- XXX Can't specify a row having a label.
+instance mRec'' :: M (Record (a :: Int))
+```
+
+A reason for this is that PureScript doesn't allow orphan instances. Row has an unbounded/open set of labels and combination of labels and types. Each unique row has a unique type. A unique row value's type doesn't have a name in a module, so to avoid orphan instances, its instance of a class would need to be defined in the same module as the typeclass. Typeclasses like Ord and Semigroup can't have an instance for every specific row that people want to use - it's untenable.
 
 ## Functional Dependencies
 
