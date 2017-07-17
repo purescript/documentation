@@ -82,33 +82,48 @@ For multi-parameter type classes, the orphan instance check requires that the in
 
 ## Kinds
 
-A typeclass's parameter can specify the Kind. If it doesn't specify the type's Kind, it can be inferred by methods in the class.
+A typeclass's type parameter can specify the kind of types it applies to. If it doesn't specify the type's kind, it can be inferred by the typeclass's methods.
 
 ``` purescript
 class A a
--- `a` is kind `Type`
+-- with a kind signature or methods, `a` defaults to kind `Type`.
 class B (b :: Type)
--- `b` is kind `Type`
+-- `b` is specified as kind `Type`, so its instances must also be this kind.
 class C c
   f :: forall a b. (a -> b) -> c a -> c b
--- `c` is kind `Type -> Type`
+-- `c`'s kind is unspecified, so it is inferred to be `Type -> Type` by its method `f`.
 class D (d :: Type -> Type)
--- `d` is kind `Type -> Type`
+-- `D` has no methods, but we can still declare it to apply to types of kind `Type -> Type`.
 class E (e :: # Type)
--- `e` is kind `# Type`
+-- Row is its own kind, so we can specify a class to operate on types of rows, `# Type`.
 ```
 
-If a typeclass's parameter's Kind is `Type`, an instance cannot be made for a type of kind `# Type` or `Type -> Type`.
+The kinds of any types mentioned in an instance declaration must match the kinds of those parameters as determined by the typeclass's definition.
+
+For example:
+
+``` purescript
+-- Functor can only be considered for types of kind `Type -> Type`.
+class Functor f where
+  map :: forall a b. (a -> b) -> f a -> f b
+-- Either is kind `Type -> Type -> Type`.
+data Either a b = Left a | Right b
+-- This means we can't write an instance of Functor for Either.
+`instance functorEither :: Functor Either where ...` -- compile error
+-- To make Either into kind `Type -> Type`, we simply include the first type parameter.
+`instance functorEither :: Functor (Either e) where ...`
+```
+
+An effect of needing to adjust the kind of a data type to fit into a typeclass which applies to a lower arity kind, like with `Functor` and `Either` above, is that the behavior and laws of an instance will bias towards to the right-most type parameters.
 
 ## Rows
 
 Concrete Row literals cannot appear in instances.
 
 ``` purescript
-class M t
--- Can't write an instance for a specific row.
+class M (t :: # Type)
+-- Cannot write an instance for a specific row.
 instance mClosedRow :: M ()
-class M' (t :: # Type)
 -- Can write an instance for a generic row.
 instance mAnyRow :: M r
 ```
