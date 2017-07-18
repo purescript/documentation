@@ -82,7 +82,7 @@ For multi-parameter type classes, the orphan instance check requires that the in
 
 ## Kinds
 
-A typeclass's type parameter can specify the kind of types it applies to. If it doesn't specify the type's kind, it can be inferred by the typeclass's methods.
+Type class parameters do not need to be of kind Type. To explicitly specify a different kind, the parameter can be annotated with a kind signature. Unless the kind of a type parameter is explicitly annotated, it will be implicitly inferred based on how the type parameter is used in the type class's method signatures.
 
 ``` purescript
 class A a
@@ -130,7 +130,7 @@ instance mAnyRow :: M r
 
 Instance selection works by looking at the "head" types of each type class parameter. Functional dependencies also plays a role, but we'll not consider that for now to simplify the explanation. The "head" of a type is the top-most type constructor, for example the head of `Array Int` is `Array` and the head of `Record r` is `Record`.
 
-As rows and records can easily be conflated to refer to the same thing, their difference is important to note here. `Record` is a simple type constructor in PureScript and therefore can be a head in an instance.
+As rows and records can easily be conflated to refer to the same thing, their difference is important to note here. `Record` is a type constructor in PureScript and therefore can be a head in an instance.
 
 ``` purescript
 class M t
