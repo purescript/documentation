@@ -6,7 +6,7 @@ Types appearing in class instances are must be of the form `String`, `Number`, `
 
 Type class instances are resolved based on the order in which they appeared in the source files. Overlapping instances are currently permitted but not recommended. In simple cases the compiler will display a warning and list the instances it found and which was chosen. In the future they may be disallowed completely.
 
-Here is an example of the `Show` typeclass, with instances for `String`, `Boolean` and `Array`:
+Here is an example of the `Show` type class, with instances for `String`, `Boolean` and `Array`:
 
 ```purescript
 class Show a where
@@ -23,6 +23,28 @@ instance showArray :: (Show a) => Show (Array a) where
   show xs = "[" <> joinWith ", " (map show xs) <> "]"
 
 example = show [true, false]
+```
+
+## Instance selection
+
+Instance selection works by looking at the "head" types of each type class parameter. Functional dependencies also plays a role, but we'll not consider that for now to simplify the explanation. The "head" of a type is the top-most type constructor, for example the head of `Array Int` is `Array` and the head of `Record r` is `Record`.
+
+``` purescript
+class C t where
+  f :: t -> String
+-- Instances are chosen 
+instance cRec :: C (Record r) where
+  f _ = "this is a record"
+instance cArr :: C (Array a) where
+  f _ = "this is an array"
+
+main = do
+  -- The `f` function resolves to the instance for the argument type's head.
+  log (f {}) -- Resolves to cRec's f.
+  log (f []) -- Resolves to cArr's f.
+-- Prints the following when executed.
+this is a record
+this is an array
 ```
 
 ## Multi-Parameter Type Classes
@@ -98,7 +120,7 @@ class E (e :: # Type)
 -- Row is its own kind, so we can specify a class to operate on types of rows, `# Type`.
 ```
 
-The kinds of any types mentioned in an instance declaration must match the kinds of those parameters as determined by the typeclass's definition.
+The kinds of any types mentioned in an instance declaration must match the kinds of those parameters as determined by the type class's definition.
 
 For example:
 
@@ -114,11 +136,11 @@ data Either a b = Left a | Right b
 `instance functorEither :: Functor (Either e) where ...`
 ```
 
-An effect of needing to adjust the kind of a data type to fit into a typeclass which applies to a lower arity kind, like with `Functor` and `Either` above, is that the behavior and laws of an instance will bias towards to the right-most type parameters.
+An effect of needing to adjust the kind of a data type to fit into a type class which applies to a lower arity kind, like with `Functor` and `Either` above, is that the behavior and laws of an instance will bias towards to the right-most type parameters.
 
 ## Rows
 
-Concrete Row literals cannot appear in instances.
+Concrete Row literals cannot appear in instances unless it's concrete type is fully determined by functional dependencies.
 
 ``` purescript
 class M (t :: # Type)
@@ -126,23 +148,17 @@ class M (t :: # Type)
 instance mClosedRow :: M ()
 -- Can write an instance for a generic row.
 instance mAnyRow :: M r
+
+-- The row's type is determined by the type of `dt`.
+class Ctors dt (ct :: # Type) | dt -> ct
+-- Can use a row literal in instances of this class.
+data X = X0 Int | X1 String
+instance ctorsX :: Ctors X ("X0" :: Int, "X1" :: String)
+data Y = Y0 Boolean
+instance ctorsY :: Ctors Y ("Y0" :: Boolean)
 ```
 
-Instance selection works by looking at the "head" types of each type class parameter. Functional dependencies also plays a role, but we'll not consider that for now to simplify the explanation. The "head" of a type is the top-most type constructor, for example the head of `Array Int` is `Array` and the head of `Record r` is `Record`.
-
-As rows and records can easily be conflated to refer to the same thing, their difference is important to note here. `Record` is a type constructor in PureScript and therefore can be a head in an instance.
-
-``` purescript
-class M t
--- Can write an instance for a `Record` without specifying a concrete row inside.
-instance mRec :: M (Record r)
--- Can't specify a Record having an empty row, specifically.
-instance mRec' :: M (Record ())
--- Further, can't specify a Record having a one-label row, specifically.
-instance mRec'' :: M (Record (a :: Int))
-```
-
-A reason for rows being disallowed from appearing in instances is that PureScript doesn't allow orphan instances. Row has an unbounded/open set of labels and combination of labels and types. Each unique row has a unique type. A unique row value's type doesn't have a name in a module, so to avoid orphan instances, its instance of a class would need to be defined in the same module as the typeclass.
+A reason for rows being disallowed from appearing in instances is that PureScript doesn't allow orphan instances. Row has an unbounded/open set of labels and combination of labels and types. Each unique row has a unique type. A unique row value's type doesn't have a name in a module, so to avoid orphan instances, its instance of a class would need to be defined in the same module as the type class.
 
 ## Functional Dependencies
 
