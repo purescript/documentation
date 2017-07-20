@@ -179,21 +179,17 @@ derive instance eqFoo :: Eq Foo
 derive instance ordFoo :: Ord Foo
 ```
 
-The following type classes can be derived:
+Examples of type classes that can be derived this way include `Eq`, `Functor`,
+and `Ord`.  See
+[here](https://github.com/purescript/documentation/blob/master/language/Type-Classes.md#type-class-deriving)
+for a list of other type classes.
 
-- [class Generic (from the Data.Generic module)](https://pursuit.purescript.org/packages/purescript-generics/3.3.0/docs/Data.Generic#t:Generic)
-- [class Generic (from the Data.Generic.Rep module)](https://pursuit.purescript.org/packages/purescript-generics-rep/4.1.0/docs/Data.Generic.Rep#t:Generic)
-- [class Eq](https://pursuit.purescript.org/packages/purescript-prelude/2.4.0/docs/Data.Eq#t:Eq)
-- [class Ord](https://pursuit.purescript.org/packages/purescript-prelude/2.4.0/docs/Data.Ord#t:Ord)
-- [class Functor](https://pursuit.purescript.org/packages/purescript-prelude/2.4.0/docs/Data.Functor#t:Functor)
-- [class Newtype](https://pursuit.purescript.org/packages/purescript-newtype/1.3.0/docs/Data.Newtype#t:Newtype)
-
-Using [generics](https://github.com/purescript/documentation/blob/master/guides/Generic.md), it is also possible to derive the following type classes:
-
-- [class Bounded](https://github.com/purescript/purescript-generics-rep/blob/master/src/Data/Generic/Rep/Bounded.purs)
-- [class Monoid](https://github.com/purescript/purescript-generics-rep/blob/master/src/Data/Generic/Rep/Monoid.purs)
-- [class Semigroup](https://github.com/purescript/purescript-generics-rep/blob/master/src/Data/Generic/Rep/Semigroup.purs)
-- [class Show](https://github.com/purescript/purescript-generics-rep/blob/master/src/Data/Generic/Rep/Show.purs)
+Using generics, it is also possible to use generic implementations for type
+classes like `Bounded`, `Monoid`, and `Show`.  See
+[here](https://github.com/purescript/documentation/blob/master/guides/Generic.md)
+for a list of other type classes that have generic implementations, as well as
+an explanation of how to write generic implementations for your own type
+classes.
 
 ### Orphan Instances
 
