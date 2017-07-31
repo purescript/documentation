@@ -11,7 +11,7 @@ $ cd my-project # Enter an empty folder
 
 $ pulp init # Initialize a pulp environment
 
-$ pulp psci # Fire up the interpreter psci
+$ pulp repl # Fire up the interpreter psci
 
 PSCi, version 0.9.1
 Type :? for help
