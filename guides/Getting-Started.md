@@ -165,7 +165,7 @@ answer = sum multiples
 
 It is possible to load this file directly into the REPL and to continue working:
 
-    pulp psci
+    pulp repl
     > import Euler
     > answer
     233168
