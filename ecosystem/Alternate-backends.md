@@ -5,7 +5,7 @@ There are various alternatives to `psc`'s default JavaScript backend:
 | source code                                                                           | PS version | Target        | status   | comments               | 
 |:--------------------------------------------------------------------------------------|:-----------|:--------------|:------|:-----------------------|
 | [pure11/pure11](https://github.com/pure11/pure11)             | 0.10.6    | C++11         | active | all tests in `./examples/passing` are passing |
-| [purerl/purescript](https://github.com/purerl/purescript) | 0.10.1 | Erlang | experimental |
+| [purerl/purescript](https://github.com/purerl/purescript) | 0.11.6 | Erlang | active |
 
 ## Alpha Quality
 
