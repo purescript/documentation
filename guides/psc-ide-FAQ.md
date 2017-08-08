@@ -30,7 +30,7 @@ A: If you are using one of Atom, Emacs, VIM or VS Code:
 For any other editor... you'll have to write your own plugin :smile:
 
 ## Q: Where can I get documentation for psc-ide?
-A: https://github.com/purescript/purescript/tree/master/psc-ide-server
+A: https://github.com/purescript/purescript/tree/master/psc-ide
 
 # Troubleshooting
 
