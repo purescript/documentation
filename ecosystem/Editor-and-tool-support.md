@@ -5,6 +5,7 @@
 
 - [purescript-contrib/atom-language-purescript](https://github.com/purescript-contrib/atom-language-purescript) provides syntax highlighting
 - [nwolverson/atom-ide-purescript](https://github.com/nwolverson/atom-ide-purescript) provides build support,   REPL, and autocomplete etc. via [psc-ide](https://github.com/purescript/purescript/tree/master/psc-ide-server)
+- [nikhilnagaraju/search-pursuit](https://github.com/nikhilnagaraju/search-pursuit) search any modules, functions on pursuit from editor.
 
 #### Emacs
  Either use these two:
