@@ -227,8 +227,10 @@ The `pulp run` command can be used to compile and run the `Main` module:
     * Build successful.
     The answer is 233168
 
-#### Conclusion
+#### What Next?
 
-That's all for this post. We've seen how to use enough of the basics of Pulp and `purs repl` to compile, execute and test simple PureScript programs.
+If you're new to typed functional programming, your next stop should be [PureScript by Example](https://leanpub.com/purescript/read), which will walk you through learning PureScript by solving practical problems.
 
-Until next time...
+If you are already familiar with an ML-family language, like Haskell or Elm, PureScript by Example should still be appropriate as a starting point, but you may alternatively want to start by browsing the [language reference in the documentation repository](https://github.com/purescript/documentation/tree/master/language) instead. The language reference gives a more brief, reference-style description of the language, and is aimed at those who are already somewhat familiar with typed functional programming. There is also a [Differences from Haskell](https://github.com/purescript/documentation/blob/master/language/Differences-from-Haskell.md) page which Haskell programmers will find useful.
+
+New PureScript programmers are also encouraged to spend some time browsing [Pursuit](https://pursuit.purescript.org), which hosts generated API documentation for PureScript libraries. In particular it is worth familiarising yourself with the [core libraries](https://github.com/purescript) (i.e., those which are hosted under the `purescript` organisation on GitHub), and especially the [prelude](https://pursuit.purescript.org/packages/purescript-prelude), as these provide many basic concepts which are frequently useful for writing programs.
