@@ -161,9 +161,39 @@ instance arbitraryUnit :: Arbitrary Unit where
 
 Overlapping instances are still disallowed, like in Haskell. The instance names are used to help the readability of compiled JavaScript.
 
+### Deriving
+
+Unlike Haskell, PureScript doesn't have deriving functionality when declaring
+data types.  For example, the following code does not work in PureScript:
+
+```haskell
+data Foo = Foo Int String deriving (Eq, Ord)
+```
+
+However, PureScript does have `StandaloneDeriving`-type functionality:
+
+```purescript
+data Foo = Foo Int String
+
+derive instance eqFoo :: Eq Foo
+derive instance ordFoo :: Ord Foo
+```
+
+Examples of type classes that can be derived this way include `Eq`, `Functor`,
+and `Ord`.  See
+[here](https://github.com/purescript/documentation/blob/master/language/Type-Classes.md#type-class-deriving)
+for a list of other type classes.
+
+Using generics, it is also possible to use generic implementations for type
+classes like `Bounded`, `Monoid`, and `Show`.  See
+[here](https://github.com/purescript/documentation/blob/master/guides/Generic.md)
+for a list of other type classes that have generic implementations, as well as
+an explanation of how to write generic implementations for your own type
+classes.
+
 ### Orphan Instances
 
-Unlike Haskell, orphan instances are completely disallowed in Purescript.  It is a compiler error to try to declare orphan instances.
+Unlike Haskell, orphan instances are completely disallowed in PureScript.  It is a compiler error to try to declare orphan instances.
 
 When instances cannot be declared in the same module, one way to work around it is to use [newtype wrappers](http://stackoverflow.com/questions/22080564/whats-the-practical-value-of-all-those-newtype-wrappers-in-data-monoid).
 
