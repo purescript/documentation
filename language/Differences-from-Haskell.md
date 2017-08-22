@@ -78,7 +78,7 @@ main :: forall e. Eff (fs :: FS, trace :: Trace, process :: Process | e) Unit
 
 Now we can see from the type that `main` uses the file system, traces messages to the console, and does something to the current process.
 
-For more details about using Eff, how it works, and how to define your own side effects, [see this post](http://www.purescript.org/learn/eff/).
+For more details about using Eff, how it works, and how to define your own side effects, [see this post](../guides/Eff.md).
 
 ## Records
 
