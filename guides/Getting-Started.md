@@ -59,7 +59,7 @@ PSCi is the interactive mode of PureScript. It is useful for working with pure c
 
 Open PSCi by typing `pulp repl` at the command line. Pulp will create a file in your directory called `.purs-repl`, which contains instructions to PSCi to load your modules and dependencies. If you invoke the PSCi executable directly, you would need to load these files by hand.
 
-    PSCi, version 0.9.0
+    PSCi, version 0.11.6
     Type :? for help
     >
 
@@ -69,15 +69,17 @@ As the introduction indicates, you can type `:?` to see a list of commands:
 
     :?                        Show this help menu
     :quit                     Quit PSCi
-    :reset                    Discard all imported modules and declared bindings
+    :reload                   Reload all imported modules while discarding bindings
+    :clear                    Discard all imported modules and declared bindings
     :browse      <module>     See all functions in <module>
     :type        <expr>       Show the type of <expr>
     :kind        <type>       Show the kind of <type>
     :show        import       Show all imported modules
     :show        loaded       Show all loaded modules
+    :paste       paste        Enter multiple lines, terminated by ^D
 
-    Further information is available on the PureScript wiki:
-    --> https://github.com/purescript/purescript/wiki/psci
+    Further information is available on the PureScript documentation repository:
+    --> https://github.com/purescript/documentation/blob/master/guides/PSCi.md
 
 We will use a selection of these commands during this tutorial.
 
