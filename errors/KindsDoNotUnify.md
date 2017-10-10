@@ -9,14 +9,13 @@ Error found:
 in module $PSCI
 at line 1, column 5 - line 1, column 24
 
-  Could not match kind
+  Found kind
 
     Type
 
-  with kind
+  But expected kind
 
     Type -> Type
-
 
 while checking the kind of Proxy Array
 ```

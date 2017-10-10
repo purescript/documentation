@@ -8,14 +8,14 @@ Error found:
 in module $PSCI
 at line 1, column 6 - line 1, column 6
 
-  Could not match type
+  Found type
 
     String
 
-  with type
+  But excpected type
 
-    Int   
-
+    Int
+  
 while checking that type String
   is at least as general as type Int
 while checking that expression "test"
