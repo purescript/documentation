@@ -15,11 +15,11 @@ The type system defines the following types:
 
 ## Primitive Types
 
-The primitive types `String`, `Number` and `Boolean` correspond to their Javascript equivalents at runtime.
+The primitive types `String`, `Number` and `Boolean` correspond to their JavaScript equivalents at runtime.
 
 ## Integers
 
-The `Int` type represents integer values. The runtime representation is also a normal JavaScript Number; however, operations like `(+)` on `Int` values are defined differently in order to ensure that you always get `Int` values as a result.
+The `Int` type represents integer values. The runtime representation is also a normal JavaScript number; however, operations like `(+)` on `Int` values are defined differently in order to ensure that you always get `Int` values as a result.
 
 ## Arrays
 
@@ -74,7 +74,7 @@ instance showPercentage :: Show Percentage where
 
 ## Functions
 
-Functions in PureScript are like their Javascript counterparts, but always have exactly one argument.
+Functions in PureScript are like their JavaScript counterparts, but always have exactly one argument.
 
 ## Polymorphic Types
 
