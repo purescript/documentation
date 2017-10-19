@@ -30,7 +30,7 @@ Line by line, this reads as follows:
 - The `Person` constructor takes an object with two properties, `name` which is a `String`, and `age` which is an `Int`
 - The `showPerson` function takes a `Person` and returns a `String`
 - `showPerson` works by case analysis on its argument, first matching the constructor `Person` and then using string concatenation and object accessors to return its result.
-- `examplePerson` is a Person object, made with the `Person` constructor and given the String "Bonnie" for the name value and the Int 26 for the age value.
+- `examplePerson` is a Person object, made with the `Person` constructor and given the String "Bonnie" for the name value and the `Int` 26 for the age value.
 
 The full language reference continues below:
 
