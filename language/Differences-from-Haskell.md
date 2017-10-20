@@ -50,7 +50,7 @@ ap :: forall m a b. (Monad m) => m (a -> b) -> m a -> m b
 
 ### Numbers
 
-There is a native `Number` type which represents JavaScript's standard IEEE 754 float and an `Int` which is restricted to the range of 32bit integers. In JavaScript the `Int` values and operations are generated with a `|0` postfix to achieve this, e.g. if you have variables `x`, `y`, and `z` of type `Int`, then the PureScript expression `(x + y) * z` would compile to `((x + y)|0 * z)|0`.
+There is a native `Number` type which represents JavaScript's standard IEEE 754 float and an `Int` which is restricted to the range of 32-bit integers. In JavaScript, the `Int` values and operations are generated with a `|0` postfix to achieve this, e.g. if you have variables `x`, `y`, and `z` of type `Int`, then the PureScript expression `(x + y) * z` would compile to `((x + y)|0 * z)|0`.
 
 ### Unit
 
@@ -64,7 +64,7 @@ There is also an `Array` type for native JavaScript arrays, but this does not ha
 
 ## `IO` vs `Eff`
 
-Haskell uses the `IO` monad to deal with side effects, in PureScript there is a monad called `Eff` that serves the same purpose but can track side effects with more granularity. For example, in a Haskell program the type signature of `main` will be:
+Haskell uses the `IO` monad to deal with side effects. In PureScript, there is a monad called `Eff` that serves the same purpose but can track side effects with more granularity. For example, in a Haskell program the type signature of `main` will be:
 
 ``` haskell
 main :: IO ()
@@ -123,14 +123,14 @@ setX :: Number -> PointRec -> PointRec
 setX val point = point { x = val }
 ```
 
-A common mistake to look out for is when writing a function that accepts a data type like the original `Point` above, is that the object is still wrapped inside `Point` so something like this will fail:
+A common mistake to look out for is when writing a function that accepts a data type like the original `Point` above—the object is still wrapped inside `Point`, so something like this will fail:
 
 ``` purescript
 showPoint :: Point -> String
 showPoint p = show p.x <> ", " <> show p.y
 ```
 
-Instead we need to destructure `Point` to get at the object:
+Instead, we need to destructure `Point` to get at the object:
 
 ``` purescript
 showPoint :: Point -> String
@@ -199,7 +199,7 @@ When instances cannot be declared in the same module, one way to work around it 
 
 ### Default members
 
-At the moment it is not possible to declare default member implementations for type classes. This may change in the future.
+At the moment, it is not possible to declare default member implementations for type classes. This may change in the future.
 
 ### Type class hierarchies
 
@@ -223,7 +223,7 @@ The `<<<` operator is actually a more general morphism composition operator that
 
 ## `return`
 
-In the past, PureScript used `return`. However, it is now removed and replaced with [`pure`](https://pursuit.purescript.org/packages/purescript-prelude/1.1.0/docs/Control.Applicative#v:pure). It was always an alias for pure, which means this change was implemented by simply removing the alias.
+In the past, PureScript used `return`. However, it is now removed and replaced with [`pure`](https://pursuit.purescript.org/packages/purescript-prelude/1.1.0/docs/Control.Applicative#v:pure). It was always an alias for `pure`, which means this change was implemented by simply removing the alias.
 
 ## Array Comprehensions
 
@@ -320,10 +320,9 @@ When writing documentation, the pipe character `|` must appear at the start of e
 As PureScript has not inherited Haskell's legacy code, some operators and functions that are common in Haskell have different names in PureScript:
 
 - `(>>)` is `(*>)`, as `Apply` is a superclass of `Monad` so there is no need to have an `Monad`-specialised version.
-- Since 0.9.1, the Prelude library does not contain `(++)` as a second alias for `append` / `(<>)` (`mappend` in Haskell) anymore.
+- Since 0.9.1, the `Prelude` library does not contain `(++)` as a second alias for `append` / `(<>)` (`mappend` in Haskell) anymore.
 - `mapM` is `traverse`, as this is a more general form that applies to any traversable structure, not just lists. Also it only requires `Applicative` rather than `Monad`. Similarly, `liftM` is `map`.
 - Many functions that are part of `Data.List` in Haskell are provided in a more generic form in `Data.Foldable` or `Data.Traversable`.
 - `some` and `many` are defined with the type of list they operate on (`Data.Array` or `Data.List`).
 - Instead of `_foo` for typed holes, use `?foo`. You have to name the hole; `?` is not allowed.
 - Ranges are written as `1..2` rather than `[1..2]`
- 
