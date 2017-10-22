@@ -33,6 +33,10 @@ In the example above, the type constructor `Proxy` takes an argument of kind `Ty
 
 ## Notes
 
+### Order of Error Message
+
+In the `Proxy Array` example above it is unclear if `Type` refers to the expected kind and `Type -> Type` refers to the actual kind found on line 1 or vice-versa.  The current implementation of Purescript sometimes presents the expected value first and other times presents the actual value first.  In this sense the presentation of this error is inconsistent, so please don't read any order into the error message.
+
 ### Additional/Missing Type Arguments
 
 This error can occur when a type argument is missing, or an additional type argument is provided:
