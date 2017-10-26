@@ -202,7 +202,7 @@ Notice that the `calculateInterest` functions defined above were _pure_: they ha
 
 The PureScript function type `a -> b` does not allow for side-effects, so it would be incorrect to assign a function type to a Javascript computation with side-effects. The correct approach in this case is to use the `Eff` type constructor, defined in the `purescript-eff` package, to assign a type to the computation.
 
-The `Eff` type constructor and its usage is documented [on the eff page](eff.md).
+The `Eff` type constructor and its usage is documented [on the eff page](Eff.md).
 
 #### Santizing Foreign Data With Data.Foreign
 
