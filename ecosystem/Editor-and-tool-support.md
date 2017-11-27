@@ -4,12 +4,12 @@
 #### Atom 
 
 - [purescript-contrib/atom-language-purescript](https://github.com/purescript-contrib/atom-language-purescript) provides syntax highlighting
-- [nwolverson/atom-ide-purescript](https://github.com/nwolverson/atom-ide-purescript) provides build support,   REPL, and autocomplete etc. via [psc-ide](https://github.com/purescript/purescript/tree/master/psc-ide-server)
+- [nwolverson/atom-ide-purescript](https://github.com/nwolverson/atom-ide-purescript) provides build support,   REPL, and autocomplete etc. via [psc-ide](https://github.com/purescript/purescript/tree/master/psc-ide)
 
 #### Emacs
  Either use these two:
 - [dysinger/purescript-mode](https://github.com/dysinger/purescript-mode) was adapted from haskell-mode
-- [epost/psc-ide-emacs](https://github.com/epost/psc-ide-emacs) offers Emacs support for [psc-ide](https://github.com/purescript/purescript/tree/master/psc-ide-server)
+- [epost/psc-ide-emacs](https://github.com/epost/psc-ide-emacs) offers Emacs support for [psc-ide](https://github.com/purescript/purescript/tree/master/psc-ide)
 
 Or these two, for a more minimal setup:
 
@@ -37,7 +37,7 @@ Spacemacs users can just use the [`purescript` layer](https://github.com/syl20bn
 
 #### General
 
-- To generate `TAGS` files, use `psc-docs --format etags` (or `--format ctags`)
+- To generate `TAGS` files, use `purs docs --format etags` (or `--format ctags`)
 
 ## Build tools and package managers
 
