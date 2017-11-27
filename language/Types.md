@@ -95,7 +95,7 @@ identity x = x
 
 ## Row Polymorphism
 
-Polymorphism is not limited to abstracting over types. Values may also be polymorphic in types with other kinds, such as rows or effects (see "Kind System").
+Polymorphism is not limited to abstracting over types. Values may also be polymorphic in types with other kinds, such as rows or effects (see "[Kind System](#kind-system)").
 
 For example, the following function accesses two properties on a record:
 
