@@ -93,7 +93,7 @@ To see the type of one of these values, first import the appropriate module usin
 
     > import Data.List
     > :type zip
-    forall a b. Data.List.List a -> Data.List.List b -> Data.List.List (Data.Tuple.Tuple a b)
+    forall a b. List a -> List b -> List (Tuple a b)
 
 We will be using some of the functions from the `Prelude` and `Data.List` modules, so make sure you have imported those by using the `import` keyword:
 
