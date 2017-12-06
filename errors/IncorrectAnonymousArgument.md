@@ -21,7 +21,7 @@ In the case of multiple arguments:
 ```purescript
 add = \a -> (a + _)
 ```
-or in the case of a normal function: Write the function infix using backticks:
+or in the case of a normal function: Write the function [as an operator](https://github.com/purescript/documentation/blob/fc4a9db4b128aa3331e5f990cb1860e59077af31/language/Syntax.md#functions-as-operators) using backticks:
 ```purescript
 mapArray = _ `map` [1, 2, 3]
 ```
