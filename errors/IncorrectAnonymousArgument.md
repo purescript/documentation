@@ -12,7 +12,7 @@ mapArray = map _ [1, 2, 3]
 
 ## Cause
 
-Anonymous Arguments are only allowed once in an expression and only with functions written in infix notation.
+In an [operator section](https://github.com/purescript/documentation/blob/fc4a9db4b128aa3331e5f990cb1860e59077af31/language/Syntax.md#operator-sections), like `(_ + 1)`, an anonymous argument can be used only once.
 
 
 ## Fix
