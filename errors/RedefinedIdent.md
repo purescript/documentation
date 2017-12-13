@@ -6,7 +6,7 @@
 module Example where
 
 a = 3
-b = 0
+
 a = 5
 
 ```
@@ -20,7 +20,7 @@ You have defined a value with the same name multiple times.
 - Rename one of the variables. In this example:
     ```purescript
     a = 3
-    b = 0
+
     a' = 5
     ```
 
