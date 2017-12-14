@@ -434,10 +434,17 @@ f x = case x of
   Right _ -> "Right"
 ```
 
-A binding can be avoided by pattern matching:
+A binding can be avoided by using a single underscore in place of the expression to match on; in this context the underscore represents an _anonymous argument_.
 ``` purescript
-f :: Int -> String
-f = case _ of
+case _ of
+  0 -> "None"
+  1 -> "One"
+  _ -> "Some"
+```
+
+This is equivalent to
+```purescript
+\x -> case x of
   0 -> "None"
   1 -> "One"
   _ -> "Some"
