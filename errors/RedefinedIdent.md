@@ -3,19 +3,32 @@
 ## Example
 
 ```purescript
-module ShortFailingExample where
+module Example where
 
-...
+a = 3
+
+a = 5
+
 ```
 
 ## Cause
 
-Explain why a user might see this error.
+You have defined a value with the same name multiple times.
 
 ## Fix
 
-- Suggest possible solutions.
+- Rename one of the variables. In this example:
+    ```purescript
+    a = 3
+
+    a' = 5
+    ```
 
 ## Notes
 
-- Additional notes.
+- This error also occurs if you have multiple clauses for a function, where you misspelled the function name once. For Example:
+    ```purescript
+    bar [] = 10
+    barr [2] = 2
+    bar x = length x
+    ```
