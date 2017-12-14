@@ -434,6 +434,16 @@ f x = case x of
   Right _ -> "Right"
 ```
 
+A binding can be avoided by pattern matching:
+``` purescript
+f :: Int -> String
+f = case _ of
+  0 -> "None"
+  1 -> "One"
+  _ -> "Some"
+```
+
+
 
 ## If-Then-Else expressions
 
