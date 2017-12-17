@@ -292,11 +292,13 @@ In PureScript, operator sections look a little bit different.
 
 The PureScript compiler does not support GHC-like language extensions. However, there are some "built-in" language features that are equivalent (or at least similar) to a number of GHC extensions. These currently are:
 
+* DataKinds
 * EmptyDataDecls
 * ExplicitForAll
 * FlexibleContexts
 * FlexibleInstances
 * FunctionalDependencies
+* KindSignatures
 * MultiParamTypeClasses
 * PartialTypeSignatures
 * RankNTypes
