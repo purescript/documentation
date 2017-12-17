@@ -292,7 +292,7 @@ In PureScript, operator sections look a little bit different.
 
 The PureScript compiler does not support GHC-like language extensions. However, there are some "built-in" language features that are equivalent (or at least similar) to a number of GHC extensions. These currently are:
 
-* DataKinds
+* DataKinds (Note that unlike in Haskell, user-defined kinds are open, and they are not promoted, which means that their constructors can only be used in types, and not in values. For more information about the kind system, see https://github.com/purescript/documentation/blob/master/language/Types.md#kind-system)
 * EmptyDataDecls
 * ExplicitForAll
 * FlexibleContexts
