@@ -17,6 +17,7 @@ If you would prefer to use different terms, please use the section below instead
 | Username | Name | License |
 | :------- | :--- | :------ |
 | [@LiamGoodacre](https://github.com/LiamGoodacre) | Liam Goodacre | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@hdgarrood](https://github.com/hdgarrood) | Harry Garrood | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
 
 ### Contributors using Modified Terms
 
