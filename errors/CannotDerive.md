@@ -5,7 +5,7 @@
 ```purescript
 data Bool = True | False
 
-derive instance heytingAlgebraBool :: HeytingAlgebra Bool
+derive instance showBool :: Show Bool
 ```
 
 ## Cause
@@ -16,3 +16,4 @@ support does not exist.
 ## Fix
 
 - You will need to write an instance yourself.
+- If you want to derive e.g. `Show` you can use [Generics](https://github.com/purescript/documentation/blob/master/guides/Generic.md#show-eq-ord).
