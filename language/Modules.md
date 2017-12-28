@@ -65,15 +65,21 @@ Following are some situations in which qualified imports are quite useful.
 module Main where
 
 import Data.Newtype (wrap, unwrap) as Newtype
+import Data.Map as Map
+import Data.List as List
+import Data.Set as Set
 
-newtype WrappedInt = WrappedInt Int
-derive instance newtypeWrappedInt :: Newtype WrappedInt _
+a :: Map Int String
+a = Map.fromFoldable [ Tuple 1 "a" ]
 
-test :: WrappedInt
-test = Newtype.wrap 5
+b :: List Int
+b = List.fromFoldable [ 1 ]
+
+c :: Set Int
+c = Set.fromFoldable [ 1 ]
 ```
 
-The `Data.Newtype` module's `wrap` and `unwrap` functions can be considered relatively ambigous or generic. To clarify *what* is used to wrap the argument, we can import `Data.Newtype` qualified as `Newtype`.
+Several data structure modules have a `fromFoldable` function which can be used to create an instance of that data structure from any other `Foldable` data structure. We can say the `fromFoldable` function is overloaded by different modules. To clearify which `fromFoldable` function is being used, we can import that module's functions under a qualified name and use it qualified, like `Set.fromFoldable`.`
 
 Another example, fictitious this time:
 
