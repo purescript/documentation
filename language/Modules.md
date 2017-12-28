@@ -55,7 +55,44 @@ import B (runFoo)
 
 ## Qualified Imports
   
-Modules can also be imported qualified, which means that their names will not be brought directly into scope, but rather, aliased to a different module name. This can be helpful when avoiding naming conflicts:
+Modules can also be imported qualified, which means that their names will not be brought directly into scope, but rather, aliased as a different module name.
+
+Following are some situations in which qualified imports are quite useful.
+
+### Using generically-named functions
+
+``` purescript
+module Main where
+
+import Data.Newtype (wrap, unwrap) as Newtype
+
+newtype WrappedInt = WrappedInt Int
+derive instance newtypeWrappedInt :: Newtype WrappedInt _
+
+test :: WrappedInt
+test = Newtype.wrap 5
+```
+
+The `Data.Newtype` module's `wrap` and `unwrap` functions can be considered relatively ambigous or generic. To clarify *what* is used to wrap the argument, we can import `Data.Newtype` qualified as `Newtype`.
+
+Another example, fictitious this time:
+
+``` purescript
+module Main where
+
+import MyWebFramework as MyWebFramework
+
+main :: Eff (dom :: DOM) Unit
+main = do
+  elem <- queryDomElementById "appContainer"
+  MyWebFramework.run elem
+  -- that is more clear than
+  -- run elem
+```
+
+It isn't clear what the `run` function is doing until we see its module, `MyWebFramework`. To improve readability of this code, we can import and call it qualified - `MyWebFramework.run`.
+
+### Avoiding naming conflicts
 
 ```purescript
 module Main where
@@ -73,6 +110,8 @@ Operators can also be referenced this way:
 ```purescript
 test' = Array.null ([1, 2, 3] Array.\\ [1, 2, 3])
 ```
+
+### Merging modules
 
 Modules can be merged under the same name, but it is best to use explicit imports to avoid conflicts, in case modules would want to import the same name:
 
