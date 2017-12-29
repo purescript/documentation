@@ -55,7 +55,7 @@ import B (runFoo)
 
 ## Qualified Imports
   
-Modules can also be imported qualified, which means that their names will not be brought directly into scope, but rather, aliased as a different module name.
+Modules can also be imported qualified, which means that their names will not be brought directly into scope, but rather, aliased as a different name.
 
 Following are some situations in which qualified imports are quite useful.
 
@@ -64,7 +64,6 @@ Following are some situations in which qualified imports are quite useful.
 ``` purescript
 module Main where
 
-import Data.Newtype (wrap, unwrap) as Newtype
 import Data.Map as Map
 import Data.List as List
 import Data.Set as Set
@@ -79,9 +78,9 @@ c :: Set Int
 c = Set.fromFoldable [ 1 ]
 ```
 
-Several data structure modules have a `fromFoldable` function which can be used to create an instance of that data structure from any other `Foldable` data structure. We can say the `fromFoldable` function is overloaded by different modules. To clearify which `fromFoldable` function is being used, we can import that module's functions under a qualified name and use it qualified, like `Set.fromFoldable`.`
+Several data structure modules have a `fromFoldable` function which can be used to create an instance of that data structure from any other `Foldable` data structure. We can say the `fromFoldable` function name is overloaded by different modules. To clarify which `fromFoldable` function is being used, we can import that module's functions under a qualified name and use it qualified, like `Set.fromFoldable`.
 
-Another example, fictitious this time:
+Another example, fictitious and slightly contrived this time:
 
 ``` purescript
 module Main where
@@ -96,7 +95,7 @@ main = do
   -- run elem
 ```
 
-It isn't clear what the `run` function is doing until we see its module, `MyWebFramework`. To improve readability of this code, we can import and call it qualified - `MyWebFramework.run`.
+Because "run" is a rather non-descript name, without knowing the type of a `run` function before reading it, it isn't clear what to expect the `run` function to do until we see that its module is `MyWebFramework`. To mitigate this confusion to new readers of this code, we can import and call it qualified - `MyWebFramework.run`.
 
 ### Avoiding naming conflicts
 
@@ -119,7 +118,7 @@ test' = Array.null ([1, 2, 3] Array.\\ [1, 2, 3])
 
 ### Merging modules
 
-Modules can be merged under the same name, but it is best to use explicit imports to avoid conflicts, in case modules would want to import the same name:
+Modules can be merged under the same name using qualified imports. If merging multiple modules, consider using explicit imports to avoid conflicts, in case modules would want to import the same name:
 
 ```purescript
 module Main where
