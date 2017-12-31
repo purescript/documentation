@@ -18,6 +18,22 @@ If you would prefer to use different terms, please use the section below instead
 | :------- | :--- | :------ |
 | [@LiamGoodacre](https://github.com/LiamGoodacre) | Liam Goodacre | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
 | [@hdgarrood](https://github.com/hdgarrood) | Harry Garrood | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@jplatte](https://github.com/jplatte) | Jonas Platte | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@garyb](https://github.com/garyb) | Gary Burgess | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@nwolversion](https://github.com/nwolverson) | Nicholas Wolverson | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@csicar](https://github.com/csicar) | Carsten Csiky | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@andyarvanitis](https://github.com/andyarvanitis) | Andy Arvanitis | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@jdegoes](https://github.com/jdegoes) | John A. De Goes | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@epost](https://github.com/epost) | Erik Post | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@paf31](https://github.com/paf31) | Phil Freeman | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@kRITZCREEK](https://github.com/kRITZCREEK) | Christoph Hegemann | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@stefanholzmueller](https://github.com/stefanholzmueller) | Stefan Holzmueller | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@damncabbage](https://github.com/damncabbage) | Rob Howard | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@dgendill](https://github.com/dgendill) | Dominick Gendill | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@haf](https://github.com/haf) | Henrik Feldt | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@Xandaros](https://github.com/Xandaros) | @Xandaros | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@kika](https://github.com/kika) | Kirill Pertsev | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@chexxor](https://github.com/chexxor) | Alex Berg | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
 
 ### Contributors using Modified Terms
 
