@@ -55,7 +55,37 @@ import B (runFoo)
 
 ## Qualified Imports
   
-Modules can also be imported qualified, which means that their names will not be brought directly into scope, but rather, aliased to a different module name. This can be helpful when avoiding naming conflicts:
+Modules can also be imported qualified, which means that their names will not be brought directly into scope, but rather, aliased as a different module name.
+
+Following are some situations in which qualified imports are quite useful.
+
+### Using generically-named functions
+
+``` purescript
+import Data.Map as Map
+
+a :: Map Int String
+a = Map.fromFoldable [ Tuple 1 "a" ]
+```
+
+Several data structure modules have a `fromFoldable` function which can be used to create an instance of that data structure from any other `Foldable` data structure. To clarify which `fromFoldable` function is being used, we can import that module's functions under a qualified name and use it qualified, like `Set.fromFoldable`.
+
+Another example, using a fictitious module this time:
+
+``` purescript
+import MyWebFramework as MyWebFramework
+
+main :: Eff (dom :: DOM) Unit
+main = do
+  elem <- domElementById "appContainer"
+  MyWebFramework.run elem
+  -- ^ this may be more clear than
+  -- `run elem`
+```
+
+Because "run" is a rather non-descript name, without knowing the type of a `run` function before reading it, it isn't clear what to expect the `run` function to do until we see that its module is `MyWebFramework`. To mitigate this confusion to new readers of this code, we can import and call it qualified - `MyWebFramework.run`.
+
+### Avoiding naming conflicts
 
 ```purescript
 module Main where
@@ -74,7 +104,9 @@ Operators can also be referenced this way:
 test' = Array.null ([1, 2, 3] Array.\\ [1, 2, 3])
 ```
 
-Modules can be merged under the same name, but it is best to use explicit imports to avoid conflicts, in case modules would want to import the same name:
+### Merging modules
+
+Modules can be merged under the same name using qualified imports. If merging multiple modules, consider using explicit imports to avoid conflicts, in case modules would want to import the same name:
 
 ```purescript
 module Main where
