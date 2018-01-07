@@ -12,7 +12,7 @@ import Some.Module
 
 ## Cause
 
-There is a statement `import Some.Module` which is not required, as nothing from `Some.Module` is used.
+There is a statement `import Some.Module` which is not required, as nothing from `Some.Module` is used (with the same qualifier if any).
 
 ## Fix
 

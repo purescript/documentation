@@ -1,21 +1,21 @@
-# `DuplicateImportRef` Error
+# `DuplicateImportRef` Warning
 
 ## Example
 
 ```purescript
 module ShortFailingExample where
 
-...
+import Prelude (unit, unit)
+
+test = unit
 ```
 
 ## Cause
 
-Explain why a user might see this error.
+An explicit import list contains multiple references to the same thing, i.e. has duplicates.
 
 ## Fix
 
-- Suggest possible solutions.
+Remove the extraneous items.
 
 ## Notes
-
-- Additional notes.

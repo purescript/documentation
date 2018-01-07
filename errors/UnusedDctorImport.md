@@ -1,21 +1,29 @@
-# `UnusedDctorImport` Error
+# `UnusedDctorImport` Warning
 
 ## Example
 
 ```purescript
 module ShortFailingExample where
 
-...
+import Data.Maybe (Maybe(..))
+
+test :: forall a. Maybe a -> Int
+test _ = 42
 ```
 
 ## Cause
 
-Explain why a user might see this error.
+A module is imported with an explicit imports list including a type with data construtors (`Maybe(..)` in this example)
+but only the type constructor and not its data constructors are used.
 
 ## Fix
 
-- Suggest possible solutions.
+Import only the type without data constructors. In the above example:
+
+```purescript
+import Data.Maybe (Maybe)
+```
 
 ## Notes
 
-- Additional notes.
+[This error is auto-fixable](../guides/Error-Suggestions.md).

@@ -1,21 +1,24 @@
-# `DuplicateImport` Error
+# `DuplicateImport` Warning
 
 ## Example
 
 ```purescript
 module ShortFailingExample where
 
-...
+import Data.Maybe
+import Data.Maybe
+
+test = Nothing
 ```
 
 ## Cause
 
-Explain why a user might see this error.
+The same module has been imported multiple times (with the same qualification if any).
 
 ## Fix
 
-- Suggest possible solutions.
+Remove one of the extra import statements.
 
 ## Notes
 
-- Additional notes.
+[This error is auto-fixable](../guides/Error-Suggestions.md).
