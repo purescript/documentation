@@ -1,4 +1,4 @@
-# `UnusedImport` Error
+# `UnusedImport` Warning
 
 ## Example
 
@@ -22,4 +22,4 @@ Remove the import statement.
 
 Often occurs during development when the code using the import has not yet been written, in which case can be ignored. 
 
-This error is auto-fixable.
+[This error is auto-fixable](../guides/Error-Suggestions.md).
