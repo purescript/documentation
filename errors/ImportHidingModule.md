@@ -5,17 +5,15 @@
 ```purescript
 module ShortFailingExample where
 
-...
+import B hiding (module A)
 ```
 
 ## Cause
 
-Explain why a user might see this error.
+An `import` statement has a `hiding` list containing a `module` reference. Hiding imports cannot be used to hide modules.
 
 ## Fix
 
-- Suggest possible solutions.
+Remove the `hiding` item.
 
 ## Notes
-
-- Additional notes.

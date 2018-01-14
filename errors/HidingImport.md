@@ -1,21 +1,29 @@
-# `HidingImport` Error
+# `HidingImport` Warning
 
 ## Example
 
 ```purescript
 module ShortFailingExample where
 
-...
+
+import Prelude hiding (id)
+import Data.Maybe
+
+z = Just (-1)
 ```
 
 ## Cause
 
-Explain why a user might see this error.
+A module is imported with the `hiding` form, and there is another implicit import present (which may or may not be `hiding`).
 
 ## Fix
 
-- Suggest possible solutions.
+Make all but at most one import explicit. In the above example we could make either `Data.Maybe` or `Prelude` explicit, e.g.
+
+```
+import Prelude (negate)
+```
 
 ## Notes
 
-- Additional notes.
+[This error is auto-fixable](../guides/Error-Suggestions.md).
