@@ -27,24 +27,28 @@ example = show [true, false]
 
 ## Instance selection
 
-Instance selection works by looking at the "head" types of each type class parameter. Functional dependencies also plays a role, but we'll not consider that for now to simplify the explanation. The "head" of a type is the top-most type constructor, for example the head of `Array Int` is `Array` and the head of `Record r` is `Record`.
+Instance selection works by looking at the "head" type of each type class parameter. Functional dependencies also plays a role, but we'll not consider that for now to simplify the explanation. The "head" of an instance is the type declared after the class name in an instance. For example, the head of `instance cRec :: C (Array a)` is `Array a`.
 
 ``` purescript
 class C t where
   f :: t -> String
 -- Instances are chosen 
+instance cArr :: C (Array a) where
+  f _ = "this is an array of 'a'"
+instance cArrInt :: C (Array Int) where
+  f _ = "this is an array of ints"
 instance cRec :: C (Record r) where
   f _ = "this is a record"
-instance cArr :: C (Array a) where
-  f _ = "this is an array"
 
 main = do
   -- The `f` function resolves to the instance for the argument type's head.
-  log (f {}) -- Resolves to cRec's f.
-  log (f []) -- Resolves to cArr's f.
+  log (f []) -- Resolves to cArr's f, because `Array a` is the argument, which matches `Array a`
+  log (f [1]) -- Resolves to cArr's f, because `Array Int` matches `Array a` before trying the cArrInt instance
+  log (f {}) -- Resolves to cRec's f
 -- Prints the following when executed.
+this is an array of 'a'
+this is an array of 'a'
 this is a record
-this is an array
 ```
 
 ## Multi-Parameter Type Classes
@@ -104,16 +108,16 @@ For multi-parameter type classes, the orphan instance check requires that the in
 
 ## Kinds
 
-Type class parameters do not need to be of kind Type. To explicitly specify a different kind, the parameter can be annotated with a kind signature. Unless the kind of a type parameter is explicitly annotated, it will be implicitly inferred based on how the type parameter is used in the type class's method signatures.
+A type class parameter's kind is commonly inferred by its use in the class's methods. If its kind cannot be inferred, it defaults to kind `Type`. To explicitly specify a different kind for a type parameter defaulting to `Type`, annotate it with a kind signature, as shown in the `class D` example below.
 
 ``` purescript
-class A a
--- with a kind signature or methods, `a` defaults to kind `Type`.
-class B (b :: Type)
--- `b` is specified as kind `Type`, so its instances must also be this kind.
 class C c
   f :: forall a b. (a -> b) -> c a -> c b
--- `c`'s kind is unspecified, so it is inferred to be `Type -> Type` by its method `f`.
+-- `c`'s kind is inferred to be `Type -> Type` by how it's used in the method, `f`.
+class A a
+-- with no methods or explicit kind signature, `a` defaults to kind `Type`.
+class B (b :: Type)
+-- `b` is specified as kind `Type`, so its instances must also be this kind.
 class D (d :: Type -> Type)
 -- `D` has no methods, but we can still declare it to apply to types of kind `Type -> Type`.
 class E (e :: # Type)
@@ -132,15 +136,13 @@ class Functor f where
 data Either a b = Left a | Right b
 -- This means we can't write an instance of Functor for Either.
 `instance functorEither :: Functor Either where ...` -- compile error
--- To make Either into kind `Type -> Type`, we simply include the first type parameter.
+-- Either can be made into kind `Type -> Type`, however, by simply including the first type parameter.
 `instance functorEither :: Functor (Either e) where ...`
 ```
 
-An effect of needing to adjust the kind of a data type to fit into a type class which applies to a lower arity kind, like with `Functor` and `Either` above, is that the behavior and laws of an instance will bias towards to the right-most type parameters.
-
 ## Rows
 
-Concrete Row literals cannot appear in instances unless it's concrete type is fully determined by functional dependencies.
+A concrete Row literal cannot appear in an instance unless it is fully determined by functional dependencies.
 
 ``` purescript
 class M (t :: # Type)
