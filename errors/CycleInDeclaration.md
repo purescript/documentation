@@ -3,7 +3,7 @@
 ## Example
 
 ```text
-$ pulp psci
+$ pulp repl
 
 > x = x
 Error found:

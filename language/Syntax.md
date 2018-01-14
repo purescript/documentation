@@ -366,16 +366,16 @@ is bracketed as:
 
 ### Precedence
 
-Precedence determines the order in which operators are bracketed. Operators with a higher precedence will be bracketed earlier. For example, take `<$>` and `<#>` from Prelude. `<$>` is precedence 4, whereas `<#>` is precedence 1. If we write:
+Precedence determines the order in which operators are bracketed. Operators with a higher precedence will be bracketed earlier. For example, take `*` and `+` from Prelude. `*` is precedence 7, whereas `+` is precedence 6. Therefore, if we write:
 
 ```
-(_ + 1) <$> [1,2,3] <#> (_ * 2)
+2 * 3 + 4
 ```
 
 then this is bracketed as follows:
 
 ```
-((_ + 1) <$> [1,2,3]) <#> (_ * 2)
+(2 * 3) + 4
 ```
 
 ### Operators as values
@@ -433,6 +433,23 @@ f x = case x of
          | otherwise -> "Left positive"
   Right _ -> "Right"
 ```
+
+A binding can be avoided by using a single underscore in place of the expression to match on; in this context the underscore represents an _anonymous argument_.
+``` purescript
+case _ of
+  0 -> "None"
+  1 -> "One"
+  _ -> "Some"
+```
+
+This is equivalent to
+```purescript
+\x -> case x of
+  0 -> "None"
+  1 -> "One"
+  _ -> "Some"
+```
+
 
 
 ## If-Then-Else expressions

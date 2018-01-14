@@ -202,7 +202,7 @@ Notice that the `calculateInterest` functions defined above were _pure_: they ha
 
 The PureScript function type `a -> b` does not allow for side-effects, so it would be incorrect to assign a function type to a Javascript computation with side-effects. The correct approach in this case is to use the `Eff` type constructor, defined in the `purescript-eff` package, to assign a type to the computation.
 
-The `Eff` type constructor and its usage is documented [on the eff page](eff.md).
+The `Eff` type constructor and its usage is documented [on the eff page](Eff.md).
 
 #### Santizing Foreign Data With Data.Foreign
 
@@ -214,10 +214,10 @@ The `Data.Foreign` module (available in the `purescript-foreign` package) define
 
 It is often useful when wrapping Javascript APIs to create new types at a specific kind for use with the FFI.
 
-For example, suppose we have a Javascript library `frob` which defines the `Frob` data structure and associated functions. To give meaningful types to those functions, it might be useful to define a type `Frob` at kind `*`. We can do this as follows:
+For example, suppose we have a Javascript library `frob` which defines the `Frob` data structure and associated functions. To give meaningful types to those functions, it might be useful to define a type `Frob` at kind `Type`. We can do this as follows:
 
 ``` haskell
-foreign import data Frob :: *
+foreign import data Frob :: Type
 ```
 
 The type `Frob` can now be used in other types, or in foreign import declarations:

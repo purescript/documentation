@@ -59,7 +59,7 @@ PSCi is the interactive mode of PureScript. It is useful for working with pure c
 
 Open PSCi by typing `pulp repl` at the command line. Pulp will create a file in your directory called `.purs-repl`, which contains instructions to PSCi to load your modules and dependencies. If you invoke the PSCi executable directly, you would need to load these files by hand.
 
-    PSCi, version 0.9.0
+    PSCi, version 0.11.6
     Type :? for help
     >
 
@@ -69,15 +69,17 @@ As the introduction indicates, you can type `:?` to see a list of commands:
 
     :?                        Show this help menu
     :quit                     Quit PSCi
-    :reset                    Discard all imported modules and declared bindings
+    :reload                   Reload all imported modules while discarding bindings
+    :clear                    Discard all imported modules and declared bindings
     :browse      <module>     See all functions in <module>
     :type        <expr>       Show the type of <expr>
     :kind        <type>       Show the kind of <type>
     :show        import       Show all imported modules
     :show        loaded       Show all loaded modules
+    :paste       paste        Enter multiple lines, terminated by ^D
 
-    Further information is available on the PureScript wiki:
-    --> https://github.com/purescript/purescript/wiki/psci
+    Further information is available on the PureScript documentation repository:
+    --> https://github.com/purescript/documentation/blob/master/guides/PSCi.md
 
 We will use a selection of these commands during this tutorial.
 
@@ -91,7 +93,7 @@ To see the type of one of these values, first import the appropriate module usin
 
     > import Data.List
     > :type zip
-    forall a b. Data.List.List a -> Data.List.List b -> Data.List.List (Data.Tuple.Tuple a b)
+    forall a b. List a -> List b -> List (Tuple a b)
 
 We will be using some of the functions from the `Prelude` and `Data.List` modules, so make sure you have imported those by using the `import` keyword:
 
@@ -165,7 +167,7 @@ answer = sum multiples
 
 It is possible to load this file directly into the REPL and to continue working:
 
-    pulp psci
+    pulp repl
     > import Euler
     > answer
     233168
@@ -227,8 +229,10 @@ The `pulp run` command can be used to compile and run the `Main` module:
     * Build successful.
     The answer is 233168
 
-#### Conclusion
+#### What Next?
 
-That's all for this post. We've seen how to use enough of the basics of Pulp and `purs repl` to compile, execute and test simple PureScript programs.
+If you're new to typed functional programming, your next stop should be [PureScript by Example](https://leanpub.com/purescript/read), which will walk you through learning PureScript by solving practical problems.
 
-Until next time...
+If you are already familiar with an ML-family language, like Haskell or Elm, PureScript by Example should still be appropriate as a starting point, but you may alternatively want to start by browsing the [language reference in the documentation repository](https://github.com/purescript/documentation/tree/master/language) instead. The language reference gives a more brief, reference-style description of the language, and is aimed at those who are already somewhat familiar with typed functional programming. There is also a [Differences from Haskell](https://github.com/purescript/documentation/blob/master/language/Differences-from-Haskell.md) page which Haskell programmers will find useful.
+
+New PureScript programmers are also encouraged to spend some time browsing [Pursuit](https://pursuit.purescript.org), which hosts generated API documentation for PureScript libraries. In particular it is worth familiarising yourself with the [core libraries](https://github.com/purescript) (i.e., those which are hosted under the `purescript` organisation on GitHub), and especially the [prelude](https://pursuit.purescript.org/packages/purescript-prelude), as these provide many basic concepts which are frequently useful for writing programs.

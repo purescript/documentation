@@ -5,7 +5,7 @@ There are various alternatives to `psc`'s default JavaScript backend:
 | source code                                                                           | PS version | Target        | status   | comments               | 
 |:--------------------------------------------------------------------------------------|:-----------|:--------------|:------|:-----------------------|
 | [pure11/pure11](https://github.com/pure11/pure11)             | 0.10.6    | C++11         | active | all tests in `./examples/passing` are passing |
-| [purerl/purescript](https://github.com/purerl/purescript) | 0.10.1 | Erlang | experimental |
+| [purerl/purescript](https://github.com/purerl/purescript) | 0.11.6 | Erlang | active |
 
 ## Alpha Quality
 
@@ -14,7 +14,7 @@ There are various alternatives to `psc`'s default JavaScript backend:
 | [andyarvanitis/purescript-clojure](https://github.com/andyarvanitis/purescript-clojure) |            | Clojure (JVM) |
 | [PyreScript](https://github.com/joneshf/pyrescript)                                     | 0.9.1      | Python        |
 | [epost/psc-query](https://github.com/epost/psc-query)                                   | 0.7.3.0    | Datalog       |
-| [tfausak/thran](https://github.com/tfausak/thran)                                       | 0.10.3     | Haskell (GHC) |
+| [tfausak/thran](https://github.com/tfausak/thran)                                       | 0.11.6     | Haskell (GHC) |
 
 ## Stale
 

@@ -3,19 +3,17 @@
 ## Example
 
 ```purescript
-module ShortFailingExample where
+data Bool = True | False
 
-...
+derive instance showBool :: Show Bool
 ```
 
 ## Cause
 
-Explain why a user might see this error.
+This error shows up when you're attempting to derive an instance for which compiler
+support does not exist.
 
 ## Fix
 
-- Suggest possible solutions.
-
-## Notes
-
-- Additional notes.
+- You will need to write an instance yourself.
+- If you want to derive e.g. `Show` you can use [Generics](https://github.com/purescript/documentation/blob/master/guides/Generic.md#show-eq-ord).

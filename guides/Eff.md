@@ -49,7 +49,7 @@ This example requires the [`purescript-console`](https://pursuit.purescript.org/
 
 If you save this file as `src/RandomExample.purs`, you will be able to compile and run it using PSCi:
 
-    pulp psci
+    pulp repl
 
     > import RandomExample
     > printRandom

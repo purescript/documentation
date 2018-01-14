@@ -21,7 +21,7 @@ Create a new project using Pulp, install `purescript-quickcheck`, and open PSCi:
 ```text
 pulp init
 bower install purescript-quickcheck
-pulp psci
+pulp repl
 ```
 
 Start by importing the QuickCheck library:
