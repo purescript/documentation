@@ -117,16 +117,15 @@ Currently, the following type classes can be automatically solved:
 Symbol-related class
 
 - [`IsSymbol`](https://pursuit.purescript.org/packages/purescript-symbols/3.0.0/docs/Data.Symbol#t:IsSymbol)
-- `ConsSymbol`
 - [`AppendSymbol`](https://pursuit.purescript.org/packages/purescript-typelevel-prelude/2.5.0/docs/Type.Data.Symbol#t:AppendSymbol)
 - [`CompareSymbol`](https://pursuit.purescript.org/packages/purescript-typelevel-prelude/2.5.0/docs/Type.Data.Symbol#t:CompareSymbol)
 
 Rows-related classes
 
 - [`RowToList`](https://pursuit.purescript.org/packages/purescript-typelevel-prelude/2.5.0/docs/Type.Row#t:RowToList)
-- [`RowCons`](https://pursuit.purescript.org/builtins/docs/Prim#t:RowCons), computes the union of two rows of types
+- [`RowCons`](https://pursuit.purescript.org/builtins/docs/Prim#t:RowCons)
 - [`Cons`](https://pursuit.purescript.org/packages/purescript-typelevel-prelude/2.5.0/docs/Type.Row#t:Cons)
-- [`Union`](https://pursuit.purescript.org/builtins/docs/Prim#t:Union), computes the union of two rows of types
+- [`Union`](https://pursuit.purescript.org/builtins/docs/Prim#t:Union)
 
 Other classes
 
