@@ -114,7 +114,7 @@ foo x = x
 
 Currently, the following type classes can be automatically solved:
 
-Symbol-related class
+Symbol-related classes
 
 - [`IsSymbol`](https://pursuit.purescript.org/packages/purescript-symbols/3.0.0/docs/Data.Symbol#t:IsSymbol)
 - [`AppendSymbol`](https://pursuit.purescript.org/packages/purescript-typelevel-prelude/2.5.0/docs/Type.Data.Symbol#t:AppendSymbol)
