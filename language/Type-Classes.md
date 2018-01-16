@@ -114,8 +114,21 @@ foo x = x
 
 Currently, the following type classes can be automatically solved:
 
-- `Warn`
-- [`IsSymbol`](https://pursuit.purescript.org/packages/purescript-typelevel-prelude/1.0.0/docs/Type.Data.Symbol#t:IsSymbol)
-- [`CompareSymbol`](https://pursuit.purescript.org/packages/purescript-typelevel-prelude/1.0.0/docs/Type.Data.Symbol#t:CompareSymbol)
-- [`AppendSymbol`](https://pursuit.purescript.org/packages/purescript-typelevel-prelude/1.0.0/docs/Type.Data.Symbol#t:AppendSymbol)
-- `Union`, which computes the union of two rows of types
+Symbol-related classes
+
+- [`IsSymbol`](https://pursuit.purescript.org/packages/purescript-symbols/3.0.0/docs/Data.Symbol#t:IsSymbol)
+- [`AppendSymbol`](https://pursuit.purescript.org/packages/purescript-typelevel-prelude/2.5.0/docs/Type.Data.Symbol#t:AppendSymbol)
+- [`CompareSymbol`](https://pursuit.purescript.org/packages/purescript-typelevel-prelude/2.5.0/docs/Type.Data.Symbol#t:CompareSymbol)
+
+Rows-related classes
+
+- [`RowToList`](https://pursuit.purescript.org/packages/purescript-typelevel-prelude/2.5.0/docs/Type.Row#t:RowToList)
+- [`RowCons`](https://pursuit.purescript.org/builtins/docs/Prim#t:RowCons)
+- [`Cons`](https://pursuit.purescript.org/packages/purescript-typelevel-prelude/2.5.0/docs/Type.Row#t:Cons)
+- [`Union`](https://pursuit.purescript.org/builtins/docs/Prim#t:Union)
+
+Other classes
+
+- [`Partial`](https://pursuit.purescript.org/builtins/docs/Prim#t:Partial)
+- [`Fail`](https://pursuit.purescript.org/builtins/docs/Prim#t:Fail)
+- [`Warn`](https://pursuit.purescript.org/builtins/docs/Prim#t:Warn)
