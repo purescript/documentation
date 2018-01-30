@@ -66,8 +66,6 @@ that satisfies `IsHomogenousRow`, then this record is good to go". Notice how
 we're "pattern matching" on the left side of `RowToList` - we don't know what
 `la` is, but we trust the compiler to iron out that little detail for us.
 
-Now that's all ready to roll, we should probably write `IsHomogenousRow`:
-
 Now we implement `IsHomogenousRowList`. The type parameter `list` is the `RowList`
 we want to check for homogeneously-typed values, which all have type `a`.
 
