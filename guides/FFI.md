@@ -126,7 +126,7 @@ A correct `foreign import` declaration now should use a foreign type whose runti
 ```purescript
 module Interest where
 
-import Data.Function (Fn2)
+import Data.Function.Uncurried (Fn2)
 
 foreign import calculateInterest :: Fn2 Number Number Number
 ```
