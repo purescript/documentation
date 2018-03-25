@@ -6,26 +6,42 @@ Currently, the PureScript compiler outputs CommonJS-formatted JavaScript modules
 
 To run a JavaScript app which uses CommonJS-formatted modules in a web browser, then, requires compiling it to a module format supported by a web browser. In simple browser apps, the resulting output will likely be just a single, very big JavaScript file with modules removed or wrapped in a similar implementation of CommonJS modules.
 
-The programs which perform this compilation process are generally called "bundlers". The first program which did this was [Browserify](http://browserify.org/). Currently the most popular and well-supported bundler is [Webpack](https://webpack.js.org/), but other fine options include [RollupJS](https://rollupjs.org/) and [ParcelJS](https://parceljs.org/). Generally, a bundler works by specifying an entrypoint JavaScript file, a desired output module format, and other functions to perform while bundling, called plugins.
+The programs which perform this compilation process are generally called "bundlers". The first program which did this was [Browserify](http://browserify.org/) but many alternative bundlers have been created since then. Currently the most popular and well-supported bundler is [Webpack](https://webpack.js.org/), but other fine options include [RollupJS](https://rollupjs.org/) and [ParcelJS](https://parceljs.org/). Generally, a bundler works by specifying an entrypoint JavaScript file, a desired output module format, and other functions to perform while the bundler traverses and bundles modules, called plugins.
 
 See the documentation provided by those tools for full information of how to use them. As an introduction, we'll see a basic example of these tools.
+
+Note that these tools will simply bundle a JavaScript file's dependencies into that file. A JavaScript file produced by a PureScript module will only define functions, not execute them. If you pass such a file into a bundler and simply load it into a browser, you might be disappointed to see that your project's `main` function isn't executed. To execute it in the browser requires a JavaScript file which imports the `main` function and executes it. The make your project executable, follow the bundler examples below while replacing `output/Main/index.js` with a JavaScript which executes your project. Following is an example JavaScript file which does this, here called `main-runner.js`.
+
+``` JavaScript
+// main-runner.js
+
+// Using ES6 modules, if your bundler expects ES6 modules.
+import { main } from "./output/Main/index.js"
+main();
+
+// Or using CommonJS module, if your bundler expects CommonJS modules.
+// var Main = require("./output/Main/index.js");
+// Main.main();
+```
+
 
 ### Webpack
 
 Install Webpack using their [installation guide](https://webpack.js.org/guides/installation/) or a different method of your choice. You might also need to install a "webpack-cli" package.
 
-Create a webpack configuration file by entering the following configuration in a "webpack.config.js" file in the root of your project directory.
+Webpack supports configuration by command-line arguments and by configuration file, but because many configuration options can't be defined by command-line arguments, it's recommended to use a configuration file. Create a webpack configuration file by entering the following into a "webpack.config.js" file in the root of your project directory.
 
 ``` JavaScript
+// webpack.config.js
+
 module.exports = {
   // Enter here. If the name of your PureScript entry module is named "Main",
   //   by default it will be output to the "./output/Main/index.js" file.
   entry: './output/Main/index.js',
   // Output the bundled program to "bundle.js" file in the current directory.
   output: {
-    path: __dirname,
-    pathinfo: true,
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    path: __dirname
   }
 };
 ```
@@ -35,11 +51,9 @@ Then execute Webpack.
 ``` sh
 # If you installed from NPM
 $ ./node_modules/.bin/webpack
-# OR if you installed a different way, execute it your way.
-$ PATH=~/path/to/webpack-dir webpack
 ```
 
-Webpack should output something like the following lines. You can see it produced one asset, called bundle.js, which it called "Chunk number 0", and you can see each module which was included in that bundle.
+Webpack should output something like the following. You can see it produced one asset, called bundle.js, which it called "Chunk number 0", and you can see each module which was included in that bundle.
 
 ``` sh
 Hash: 8891a2a784e39f88c7ed
@@ -70,8 +84,51 @@ Entrypoint main = bundle.js
 
 ### RollupJS
 
-!!! To do
+Install RollupJS using their [quick start guide](https://rollupjs.org/guide/en#quick-start) or a different method of your choice.
+
+Rollup supports configuration by command-line arguments and by configuration file, but because some configuration options can't be defined by command-line arguments, such as plugins, it's recommended to use a configuration file. Create a RollupJS configuration file by entering the following into a "rollup.config.js" file in the root of your project directory.
+
+``` JavaScript
+// rollup.config.js
+
+// RollupJS supports only ES6 modules.
+// PureScript outputs CommonJS modules and refers to other PS modules using Node-style
+//   module refereneces, so we need to add support for this to Rollup using two plugins.
+import commonjs from 'rollup-plugin-commonjs';
+import nodeResolve from 'rollup-plugin-node-resolve';
+
+export default {
+  input: 'output/Main/index.js',
+  output: {
+    file: 'myapp-bundle.js',
+    // If you want to make an in-browser executable, you'll need an input like "main-runner.js" and use an output format of "iife".
+    format: 'cjs',
+    exports: 'named'
+  },
+  plugins: [
+    nodeResolve(),
+    commonjs()
+  ]
+};
+```
+
+Then execute RollupJS.
+
+``` sh
+# If you installed from NPM
+$ ./node_modules/.bin/rollup -c
+```
+
+RollupJS should output something like the following. You can see it bundled "output/Main/index.js" and its dependencies into the "myapp-bundle.js" file.
+
+``` sh
+$ ./node_modules/.bin/rollup -c
+
+output/Main/index.js → myapp-bundle.js...
+created myapp-bundle.js in 874ms
+```
+
 
 ## Note on ES6 modules
 
-ECMAScript 6, the latest version of the JavaScript language, enables an ES6 JavaScript module to define its dependencies in a synchronous manner while keeping its ability to be executed in an ES6-compliant web browser. PureScript currently doesn't output ES6-formatted modules because not all browsers completely support ES6 and PureScript wants to output JavaScript which is compatible with all JavaScript runtimes. ES6 modules are enticing because they remove the need to perform a bundling step.
+ECMAScript 6, the latest version of the JavaScript language, enables an ES6 JavaScript module to define its dependencies in a synchronous manner while keeping its ability to be executed in an ES6-compliant web browser. PureScript currently doesn't output ES6-formatted modules because not all browsers completely support ES6 and the PureScript project wants to output JavaScript compatible with as many JavaScript runtimes as possible. ES6 modules are enticing because they remove the need to perform a bundling step.
