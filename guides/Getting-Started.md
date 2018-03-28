@@ -16,7 +16,7 @@ The Purescript compiler (`purs`) can be installed with npm:
 
 #### Setting up the Development Environment
 
-PureScript's core libraries are configured to use the [Pulp](https://github.com/bodil/pulp) build tool, and packages are available in the [Bower registry](http://bower.io/search/?q=purescript-).
+PureScript's core libraries are configured to use the [Pulp](https://github.com/purescript-contrib/pulp) build tool, and packages are available in the [Bower registry](http://bower.io/search/?q=purescript-).
 
 If you don't have Pulp and Bower installed, install them now:
 
