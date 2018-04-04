@@ -35,6 +35,7 @@ If you would prefer to use different terms, please use the section below instead
 | [@kika](https://github.com/kika) | Kirill Pertsev | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
 | [@chexxor](https://github.com/chexxor) | Alex Berg | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
 | [@mattaudesse](https://github.com/mattaudesse) | Matt Audesse | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@juhp](https://github.com/juhp) | Jens Petersen | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
 
 ### Contributors using Modified Terms
 
