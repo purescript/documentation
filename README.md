@@ -5,7 +5,7 @@ Welcome to the PureScript documentation repository!
 PureScript is a small, strongly typed programming language that compiles to JavaScript.
 To get a better overview of PureScript, visit [The PureScript Website](http://purescript.org).
 
-This repository is meant to be a collaborative effort, so please feel free to make a pull request to add/edit content or create an issue to discuss it. PureScript is a big project used by people coming from a variety of backgrounds. Maintaining documentation which is useful to such variety of people is really hard to do well, so the project needs people like you to point out and add documentation you feel is missing. Thanks for helping!
+This repository is a collaborative effort, so please feel free to make a pull request to add/edit content or create an issue to discuss it. PureScript is a big project used by people coming from a variety of backgrounds. Making documentation useful to a wide variety of people is really hard to do well, requiring readers like you to point out and add documentation you feel is missing. Thanks for helping!
 
 ## Project Scope
 
