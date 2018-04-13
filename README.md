@@ -1,11 +1,29 @@
 ![PureScript](https://github.com/purescript/purescript/raw/master/logo.png)
 
-Welcome to the PureScript documentation repository! This repository is meant to be a collaborative effort, so please feel free to add/edit content where it is appropriate to do so.
+Welcome to the PureScript documentation repository!
 
-## Introduction
-
-PureScript is a small strongly typed programming language that compiles to JavaScript.
+PureScript is a small, strongly typed programming language that compiles to JavaScript.
 To get a better overview of PureScript, visit [The PureScript Website](http://purescript.org).
+
+This repository is a collaborative effort, so please feel free to make a pull request to add/edit content or create an issue to discuss it. PureScript is a big project used by people coming from a variety of backgrounds. Making documentation useful to a wide variety of people is really hard to do well, requiring readers like you to point out and add documentation you feel is missing. Thanks for helping!
+
+## Project Scope
+
+Topics currently in this repository's scope:
+
+- PureScript language reference documentation
+- Its compiler errors
+- Core concepts on which the language is based
+- Introduction to package managers and dependency management
+- Comparison with similar languages
+- An introduction to other sources of documentation
+
+Topics currently *not* in scope:
+
+- Using PureScript libraries (those docs belong with the corresponding libraries)
+- A PureScript language teaching course (use the [PureScript by Example](https://leanpub.com/purescript/read) book or other resources)
+
+Feel free to make an issue to discuss amending the scope.
 
 ## Getting Started
 
