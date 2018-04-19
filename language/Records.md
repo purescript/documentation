@@ -73,3 +73,25 @@ setPersonPostcode :: PostCode -> Person -> Person
 setPersonPostcode pc p = p { address { postCode = pc } }
 ```
 
+## Field Names
+
+Symbols which are illegal value identifiers, such as title-cased identifiers, can be used to identify a field by enclosing it in double-quotes:
+
+```purescript
+author' :: { "Name" :: String, "Interests" :: Array String }
+author' = { "Name": "Phil", "Interests": ["Functional Programming", "JavaScript"] }
+
+> author'."Name"
+"Phil"
+
+> (author { "Name" = "John" })."Name"
+"John"
+```
+
+If compiling to JavaScript, consider that the PureScript compiler will allow you to choose symbols which have special meaning in JavaScript, like `__proto__`.
+
+```purescript
+oops = {__proto__: unsafeCoerce ""}.__proto__.constructor.constructor "alert('lol')" 0
+-- When loaded onto a web page, this will display "lol" in a browser dialog box,
+--   which is an effectful behavior despite this expression appearing to be pure.
+```
