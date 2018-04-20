@@ -75,16 +75,16 @@ setPersonPostcode pc p = p { address { postCode = pc } }
 
 ## Field Names
 
-Symbols which are illegal value identifiers, such as title-cased identifiers, can be used to identify a field by enclosing it in double-quotes:
+Symbols which are illegal value identifiers, such as title-cased identifiers or those containing spaces, can be used to identify a field by enclosing it in double-quotes:
 
 ```purescript
-author' :: { "Name" :: String, "Interests" :: Array String }
-author' = { "Name": "Phil", "Interests": ["Functional Programming", "JavaScript"] }
+author' :: { "Name" :: String, "Personal Interests" :: Array String }
+author' = { "Name": "Phil", "Personal Interests": ["Functional Programming", "JavaScript"] }
 
 > author'."Name"
 "Phil"
 
-> (author { "Name" = "John" })."Name"
+> (author' { "Name" = "John" })."Name"
 "John"
 ```
 
