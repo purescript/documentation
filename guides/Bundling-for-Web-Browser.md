@@ -1,10 +1,33 @@
 # Bundling for a Web Browser
 
-Currently, the PureScript compiler outputs CommonJS-formatted JavaScript modules, which is just one of several JavaScript module formats. Other JavaScript module formats include AMD, UMD, ES6, IIFE, SystemJS, and Global. The CommonJS module format was invented by the early NodeJS app ecosystem, as it has a different set of limitations than the web browser app ecosystem. The primary difference that relates to JavaScript module formats is that of loading dependent modules. NodeJS is a customized JavaScript runtime, and one of the features they added to the JavaScript language is support for synchronous module loading. NodeJS can do this while a web browser can not because NodeJS loads dependent modules using simple filesystem access, a relatively low performance cost, whereas a web browser needs to send an HTTP request to the website's server to request subsequent modules, a quite large performance cost.
+A language's libraries are often maintained as modules separate from any specific application to enable them to be easily re-used across applications. Any JavaScript app which uses shared libraries will be loading specific modules and specific functions in those modules. In JavaScript, each file is treated as a separate module.
+
+In a web browser, loading a dependency is a network request. Remembering that dependencies have dependencies, you can look at any simple JavaScript application and see that it consists of dozens or hundreds of modules. When you run such a JavaScript application in a browser, then, you'll see dozens or hundreds of network requests as it fetches its dependencies.
+
+A bundler will reduce an application's dependency graph by moving a module's dependencies and transitive dependencies into the module itself. This means a web browser does not need to load a JavaScript app's dependencies. If an application wants to make its bundle smaller, some bundlers can split the app into chunks and lazy-load them when they are needed.
+
+## Module Formats
+
+Bundlers can export the bundle in one of several JavaScript module formats. It's also important to know that some bundlers only support importing an application using a specific module format, though you can apply a plugin to add support for other module formats.
+
+Currently, the PureScript compiler outputs CommonJS-formatted JavaScript modules. Other JavaScript module formats include AMD, UMD, ES6, IIFE, and SystemJS. Following is a quick overview of the various module formats.
+
+The CommonJS format offers synchronous module loading and is the de facto module format of modules used by the NodeJS ecosystem.
+
+The AMD format was invented to support loading modules in a web browser asynchronously across the network.=
+
+The UMD format unifies the CommonJS and AMD formats to enable modules in its format to be loaded as a CommonJS module or as an AMD module, at the cost of a slightly more incomprehensible module format.
+
+The IIFE format isn't a complete module system, as it doesn't define a way of loading dependencies, but it is still useful as a format to use for a top-level module, the one first loaded and executed by a web browser, as it uses a JavaScript closure to ensure only specifically exported values are exported and arranges them onto a single object, rather than independently defining each export on the global scope.
+
+The ES6 format is the new JavaScript standard module format, but it is not currently not supported by most web browsers. You can use this format during development but will need to transpile to a different format when deploying to production.
+
+SystemJS is a module format which closely follows the ECMAScript specifications, but because dynamic loading isn't included in the ES6 specification yet SystemJS offers some guidance as a reference implementation, and can perhaps be called a polyfill, until it's added to the ECMAScript specification and all major browsers implement it.
+
 
 ## Bundling
 
-To run a JavaScript app which uses CommonJS-formatted modules in a web browser, then, requires compiling it to a module format supported by a web browser. In simple browser apps, the resulting output will likely be just a single, very big JavaScript file with modules removed or wrapped in a similar implementation of CommonJS modules.
+To run a JavaScript app which uses CommonJS-formatted modules in a web browser requires compiling it to a module format supported by a web browser. In simple browser apps, the resulting output will likely be just a single, very big JavaScript file with modules removed or wrapped in a similar implementation of CommonJS modules.
 
 The programs which perform this compilation process are generally called "bundlers". The first program which did this was [Browserify](http://browserify.org/) but many alternative bundlers have been created since then. Currently the most popular and well-supported bundler is [Webpack](https://webpack.js.org/), but other fine options include [RollupJS](https://rollupjs.org/) and [ParcelJS](https://parceljs.org/). Generally, a bundler works by specifying an entrypoint JavaScript file, a desired output module format, and other functions to perform while the bundler traverses and bundles modules, called plugins.
 
@@ -24,111 +47,14 @@ main();
 // Main.main();
 ```
 
+### Tools
 
-### Webpack
-
-Install Webpack using their [installation guide](https://webpack.js.org/guides/installation/) or a different method of your choice. You might also need to install a "webpack-cli" package.
-
-Webpack supports configuration by command-line arguments and by configuration file, but because many configuration options can't be defined by command-line arguments, it's recommended to use a configuration file. Create a webpack configuration file by entering the following into a "webpack.config.js" file in the root of your project directory.
-
-``` JavaScript
-// webpack.config.js
-
-module.exports = {
-  // Enter here. If the name of your PureScript entry module is named "Main",
-  //   by default it will be output to the "./output/Main/index.js" file.
-  entry: './output/Main/index.js',
-  // Output the bundled program to "bundle.js" file in the current directory.
-  output: {
-    filename: 'bundle.js',
-    path: __dirname
-  }
-};
-```
-
-Then execute Webpack.
-
-``` sh
-# If you installed from NPM
-$ ./node_modules/.bin/webpack
-```
-
-Webpack should output something like the following. You can see it produced one asset, called bundle.js, which it called "Chunk number 0", and you can see each module which was included in that bundle.
-
-``` sh
-Hash: 8891a2a784e39f88c7ed
-Version: webpack 4.0.0
-Time: 1690ms
-Built at: 2/24/2018 9:12:40 PM
-    Asset      Size  Chunks             Chunk Names
-bundle.js  24.6 KiB       0  [emitted]  main
-Entrypoint main = bundle.js
-   [2] ./output/Data.Ring/index.js 1.27 KiB {0} [built]
-   [4] ./output/Data.Function/index.js 803 bytes {0} [built]
-   [6] ./output/Data.Eq/index.js 1.59 KiB {0} [built]
-   [7] ./output/Data.Show/index.js 964 bytes {0} [built]
-   [8] ./output/Control.Apply/index.js 2.89 KiB {0} [built]
-   [9] ./output/Data.Semigroup/index.js 1.07 KiB {0} [built]
-  [10] ./output/Data.EuclideanRing/index.js 3.25 KiB {0} [built]
-  [11] ./output/Data.Void/index.js 559 bytes {0} [built]
-  [12] ./output/Control.Category/index.js 483 bytes {0} [built]
-  [13] ./output/Control.Applicative/index.js 1.88 KiB {0} [built]
-  [14] ./output/Data.Ord/index.js 7.89 KiB {0} [built]
-  [20] ./output/Prelude/index.js 1.36 KiB {0} [built]
-  [24] ./output/Control.Monad.Eff/index.js 1.7 KiB {0} [built]
-  [26] ./output/Control.Monad.Eff.Console/index.js 971 bytes {0} [built]
-  [47] ./output/Main/index.js 313 bytes {0} [built]
-    + 33 hidden modules
-```
-
-
-### RollupJS
-
-Install RollupJS using their [quick start guide](https://rollupjs.org/guide/en#quick-start) or a different method of your choice.
-
-Rollup supports configuration by command-line arguments and by configuration file, but because some configuration options can't be defined by command-line arguments, such as plugins, it's recommended to use a configuration file. Create a RollupJS configuration file by entering the following into a "rollup.config.js" file in the root of your project directory.
-
-``` JavaScript
-// rollup.config.js
-
-// RollupJS supports only ES6 modules.
-// PureScript outputs CommonJS modules and refers to other PS modules using Node-style
-//   module refereneces, so we need to add support for this to Rollup using two plugins.
-import commonjs from 'rollup-plugin-commonjs';
-import nodeResolve from 'rollup-plugin-node-resolve';
-
-export default {
-  input: 'output/Main/index.js',
-  output: {
-    file: 'myapp-bundle.js',
-    // If you want to make an in-browser executable, you'll need an input like "main-runner.js" and use an output format of "iife".
-    format: 'cjs',
-    exports: 'named'
-  },
-  plugins: [
-    nodeResolve(),
-    commonjs()
-  ]
-};
-```
-
-Then execute RollupJS.
-
-``` sh
-# If you installed from NPM
-$ ./node_modules/.bin/rollup -c
-```
-
-RollupJS should output something like the following. You can see it bundled "output/Main/index.js" and its dependencies into the "myapp-bundle.js" file.
-
-``` sh
-$ ./node_modules/.bin/rollup -c
-
-output/Main/index.js → myapp-bundle.js...
-created myapp-bundle.js in 874ms
-```
+- [webpack quick-start](guides/Bundling/Webpack.md)
+- [Rollup quick-start](guides/Bundling/Rollup.md)
 
 
 ## Note on ES6 modules
 
-ECMAScript 6, the latest version of the JavaScript language, enables an ES6 JavaScript module to define its dependencies in a synchronous manner while keeping its ability to be executed in an ES6-compliant web browser. PureScript currently doesn't output ES6-formatted modules because not all browsers completely support ES6 and the PureScript project wants to output JavaScript compatible with as many JavaScript runtimes as possible. ES6 modules are enticing because they remove the need to perform a bundling step.
+ECMAScript 6, the latest version of the JavaScript language, adds a module system which is similar to CommonJS but is slightly restricted to enable it to be statically analyzed. Static analysis enables an ES6 JavaScript module's dependencies to be asynchronously loaded prior to running the module, which enables the ES6 module to use its dependencies in a synchronous manner. PureScript currently doesn't output ES6-formatted modules, partly because not all browsers completely support ES6 and partly because its FFI parser doesn't support parsing ES6. ES6 modules are enticing because they remove the need to perform a bundling step.
+
+A relevant topic here is loading a dynamically-chosen dependency, a commonly-used feature of the CommonJS module system. This facility is not included in the ES6 specification, but work is underway to add it to a future version of the specification. The suggested syntax for this is `import('./dist/some-module.js').then(({ default: main }) => main());`, compared to CommonJS's `const { default: main } = require('./dist/some-module.js'); main();`. In ES6, the asynchronous nature of this operation surfaces, as we see the operation returns a Promise containing the requested functions from the module's exports.
