@@ -5,52 +5,64 @@
 ```
 > data Foo = Foo
 > show Foo
-No instance found for Show Foo
+No type class instance found for Data.Show.Show Foo
+
+> data Fooy a = Fooy a
+> data Bar a = Bar (Fooy a)
+> derive instance functorBar :: Functor Bar
+No type class instance was found for Data.Functor.Functor Fooy
 ```
 
-## Cause
+## Causes and Fixes
 
-This error occurs when you try to use a function which has a type class constraint with a type (or types) that are not instances of the relevant type class.
+This error occurs when the type-checker can't find an instance of a type class for a data type where it expects or requires one.
 
-In the example above, we use `show`, which is a member of the `Show` type class. Its type is
+Some situations in which this can occur:
+
+### Can't find instance
+
+This error is caused when a function has a type signature having a type class constraint on a type, but the type-checker can't find an instance of the type class for that type.
+
+In the `show Foo` example above, we use `show`, which is a member of the `Show` type class. Its type is
 
 ```purescript
 show :: forall a. Show a => a -> String
 ```
 
-This means that `show` takes a value of some type `a` and returns a `String`, with the constraint that `a` must have a `Show` instance.
+This means that `show` takes a value of some type `a` and returns a `String`, with the constraint that `a` must have a `Show` instance. The "NoInstanceFound" error will arise if the compiler can't find a `Show` instance for the `Foo` data type.
 
-This error can also arise in situations where the compiler is not able to solve a constraint involving ambiguous types. For example:
+This can be fixed by adding an instance for the relevant type. To fix the earlier example:
+
+```
+> instance showFoo :: Show Foo where show Foo = "Foo"
+> show Foo
+"Foo"
+```
+
+### Ambiguous types
+ 
+This error can arise in situations where the compiler is not able to solve a constraint due to ambiguous types. This is demonstrated in the following example in which no concrete type appears in the function's definition; it only uses type class methods. The compiler must be given a concrete type, or be able to infer it, to choose a type class instance.
 
 ```purescript
 bad = show mempty
 ```
 
-Finally, this error can occur if your code fails to propagate `Partial` constraints properly. For an introduction to the `Partial` type class, please see [The Partial type class](../guides/The-Partial-type-class.md) or the note [below](#Exhaustivity-Errors).
+To fix this, consider adding a type signature:
 
-## Fix
+```purescript
+better = show (mempty :: String)
+```
 
-- A possible fix is to add an instance for the relevant type. Following from the earlier example:
+### Partial type class
 
-    ```
-    > instance showFoo :: Show Foo where show Foo = "Foo"
-    > show Foo
-    "Foo"
-    ```
 
-- If a constraint involves an ambiguous type, consider adding a type signature:
+(Please contribute an example)
 
-    ```
-    better = show (mempty :: String)
-    ```
+### Partial type class & Non-exhaustive patterns
 
-## Notes
+This error can occur if your code fails to propagate `Partial` constraints properly. For an introduction to the `Partial` type class, please see [The Partial type class](../guides/The-Partial-type-class.md) or the note [below](#Exhaustivity-Errors).
 
-### Exhaustivity Errors
-
-The `NoInstanceFound` error can also occur when a pattern matching definition has **non-exhaustive** patterns.
-
-As an example of this situation, consider the following definition:
+As an example of this situation, consider the following function definition:
 
 ```
 > f 0 = 0
@@ -66,7 +78,7 @@ This function does not handle all possible inputs: it is undefined for all input
 If we try to use the function directly, we will get a `NoInstanceFound` error:
 
 ```
-> f 1
+> g = f 1
 
 A case expression could not be determined to cover all inputs.
 The following additional cases are required to cover all inputs:
