@@ -16,4 +16,6 @@ PureScript takes inspiration from Haskell in terms of its syntax and type system
 
 ## Elm
 
-Elm also shares a lot in terms of functionality with PureScript. Elm is designed for functional reactive programming, and focusses on tools and language features suitable for that domain, while PureScript focusses on the development of purely functional core application logic. Another difference between PureScript and Elm is PureScript’s lack of a runtime system.
+Elm shares a lot in terms of functionality with PureScript. Elm is designed for web frontends with a simpler type system and a built-in Elm Architecture. Purescript aim to be general programming language targeting Javascript with a rich type system and also allows for more direct FFI usage.
+
+In the Purescript ecosystem, the Elm Architecture is available through [Pux](http://purescript-pux.org/), a Elm 0.16-like library for web frontends. A truly component-based approach written purely in Purescript is available through [Halogen](https://github.com/slamdata/purescript-halogen) for web frontends which provides a similar interface contained within each component.
