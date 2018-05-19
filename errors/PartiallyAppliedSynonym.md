@@ -39,20 +39,23 @@ error = IdentityF (Const 5)
 
 ## Cause
 
-A type alias has been partially applied. To properly use a type alias having type parameters, like `type B a` or `type TypeIdentity a`, you must apply it to a type parameter at every location in the program, like `B Int` or `TypeIdentity Int`.
+A type synonym has been partially applied. To properly use a type synonym having type parameters, like `type B a` or `type TypeIdentity a`, you must apply it to a type parameter at every location in the program, like `B Int` or `TypeIdentity Int`.
 
-A type synonym *can* be partially applied in the context of a type synonym, however. For example:
+To understand the problem, it may be helpful to review the relevant difference between a "type synonym" and a "data type". A type synonym is effectively a macro, a substitution which is performed after parsing into an AST and before type-checking and compilation, while a data type is a proper entity through the compilation process. Because of this, a type synonym has much more restricted use, while a data type enjoys additional flexibility, such as the ability to be partially applied.
+
+Interestingly, a type synonym *can* be partially applied in the context of a type synonym, however. For example:
 
 ```purescript
 type UserT' f = { firstName :: f String }
-newtype UserNT' = UserNT' (UserT' TypeIdentity)
+u' :: UserT' TypeIdentity
+u' = { firstName: "test" }
 ```
 
 ## Fix
 
-Reconsider whether you want to be using a type alias for that particular type declaration. A type synonym is effectively a macro, a substitution which is performed after parsing into an AST and before type-checking and compilation, while a data type exists throughout the compilation process. Because of this, a type synonym has much more restricted use, while a data type enjoys the ability to be partially applied, like a function.
+Reconsider whether you want to use a type synonym for that particular type declaration, or whether to a data type is more appropriate.
 
-In the example above, if you want to use the type alias `TypeIdentity`, you will need to apply it to another type alias to produce a concrete type. That concrete type can then be used in a newtype or a function type signature.
+In the example above, if you want to use the type synonym `TypeIdentity`, you will need to apply it to another type synonym to produce a concrete type. That concrete type can then be used in a newtype or a function type signature.
 
 ```purescript
 type UserT' f = { firstName :: f String }
@@ -64,6 +67,6 @@ um :: UserNT'Maybe
 um = UserNT'Maybe { firstName: Just "test" }
 ```
 
-And to fix the second example, we can't simply fully apply `X`, as that would produce a kind error, `Could not match kind Type -> Type with kind Type`. The `f` in `IdentityF f a` needs to be kind `Type -> Type`, but here it is kind `Type`. The most appropriate solution is to simply use `A` or `B` as the type alias, as demonstrated in `alsoOk` and `alsoAlsoOk`.
+And to fix the second example, we can't simply fully apply `X`, as that would produce a kind error, `Could not match kind Type -> Type with kind Type`. The `f` in `IdentityF f a` needs to be kind `Type -> Type`, but here it is kind `Type`. The most appropriate solution is to simply use `A` or `B` as the type synonym, as demonstrated in `alsoOk` and `alsoAlsoOk`.
 
 ## Notes
