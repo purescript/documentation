@@ -70,3 +70,25 @@ um = UserNT'Maybe { firstName: Just "test" }
 And to fix the second example, we can't simply fully apply `X`, as that would produce a kind error, `Could not match kind Type -> Type with kind Type`. The `f` in `IdentityF f a` needs to be kind `Type -> Type`, but here it is kind `Type`. The most appropriate solution is to simply use `A` or `B` as the type synonym, as demonstrated in `alsoOk` and `alsoAlsoOk`.
 
 ## Notes
+
+Eta-expanding makes it impossible to use the synonym in some situations in which it would otherwise work, and unlike some other restrictions we impose on ourselves using the type system, this one is never useful - it only prevents you doing things you might want to do, not things you might want to avoid.
+
+An example, from transformers, if State was defined as follows, it would be impossible to use `State` in some situations.
+
+```
+-- note the `a`, in the library this is omitted on both sides
+type State s a = StateT s Identity a
+````
+
+For example, the following situation is one in which we would want to use `State`. When stacking monad transformers, only the "top" of the stack has its `a`, its second type parameter, provided, and the "lower" layers are used to specify its `m`, its monad. 
+
+```
+-- If `State` is defined as above, the following would fail,
+--   as the type synonym is only receiving an argument for `s`, the `MyState` type.
+newtype App1 a = App1 (ExceptT MyError (State MyState) a)
+newtype App2 a = App2 (WriterT MyLog (ExceptT MyError (State MyState)) a)
+```
+
+By defining it as `type State s a`, we are saying it requires two type arguments, but in both of the above cases, we apply `MyState` to `State`, which is just one type argument. Because the example didn't include a type for `a` when using the `State`  synonym, it is left partially applied,
+
+Related to this, purescript/purescript#2691 is an issue which requests adding a warning for type synonyms which can be eta-reduced.
