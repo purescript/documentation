@@ -4,7 +4,7 @@ author: Phil Freeman
 published: 2017-04-25
 ---
 
-The PureScript compiler has supported _generic deriving_ in some form since version 0.7.3, thanks to [Gershom Bazerman](http://gbaz.github.io/). However, since then, it has gone through several iterations, and the current version (implemented in the `purescript-generics-rep` library) makes it possible to have the compiler derive a wide variety of boilerplate code based on types. One example of this is the serialization and deserialization of JSON, and in this post I'll show how to use the [`purescript-foreign-generic`](https://github.com/paf31/purescript-foreign-generic) library to create such functions using generics.
+The PureScript compiler has supported _generic deriving_ in some form since version 0.7.3, thanks to [Gershom Bazerman](http://gbaz.github.io/). However, since then, it has gone through several iterations, and the current version (implemented in the [`purescript-generics-rep`](https://github.com/purescript/purescript-generics-rep) library) makes it possible to have the compiler derive a wide variety of boilerplate code based on types. One example of this is the serialization and deserialization of JSON, and in this post I'll show how to use the [`purescript-foreign-generic`](https://github.com/paf31/purescript-foreign-generic) library to create such functions using generics.
 
 #### Generics Overview
 
