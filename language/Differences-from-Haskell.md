@@ -62,23 +62,19 @@ PureScript does not provide syntactic sugar for list types. Construct list types
 
 There is also an `Array` type for native JavaScript arrays, but this does not have the same performance characteristics as `List`. `Array` _values_ can be constructed with `[x, y, z]` literals, but the type still needs to be annotated as `Array a`.
 
-## `IO` vs `Eff`
+## `IO` vs `Effect`
 
-Haskell uses the `IO` monad to deal with side effects. In PureScript, there is a monad called `Eff` that serves the same purpose but can track side effects with more granularity. For example, in a Haskell program the type signature of `main` will be:
+Haskell uses the `IO` monad to deal with side effects. In PureScript, there is a similar monad called `Effect` that serves the same purpose. For example, in a Haskell program the type signature of `main` will be:
 
 ``` haskell
 main :: IO ()
 ```
 
-This doesn't tell us much specifically about what `main` might do. In PureScript the type may be something like this:
+In PureScript you would write it like this:
 
 ``` purescript
-main :: forall e. Eff (fs :: FS, trace :: Trace, process :: Process | e) Unit
+main :: Effect Unit
 ```
-
-Now we can see from the type that `main` uses the file system, traces messages to the console, and does something to the current process.
-
-For more details about using Eff, how it works, and how to define your own side effects, [see this post](../guides/Eff.md).
 
 ## Records
 
