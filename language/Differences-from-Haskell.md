@@ -70,7 +70,7 @@ Haskell uses the `IO` monad to deal with side effects. In PureScript, there is a
 main :: IO ()
 ```
 
-In PureScript the it's like this:
+In PureScript you would write it like this:
 
 ``` purescript
 main :: Effect Unit
