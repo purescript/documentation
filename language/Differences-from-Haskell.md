@@ -291,7 +291,7 @@ Note on `DataKinds`: Unlike in Haskell, user-defined kinds are open, and they ar
 
 ## `error` and `undefined`
 
-For `error`, you can use `Control.Monad.Eff.Exception.Unsafe.unsafeThrow`, in the `purescript-exceptions` package.
+For `error`, you can use `Effect.Exception.Unsafe.unsafeThrow`, in the `purescript-exceptions` package.
 
 `undefined` can be emulated with `Unsafe.Coerce.unsafeCoerce unit :: forall a. a`, which is in the `purescript-unsafe-coerce` package. See also https://github.com/purescript/purescript-prelude/issues/44.
 
