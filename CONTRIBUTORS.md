@@ -39,6 +39,7 @@ If you would prefer to use different terms, please use the section below instead
 | [@gabejohnson](https://github.com/gabejohnson) | Gabe Johnson | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
 | [@Profpatsch](https://github.com/Profpatsch) | Profpatsch | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
 | [@carstenkoenig](https://github.com/carstenkoenig) | Carsten König | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@anttih](https://github.com/anttih) | Antti Holvikari | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
 
 ### Contributors using Modified Terms
 
