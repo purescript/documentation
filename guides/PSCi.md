@@ -91,3 +91,4 @@ PSCi can be run directly, by specifying a list of PureScript source files as glo
 
     psci 'src/**/*.purs' 'bower_components/purescript-*/src/**/*.purs'
 
+Note the single quotes—the purescript compiler itself knows how to expand globs (`*`) and recursive globs (`**`), single quotes prevent your shell from expanding them. (Bash for example doesn’t have recursive globbing enabled by default; don’t forget the single quotes.)
