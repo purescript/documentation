@@ -43,7 +43,6 @@ Feel free to make an issue to discuss amending the scope.
 - [FFI Tips](guides/FFI-Tips.md)
 - [Generic Programming](guides/Generic.md)
 - [Handling Native Effects with the Eff Monad](guides/Eff.md)
-- [Test your JavaScript with QuickCheck](guides/QuickCheck.md)
 - [Custom Type Errors](guides/Custom-Type-Errors.md)
 - [PureScript Without Node](guides/PureScript-Without-Node.md)
 - [Contrib Library Guidelines](guides/Contrib-Guidelines.md)
