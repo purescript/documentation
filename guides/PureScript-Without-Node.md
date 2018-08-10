@@ -15,30 +15,33 @@ Create a file `src/Main.purs` as follows:
 ```purescript
 module Main where
 
-import Control.Monad.Eff.Console (log)
+import Effect (Effect)
+import Effect.Console (log)
+import Data.Unit (Unit)
 
+main :: Effect Unit
 main = log "Hello, World!"
 ```
 
 #### Installing Dependencies
 
-Instead of using Bower, we'll need to install dependencies manually. Let's fetch source packages using `git`. For this demo, I'll need `purescript-console`, which has dependencies on `purescript-eff` and `purescript-prelude`:
+Instead of using Bower, we'll need to install dependencies manually. Let's fetch source packages using `git`. For this demo, I'll need `purescript-console`, which has dependencies on `purescript-effect` and `purescript-prelude`:
 
 ```text
 $ mkdir dependencies/
-$ git clone --branch v0.1.0 git@github.com:purescript/purescript-prelude.git dependencies/purescript-prelude/
-$ git clone --branch v0.1.0 git@github.com:purescript/purescript-eff.git dependencies/purescript-eff/
-$ git clone --branch v0.1.0 git@github.com:purescript/purescript-console.git dependencies/purescript-console/
+$ git clone --branch v4.1.0 git@github.com:purescript/purescript-prelude.git dependencies/purescript-prelude/
+$ git clone --branch v2.0.0 git@github.com:purescript/purescript-effect.git dependencies/purescript-effect/
+$ git clone --branch v4.1.0 git@github.com:purescript/purescript-console.git dependencies/purescript-console/
 ```
 
 Note that, without Bower as our dependency manager, it's necessary to install all dependencies manually, including transitive dependencies. It's also necessary to manage versions by hand.
 
 #### Building Sources
 
-Now we can build our project. It is necessary to provide all source files explicitly to `psc`. The simplest way is to use a set of globs:
+Now we can build our project. It is necessary to provide all source files explicitly to `purs compile`. The simplest way is to use a set of globs:
 
 ```text
-$ psc src/Main.purs 'dependencies/purescript-*/src/**/*.purs'
+$ purs compile src/Main.purs 'dependencies/purescript-*/src/**/*.purs'
 ```
 
 Note: FFI files are automatically discovered when a PureScript file uses `foreign import` and are not required in the globs.
@@ -46,13 +49,13 @@ Note: FFI files are automatically discovered when a PureScript file uses `foreig
 If everything worked, you should see a collection of lines like this
 
 ```text
-Compiling Control.Monad.Eff
-Compiling Control.Monad.Eff.Class
-Compiling Control.Monad.Eff.Console
+Compiling Effect
+Compiling Effect.Class
+Compiling Effect.Console
 ...
 ```
 
-`psc` will write a collection of CommonJS modules to the output directory. You can use these CommonJS modules in NodeJS, but it is more likely that you will want to bundle them for use in the browser.
+`purs` will write a collection of CommonJS modules to the output directory. You can use these CommonJS modules in NodeJS, but it is more likely that you will want to bundle them for use in the browser.
 
 #### Bundling JavaScript for the Browser
 
