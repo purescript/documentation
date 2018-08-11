@@ -16,20 +16,21 @@ The Purescript compiler (`purs`) can be installed with npm:
 
 #### Setting up the Development Environment
 
-PureScript's core libraries are configured to use the [Pulp](https://github.com/purescript-contrib/pulp) build tool, and packages are available in the [Bower registry](http://bower.io/search/?q=purescript-).
+PureScript's core libraries are configured to use the [Pulp](https://github.com/purescript-contrib/pulp) build tool, and packages are installed with [psc-package](https://psc-package.readthedocs.io/). You can find the packages curated packages on [Pursuit](https://pursuit.purescript.org/)
 
-If you don't have Pulp and Bower installed, install them now:
+If you don't have Pulp and psc-package installed, install them now:
 
-    npm install -g pulp bower
+    npm install -g pulp psc-package-bin-simple
 
 Create a new project in an empty directory using `pulp init`:
 
-    pulp init
+    mkdir <package name>
+    cd <package name>
+    pulp --psc-package init
 
 Your directory should now contain the following files:
 
-- `bower.json` - contains library dependency information
-- `bower_components/` - a directory for installed dependencies
+- `psc-package.json` - contains library dependency information
 - `src/Main.purs` - Entry point module for your project
 - `test/Main.purs` - An empty test suite
 
@@ -49,9 +50,10 @@ If everything was built successfully, and the tests ran without problems, then t
 
 #### Installing Dependencies
 
-Dependencies can be installed using Bower. We will be using the `purescript-lists` library shortly, so install it now:
+Dependencies can be installed using psc-package. We will be using the `purescript-lists` library shortly, so install it now:
+*Note*: Package names on [Pursuit](https://pursuit.purescript.org/) and github all start with "purescript-" but when installing with psc-package remove that part of the package name.
 
-    bower install purescript-lists --save
+    psc-package install lists
 
 #### Working in PSCI
 
