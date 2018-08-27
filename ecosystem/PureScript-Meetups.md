@@ -2,7 +2,6 @@
 
 
 * [PureScript Unscripted](#purescript-unscripted)
-* [PureScript Hack Session](#purescript-hack-session)
 * [Web Conference Room Links](#web-conference-room-links)
 
 Visit [gathering.purescript.org](https://gathering.purescript.org) to see and RSVP for upcoming meetups.
@@ -26,31 +25,6 @@ Second Saturday of the Month, 1 pm Pacific Time
 
 - [WorldTimeBuddy TimeConverter](http://www.worldtimebuddy.com/?qm=1&lid=5391959,2643743,658225,2147714&h=5391959&date=2016-4-23&sln=13-15)
 - [Google Calendar: PureScript Unscripted](https://calendar.google.com/calendar/embed?src=Ym03N2g1cmlhYW8wc2s2anBlczBrOGx2NGtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ)
-
-### Web Conference Room
-
-PureScript Community Zoom Room (see below)
-
-
-***
-
-
-## PureScript Hack Session
-
-We video conference once a month to hack on projects within our community! Bring your own pizza ;)
-
-Anyone is welcome to intro their PureScript project (including written in Haskell or JavaScript) and invite attendees to hack and collaborate with them. Alternatively, use the time to sit with other PureScripters while working on your personal project, one-player-style. We can break out into mini-video conferences and reconvene after a bit to demo and debrief, if desired.
-
-What do you wanna hack? Wanna pitch your project?
-
-[Email us](mailto:purescript.community@gmail.com) or DM @alex_berg on Twitter?
-
-### Schedule
-
-Fourth Saturday of the Month, 1 pm Pacific Time
-
-- [WorldTimeBuddy TimeConverter](http://www.worldtimebuddy.com/?qm=1&lid=5391959,2643743,658225,2147714&h=5391959&date=2016-4-23&sln=13-15)
-- [Google Calendar: PureScript Hack Sessions](https://calendar.google.com/calendar/embed?src=cTA1aW9sZjZpaWltZGQ1NmhrcnJiOXJhMzBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ)
 
 ### Web Conference Room
 
