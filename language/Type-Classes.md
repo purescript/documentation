@@ -6,7 +6,7 @@ Types appearing in class instances must be of the form `String`, `Number`, `Bool
 
 If multiple instances are possible they are ordered based on their names and the first one is selected. Overlapping instances are currently permitted but not recommended. In simple cases the compiler will display a warning and list the instances it found and which was chosen. In the future, they may be disallowed completely.
 
-Here is an example of the `Show` typeclass, with instances for `String`, `Boolean` and `Array`:
+Here is an example of the `Show` type class, with instances for `String`, `Boolean` and `Array`:
 
 ```purescript
 class Show a where
@@ -23,6 +23,32 @@ instance showArray :: (Show a) => Show (Array a) where
   show xs = "[" <> joinWith ", " (map show xs) <> "]"
 
 example = show [true, false]
+```
+
+## Instance selection
+
+Instance selection works by looking at the "head" type of each type class parameter. Functional dependencies also plays a role, but we'll not consider that for now to simplify the explanation. The "head" of an instance is the type declared after the class name in an instance. For example, the head of `instance cRec :: C (Array a)` is `Array a`.
+
+``` purescript
+class C t where
+  f :: t -> String
+-- Instances are chosen 
+instance cArr :: C (Array a) where
+  f _ = "this is an array of 'a'"
+instance cArrInt :: C (Array Int) where
+  f _ = "this is an array of ints"
+instance cRec :: C (Record r) where
+  f _ = "this is a record"
+
+main = do
+  -- The `f` function resolves to the instance for the argument type's head.
+  log (f []) -- Resolves to cArr's f, because `Array a` is the argument, which matches `Array a`
+  log (f [1]) -- Resolves to cArr's f, because `Array Int` matches `Array a` before trying the cArrInt instance
+  log (f {}) -- Resolves to cRec's f
+-- Prints the following when executed.
+this is an array of 'a'
+this is an array of 'a'
+this is a record
 ```
 
 ## Multi-Parameter Type Classes
@@ -79,6 +105,62 @@ instance semigroupAddInt :: Semigroup AddInt where
 In fact, a type similar to this `AddInt` is provided in `Data.Monoid.Additive`, in the `monoid` package.
 
 For multi-parameter type classes, the orphan instance check requires that the instance is either in the same module as the class, or the same module as at least one of the types occurring in the instance. (TODO: example)
+
+## Kinds
+
+A type class parameter's kind is commonly inferred by its use in the class's methods. If its kind cannot be inferred, it defaults to kind `Type`. To explicitly specify a different kind for a type parameter defaulting to `Type`, annotate it with a kind signature, as shown in the `class D` example below.
+
+``` purescript
+class C c
+  f :: forall a b. (a -> b) -> c a -> c b
+-- `c`'s kind is inferred to be `Type -> Type` by how it's used in the method, `f`.
+class A a
+-- with no methods or explicit kind signature, `a` defaults to kind `Type`.
+class B (b :: Type)
+-- `b` is specified as kind `Type`, so its instances must also be this kind.
+class D (d :: Type -> Type)
+-- `D` has no methods, but we can still declare it to apply to types of kind `Type -> Type`.
+class E (e :: # Type)
+-- Row is its own kind, so we can specify a class to operate on types of rows, `# Type`.
+```
+
+The kinds of any types mentioned in an instance declaration must match the kinds of those parameters as determined by the type class's definition.
+
+For example:
+
+``` purescript
+-- Functor can only be considered for types of kind `Type -> Type`.
+class Functor f where
+  map :: forall a b. (a -> b) -> f a -> f b
+-- Either is kind `Type -> Type -> Type`.
+data Either a b = Left a | Right b
+-- This means we can't write an instance of Functor for Either.
+`instance functorEither :: Functor Either where ...` -- compile error
+-- Either can be made into kind `Type -> Type`, however, by simply including the first type parameter.
+`instance functorEither :: Functor (Either e) where ...`
+```
+
+## Rows
+
+A concrete Row literal cannot appear in an instance unless it is fully determined by functional dependencies.
+
+``` purescript
+class M (t :: # Type)
+-- Cannot write an instance for a specific row.
+instance mClosedRow :: M ()
+-- Can write an instance for a generic row.
+instance mAnyRow :: M r
+
+-- The row's type is determined by the type of `dt`.
+class Ctors dt (ct :: # Type) | dt -> ct
+-- Can use a row literal in instances of this class.
+data X = X0 Int | X1 String
+instance ctorsX :: Ctors X ("X0" :: Int, "X1" :: String)
+data Y = Y0 Boolean
+instance ctorsY :: Ctors Y ("Y0" :: Boolean)
+```
+
+A reason for rows being disallowed from appearing in instances is that PureScript doesn't allow orphan instances. Row has an unbounded/open set of labels and combination of labels and types. Each unique row has a unique type. A unique row value's type doesn't have a name in a module, so to avoid orphan instances, its instance of a class would need to be defined in the same module as the type class.
 
 ## Functional Dependencies
 
