@@ -4,8 +4,6 @@ PureScript supports type classes via the `class` and `instance` keywords.
 
 Types appearing in class instances must be of the form `String`, `Number`, `Boolean`, or `C t1 ... tn` where `C` is a type constructor (including `->` and `t_i` are types of the same form).
 
-If multiple instances are possible they are ordered based on their names and the first one is selected. Overlapping instances are currently permitted but not recommended. In simple cases the compiler will display a warning and list the instances it found and which was chosen. In the future, they may be disallowed completely.
-
 Here is an example of the `Show` typeclass, with instances for `String`, `Boolean` and `Array`:
 
 ```purescript
@@ -23,6 +21,36 @@ instance showArray :: (Show a) => Show (Array a) where
   show xs = "[" <> joinWith ", " (map show xs) <> "]"
 
 example = show [true, false]
+```
+
+Overlapping instances are no longer allowed in PureScript. To write overlapping instances, you should use Instance Chains.
+
+## Instance Chains
+
+PureScript implements a form of instance chains that work on groups of instances matching by parameters. This means that constraints are not considered when choosing instances. However, you can still write a chain of instances in consecutive order that will be matched top to bottom by using the `else` keyword.
+
+Here is an example of a `MyShow` typeclass, with instances for `String`, `Boolean`, and any other type.
+
+```purescript
+class MyShow a where
+  myShow :: a -> String
+
+instance showString :: MyShow String where
+  myShow s = s
+
+else instance showBoolean :: MyShow Boolean where
+  myShow true = "true"
+  myShow false = "false"
+
+else instance showA :: MyShow a where
+  myShow _ = "Invalid"
+
+data MysteryItem = MysteryItem
+
+main = do
+  log $ myShow "hello" -- hello
+  log $ myShow true -- true
+  log $ myShow MysteryItem -- Invalid
 ```
 
 ## Multi-Parameter Type Classes
