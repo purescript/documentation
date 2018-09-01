@@ -112,23 +112,28 @@ foo :: forall t. (Warn "Custom warning message") => t -> t
 foo x = x
 ```
 
-Currently, the following type classes can be automatically solved:
+Automatically solved type classes are included in the [Prim](https://pursuit.purescript.org/builtins/docs/Prim) modules:
 
 Symbol-related classes
 
 - [`IsSymbol`](https://pursuit.purescript.org/packages/purescript-symbols/3.0.0/docs/Data.Symbol#t:IsSymbol)
-- [`AppendSymbol`](https://pursuit.purescript.org/packages/purescript-typelevel-prelude/2.5.0/docs/Type.Data.Symbol#t:AppendSymbol)
-- [`CompareSymbol`](https://pursuit.purescript.org/packages/purescript-typelevel-prelude/2.5.0/docs/Type.Data.Symbol#t:CompareSymbol)
+- [`Append`](https://pursuit.purescript.org/builtins/docs/Prim.Symbol#t:Append)
+- [`Compare`](https://pursuit.purescript.org/builtins/docs/Prim.Symbol#t:Compare)
+- [`Cons`](https://pursuit.purescript.org/builtins/docs/Prim.Symbol#t:Cons)
 
-Rows-related classes
+[Prim.Row](https://pursuit.purescript.org/builtins/docs/Prim.Row)
 
-- [`RowToList`](https://pursuit.purescript.org/packages/purescript-typelevel-prelude/2.5.0/docs/Type.Row#t:RowToList)
-- [`RowCons`](https://pursuit.purescript.org/builtins/docs/Prim#t:RowCons)
-- [`Cons`](https://pursuit.purescript.org/packages/purescript-typelevel-prelude/2.5.0/docs/Type.Row#t:Cons)
-- [`Union`](https://pursuit.purescript.org/builtins/docs/Prim#t:Union)
+- [`Cons`](https://pursuit.purescript.org/builtins/docs/Prim.Row#t:Cons)
+- [`Union`](https://pursuit.purescript.org/builtins/docs/Prim.Row#t:Union)
+- [`Nub`](https://pursuit.purescript.org/builtins/docs/Prim.Row#t:Nub)
+- [`Lacks`](https://pursuit.purescript.org/builtins/docs/Prim.Row#t:Lacks)
+
+[Prim.RowList](https://pursuit.purescript.org/builtins/docs/Prim.RowList)
+
+- [`RowToList`](https://pursuit.purescript.org/builtins/docs/Prim.RowList#t:RowToList)
 
 Other classes
 
 - [`Partial`](https://pursuit.purescript.org/builtins/docs/Prim#t:Partial)
-- [`Fail`](https://pursuit.purescript.org/builtins/docs/Prim#t:Fail)
-- [`Warn`](https://pursuit.purescript.org/builtins/docs/Prim#t:Warn)
+- [`Fail`](https://pursuit.purescript.org/builtins/docs/Prim.TypeError#t:Fail)
+- [`Warn`](https://pursuit.purescript.org/builtins/docs/Prim.TypeError#t:Warn)
