@@ -96,12 +96,12 @@ derive instance ordPerson :: Ord Person
 ```
 Currently, the following type classes can be derived:
 
-- [Data.Generic (class Generic)](https://pursuit.purescript.org/packages/purescript-generics/3.3.0/docs/Data.Generic#t:Generic)
-- [Data.Generic.Rep (class Generic)](https://pursuit.purescript.org/packages/purescript-generics-rep/4.1.0/docs/Data.Generic.Rep#t:Generic)
-- [Data.Eq (class Eq)](https://pursuit.purescript.org/packages/purescript-prelude/2.4.0/docs/Data.Eq#t:Eq)
-- [Data.Ord (class Ord)](https://pursuit.purescript.org/packages/purescript-prelude/2.4.0/docs/Data.Ord#t:Ord)
-- [Data.Functor (class Functor)](https://pursuit.purescript.org/packages/purescript-prelude/2.4.0/docs/Data.Functor#t:Functor)
-- [Data.Newtype (class Newtype)](https://pursuit.purescript.org/packages/purescript-newtype/1.3.0/docs/Data.Newtype#t:Newtype)
+- [Data.Generic (class Generic)](https://pursuit.purescript.org/packages/purescript-generics/4.0.0/docs/Data.Generic#t:Generic)
+- [Data.Generic.Rep (class Generic)](https://pursuit.purescript.org/packages/purescript-generics-rep/6.0.0/docs/Data.Generic.Rep#t:Generic)
+- [Data.Eq (class Eq)](https://pursuit.purescript.org/packages/purescript-prelude/4.1.0/docs/Data.Eq#t:Eq)
+- [Data.Ord (class Ord)](https://pursuit.purescript.org/packages/purescript-prelude/4.1.0/docs/Data.Ord#t:Ord)
+- [Data.Functor (class Functor)](https://pursuit.purescript.org/packages/purescript-prelude/4.1.0/docs/Data.Functor#t:Functor)
+- [Data.Newtype (class Newtype)](https://pursuit.purescript.org/packages/purescript-newtype/3.0.0/docs/Data.Newtype#t:Newtype)
 
 ## Compiler-Solvable Type Classes
 
