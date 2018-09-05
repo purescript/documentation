@@ -31,7 +31,7 @@ since then `x` would be `undefined`.
 ## Fix
 
 - Consider the problem again, keeping PureScript's strict evaluation in mind. How would you solve this problem in JavaScript, for example?
-- You might be able to make use of the `Control.Lazy` module, and the [`fix`](https://pursuit.purescript.org/packages/purescript-control/2.0.0/docs/Control.Lazy#v:fix) function in particular.
+- You might be able to make use of the `Control.Lazy` module, and the [`fix`](https://pursuit.purescript.org/packages/purescript-control/4.1.0/docs/Control.Lazy#v:fix) function in particular.
 
 ## Notes
 
