@@ -124,7 +124,6 @@ derive instance ordPerson :: Ord Person
 ```
 Currently, the following type classes can be derived:
 
-- [Data.Generic (class Generic)](https://pursuit.purescript.org/packages/purescript-generics/4.0.0/docs/Data.Generic#t:Generic)
 - [Data.Generic.Rep (class Generic)](https://pursuit.purescript.org/packages/purescript-generics-rep/6.0.0/docs/Data.Generic.Rep#t:Generic)
 - [Data.Eq (class Eq)](https://pursuit.purescript.org/packages/purescript-prelude/4.1.0/docs/Data.Eq#t:Eq)
 - [Data.Ord (class Ord)](https://pursuit.purescript.org/packages/purescript-prelude/4.1.0/docs/Data.Ord#t:Ord)
