@@ -55,7 +55,29 @@ main = do
 
 ## Multi-Parameter Type Classes
 
-TODO. For now, see the section in [PureScript by Example](https://leanpub.com/purescript/read#leanpub-auto-multi-parameter-type-classes).
+A type class can have more than one parameter, and these type classes are called multi-parameter type classes. For example, we can define a class where a given input type A can always be injected into another type B, but projecting a specific type A out of B is not guaranteed:
+
+```purs
+class Inject a b where
+  inj :: a -> b
+  prj :: b -> Maybe a
+
+instance injectLeft :: Inject a (Either a b) where
+  inj = Left
+  prj = either Just (const Nothing)
+
+else instance injectRight :: Inject a b => Inject a (Either c b) where
+  inj = Right <<< inj
+  prj = either (const Nothing) prj
+
+else instance injectReflexive :: Inject a a where
+  inj = identity
+  prj = Just
+```
+
+And our instances will be matched when both type parameters are available. See the section on Functional Dependencies for cases when one or more parameters may be determined by another.
+
+See also the section in [PureScript by Example](https://leanpub.com/purescript/read#leanpub-auto-multi-parameter-type-classes).
 
 ## Superclasses
 
