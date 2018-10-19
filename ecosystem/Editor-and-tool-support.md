@@ -42,7 +42,7 @@ Spacemacs users can just use the [`purescript` layer](https://github.com/syl20bn
 ## Build tools and package managers
 
 - [Pulp](https://github.com/purescript-contrib/pulp) - a standalone build system for PureScript ([pulp](https://www.npmjs.com/package/pulp) in `npm`)
-- [psc-package](https://github.com/purescript/psc-package):  An experimental package manager for PureScript based on the concept of package sets
+- [psc-package](https://github.com/purescript/psc-package):  A package manager for PureScript based on the concept of package sets
 - [Purify](https://github.com/chrisdone/purify): Reproducible builds for PureScript
 - [Gulp task](https://github.com/purescript-contrib/gulp-purescript) (`gulp-purescript` in `npm`)
 - [psvm-js](https://github.com/ThomasCrvsr/psvm-js) - PureScript Version Manager
