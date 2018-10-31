@@ -17,6 +17,7 @@ Topics currently in this repository's scope:
 - Introduction to package managers and dependency management
 - Comparison with similar languages
 - An introduction to other sources of documentation
+- Frequently asked questions
 
 Topics currently *not* in scope:
 
@@ -35,6 +36,8 @@ Feel free to make an issue to discuss amending the scope.
 
 - The [PureScript Book](https://leanpub.com/purescript/read) is the recommended approach to learning the language, since it covers more material in greater depth. However, it is not updated yet for the 0.12 version of the compiler.
 - [Language Reference](language/README.md)
+- [FAQs](language/FAQ.md)
+
 
 ## Guides
 
