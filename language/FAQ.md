@@ -31,6 +31,6 @@ or does it mean "apply the function `book` to the record `{title = "Hello"}`".
 Using `:` avoids this ambiguity.
 
 
-## Why is `>>>` instead of `.` used for function composition?
+## Why is `<<<` instead of `.` used for function composition?
 
 `.` is already used to reference record fields as in `book.title`.
