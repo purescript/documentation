@@ -12,7 +12,8 @@ There are various alternatives to `psc`'s default JavaScript backend:
 | source code                                                                             | PS version | Target        | 
 |:----------------------------------------------------------------------------------------|:-----------|:--------------|
 | [andyarvanitis/purescript-clojure](https://github.com/andyarvanitis/purescript-clojure) |            | Clojure (JVM) |
-| [epost/psc-query](https://github.com/epost/psc-query)                                   | 0.7.3.0    | Datalog       |
+| [pure-c/pure-c](https://github.com/pure-c/pure-c)                                       |            | C (Clang)     |
+| [epost/psc-query](https://github.com/epost/psc-query)                                   | 0.11.7     | Datalog       |
 | [tfausak/thran](https://github.com/tfausak/thran)                                       | 0.11.6     | Haskell (GHC) |
 
 ## Stale
