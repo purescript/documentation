@@ -110,7 +110,23 @@ For multi-parameter type classes, the orphan instance check requires that the in
 
 ## Functional Dependencies
 
-TODO. For now, see the section in [PureScript by Example](https://leanpub.com/purescript/read#leanpub-auto-functional-dependencies).
+Instances for type classes with multiple parameters generally only need a subset of the parameters to be concrete to match instances. Declarations on which parameters can determine others in instance heads are called Functional Dependencies. For example:
+
+```purescript
+class TypeEquals a b | a -> b, b -> a where
+  to :: a -> b
+  from :: b -> a
+
+instance refl :: TypeEquals a a where
+  to a = a
+  from a = a
+```
+
+The `|` symbol marks the beginning of functional dependencies, which are separated by a comma if there are more than one. In this case, the first parameter determines the type of the second, and the second determines the type of the first.
+
+Functional dependencies are especially useful with the various `Prim` typeclasses, such as `Prim.Row.Cons`: https://pursuit.purescript.org/builtins/docs/Prim.Row#t:Cons
+
+See also the section in [PureScript by Example](https://leanpub.com/purescript/read#leanpub-auto-functional-dependencies).
 
 ## Type Class Deriving
 
