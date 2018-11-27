@@ -4,8 +4,6 @@ PureScript supports type classes via the `class` and `instance` keywords.
 
 Types appearing in class instances must be of the form `String`, `Number`, `Boolean`, or `C t1 ... tn` where `C` is a type constructor (including `->` and `t_i` are types of the same form).
 
-If multiple instances are possible they are ordered based on their names and the first one is selected. Overlapping instances are currently permitted but not recommended. In simple cases the compiler will display a warning and list the instances it found and which was chosen. In the future, they may be disallowed completely.
-
 Here is an example of the `Show` typeclass, with instances for `String`, `Boolean` and `Array`:
 
 ```purescript
@@ -23,6 +21,36 @@ instance showArray :: (Show a) => Show (Array a) where
   show xs = "[" <> joinWith ", " (map show xs) <> "]"
 
 example = show [true, false]
+```
+
+Overlapping instances are no longer allowed in PureScript. To write overlapping instances, you should use Instance Chains.
+
+## Instance Chains
+
+PureScript implements a form of instance chains that work on groups of instances matching by parameters. This means that constraints are not considered when choosing instances. However, you can still write a chain of instances in consecutive order that will be matched top to bottom by using the `else` keyword.
+
+Here is an example of a `MyShow` typeclass, with instances for `String`, `Boolean`, and any other type.
+
+```purescript
+class MyShow a where
+  myShow :: a -> String
+
+instance showString :: MyShow String where
+  myShow s = s
+
+else instance showBoolean :: MyShow Boolean where
+  myShow true = "true"
+  myShow false = "false"
+
+else instance showA :: MyShow a where
+  myShow _ = "Invalid"
+
+data MysteryItem = MysteryItem
+
+main = do
+  log $ myShow "hello" -- hello
+  log $ myShow true -- true
+  log $ myShow MysteryItem -- Invalid
 ```
 
 ## Multi-Parameter Type Classes
@@ -96,12 +124,11 @@ derive instance ordPerson :: Ord Person
 ```
 Currently, the following type classes can be derived:
 
-- [Data.Generic (class Generic)](https://pursuit.purescript.org/packages/purescript-generics/3.3.0/docs/Data.Generic#t:Generic)
-- [Data.Generic.Rep (class Generic)](https://pursuit.purescript.org/packages/purescript-generics-rep/4.1.0/docs/Data.Generic.Rep#t:Generic)
-- [Data.Eq (class Eq)](https://pursuit.purescript.org/packages/purescript-prelude/2.4.0/docs/Data.Eq#t:Eq)
-- [Data.Ord (class Ord)](https://pursuit.purescript.org/packages/purescript-prelude/2.4.0/docs/Data.Ord#t:Ord)
-- [Data.Functor (class Functor)](https://pursuit.purescript.org/packages/purescript-prelude/2.4.0/docs/Data.Functor#t:Functor)
-- [Data.Newtype (class Newtype)](https://pursuit.purescript.org/packages/purescript-newtype/1.3.0/docs/Data.Newtype#t:Newtype)
+- [Data.Generic.Rep (class Generic)](https://pursuit.purescript.org/packages/purescript-generics-rep/6.0.0/docs/Data.Generic.Rep#t:Generic)
+- [Data.Eq (class Eq)](https://pursuit.purescript.org/packages/purescript-prelude/4.1.0/docs/Data.Eq#t:Eq)
+- [Data.Ord (class Ord)](https://pursuit.purescript.org/packages/purescript-prelude/4.1.0/docs/Data.Ord#t:Ord)
+- [Data.Functor (class Functor)](https://pursuit.purescript.org/packages/purescript-prelude/4.1.0/docs/Data.Functor#t:Functor)
+- [Data.Newtype (class Newtype)](https://pursuit.purescript.org/packages/purescript-newtype/3.0.0/docs/Data.Newtype#t:Newtype)
 
 ## Compiler-Solvable Type Classes
 
@@ -112,23 +139,28 @@ foo :: forall t. (Warn "Custom warning message") => t -> t
 foo x = x
 ```
 
-Currently, the following type classes can be automatically solved:
+Automatically solved type classes are included in the [Prim](https://pursuit.purescript.org/builtins/docs/Prim) modules:
 
 Symbol-related classes
 
 - [`IsSymbol`](https://pursuit.purescript.org/packages/purescript-symbols/3.0.0/docs/Data.Symbol#t:IsSymbol)
-- [`AppendSymbol`](https://pursuit.purescript.org/packages/purescript-typelevel-prelude/2.5.0/docs/Type.Data.Symbol#t:AppendSymbol)
-- [`CompareSymbol`](https://pursuit.purescript.org/packages/purescript-typelevel-prelude/2.5.0/docs/Type.Data.Symbol#t:CompareSymbol)
+- [`Append`](https://pursuit.purescript.org/builtins/docs/Prim.Symbol#t:Append)
+- [`Compare`](https://pursuit.purescript.org/builtins/docs/Prim.Symbol#t:Compare)
+- [`Cons`](https://pursuit.purescript.org/builtins/docs/Prim.Symbol#t:Cons)
 
-Rows-related classes
+[Prim.Row](https://pursuit.purescript.org/builtins/docs/Prim.Row)
 
-- [`RowToList`](https://pursuit.purescript.org/packages/purescript-typelevel-prelude/2.5.0/docs/Type.Row#t:RowToList)
-- [`RowCons`](https://pursuit.purescript.org/builtins/docs/Prim#t:RowCons)
-- [`Cons`](https://pursuit.purescript.org/packages/purescript-typelevel-prelude/2.5.0/docs/Type.Row#t:Cons)
-- [`Union`](https://pursuit.purescript.org/builtins/docs/Prim#t:Union)
+- [`Cons`](https://pursuit.purescript.org/builtins/docs/Prim.Row#t:Cons)
+- [`Union`](https://pursuit.purescript.org/builtins/docs/Prim.Row#t:Union)
+- [`Nub`](https://pursuit.purescript.org/builtins/docs/Prim.Row#t:Nub)
+- [`Lacks`](https://pursuit.purescript.org/builtins/docs/Prim.Row#t:Lacks)
+
+[Prim.RowList](https://pursuit.purescript.org/builtins/docs/Prim.RowList)
+
+- [`RowToList`](https://pursuit.purescript.org/builtins/docs/Prim.RowList#t:RowToList)
 
 Other classes
 
 - [`Partial`](https://pursuit.purescript.org/builtins/docs/Prim#t:Partial)
-- [`Fail`](https://pursuit.purescript.org/builtins/docs/Prim#t:Fail)
-- [`Warn`](https://pursuit.purescript.org/builtins/docs/Prim#t:Warn)
+- [`Fail`](https://pursuit.purescript.org/builtins/docs/Prim.TypeError#t:Fail)
+- [`Warn`](https://pursuit.purescript.org/builtins/docs/Prim.TypeError#t:Warn)

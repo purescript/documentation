@@ -62,24 +62,6 @@ PureScript does not provide syntactic sugar for list types. Construct list types
 
 There is also an `Array` type for native JavaScript arrays, but this does not have the same performance characteristics as `List`. `Array` _values_ can be constructed with `[x, y, z]` literals, but the type still needs to be annotated as `Array a`.
 
-## `IO` vs `Eff`
-
-Haskell uses the `IO` monad to deal with side effects. In PureScript, there is a monad called `Eff` that serves the same purpose but can track side effects with more granularity. For example, in a Haskell program the type signature of `main` will be:
-
-``` haskell
-main :: IO ()
-```
-
-This doesn't tell us much specifically about what `main` might do. In PureScript the type may be something like this:
-
-``` purescript
-main :: forall e. Eff (fs :: FS, trace :: Trace, process :: Process | e) Unit
-```
-
-Now we can see from the type that `main` uses the file system, traces messages to the console, and does something to the current process.
-
-For more details about using Eff, how it works, and how to define your own side effects, [see this post](../guides/Eff.md).
-
 ## Records
 
 PureScript can encode JavaScript-style objects directly by using row types, so Haskell-style record definitions actually have quite a different meaning in PureScript:
@@ -309,7 +291,7 @@ Note on `DataKinds`: Unlike in Haskell, user-defined kinds are open, and they ar
 
 ## `error` and `undefined`
 
-For `error`, you can use `Control.Monad.Eff.Exception.Unsafe.unsafeThrow`, in the `purescript-exceptions` package.
+For `error`, you can use `Effect.Exception.Unsafe.unsafeThrow`, in the `purescript-exceptions` package.
 
 `undefined` can be emulated with `Unsafe.Coerce.unsafeCoerce unit :: forall a. a`, which is in the `purescript-unsafe-coerce` package. See also https://github.com/purescript/purescript-prelude/issues/44.
 

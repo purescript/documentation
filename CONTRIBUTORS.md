@@ -37,7 +37,14 @@ If you would prefer to use different terms, please use the section below instead
 | [@mattaudesse](https://github.com/mattaudesse) | Matt Audesse | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
 | [@juhp](https://github.com/juhp) | Jens Petersen | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
 | [@gabejohnson](https://github.com/gabejohnson) | Gabe Johnson | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@Profpatsch](https://github.com/Profpatsch) | Profpatsch | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@carstenkoenig](https://github.com/carstenkoenig) | Carsten König | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@anttih](https://github.com/anttih) | Antti Holvikari | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@Jyothsnasrinivas](https://github.com/Jyothsnasrinivas) | Jyothsna Patnam | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@MiyamotoAkira](https://github.com/MiyamotoAkira) | Jorge Gueorguiev Garcia | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@justinwoo](https://github.com/justinwoo) | Justin Woo | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
 | [@hrb90](https://github.com/hrb90) | Harrison Brown | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+
 ### Contributors using Modified Terms
 
 | Username | Name | Terms |
