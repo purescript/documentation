@@ -44,6 +44,7 @@ If you would prefer to use different terms, please use the section below instead
 | [@MiyamotoAkira](https://github.com/MiyamotoAkira) | Jorge Gueorguiev Garcia | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
 | [@justinwoo](https://github.com/justinwoo) | Justin Woo | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
 | [@hrb90](https://github.com/hrb90) | Harrison Brown | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@rmies](https://github.com/rmies) | Michel Rijnders | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
 
 ### Contributors using Modified Terms
 

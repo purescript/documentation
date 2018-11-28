@@ -5,7 +5,7 @@ As an introductory example, here is the usual "Hello World" written in PureScrip
 ```purescript
 module Main where
 
-import Control.Monad.Eff.Console
+import Effect.Console
 
 main = log "Hello, World!"
 ```
