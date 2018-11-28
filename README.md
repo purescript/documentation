@@ -35,6 +35,7 @@ Feel free to make an issue to discuss amending the scope.
 
 - The [PureScript Book](https://leanpub.com/purescript/read) is the recommended approach to learning the language, since it covers more material in greater depth. However, it is not updated yet for the 0.12 version of the compiler.
 - [Language Reference](language/README.md)
+- [Purescript: Jordan's Reference](https://github.com/JordanMartinez/purescript-jordans-reference): An up-to-date project covering Getting Started, Build Tools, Purescript's verified-by-compilation syntax via meta-language, FP design patterns, and PureScript's ecosystem.
 
 ## Guides
 
