@@ -34,7 +34,7 @@ Feel free to make an issue to discuss amending the scope.
 ## Learning
 
 - The [PureScript Book](https://leanpub.com/purescript/read) is the recommended approach to learning the language, since it covers more material in greater depth. However, it covers `0.11.7` and is not updated yet for the `0.12.x` version of the compiler. Thus, one should be aware of the following materials when reading through the book:
-    - See [dwhitney's fork of the book's exercises](https://github.com/dwhitney/purescript-book) which is updated for `0.12.x` and the other materials in this section for supplemental reading.
+    - See [dwhitney's fork of the book's exercises](https://github.com/dwhitney/purescript-book) which is updated for `0.12.x`.
     - See [Justin's `0.11.7` to `0.12.x` summary](https://purescript-resources.readthedocs.io/en/latest/0.11.7-to-0.12.0.html) to know how to 'translate' the outdated book's code into working code.
     - Be wary of any references to these [deprecated packages](https://github.com/purescript-deprecated) in the book.
 - [Language Reference](language/README.md)
