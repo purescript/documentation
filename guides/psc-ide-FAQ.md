@@ -32,6 +32,9 @@ For any other editor... you'll have to write your own plugin :smile:
 ## Q: Where can I get documentation for psc-ide?
 A: https://github.com/purescript/purescript/tree/master/psc-ide
 
+## Q: How can I apply suggestions from PureScript automatically?
+A: Try https://github.com/nwolverson/purescript-suggest
+
 # Troubleshooting
 
 ## Parsing the externs failed...
