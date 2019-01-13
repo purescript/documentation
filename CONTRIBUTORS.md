@@ -46,6 +46,10 @@ If you would prefer to use different terms, please use the section below instead
 | [@hrb90](https://github.com/hrb90) | Harrison Brown | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
 | [@rmies](https://github.com/rmies) | Michel Rijnders | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
 | [@jordanmartinez](https://github.com/jordanmartinez) | Jordan Martinez | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@mseri](https://github.com/mseri) | Marcello Seri | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@narrative](https://github.com/narrative) | Erik Stevenson | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@shuhei](https://github.com/shuhei) | Shuhei Kagawa | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@owickstrom](https://github.com/owickstrom) | Oskar Wickström | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
 
 ### Contributors using Modified Terms
 
