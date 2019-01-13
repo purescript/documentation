@@ -352,17 +352,20 @@ is bracketed as:
 length $ (groupBy productCategory $ (filter isInStock $ products))
 ```
 
-`infix` means "non-associative", and the parser will bracket up repeated applications in such a way as to minimise the depth of the resulting syntax tree. For example, `==` from Prelude is non-associative, and so:
+`infix` means "non-associative". Repeated use of a non-associative operator is disallowed. For example, `==` from Prelude is non-associative, which means that
 
 ```
-true == false == false == true
+true == true == true
 ```
 
-is bracketed as:
+results in a [NonAssociativeError](../errors/NonAssociativeError.md):
 
 ```
-(true == false) == (false == true)
+Cannot parse an expression that uses multiple instances of the non-associative operator Data.Eq.(==).
+Use parentheses to resolve this ambiguity.
 ```
+
+Non-associative parsing via `infix` is most appropriate for operators `f` for which ``x `f` (y `f` z)`` is not necessarily the same as ``(x `f` y) `f` z)``, that is, operators which do not satisfy the algebraic property of associativity.
 
 ### Precedence
 
@@ -376,6 +379,35 @@ then this is bracketed as follows:
 
 ```
 (2 * 3) + 4
+```
+
+Operators of different associativities may appear together as long as they do not have the same precedence. This restriction exists because the compiler is not able to make a sensible choice as to how to bracket such expressions. For example, the operators `==` and `<$>` from the Prelude have the fixities `infix 4` and `infixl 4` respectively, which means that given the expression
+
+```
+f <$> x == f <$> y
+```
+
+the compiler does not know whether to bracket it as
+
+```
+(f <$> x) == (f <$> y)
+```
+
+or
+
+```
+f <$> (x == f) <$> y
+```
+
+Therefore, we get a [MixedAssociativityError](../errors/MixedAssociativityError):
+
+```
+Cannot parse an expression that uses operators of the same precedence but mixed associativity:
+
+  Data.Functor.(<$>) is infixl
+  Data.Eq.(==) is infix
+
+Use parentheses to resolve this ambiguity.
 ```
 
 ### Operators as values
