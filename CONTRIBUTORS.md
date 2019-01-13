@@ -50,6 +50,7 @@ If you would prefer to use different terms, please use the section below instead
 | [@narrative](https://github.com/narrative) | Erik Stevenson | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
 | [@shuhei](https://github.com/shuhei) | Shuhei Kagawa | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
 | [@owickstrom](https://github.com/owickstrom) | Oskar Wickström | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@soupi](https://github.com/soupi) | Gil Mizrahi | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
 
 ### Contributors using Modified Terms
 
