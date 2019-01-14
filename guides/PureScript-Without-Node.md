@@ -59,14 +59,14 @@ Compiling Effect.Console
 
 #### Bundling JavaScript for the Browser
 
-To bundle the generated Javascript code, we will use the `psc-bundle` tool, which ships with the PureScript compiler binary distribution.
+To bundle the generated Javascript code, we will use `purs bundle`.
 
-`psc-bundle` takes a collection of CommonJS module files as input, and generates a single JavaScript file.
+`purs bundle` takes a collection of CommonJS module files as input, and generates a single JavaScript file.
 
-Run `psc-bundle` with the following arguments:
+Run `purs bundle` with the following arguments:
 
 ```text
-$ psc-bundle output/*/{index,foreign}.js --module Main --main Main
+$ purs bundle output/*/{index,foreign}.js --module Main --main Main
 ```
 
 The `--module` argument specifies an _entry-point_ module, which will be used to determine dead code which can be removed. For our purposes, we only care about bundling the CommonJS module corresponding to the Main PureScript module and its transitive dependencies.
