@@ -39,7 +39,7 @@ Test.gcd(15)(20);
 
 Here, I am assuming that the code was compiled with `psc`, which compiles PureScript modules to CommonJS modules. For that reason, I was able to reference the `gcd` function on the `Test` object, after importing the `Test` module using `require`.
 
-You might also like to bundle JavaScript code for the browser, using `psc-bundle`. In that case, you would access the `Test` module on the global namespace, which defaults to `PS`:
+You might also like to bundle JavaScript code for the browser, using `purs bundle`. In that case, you would access the `Test` module on the global namespace, which defaults to `PS`:
 
 ``` javascript
 var Test = PS.Test;

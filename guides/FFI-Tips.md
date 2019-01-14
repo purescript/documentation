@@ -71,7 +71,7 @@ exports.doSomethingImpl = function(fn, x) {
 };
 ```
 
-Calling these functions directly in the FFI code isn't recommended as it makes the code brittle to changes in the code generator. Additionally, doing this can cause problems when using `psc-bundle` for dead code elimination.
+Calling these functions directly in the FFI code isn't recommended as it makes the code brittle to changes in the code generator. Additionally, doing this can cause problems when using `purs bundle` for dead code elimination.
 
 The recommended approach is to add extra arguments to your FFI-defined function to accept the functions you need to call as arguments:
 
