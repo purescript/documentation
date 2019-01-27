@@ -200,9 +200,9 @@ var test = Test.inOrder(Prelude.ordNumber())(20)(10);
 
 Notice that the `calculateInterest` functions defined above were _pure_: they had no side-effects and produced the same result for the same input on every invocation.
 
-The PureScript function type `a -> b` does not allow for side-effects, so it would be incorrect to assign a function type to a Javascript computation with side-effects. The correct approach in this case is to use the `Eff` type constructor, defined in the `purescript-eff` package, to assign a type to the computation.
+The PureScript function type `a -> b` does not allow for side-effects, so it would be incorrect to assign a function type to a Javascript computation with side-effects. The correct approach in this case is to use the `Effect` type constructor, defined in the `purescript-effect` package, to assign a type to the computation.
 
-The `Eff` type constructor and its usage is documented [on the eff page](Eff.md).
+The `Effect` type constructor and its usage is documented [on Pursuit](https://pursuit.purescript.org/packages/purescript-effect).
 
 #### Santizing Foreign Data With Data.Foreign
 
