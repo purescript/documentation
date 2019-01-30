@@ -190,3 +190,14 @@ bar x | Just y <- fn x = ... -- x and y are both in scope here
 
 Pattern guards can be very useful for expressing certain types of control flow when
 using algebraic data types.
+
+You can also use commas to add multiple expressions in a guard:
+
+```purescript
+positiveLessThanFive :: Maybe Int -> Boolean
+positiveLessThanFive mInt
+  | Just x <- mInt
+  , x > 0
+  , x < 5 = true
+  | otherwise = false
+```
