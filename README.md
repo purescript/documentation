@@ -72,7 +72,6 @@ Topics currently in this repository's scope:
 - PureScript language reference documentation
 - Its compiler errors
 - Core concepts on which the language is based
-- Introduction to package managers and dependency management
 - Comparison with similar languages
 - An introduction to other sources of documentation
 
@@ -80,5 +79,6 @@ Topics currently *not* in scope:
 
 - Using PureScript libraries (those docs belong with the corresponding libraries)
 - A PureScript language teaching course (use the [PureScript by Example](https://leanpub.com/purescript/read) book or other resources)
+- Introduction to package managers and dependency management
 
 Feel free to make an issue to discuss amending the scope.
