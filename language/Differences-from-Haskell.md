@@ -168,7 +168,7 @@ for a list of other type classes.
 
 Using generics, it is also possible to use generic implementations for type
 classes like `Bounded`, `Monoid`, and `Show`.  See
-[here](https://github.com/purescript/documentation/blob/master/guides/Generic.md)
+[the generics-rep library](https://pursuit.purescript.org/packages/purescript-generics-rep)
 for a list of other type classes that have generic implementations, as well as
 an explanation of how to write generic implementations for your own type
 classes.
