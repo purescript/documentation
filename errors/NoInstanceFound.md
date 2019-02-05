@@ -53,14 +53,9 @@ To fix this, consider adding a type signature:
 better = show (mempty :: String)
 ```
 
-### Partial type class
+### Partial type class & non-exhaustive patterns
 
-
-(Please contribute an example)
-
-### Partial type class & Non-exhaustive patterns
-
-This error can occur if your code fails to propagate `Partial` constraints properly. For an introduction to the `Partial` type class, please see [The Partial type class](../guides/The-Partial-type-class.md) or the note [below](#Exhaustivity-Errors).
+This error can occur if your code fails to propagate `Partial` constraints properly. For an introduction to the `Partial` type class, please see the [purescript-partial library](https://pursuit.purescript.org/packages/purescript-partial).
 
 As an example of this situation, consider the following function definition:
 

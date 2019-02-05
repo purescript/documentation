@@ -34,7 +34,6 @@ This repository is a collaborative effort, so please feel free to make a pull re
 - [Contrib Library Guidelines](guides/Contrib-Guidelines.md)
 - [Error Suggestions](guides/Error-Suggestions.md)
 - [psc-ide FAQ](guides/psc-ide-FAQ.md)
-- [The `Partial` type class](guides/The-Partial-type-class.md)
 - [Try PureScript Help](https://github.com/purescript/trypurescript/blob/gh-pages/README.md)
 
 
