@@ -7,7 +7,7 @@ module Main where
 import Prelude
 import Effect.Console (log)
 
-main = log "Main type is undefined."
+main = log "No type annotation has been provided."
 ```
 
 ## Cause
