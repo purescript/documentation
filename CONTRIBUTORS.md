@@ -52,6 +52,7 @@ If you would prefer to use different terms, please use the section below instead
 | [@owickstrom](https://github.com/owickstrom) | Oskar Wickström | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
 | [@soupi](https://github.com/soupi) | Gil Mizrahi | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
 | [@FungusHumungus](https://github.com/FungusHumungus) | Stephen Wakely | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@Beyarz](https://github.com/Beyarz) | Beyar N | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
 
 ### Contributors using Modified Terms
 
