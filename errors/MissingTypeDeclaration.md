@@ -29,5 +29,5 @@ main = log "The type is now declared!"
 
 ## Notes
 
-MissingTypeDeclaration is not an error, it is a warning.
+MissingTypeDeclaration is not an error, it is a warning.  
 Type annotations are necessary in cases where you're using type classes in an ambiguous way.
