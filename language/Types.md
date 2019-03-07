@@ -194,7 +194,7 @@ combineBar f o = f o.foo o.bar
 type Baz = Number -> Number -> Bar Number
 
 -- This function will take two arguments and return a record with double the value
-mkDoubledFoo :: Baz
+mkDoubledFoo :: Number -> Number -> Baz
 mkDoubledFoo foo bar = { foo: 2.0*foo, bar: 2.0*bar }
 
 -- Build on our previous functions to double the values inside any Foo
