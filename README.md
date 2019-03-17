@@ -23,6 +23,7 @@ This repository is a collaborative effort, so please feel free to make a pull re
     - Be wary of any references to these [deprecated packages](https://github.com/purescript-deprecated) in the book.
 - [Language Reference](language/README.md)
 - [PureScript: Jordan's Reference](https://github.com/JordanMartinez/purescript-jordans-reference): An up-to-date project covering Getting Started, Build Tools, PureScript's syntax with examples, FP design patterns, and PureScript's ecosystem.
+- [A guide to the PureScript numeric hierarchy](https://a-guide-to-the-purescript-numeric-hierarchy.readthedocs.io/en/latest/index.html): An introduction to the mathematics behind the numeric hierarchy of type classes in PureScript’s Prelude. (See also [PureScript numeric hierarchy overview](https://harry.garrood.me/numeric-hierarchy-overview/).)
 
 ### Guides
 
