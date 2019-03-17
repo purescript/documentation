@@ -311,4 +311,4 @@ As PureScript has not inherited Haskell's legacy code, some operators and functi
 - Many functions that are part of `Data.List` in Haskell are provided in a more generic form in `Data.Foldable` or `Data.Traversable`.
 - `some` and `many` are defined with the type of list they operate on (`Data.Array` or `Data.List`).
 - Instead of `_foo` for typed holes, use `?foo`. You have to name the hole; `?` is not allowed.
-- Ranges are written as `1..2` rather than `[1..2]`
+- Ranges are written as `1..2` rather than `[1..2]`. There's a difference, though: in Haskell `[2..1]` is an empty list, whereas in PureScript `2..1` is `[2,1]`
