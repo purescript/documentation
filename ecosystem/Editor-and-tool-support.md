@@ -30,6 +30,7 @@ Spacemacs users can just use the [`purescript` layer](https://github.com/syl20bn
 
 - [purescript-vim](https://github.com/raichoo/purescript-vim) syntax highlighting and indentation
 - [FrigoEU/psc-ide-vim](https://github.com/FrigoEU/psc-ide-vim/)
+- [w0rp/ale](https://github.com/w0rp/ale) supports the [purescript-language-server](https://github.com/nwolverson/purescript-language-server)
 
 #### VS Code
 
