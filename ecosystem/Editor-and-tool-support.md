@@ -7,18 +7,13 @@
 - [nwolverson/atom-ide-purescript](https://github.com/nwolverson/atom-ide-purescript) provides build support,   REPL, and autocomplete etc. via [psc-ide](https://github.com/purescript/purescript/tree/master/psc-ide)
 
 #### Emacs
- Either use these two:
-- [dysinger/purescript-mode](https://github.com/dysinger/purescript-mode) was adapted from haskell-mode
-- [epost/psc-ide-emacs](https://github.com/epost/psc-ide-emacs) offers Emacs support for [psc-ide](https://github.com/purescript/purescript/tree/master/psc-ide)
-
-Or these two, for a more minimal setup:
-
-- [emacs-pe/purescript-mode](https://github.com/emacs-pe/purescript-mode) is an alpha-stage greenfield mode
-- [emacs-pe/flycheck-purescript](https://github.com/emacs-pe/flycheck-purescript) provides flycheck support.
+Install these two packages and follow the instructions in the `psc-ide-emacs` README.
+- [purescript-mode](https://github.com/purescript-emacs/purescript-mode) Syntax Highlighting and indentation (adapted from haskell-mode)
+- [psc-ide-emacs](https://github.com/purescript-emacs/psc-ide-emacs) Emacs plugin exposing the compilers IDE support
 
 PSCI support via comint:
 
-- [ardumont/psci-mode](https://github.com/ardumont/emacs-psci) is a REPL minor mode
+- [psci-mode](https://github.com/purescript-emacs/emacs-psci) is a REPL minor mode
 
 Spacemacs users can just use the [`purescript` layer](https://github.com/syl20bnr/spacemacs/tree/master/layers/%2Blang/purescript).
 
@@ -50,4 +45,4 @@ Spacemacs users can just use the [`purescript` layer](https://github.com/syl20bn
 - [purs-loader](https://github.com/ethul/purs-loader/) - PureScript loader for WebPack
 - [psc-pane](https://github.com/anttih/psc-pane) - Auto reloading compiler which formats a single error to fit the window
 - [purescript-psa](https://github.com/natefaubion/purescript-psa) - A pretty, flexible error/warning reporting frontend for `psc` featuring colours, original source spans in errors, warning filtering and persistence.
-- [pscid](https://github.com/kRITZCREEK/pscid) is a lightweight file-watcher/testrunner for PS projects, that uses `psc-ide` to provide fast rebuilds.
+- [pscid](https://github.com/kRITZCREEK/pscid) is a lightweight file-watcher/testrunner for PS projects providing instant-rebuilds in an editor agnostic way
