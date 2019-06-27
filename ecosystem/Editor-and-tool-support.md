@@ -30,6 +30,7 @@ Spacemacs users can just use the [`purescript` layer](https://github.com/syl20bn
 
 - [purescript-vim](https://github.com/raichoo/purescript-vim) syntax highlighting and indentation
 - [FrigoEU/psc-ide-vim](https://github.com/FrigoEU/psc-ide-vim/)
+- [w0rp/ale](https://github.com/w0rp/ale) supports the [purescript-language-server](https://github.com/nwolverson/purescript-language-server)
 
 #### VS Code
 
@@ -42,7 +43,8 @@ Spacemacs users can just use the [`purescript` layer](https://github.com/syl20bn
 ## Build tools and package managers
 
 - [Pulp](https://github.com/purescript-contrib/pulp) - a standalone build system for PureScript ([pulp](https://www.npmjs.com/package/pulp) in `npm`)
-- [psc-package](https://github.com/purescript/psc-package):  A package manager for PureScript based on the concept of package sets
+- [psc-package](https://github.com/purescript/psc-package) - A package manager for PureScript based on the concept of package sets
+- [spago](https://github.com/spacchetti/spago) - PureScript package manager and build tool powered by [Dhall](https://github.com/dhall-lang/dhall-lang) and [package-sets](https://github.com/purescript/package-sets)
 - [Gulp task](https://github.com/purescript-contrib/gulp-purescript) (`gulp-purescript` in `npm`)
 - [psvm-js](https://github.com/ThomasCrvsr/psvm-js) - PureScript Version Manager
 - [purs-loader](https://github.com/ethul/purs-loader/) - PureScript loader for WebPack
