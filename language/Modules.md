@@ -75,7 +75,7 @@ Another example, using a fictitious module this time:
 ``` purescript
 import MyWebFramework as MyWebFramework
 
-main :: Eff (dom :: DOM) Unit
+main :: Effect Unit
 main = do
   elem <- domElementById "appContainer"
   MyWebFramework.run elem
