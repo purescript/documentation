@@ -35,6 +35,13 @@ The following forms can be used for matching:
 
 Guards and pattern guards are also supported.
 
+One can also match multiple expressions at once.
+```purescript
+case maybeName, UserStatus of
+  _, NotFound -> doA
+  (Just name), Exists -> doB name
+```
+
 The exhaustivity checker will introduce a `Partial` constraint for any pattern which is not exhaustive.
 By default, patterns must be exhaustive, since this `Partial` constraint will not be satisfied. The error can be silenced, however, by adding a local `Partial` constraint to your function.
 
