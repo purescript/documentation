@@ -585,4 +585,4 @@ maybeSum a b =
       in pure result
 ```
 
-In practice, you will usually be using [`bind` from the Prelude](https://pursuit.purescript.org/packages/purescript-prelude/4.1.1/docs/Control.Bind#v:bind), but the desugaring will use whichever `bind` is in scope.
+In practice, you will usually be using [`bind` from the Prelude](https://pursuit.purescript.org/packages/purescript-prelude/docs/Control.Bind#v:bind), but the desugaring will use whichever `bind` is in scope.
