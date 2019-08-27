@@ -73,12 +73,10 @@ setPersonPostcode :: PostCode -> Person -> Person
 setPersonPostcode pc p = p { address { postCode = pc } }
 ```
 
-A record update function can also be defined by using an `_` inplace of the record to be updated like `_ { fieldName = newValue }`. This can be useful when updating state with `modify_`.
+A record update function can also be defined by using an `_` inplace of the record to be updated like:
 
 ```purescript
--- some monad context
-do
-    modify $ _ { fieldName = newValue }
+_ { fieldName = newValue }
 ```
 
 ## Field Names
