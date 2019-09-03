@@ -55,6 +55,16 @@ If you would prefer to use different terms, please use the section below instead
 | [@Beyarz](https://github.com/Beyarz) | Beyar N | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
 | [@toraritte](https://github.com/toraritte) | Attila Gulyas | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
 | [@bernhard-herzog](https://github.com/bernhard-herzog) | Bernhard Herzog | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@Thimoteus](https://github.com/Thimoteus) | Thimoteus | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@parsonsmatt](https://github.com/parsonsmatt) | Matt Parsons | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@nicodelpiano](https://github.com/nicodelpiano) | Nicolas Del Piano | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@cdepillabout](https://github.com/cdepillabout) | Denis Gosnell | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@bergmark](https://github.com/bergmark) | Adam Bergmark | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@spicydonuts](https://github.com/spicydonuts) | Madeline Trotter | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@clayrat](https://github.com/clayrat) | Alex Gryzlov | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@tchajed](https://github.com/tchajed) | Tej Chajed | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@stephencelis](https://github.com/stephencelis) | Stephen Celis | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@AidanDelaney](https://github.com/AidanDelaney) | Aidan Delaney | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
 
 ### Contributors using Modified Terms
 
