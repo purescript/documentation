@@ -64,7 +64,7 @@ If you would prefer to use different terms, please use the section below instead
 | [@clayrat](https://github.com/clayrat) | Alex Gryzlov | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
 | [@tchajed](https://github.com/tchajed) | Tej Chajed | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
 | [@stephencelis](https://github.com/stephencelis) | Stephen Celis | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
-| [@AidanDelaney](https://github.com/AidanDelaney) | AidanDelaney | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@AidanDelaney](https://github.com/AidanDelaney) | Aidan Delaney | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
 
 ### Contributors using Modified Terms
 
