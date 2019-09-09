@@ -566,22 +566,21 @@ maybeSum a b = do
 ```
 
 `maybeSum` takes two values of type ``Maybe Number`` and returns their sum if neither value is `Nothing`.
-
-When using `do` notation, there must be a corresponding instance of the `Monad` type class for the return type.
-
+ 
 Statements can have the following form:
 
-- `a <- x` which desugars to `x >>= \a -> ...`
-- `x` which desugars to `x >>= \_ -> ...` or just `x` if this is the last statement.
+- `a <- x` which desugars to `bind x \a -> ...`
+- `x` which desugars to `bind x \_ -> ...` or just `x` if this is the last statement.
 - A let binding `let a = x`. Note the lack of the `in` keyword.
 
 The example `maybeSum` desugars to::
 
 ``` purescript
 maybeSum a b =
-  a >>= \n ->
-    b >>= \m ->
+  bind a \n ->
+    bind b \m ->
       let result = n + m
       in pure result
 ```
-Note: (>>=) is the `bind` function for the `Bind` type as defined in the [Prelude package](https://pursuit.purescript.org/packages/purescript-prelude/4.1.0/docs/Prelude#t:Bind).
+
+In practice, you will usually be using [`bind` from the Prelude](https://pursuit.purescript.org/packages/purescript-prelude/docs/Control.Bind#v:bind), but the desugaring will use whichever `bind` is in scope. When using `bind` from the Prelude, there must be an instance of the `Monad` type class for the return type.
