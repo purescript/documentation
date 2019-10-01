@@ -156,45 +156,11 @@ This time, we can assign the curried function type directly:
 foreign import calculateInterest :: Number -> Number -> Number
 ```
 
-#### Handling Constrained Types
+#### Don't call functions with constrained types from JavaScript
 
-Another special case that you should be aware of when calling PureScript functions from Javascript is that values with constrained types (i.e. types which contain type class constraints) contain extra parameters which are used to pass type class dictionaries to the function.
+It's not safe to call functions that have typeclass constraints from JavaScript, as their representation is unstable in the face of compiler optimizations. If you want to call a PureScript function from JavaScript you need to take all arguments explicitly.
 
-For example, let's write a simple PureScript function with a constrained type, and look at the generated Javascript.
-
-``` haskell
-module Test where
-
-import Prelude
-import Data.Tuple (Tuple(..))
-
-inOrder :: forall a. Ord a => a -> a -> Tuple a a
-inOrder a1 a2 | a1 < a2 = Tuple a1 a2
-inOrder a1 a2 = Tuple a2 a1
-```
-
-The generated Javascript looks like this:
-
-``` javascript
-var inOrder = function (__dict_Ord_32) {
-  return function (_1) {
-    return function (_2) {
-      if (Prelude["<"](__dict_Ord_32)(_1)(_2)) {
-        return Data_Tuple.Tuple(_1)(_2);
-      };
-      return Data_Tuple.Tuple(_2)(_1);
-    };
-  };
-};
-```
-
-Notice that `inOrder` is a (curried) function of three arguments, not two. The first argument is the type class dictionary for the `Ord` constraint.
-
-We can call this function from Javascript by passing an explicit type class dictionary from the Prelude as the first parameter:
-
-``` javascript
-var test = Test.inOrder(Prelude.ordNumber())(20)(10);
-```
+For implementing PureScript functions that rely on typeclass constraints via the FFI refer to [the FFI-Tips document](./FFI-Tips.md#avoid-directly-calling-ps-code-from-foreign-modules).
 
 #### Handling Side Effects
 
