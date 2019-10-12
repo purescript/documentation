@@ -2,8 +2,6 @@
 
 This file lists the contributors to the PureScript documentation project, and the terms under which their contributions are licensed.
 
-**NOTICE:** This list is not yet exhaustive, and any content written by contributors not listed here is not yet explicitly licensed.
-
 ### Contributors using Standard Terms
 
 Contributors listed here agree to license their contributions under the following terms:
