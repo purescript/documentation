@@ -73,6 +73,12 @@ setPersonPostcode :: PostCode -> Person -> Person
 setPersonPostcode pc p = p { address { postCode = pc } }
 ```
 
+A record update function can also be defined by using an `_` inplace of the record to be updated like:
+
+```purescript
+_ { fieldName = newValue }
+```
+
 ## Field Names
 
 Symbols which are illegal value identifiers, such as title-cased identifiers or ones containing spaces, can be used to identify a field by enclosing it in double-quotes:
