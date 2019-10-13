@@ -148,7 +148,7 @@ An argument to ``poly`` must indeed be polymorphic. For example, the following f
 test = poly (\n -> n + 1)
 ```
 
-since the skolemized type variable ``a`` does not unify with ``Int``.
+since the rigid type variable ``a`` — that is, the type variable bound by the ``forall`` in the type signature for ``poly`` — does not unify with ``Int``.
 
 ## Rows
 
