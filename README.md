@@ -12,7 +12,6 @@ This repository is a collaborative effort, so please feel free to make a pull re
 ### Getting Started
 
 - [Getting Started](guides/Getting-Started.md): Download PureScript and build your first project
-- [PureScript By Example](https://leanpub.com/purescript/read): A book about PureScript. Learn functional programming for the web by solving practical problems
 - [Try PureScript](http://try.purescript.org): Try PureScript in your browser
 
 ### Learning
