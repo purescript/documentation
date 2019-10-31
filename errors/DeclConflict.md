@@ -3,19 +3,28 @@
 ## Example
 
 ```purescript
-module ShortFailingExample where
+data MyType = A | B 
 
-...
+data MyType2 = C | D
+
+data MyType3 = MyType3 { x :: Int }
+
+data MyType4 = MyType | MyType2 | MyType3 
 ```
 
 ## Cause
 
-Explain why a user might see this error.
+This error shows up when an a defined type (i.e: MyType, MyType2, etc...) is being defined as a data constructor for another data type definition (i.e: MyType4). 
 
 ## Fix
+This can be fixed by simply wrapping these pre-defined data types in a new data constrcutor.
+```purescript
+data MyType = A | B 
 
-- Suggest possible solutions.
+data MyType2 = C | D
 
-## Notes
+data MyType3 = MyType3 { x :: Int }
 
-- Additional notes.
+data MyType4 = T MyType | T2 MyType2 | T3 MyType3 
+```
+
