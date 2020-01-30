@@ -46,7 +46,7 @@ You should see output similar to the following:
     You should add some tests.
     [info] Tests succeeded.
 
-If everything was built successfully, and the tests ran without problems, then the last line should state "Tests OK".
+If everything was built successfully, and the tests ran without problems, then the last line should state "Tests succeeded."
 
 #### Installing Dependencies
 
