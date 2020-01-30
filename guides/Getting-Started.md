@@ -40,10 +40,11 @@ At this point, you should be able to build the project and run the tests:
 
 You should see output similar to the following:
 
-    * Building project in /Users/paf31/Documents/Code/purescript/spago-test
-    * Build successful. Running tests...
+    [info] Installation complete.
+    [info] Build succeeded.
+    🍝
     You should add some tests.
-    * Tests OK.
+    [info] Tests succeeded.
 
 If everything was built successfully, and the tests ran without problems, then the last line should state "Tests OK".
 
