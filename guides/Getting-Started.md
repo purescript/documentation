@@ -2,7 +2,7 @@
 
 Let's walk through the basics of getting set up to use the PureScript compiler `purs`, and its interactive mode `purs repl`.
 
-We'll start with the installation of the compiler and Pulp build tool, and then go through the basic usage of `purs repl`, working towards a solution of problem 1 from [Project Euler](http://projecteuler.net/problem=1).
+We'll start with the installation of the compiler and Spago build tool, and then go through the basic usage of `purs repl`, working towards a solution of problem 1 from [Project Euler](http://projecteuler.net/problem=1).
 
 #### Installing the Compiler
 
@@ -16,48 +16,49 @@ The Purescript compiler (`purs`) can be installed with npm:
 
 #### Setting up the Development Environment
 
-PureScript's core libraries are configured to use the [Pulp](https://github.com/purescript-contrib/pulp) build tool, and packages are available in the [Bower registry](http://bower.io/search/?q=purescript-).
+PureScript's core libraries are configured to use the [Spago](https://github.com/spacchetti/spago) package manager and build tool.
 
-If you don't have Pulp and Bower installed, install them now:
+If you don't have Spago installed, install it now:
 
-    npm install -g pulp bower
+    npm install -g spago
 
-Create a new project in an empty directory using `pulp init`:
+Create a new project in an empty directory using `spago init`:
 
-    pulp init
+    spago init
 
 Your directory should now contain the following files:
 
-- `bower.json` - contains library dependency information
-- `bower_components/` - a directory for installed dependencies
+- `packages.dhall` - contains Spago configuration
+- `spago.dhall` - contains library dependency information
 - `src/Main.purs` - Entry point module for your project
 - `test/Main.purs` - An empty test suite
 
 At this point, you should be able to build the project and run the tests:
 
-    pulp build
-    pulp test
+    spago build
+    spago test
 
 You should see output similar to the following:
 
-    * Building project in /Users/paf31/Documents/Code/purescript/pulp-test
-    * Build successful. Running tests...
+    [info] Installation complete.
+    [info] Build succeeded.
+    🍝
     You should add some tests.
-    * Tests OK.
-    
-If everything was built successfully, and the tests ran without problems, then the last line should state "Tests OK".
+    [info] Tests succeeded.
+
+If everything was built successfully, and the tests ran without problems, then the last line should state "Tests succeeded."
 
 #### Installing Dependencies
 
-Dependencies can be installed using Bower. We will be using the `purescript-lists` library shortly, so install it now:
+Dependencies can be installed using Spago. We will be using the `purescript-lists` library shortly, so install it now:
 
-    bower install purescript-lists --save
+    spago install lists
 
 #### Working in PSCI
 
 PSCi is the interactive mode of PureScript. It is useful for working with pure computations, and for testing ideas.
 
-Open PSCi by typing `pulp repl` at the command line. Pulp will create a file in your directory called `.purs-repl`, which contains instructions to PSCi to load your modules and dependencies. If you invoke the PSCi executable directly, you would need to load these files by hand.
+Open PSCi by typing `spago repl` at the command line. Optionally, you can create a file in your directory called `.purs-repl`, which contains instructions to PSCi to load your modules and dependencies. If you invoke the PSCi executable directly, you would need to load these files by hand.
 
     PSCi, version 0.12.0
     Type :? for help
@@ -89,10 +90,11 @@ We will use a selection of these commands during this tutorial.
 
 Start by pressing the Tab key to use the autocompletion feature. You will see a collection of names of functions from the Prelude which are available to use.
 
-To see the type of one of these values, first import the appropriate module using the `import` command. `pulp init` configures `.purs-repl` to install `Prelude` automatically, so you won't have to do it yourself.
+To see the type of one of these values, first import the appropriate module using the `import` command.
 
 Next, use the `:type` command, followed by a space, followed by the name of the value:
 
+    > import Prelude
     > :type map
     forall a b f. Functor f => (a -> b) -> f a -> f b
 
@@ -172,16 +174,16 @@ answer = sum multiples
 
 It is possible to load this file directly into the REPL and to continue working:
 
-    pulp repl
+    spago repl
     > import Euler
     > answer
     233168
     > :quit
     See ya!
 
-Alternatively, we can use Pulp to compile our new module to JavaScript:
+Alternatively, we can use Spago to compile our new module to JavaScript:
 
-    pulp build
+    spago build
 
 This will compile each module present in `src/` into a separate file in the `output/` directory.
 
@@ -191,7 +193,7 @@ The compiler will display several warnings about missing type declarations. In g
 
 To test our code, we'll use the `purescript-assert` library:
 
-    bower i purescript-assert --save
+    spago install assert
 
 Modify the `test/Main.purs` file, and add the following code:
 
@@ -209,7 +211,7 @@ main = do
 
 Our "test suite" is just a single assertion that the `answer` value equals the correct integer. In a real test suite, we might use the `Effect` monad to compose multiple tests in our `main` function.
 
-Run the tests using `pulp test`, and you should hopefully see "Tests OK" in the last line.
+Run the tests using `spago test`, and you should hopefully see "Tests OK" in the last line.
 
 #### Creating Executables
 
@@ -227,11 +229,10 @@ main = do
   log ("The answer is " <> show answer)
 ```
 
-The `pulp run` command can be used to compile and run the `Main` module:
+The `spago run` command can be used to compile and run the `Main` module:
 
-    > pulp run
-    * Building project in pulp-test
-    * Build successful.
+    > spago run
+    [info] Build succeeded.
     The answer is 233168
 
 #### What Next?
