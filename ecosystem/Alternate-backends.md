@@ -16,6 +16,7 @@ There are various alternatives to `psc`'s default JavaScript backend:
 | [pure-c/pure-c](https://github.com/pure-c/pure-c)                                       |            | C (Clang)     |
 | [epost/psc-query](https://github.com/epost/psc-query)                                   | 0.11.7     | Datalog       |
 | [tfausak/thran](https://github.com/tfausak/thran)                                       | 0.11.6     | Haskell (GHC) |
+| [paulyoung/pureswift](https://github.com/paulyoung/pureswift)                           |            | Swift         |
 
 ## Stale
 
