@@ -54,7 +54,7 @@ You can also define data types, type classes, and type class instances (you may 
 
 ## Paste mode (previously `--multi-line-mode`)
 
-Enter `:paste` (or `:p`) to enter multi-line (or "paste") mode. Terminate it with `Control-D` key.
+Enter `:paste` (or `:pa`) to enter multi-line (or "paste") mode. Terminate it with `Control-D` key.
 
 ```
 > import Prelude
