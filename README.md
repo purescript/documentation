@@ -45,6 +45,7 @@ This repository is a collaborative effort, so please feel free to make a pull re
 
 ### Ecosystem
 
+- [Editor and tool support](ecosystem/Editor-and-tool-support.md)
 - [Maintained Packages](ecosystem/Maintained-Packages.md)
 - [Style Guide](guides/Style-Guide.md)
 - [Alternate Backends](https://github.com/purescript/documentation/blob/master/ecosystem/Alternate-backends.md): PureScript can compile to other languages as well!
