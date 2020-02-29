@@ -4,7 +4,9 @@ Let's walk through the basics of getting set up to use the PureScript compiler `
 
 We'll start with the installation of the compiler and Spago build tool, and then go through the basic usage of `purs repl`, working towards a solution of problem 1 from [Project Euler](http://projecteuler.net/problem=1).
 
-#### Installing the Compiler
+### Installing the Compiler
+
+#### Using NPM
 
 You'll need [Node.js and npm](https://docs.npmjs.com/getting-started/installing-node) and to be [able to install global packages](https://docs.npmjs.com/getting-started/fixing-npm-permissions#option-1-change-the-permission-to-npm-s-default-directory) to proceed.
 
@@ -12,9 +14,21 @@ The Purescript compiler (`purs`) can be installed with npm:
 
     npm install -g purescript
 
+#### Downloading Binaries
+
 (It can also be installed from [Hackage](http://hackage.haskell.org/package/purescript), or by downloading the latest [binary bundle](https://github.com/purescript/purescript/releases) for your OS. If you do so, make sure the `purs` executable is on your `$PATH`.)
 
-#### Setting up the Development Environment
+#### Using Homebrew
+
+    brew install purescript
+
+#### Using Nix
+
+You'll need [Nix](https://nixos.org/nix/) installed with a recent version of `nixpkgs` (19.09):
+
+    nix-env -i purescript
+
+### Setting up the Development Environment
 
 PureScript's core libraries are configured to use the [Spago](https://github.com/spacchetti/spago) package manager and build tool.
 
@@ -48,13 +62,13 @@ You should see output similar to the following:
 
 If everything was built successfully, and the tests ran without problems, then the last line should state "Tests succeeded."
 
-#### Installing Dependencies
+### Installing Dependencies
 
 Dependencies can be installed using Spago. We will be using the `purescript-lists` library shortly, so install it now:
 
     spago install lists
 
-#### Working in PSCI
+### Working in PSCI
 
 PSCi is the interactive mode of PureScript. It is useful for working with pure computations, and for testing ideas.
 
@@ -109,7 +123,7 @@ We will be using some of the functions from the `Prelude` and `Data.List` module
 
 Note that using `Tab` to autocomplete names can be a useful time-saving device in `psci`.
 
-#### Solving Project Euler #1
+### Solving Project Euler #1
 
 The following problem is taken from [Project Euler](http://projecteuler.net/problem=1):
 
@@ -151,7 +165,7 @@ When you have finished using PSCi, type `:quit` to quit:
     > :quit
     See ya!
 
-#### Compiling a Solution
+### Compiling a Solution
 
 Now that we've seen how to use the REPL to reach the answer, let's move our solution into a source file and compile it.
 
@@ -189,7 +203,7 @@ This will compile each module present in `src/` into a separate file in the `out
 
 The compiler will display several warnings about missing type declarations. In general it is considered good practice to provide explicit type signatures. In this guide, they are left out for brevity. In the absence of type signatures, the PureScript compiler infers types automatically but will remind us to consider adding them.
 
-#### Writing a Test Suite
+### Writing a Test Suite
 
 To test our code, we'll use the `purescript-assert` library:
 
@@ -213,7 +227,7 @@ Our "test suite" is just a single assertion that the `answer` value equals the c
 
 Run the tests using `spago test`, and you should hopefully see "Tests OK" in the last line.
 
-#### Creating Executables
+### Creating Executables
 
 We can modify the `main` function in the `src/Main.purs` module to print our result to the console:
 
@@ -235,7 +249,7 @@ The `spago run` command can be used to compile and run the `Main` module:
     [info] Build succeeded.
     The answer is 233168
 
-#### What Next?
+### What Next?
 
 If you're new to typed functional programming, your next stop should be [PureScript by Example](https://leanpub.com/purescript/read), which will walk you through learning PureScript by solving practical problems. (Note: At the time of writing, _Purescript by Example_ is compatible with the 0.11.x version of the compiler)
 
