@@ -3,7 +3,7 @@
 ## Example
 
 ```text
-$ pulp repl
+$ spago repl
 
 > x = x
 Error found:
