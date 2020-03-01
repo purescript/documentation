@@ -21,6 +21,6 @@ Check that:
 
 - you have spelled the name of the module correctly,
 - if the module comes from a library, that you have installed that library in your project,
-- you have supplied the filename of the module to `purs build` on the command line (note that build tools, such as `webpack` or `pulp`, should generally take care of this for you; if in doubt, check their documentation).
+- you have supplied the filename of the module to `purs build` on the command line (note that build tools, such as `webpack`, `parcel` or `spago`, should generally take care of this for you; if in doubt, check their documentation).
 
 If you know which module you are looking for but are unsure which library it comes from, you can search for it on <https://pursuit.purescript.org>.
