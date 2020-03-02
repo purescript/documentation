@@ -11,8 +11,6 @@ $ cd my-project              # Enter an empty folder
 
 $ spago init                 # Initialize a Spago environment
 
-$ spago install psci-support # Install PSCi support
-
 $ spago repl                 # Fire up the interpreter psci
 
 ...
