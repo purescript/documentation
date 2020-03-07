@@ -2,19 +2,22 @@ PSCi "PureScript Interactive" is the REPL for PureScript. It is often a good way
 
 ## Getting Started
 
-Use Pulp to configure and start PSCi:
+Use Spago to configure and start PSCi:
 
 ```text
-$ npm install -g pulp # Install pulp
+$ npm install -g spago       # Install Spago
 
-$ cd my-project # Enter an empty folder
+$ cd my-project              # Enter an empty folder
 
-$ pulp init # Initialize a pulp environment
+$ spago init                 # Initialize a Spago environment
 
-$ pulp repl # Fire up the interpreter psci
+$ spago repl                 # Fire up the interpreter psci
 
-PSCi, version 0.9.1
+...
+PSCi, version 0.13.6
 Type :? for help
+
+import Prelude
 
 > "hello"
 "hello"
@@ -24,7 +27,7 @@ Type :? for help
 > 1 + 2 * 3
 7
 
-> import Control.Monad.Eff.Console
+> import Effect.Console
 
 > log "print this to the screen"
 print this to the screen
@@ -71,24 +74,24 @@ Enter `:paste` (or `:pa`) to enter multi-line (or "paste") mode. Terminate it wi
 ## `purescript-psci-support`
 
 ```text
-$ psci
+$ spago repl
 
-PSCi requires the purescript-psci-support package to be installed.
-You can install it using Bower as follows:
-
-  bower i purescript-psci-support --save-dev
+PSCi requires the `purescript-psci-support` package to be installed.
+You can install it using Spago by adding `"psci-support"` to the list of dependencies in `spago.dhall`.
 
 For help getting started, visit http://wiki.purescript.org/PSCi
 ```
 
-The PureScript compiler suite (i.e. the executable `purs`), unlike most compilers, does not ship with a standard library. In PureScript, even `Prelude` is a normal module, just like any other. Consequentially, `psci` requires a specific library to be installed in order to be able to evaluate terms in the REPL.
+The PureScript compiler suite (i.e. the executable `purs`), unlike most compilers, does not ship with a standard library. In PureScript, even `Prelude` is a normal module, just like any other. Consequentially, `purs repl` requires a specific library to be installed in order to be able to evaluate terms in the REPL.
 
 `purescript-psci-support` defines the `Eval` type class for this purpose. Instances of `Eval` are provided for `Show`able types, and for `Eff`, so that we can evaluate actions in the REPL. Library implementors might like to provide `Eval` instances for their own `Eff`-like types.
 
-## PSCi Without Pulp
+## PSCi Without Spago
 
 PSCi can be run directly, by specifying a list of PureScript source files as globs:
 
-    psci 'src/**/*.purs' 'bower_components/purescript-*/src/**/*.purs'
+    purs repl 'src/**/*.purs' 'path/to/packages/**/*.purs'
+
+This expects you to have downloaded the PureScript sources for your dependencies (include `psci-support`) under the path `path/to/packages`.
 
 Note the single quotes—the purescript compiler itself knows how to expand globs (`*`) and recursive globs (`**`), single quotes prevent your shell from expanding them. (Bash for example doesn’t have recursive globbing enabled by default; don’t forget the single quotes.)
