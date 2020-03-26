@@ -76,8 +76,31 @@ setPersonPostcode pc p = p { address { postCode = pc } }
 A record update function can also be defined by using an `_` inplace of the record to be updated like:
 
 ```purescript
-_ { fieldName = newValue }
+inPlace :: Value -> Record -> Record
+inPlace newValue = _ { fieldName = newValue }
 ```
+
+A record defined with `data` first has to be unwrapped
+
+```purescript
+data PointRec = PointRec { x :: Number, y :: Number }
+
+setX :: Number -> PointRec -> PointRec 
+setX val (PointRec point) = PointRec (point { x = val })
+```
+
+A more complex data structure can be updated by using intermediate getters. `r.fieldTwo` in the example below
+
+```purescript
+type Example = { fieldOne :: Boolean, fieldTwo :: Maybe { innerField :: Int} }
+
+addToInner :: Int -> Example -> Example
+addToInner n r = case r.fieldTwo of
+                   Nothing -> r
+                   Just k  -> r { fieldTwo = Just (k.innerField + n) }
+```
+
+For more complex record updates a package like [profunctor-lenses](https://github.com/purescript-contrib/purescript-profunctor-lenses) can be [useful](https://thomashoneyman.com/articles/practical-profunctor-lenses-optics/).
 
 ## Field Names
 
