@@ -16,7 +16,6 @@ There are various alternatives to `psc`'s default JavaScript backend:
 | [pure-c/pure-c](https://github.com/pure-c/pure-c)                                             |            | C (Clang)     |
 | [purescript-python/purescript-python](https://github.com/purescript-python/purescript-python) | 0.13.x     | Python >= 3.5 |
 | [epost/psc-query](https://github.com/epost/psc-query)                                         | 0.11.7     | Datalog       |
-| [tfausak/thran](https://github.com/tfausak/thran)                                             | 0.11.6     | Haskell (GHC) |
 | [paulyoung/pureswift](https://github.com/paulyoung/pureswift)                                 |            | Swift         |
 
 ## Stale
@@ -28,3 +27,4 @@ There are various alternatives to `psc`'s default JavaScript backend:
 | [osa1/psc-lua](https://github.com/osa1/psc-lua)                                       | 0.5.x      | Lua           |
 | [Gabriel439/Purescript-to-Python](https://github.com/Gabriel439/Purescript-to-Python) |            | Python        |
 | [PyreScript](https://github.com/joneshf/pyrescript)                                   | 0.9.1      | Python        |
+| [tfausak/thran](https://github.com/tfausak/thran)                                     | 0.11.6     | Haskell (GHC) |
