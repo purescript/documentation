@@ -109,7 +109,7 @@ The inferred type of ``addProps`` is:
 forall r. { foo :: Int, bar :: Int | r } -> Int
 ```
 
-Here, the type variable ``r`` has kind ``# Type`` - it represents a row of types. It can be instantiated with any row of named types.
+Here, the type variable ``r`` has kind ``Row Type`` - it represents a row of types. It can be instantiated with any row of named types.
 
 In other words, ``addProps`` accepts any record which has properties ``foo`` and ``bar``, and *any other record properties*.
 
@@ -154,7 +154,7 @@ since the rigid type variable ``a`` — that is, the type variable bound by the 
 
 A row of types represents an unordered collection of named types, with duplicates. Duplicate labels have their types collected together in order, as if in a ``NonEmptyList``. This means that, conceptually, a row can be thought of as a type-level ``Map Label (NonEmptyList Type)``.
 
-Rows are not of kind ``Type``: they have kind ``# k`` for some kind ``k``, and so rows cannot exist as a value. Rather, rows can be used in type signatures to define record types or other type where labelled, unordered types are useful.
+Rows are not of kind ``Type``: they have kind ``Row k`` for some kind ``k``, and so rows cannot exist as a value. Rather, rows can be used in type signatures to define record types or other type where labelled, unordered types are useful.
 
 To denote a closed row, separate the fields with commas, with each label separated from its type with a double colon:
 
@@ -238,18 +238,24 @@ equal1 = one :: forall a. Semiring a => Eq a => a
 
 ## Kind System
 
-The kind system defines the following kinds:
+The kinds of types are other types. The only types that are not supported in kinds are constraints, which have no kind-level equivalent. Kind polymorphism is supported through top-level kind signatures for ``data``, ``type``, ``newtype``, and ``class`` declarations:
 
-- ``Type``, the kind of types.
-- Arrow kinds ``k1 -> k2``
-- Row kinds ``# k``
-- User-defined kinds, such as ``Control.Monad.Eff.Effect``, the kind of effects.
+```purescript
+-- Defined in Type.Proxy
+data Proxy :: forall k. k -> Type
+data Proxy a = Proxy
 
-## Row Kinds
+proxy1 = Proxy :: Proxy Int -- k is Type
+proxy2 = Proxy :: Proxy "foo" -- k is Symbol
+proxy3 = Proxy :: Proxy (foo :: Int, bar :: String) -- k is Row Type
+```
 
-The kind ``# k`` of rows is used to classify labelled, unordered collections of types of kind ``k``.
+In type signatures, kind variables are quantified with ``forall`` like other type variables. Polymorphic kinds must be quantified before any kind annotated variables that reference them:
 
-For example ``# Type`` is the kind of rows of types, as used to define records, and ``# Control.Monad.Eff.Effect`` is the kind of rows of effects, used to define the monad ``Control.Monad.Eff.Eff`` of extensible effects.
+```purescript
+proxy :: forall k (a :: k). Proxy a
+proxy = Proxy
+```
 
 ## Quantification
 
