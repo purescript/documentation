@@ -78,7 +78,7 @@ assert false = fail "Assertion failed"
 
 ## Orphan Instances
 
-Type class instances which are defined outside of both the module which defined the class and the module which defined the type are called *orphan instances*. Some programming languages (including Haskell) allow orphan instances with a warning, but in PureScript, they are forbidden. Any attempt to define an orphan instance in PureScript will mean that your program does not pass type checking.
+Type class instances which are defined outside of both the module which defined the class and the module which defined the type are called *orphan instances*. Only one instance is allowed per type and class combination. Orphan instances enable duplicate instances to be defined in separate modules. These modules are fine independently, but if both modules are ever imported into the same project, then an instance collision would break the build. Some programming languages (including Haskell) allow orphan instances with a warning, but in PureScript, they are forbidden. Any attempt to define an orphan instance in PureScript will mean that your program does not pass type checking.
 
 For example, the `Semigroup` type class is defined in the module `Data.Semigroup`, and the `Int` type is defined in the module `Prim`. If we attempt to define a `Semigroup Int` instance like this:
 
