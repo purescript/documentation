@@ -78,7 +78,7 @@ assert false = fail "Assertion failed"
 
 ## Orphan Instances
 
-Type class instances which are defined outside of both the module which defined the class and the module which defined the type are called *orphan instances*. Only one instance is allowed per type and class combination. Orphan instances enable duplicate instances to be defined in separate modules. These modules are fine independently, but if both modules are ever imported into the same project, then an instance collision would break the build. Some programming languages (including Haskell) allow orphan instances with a warning, but in PureScript, they are forbidden. Any attempt to define an orphan instance in PureScript will mean that your program does not pass type checking.
+Type class instances which are defined outside of both the module which defined the class and the module which defined the type are called *orphan instances*. Some programming languages (including Haskell) allow orphan instances with a warning, but in PureScript, they are forbidden. Any attempt to define an orphan instance in PureScript will mean that your program does not pass type checking.
 
 For example, the `Semigroup` type class is defined in the module `Data.Semigroup`, and the `Int` type is defined in the module `Prim`. If we attempt to define a `Semigroup Int` instance like this:
 
@@ -105,6 +105,10 @@ instance semigroupAddInt :: Semigroup AddInt where
 ```
 
 In fact, a type similar to this `AddInt` is provided in `Data.Monoid.Additive`, in the `monoid` package.
+
+The reason why orphan instances are banned is because they can lead to two types of problems:
+* Recall that only one instance is allowed per type and class combination in a module. Orphan instances enable duplicate instances to be defined in separate modules without breaking this overlapping instances rule. So these modules are fine independently, but if both modules are ever imported into the same project (for example from separate libraries), then an instance collision would break the build.
+* Even if collisions are avoided, the lack of global uniques of instances would allow operating on data with incompatible instances in different sections of code. For example, in Ord-based maps and sets, if it were possible to insert some values into a map using one `Ord` instance, and then try to retrieve them using a different `Ord` instance, you'd have keys disappear from your map. Another example is if you had a type class which defined serialization and deserialization operations, you'd be able to serialize something with one instance and then try to deserialize it with a different incompatible instance.
 
 For multi-parameter type classes, the orphan instance check requires that the instance is either in the same module as the class, or the same module as at least one of the types occurring in the instance. (TODO: example)
 
