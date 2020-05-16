@@ -73,7 +73,7 @@ Topics currently in this repository's scope:
 Topics currently *not* in scope:
 
 - Using PureScript libraries (those docs belong with the corresponding libraries)
-- A PureScript language teaching course (use the [PureScript by Example](https://leanpub.com/purescript/read) book or other resources)
+- A PureScript language teaching course (use the [PureScript by Example](https://book.purescript.org) book or other resources)
 - Introduction to package managers and dependency management
 
 Feel free to make an issue to discuss amending the scope.
