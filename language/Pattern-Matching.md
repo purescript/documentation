@@ -176,6 +176,36 @@ compare _ _ = EQ
 
 (The name `otherwise` is a synonym for `true` commonly used in guards.)
 
+Guard Limitations in `let`
+----------------------------
+
+Guards are incompatable with Constructor Patterns in `let`. For example, the following function using a `Tuple` constructor pattern will not compile:
+```purs
+-- This doesn't work
+f1 :: Int
+f1 =
+  let
+    (Tuple a b)
+      | false = Tuple 1 2
+      | otherwise = Tuple 3 4
+  in
+    a
+```
+
+A workaround is to separate the constructor pattern from the Guard:
+```purs
+f2 :: Int
+f2 =
+  let
+    t
+      | false = Tuple 1 2
+      | otherwise = Tuple 3 4
+
+    Tuple a b = t
+  in
+    a
+```
+
 Pattern Guards
 --------------
 
