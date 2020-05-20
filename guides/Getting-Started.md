@@ -6,13 +6,13 @@ We'll start with the installation of the compiler and Spago build tool, and then
 
 #### Installing the Compiler
 
-You'll need to install [Node.js and npm](https://docs.npmjs.com/getting-started/installing-node).  We recommend installing [Node.js and npm via a "node version manager"](https://docs.npmjs.com/getting-started/installing-node) to avoid issues with installing packages gloablly. If you choose to install it manually, you might experience the [`EACCES` error when installing packages globally](https://docs.npmjs.com/getting-started/fixing-npm-permissions#option-1-change-the-permission-to-npm-s-default-directory).
+You'll need to install [Node.js and npm](https://docs.npmjs.com/getting-started/installing-node).  We recommend installing [Node.js and npm via a node version manager](https://docs.npmjs.com/getting-started/installing-node) to avoid issues with installing packages globally. If you choose to install it manually, you might experience the [`EACCES` error when installing packages globally](https://docs.npmjs.com/getting-started/fixing-npm-permissions#option-1-change-the-permission-to-npm-s-default-directory).
 
 Install the Purescript compiler (`purs`) with npm:
 
     npm install -g purescript
 
-Try running the PureScript compiler on the command line to verify that the PureScript compiler executables are available on your path:
+Try running the PureScript compiler on the command line to verify that the PureScript compiler executables are available on your `$PATH`:
 
     purs
 
@@ -258,7 +258,7 @@ Spago can be used to turn our PureScript code into JavaScript suitable for use i
     Build succeeded.
     Bundle succeeded and output file to index.js
 
-All the code in the `src` directory, a standard PureScript library known as the _Prelude_ and any project dependencies have been compiled to JavaScript. The resulting code is bundled as `index.js` and has also had any unused code removed, a process known as dead-code-elimination. This `index.js` file can now be included in an HTML document. If you try this, you should see the words "Hello, World!" printed to your browser's console.
+All the code in the `src` directory and any project dependencies have been compiled to JavaScript. The resulting code is bundled as `index.js` and has also had any unused code removed, a process known as dead code elimination. This `index.js` file can now be included in an HTML document. If you try this, you should see the words "Hello, World!" printed to your browser's console.
 
 If you open `index.js`, you should see a few compiled modules which look like this:
 
