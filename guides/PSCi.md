@@ -84,7 +84,7 @@ For help getting started, visit http://wiki.purescript.org/PSCi
 
 The PureScript compiler suite (i.e. the executable `purs`), unlike most compilers, does not ship with a standard library. In PureScript, even `Prelude` is a normal module, just like any other. Consequentially, `purs repl` requires a specific library to be installed in order to be able to evaluate terms in the REPL.
 
-`purescript-psci-support` defines the `Eval` type class for this purpose. Instances of `Eval` are provided for `Show`able types, and for `Eff`, so that we can evaluate actions in the REPL. Library implementors might like to provide `Eval` instances for their own `Eff`-like types.
+`purescript-psci-support` defines the `Eval` type class for this purpose. Instances of `Eval` are provided for `Show`able types, and for `Effect`, so that we can evaluate actions in the REPL.
 
 ## PSCi Without Spago
 
