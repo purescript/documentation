@@ -1,7 +1,7 @@
 
 ## Editors
 
-#### Atom 
+#### Atom
 
 - [purescript-contrib/atom-language-purescript](https://github.com/purescript-contrib/atom-language-purescript) provides syntax highlighting
 - [nwolverson/atom-ide-purescript](https://github.com/nwolverson/atom-ide-purescript) provides build support,   REPL, and autocomplete etc. via [psc-ide](https://github.com/purescript/purescript/tree/master/psc-ide)
@@ -37,12 +37,15 @@ Spacemacs users can just use the [`purescript` layer](https://github.com/syl20bn
 
 ## Build tools and package managers
 
-- [Pulp](https://github.com/purescript-contrib/pulp) - a standalone build system for PureScript ([pulp](https://www.npmjs.com/package/pulp) in `npm`)
+Maintained:
+- [spago](https://github.com/purescript/spago) - PureScript package manager and build tool powered by [Dhall](https://github.com/dhall-lang/dhall-lang) and [package-sets](https://github.com/purescript/package-sets)
 - [psc-package](https://github.com/purescript/psc-package) - A package manager for PureScript based on the concept of package sets
-- [spago](https://github.com/spacchetti/spago) - PureScript package manager and build tool powered by [Dhall](https://github.com/dhall-lang/dhall-lang) and [package-sets](https://github.com/purescript/package-sets)
-- [Gulp task](https://github.com/purescript-contrib/gulp-purescript) (`gulp-purescript` in `npm`)
-- [psvm-js](https://github.com/ThomasCrvsr/psvm-js) - PureScript Version Manager
 - [purs-loader](https://github.com/ethul/purs-loader/) - PureScript loader for WebPack
-- [psc-pane](https://github.com/anttih/psc-pane) - Auto reloading compiler which formats a single error to fit the window
-- [purescript-psa](https://github.com/natefaubion/purescript-psa) - A pretty, flexible error/warning reporting frontend for `psc` featuring colours, original source spans in errors, warning filtering and persistence.
 - [pscid](https://github.com/kRITZCREEK/pscid) is a lightweight file-watcher/testrunner for PS projects providing instant-rebuilds in an editor agnostic way
+- [purescript-psa](https://github.com/natefaubion/purescript-psa) - A pretty, flexible error/warning reporting frontend for `psc` featuring colours, original source spans in errors, warning filtering and persistence.
+- [Pulp](https://github.com/purescript-contrib/pulp) - a standalone build system for PureScript ([pulp](https://www.npmjs.com/package/pulp) in `npm`). *Spago is recommended over Pulp.*
+- [Gulp task](https://github.com/purescript-contrib/gulp-purescript) (`gulp-purescript` in `npm`). *Spago is recommended over the PureScript Gulp task.*
+
+Unmaintained:
+- [psvm-js](https://github.com/ThomasCrvsr/psvm-js) - PureScript Version Manager
+- [psc-pane](https://github.com/anttih/psc-pane) - Auto reloading compiler which formats a single error to fit the window
