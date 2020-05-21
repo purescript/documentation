@@ -106,9 +106,12 @@ instance semigroupAddInt :: Semigroup AddInt where
 
 In fact, a type similar to this `AddInt` is provided in `Data.Monoid.Additive`, in the `monoid` package.
 
-The reason why orphan instances are banned is because they can lead to two types of problems:
-* Recall that only one instance is allowed per type and class combination in a module. Orphan instances enable duplicate instances to be defined in separate modules without breaking this overlapping instances rule. So these modules are fine independently, but if both modules are ever imported into the same project (for example from separate libraries), then an instance collision would break the build.
-* Even if collisions are avoided, the lack of global uniques of instances would allow operating on data with incompatible instances in different sections of code. For example, in Ord-based maps and sets, if it were possible to insert some values into a map using one `Ord` instance, and then try to retrieve them using a different `Ord` instance, you'd have keys disappear from your map. Another example is if you had a type class which defined serialization and deserialization operations, you'd be able to serialize something with one instance and then try to deserialize it with a different incompatible instance.
+Orphan instances are banned because they can lead to incompatible duplicated instances for the same type and class. For example, suppose two separate modules define an orphan `Semigroup Int` instance, and one of them uses `+` for `append`, whereas the other uses `*`. Now suppose someone writes a third module which imports both of the first two, and that somewhere in that third module we have the expression `2 <> 3`, which calls for a `Semigroup Int` instance. The compiler now has two instances to choose from. What should it do? It could report an error, or it could arbitrarily pick one of the instances. Neither option is particularly appealing:
+
+ * If it chooses to report an error, it means that any pair of modules which define the same orphan instance can never be used together.
+ * If it arbitrarily picks one, we won't be able to determine whether `2 <> 3` will evaluate to 5 or 6. This can make it very difficult to ensure that your program will behave correctly!
+
+Banning orphan instances also ensures global uniques of instances. Without global uniques, you risk operating on data with incompatible instances in different sections of code. For example, in Ord-based maps and sets, if it were possible to insert some values into a map using one `Ord` instance, and then try to retrieve them using a different `Ord` instance, you'd have keys disappear from your map. Another example is if you had a type class which defined serialization and deserialization operations, you'd be able to serialize something with one instance and then try to deserialize it with a different incompatible instance.
 
 For multi-parameter type classes, the orphan instance check requires that the instance is either in the same module as the class, or the same module as at least one of the types occurring in the instance. (TODO: example)
 
