@@ -16,7 +16,7 @@ The Purescript compiler (`purs`) can be installed with npm:
 
 #### Setting up the Development Environment
 
-PureScript's core libraries are configured to use the [Spago](https://github.com/spacchetti/spago) package manager and build tool.
+[Spago](https://github.com/spacchetti/spago) is the recommended package manager and build tool for PureScript.
 
 If you don't have Spago installed, install it now:
 
