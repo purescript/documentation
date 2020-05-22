@@ -55,7 +55,7 @@ main = do
 
 ## Multi-Parameter Type Classes
 
-TODO. For now, see the section in [PureScript by Example](https://leanpub.com/purescript/read#leanpub-auto-multi-parameter-type-classes).
+TODO. For now, see the section in [PureScript by Example](https://book.purescript.org/chapter6.html#multi-parameter-type-classes).
 
 ## Superclasses
 
@@ -126,7 +126,7 @@ The `|` symbol marks the beginning of functional dependencies, which are separat
 
 Functional dependencies are especially useful with the various `Prim` typeclasses, such as `Prim.Row.Cons`: https://pursuit.purescript.org/builtins/docs/Prim.Row#t:Cons
 
-See also the section in [PureScript by Example](https://leanpub.com/purescript/read#leanpub-auto-functional-dependencies).
+See also the section in [PureScript by Example](https://book.purescript.org/chapter6.html#functional-dependencies).
 
 ## Type Class Deriving
 

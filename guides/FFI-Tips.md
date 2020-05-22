@@ -117,7 +117,7 @@ By moving the `show` reference out to `showSomething` the compiler will pick the
 
 ## Why Doesn't my `Eff` Work When Passed to a Normal JS Function?
 
-["Representing Side Effects"](https://leanpub.com/purescript/read#leanpub-auto-representing-side-effects) in *PureScript by Example*.
+["Representing Side Effects"](https://book.purescript.org/chapter10.html#representing-side-effects) in *PureScript by Example*.
 
 In order to avoid prematurely evaluating effects (or evaluating effects that should not be evaluated at all), PureScript wraps them in constant functions:
 

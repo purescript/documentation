@@ -232,4 +232,4 @@ Developers who define their own foreign data types should take care to document 
 
 I have hopefully shown that interoperating with Javascript is simple in both directions, once a few small implementation details are understood. You should now be able to wrap your Javascript libraries for use in PureScript, and vice versa.
 
-The [PureScript book](https://leanpub.com/purescript/read#leanpub-auto-the-foreign-function-interface) contains more information on the FFI, and plenty of examples and exercises for any interested readers.
+The [PureScript book](https://book.purescript.org/chapter10.html) contains more information on the FFI, and plenty of examples and exercises for any interested readers.

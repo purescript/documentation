@@ -68,6 +68,7 @@ If you would prefer to use different terms, please use the section below instead
 | [@milesfrain](https://github.com/milesfrain) | Miles Frain | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
 | [@GCrispino](https://github.com/gcrispino) | Gabriel Crispino | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
 | [@kl0tl](https://github.com/kl0tl) | Cyril Sobierajewicz | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
+| [@kurtmilam](https://github.com/kurtmilam) | Kurt Milam | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed) |
 
 ### Contributors using Modified Terms
 
