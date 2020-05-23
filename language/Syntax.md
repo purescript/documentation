@@ -97,6 +97,13 @@ multiply x y = x * y
 
 Type signatures are not required for top-level declarations in general, but is good practice to do so. See the section on types for more details.
 
+## Function names
+
+Function names must start with a lowercase letter ([unicode category](https://en.wikipedia.org/wiki/Unicode_character_property#General_Category) `Ll`) and may be followed by any number of:
+* Letter - `L`
+* Mark - `M`
+* Number - `N`
+
 ## Function application
 
 Function application is indicated by just the juxtaposition of a function with its arguments:
