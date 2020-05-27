@@ -104,7 +104,7 @@ Function and value names must start with a lowercase letter ([unicode category](
 * Mark: Unicode category `M`
 * Number: Unicode category `N`
 * Underscore: `_`
-* Apostrophie: `'`
+* Apostrophe: `'`
 
 ## Function application
 
