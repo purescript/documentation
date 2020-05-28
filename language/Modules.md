@@ -183,3 +183,15 @@ module Test (class Foldable, foldr, foldl, foldMap) where
 ```
 
 If a type class is exported, then all of its members must also be exported. Likewise, if a type class member is exported, the type class it belongs to must also be exported.
+
+### Default export a function
+
+To mimic the `export default` for a binding add a binding `default` and add it to the export list of the module:
+
+```purescript
+module Component(default) where
+
+someComponent = ...
+
+default = someComponent
+```
