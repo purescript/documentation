@@ -4,7 +4,7 @@ Let's walk through the basics of getting set up to use the PureScript compiler `
 
 We'll start with the installation of the compiler and Spago build tool, and then go through the basic usage of `purs repl`, working towards a solution of problem 1 from [Project Euler](http://projecteuler.net/problem=1).
 
-#### Installing the Compiler
+### Installing the Compiler
 
 You'll need to install [Node.js and npm](https://docs.npmjs.com/getting-started/installing-node).  We recommend installing [Node.js and npm via a node version manager](https://docs.npmjs.com/getting-started/installing-node) to avoid issues with installing packages globally. If you choose to install it manually, you might experience the [`EACCES` error when installing packages globally](https://docs.npmjs.com/getting-started/fixing-npm-permissions#option-1-change-the-permission-to-npm-s-default-directory).
 
@@ -18,7 +18,26 @@ Try running the PureScript compiler on the command line to verify that the PureS
 
 It can also be installed from [Hackage](http://hackage.haskell.org/package/purescript), or by downloading the latest [binary bundle](https://github.com/purescript/purescript/releases) for your OS. If you do so, make sure the `purs` executable is on your `$PATH`.
 
-#### Setting up the Development Environment
+### Troubleshooting
+
+**Problem:**
+```
+Error: EACCES: permission denied
+```
+**Solution:**
+
+See above instructions and install a node version manager, such as `nvm`.
+
+**Problem:**
+```
+error while loading shared libraries: libtinfo.so.5: cannot open shared object file: No such file or directory
+```
+**Solution:**
+```
+sudo apt install libtinfo5
+```
+
+### Setting up the Development Environment
 
 [Spago](https://github.com/spacchetti/spago) is the recommended package manager and build tool for PureScript.
 
@@ -54,7 +73,7 @@ You should see output similar to the following:
 
 If everything was built successfully, and the tests ran without problems, then the last line should state "Tests succeeded."
 
-#### Installing Dependencies
+### Installing Dependencies
 
 Dependencies can be installed using Spago. We will be using the `lists` library shortly, so install it now:
 
@@ -62,7 +81,7 @@ Dependencies can be installed using Spago. We will be using the `lists` library 
 
 The `lists` library sources should now be available in the `.spago/lists/{version}/` subdirectory, and will be included when you compile your project.
 
-#### Working in PSCI
+### Working in PSCI
 
 PSCi is the interactive mode of PureScript. It is useful for working with pure computations, and for testing ideas.
 
@@ -117,7 +136,7 @@ We will be using some of the functions from the `Prelude` and `Data.List` module
 
 Note that using `Tab` to autocomplete names can be a useful time-saving device in `psci`.
 
-#### Solving Project Euler #1
+### Solving Project Euler #1
 
 The following problem is taken from [Project Euler](http://projecteuler.net/problem=1):
 
@@ -159,7 +178,7 @@ When you have finished using PSCi, type `:quit` to quit:
     > :quit
     See ya!
 
-#### Compiling a Solution
+### Compiling a Solution
 
 Now that we've seen how to use the REPL to reach the answer, let's move our solution into a source file and compile it.
 
@@ -202,7 +221,7 @@ This will compile each module present in `src/` into a separate file in the `out
 
 The compiler will display several warnings about missing type declarations. In general it is considered good practice to provide explicit type signatures. In this guide, they are left out for brevity. In the absence of type signatures, the PureScript compiler infers types automatically but will remind us to consider adding them.
 
-#### Writing a Test Suite
+### Writing a Test Suite
 
 To test our code, we'll use the `assert` library:
 
@@ -226,7 +245,7 @@ Our "test suite" is just a single assertion that the `answer` value equals the c
 
 Run the tests using `spago test`, and you should hopefully see "Tests OK" in the last line.
 
-#### Creating Executables
+### Creating Executables
 
 We can modify the `main` function in the `src/Main.purs` module to print our result to the console:
 
@@ -249,7 +268,7 @@ The `spago run` command can be used to compile and run the `Main` module:
     The answer is 233168
 
 
-#### Compiling for the Browser
+### Compiling for the Browser
 
 Spago can be used to turn our PureScript code into JavaScript suitable for use in the web browser by using the `spago bundle-app` command:
 
@@ -310,7 +329,7 @@ This illustrates a few points about the way the PureScript compiler generates Ja
 
 These points are important since they mean that PureScript generates simple, understandable code. The code generation process, in general, is quite a shallow transformation. It takes relatively little understanding of the language to predict what JavaScript code will be generated for a particular input.
 
-#### Compiling CommonJS Modules
+### Compiling CommonJS Modules
 
 Spago can also be used to generate CommonJS modules from PureScript code. This can be useful when using NodeJS, or just when developing a larger project which uses CommonJS modules to break code into smaller components.
 
@@ -322,7 +341,7 @@ To build CommonJS modules, use the `spago build` command:
 
 The generated modules will be placed in the `output` directory by default. Each PureScript module will be compiled to its own CommonJS module, in its own subdirectory.
 
-#### What Next?
+### What Next?
 
 If you're new to typed functional programming, your next stop should be [PureScript by Example](https://book.purescript.org/), which will walk you through learning PureScript by solving practical problems.
 
