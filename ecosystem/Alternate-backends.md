@@ -6,6 +6,8 @@ There are various alternatives to `psc`'s default JavaScript backend:
 |:--------------------------------------------------------------------------------------|:-----------|:--------------|:------|:-----------------------|
 | [andyarvanitis/purescript-native](https://github.com/andyarvanitis/purescript-native)             | 0.13.x    | C++11 or Go         | active | all applicable tests in `purescript/tests/purs/passing` are passing |
 | [purerl/purerl](https://github.com/purerl/purerl) | 0.13.5 | Erlang | active |
+| [purescript-python/purescript-python](https://github.com/purescript-python/purescript-python) | 0.13.x     | Python >= 3.5 |
+
 
 ## Alpha Quality
 
@@ -14,7 +16,6 @@ There are various alternatives to `psc`'s default JavaScript backend:
 | [andyarvanitis/purescript-clojure](https://github.com/andyarvanitis/purescript-clojure)       |            | Clojure (JVM) |
 | [csicar/pskt](https://github.com/csicar/pskt)                                                 |            | Kotlin        |
 | [pure-c/pure-c](https://github.com/pure-c/pure-c)                                             |            | C (Clang)     |
-| [purescript-python/purescript-python](https://github.com/purescript-python/purescript-python) | 0.13.x     | Python >= 3.5 |
 | [epost/psc-query](https://github.com/epost/psc-query)                                         | 0.11.7     | Datalog       |
 | [paulyoung/pureswift](https://github.com/paulyoung/pureswift)                                 |            | Swift         |
 
