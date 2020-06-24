@@ -19,6 +19,7 @@ This repository is a collaborative effort, so please feel free to make a pull re
 - The [PureScript Book](https://book.purescript.org) is the recommended approach to learning the language, since it covers more material in greater depth. However, it is currently being updated from the `0.11.7` version of the PureScript compiler to the `0.13.x` version.
 - [Language Reference](language/README.md)
 - [PureScript: Jordan's Reference](https://github.com/JordanMartinez/purescript-jordans-reference): An up-to-date project covering Getting Started, Build Tools, PureScript's syntax with examples, FP design patterns, and PureScript's ecosystem.
+- [PureScript Cookbook](https://github.com/JordanMartinez/purescript-cookbook): An unofficial cookbook for PureScript.
 - [A guide to the PureScript numeric hierarchy](https://a-guide-to-the-purescript-numeric-hierarchy.readthedocs.io/en/latest/index.html): An introduction to the mathematics behind the numeric hierarchy of type classes in PureScript’s Prelude. (See also [PureScript numeric hierarchy overview](https://harry.garrood.me/numeric-hierarchy-overview/).)
 
 ### Guides
