@@ -6,7 +6,7 @@ We'll start with the installation of the compiler and Spago build tool, and then
 
 ### Installing the Compiler
 
-You'll need to install [Node.js and npm](https://docs.npmjs.com/getting-started/installing-node).  We recommend installing [Node.js and npm via a node version manager](https://docs.npmjs.com/getting-started/installing-node) to avoid issues with installing packages globally. If you choose to install it manually, you might experience the [`EACCES` error when installing packages globally](https://docs.npmjs.com/getting-started/fixing-npm-permissions#option-1-change-the-permission-to-npm-s-default-directory).
+You'll need to install [Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm#using-a-node-version-manager-to-install-nodejs-and-npm).  We recommend installing [Node.js and npm via a node version manager](https://docs.npmjs.com/getting-started/installing-node) to avoid issues with installing packages globally. If you choose to install it manually, you might experience the [`EACCES` error when installing packages globally](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
 
 Install the Purescript compiler (`purs`) with npm:
 
@@ -18,24 +18,7 @@ Try running the PureScript compiler on the command line to verify that the PureS
 
 It can also be installed from [Hackage](http://hackage.haskell.org/package/purescript), or by downloading the latest [binary bundle](https://github.com/purescript/purescript/releases) for your OS. If you do so, make sure the `purs` executable is on your `$PATH`.
 
-### Troubleshooting
-
-**Problem:**
-```
-Error: EACCES: permission denied
-```
-**Solution:**
-
-See above instructions and install a node version manager, such as `nvm`.
-
-**Problem:**
-```
-error while loading shared libraries: libtinfo.so.5: cannot open shared object file: No such file or directory
-```
-**Solution:**
-```
-sudo apt install libtinfo5
-```
+If you encounter problems during installation, see the compiler's [Install Guide](https://github.com/purescript/purescript/blob/master/INSTALL.md) for troubleshooting suggestions.
 
 ### Setting up the Development Environment
 
