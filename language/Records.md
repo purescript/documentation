@@ -20,6 +20,15 @@ Fields of records can be accessed using a dot, followed by the label of the fiel
 ["Functional Programming","JavaScript"]
 ```
 
+Type synonyms for record types are created with the `type` keyword:
+
+```purs
+type Point =
+  { x :: Number
+  , y :: Number
+  }
+```
+
 ## Kinds
 
 `{ ... }` is just syntactic sugar for the `Record` type constructor, so `{ language ::  String }` is the same as `Record ( language :: String )`.
@@ -77,6 +86,39 @@ A record update function can also be defined by using an `_` inplace of the reco
 
 ```purescript
 _ { fieldName = newValue }
+```
+
+## Record Puns
+
+_Record puns_ enable concise code when record fields have the same name as other values. This feature is useful for constructing records and pattern matching.
+
+### Constructing
+
+```purs
+origin :: Point
+origin = { x, y }
+-- origin = { x: x, y: y } -- Equivalent
+  where
+    x = 0.0
+    y = 0.0
+```
+
+### Pattern Matching
+
+```purs
+showPoint :: Point -> String
+showPoint { x, y } = show x <> ", " <> show y
+-- showPoint { x : x, y : y } = show x <> ", " <> show y -- Equivalent
+```
+
+### Not for Record Updates
+
+Note that puns may not be used for record updates.
+
+```purescript
+setX :: Number -> Point -> Point
+setX x point = point { x = x }
+-- setX x point = point { x } -- Not allowed
 ```
 
 ## Field Names
