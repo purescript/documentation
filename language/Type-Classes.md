@@ -145,13 +145,27 @@ newtype Person = Person { name :: String, age :: Int }
 derive instance eqPerson :: Eq Person
 derive instance ordPerson :: Ord Person
 ```
-Currently, the following type classes can be derived:
+Currently, the following type classes can be derived by the compiler:
 
-- [Data.Generic.Rep (class Generic)](https://pursuit.purescript.org/packages/purescript-generics-rep/6.0.0/docs/Data.Generic.Rep#t:Generic)
-- [Data.Eq (class Eq)](https://pursuit.purescript.org/packages/purescript-prelude/4.1.0/docs/Data.Eq#t:Eq)
-- [Data.Ord (class Ord)](https://pursuit.purescript.org/packages/purescript-prelude/4.1.0/docs/Data.Ord#t:Ord)
-- [Data.Functor (class Functor)](https://pursuit.purescript.org/packages/purescript-prelude/4.1.0/docs/Data.Functor#t:Functor)
-- [Data.Newtype (class Newtype)](https://pursuit.purescript.org/packages/purescript-newtype/3.0.0/docs/Data.Newtype#t:Newtype)
+- [Data.Generic.Rep (class Generic)](https://pursuit.purescript.org/packages/purescript-generics-rep/docs/Data.Generic.Rep#t:Generic)
+- [Data.Eq (class Eq)](https://pursuit.purescript.org/packages/purescript-prelude/docs/Data.Eq#t:Eq)
+- [Data.Ord (class Ord)](https://pursuit.purescript.org/packages/purescript-prelude/docs/Data.Ord#t:Ord)
+- [Data.Functor (class Functor)](https://pursuit.purescript.org/packages/purescript-prelude/docs/Data.Functor#t:Functor)
+- [Data.Newtype (class Newtype)](https://pursuit.purescript.org/packages/purescript-newtype/docs/Data.Newtype#t:Newtype)
+
+Note that `derive instance` is not the only mechanism for allowing you to avoid writing out boilerplate type class instance code. Many type classes not listed here can be derived through other means, such as via a Generic instance. For example, here's how to create a `Show` instance for `Person` via `genericShow`:
+
+```purescript
+import Data.Generic.Rep (class Generic)
+import Data.Generic.Rep.Show (genericShow)
+
+derive instance genericPerson :: Generic Person _
+
+instance showPerson :: Show Person where
+  show = genericShow
+```
+
+More information on Generic deriving is available [in the generics-rep library documentation](https://pursuit.purescript.org/packages/purescript-generics-rep).
 
 ## Compiler-Solvable Type Classes
 
