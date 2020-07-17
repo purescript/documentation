@@ -121,6 +121,32 @@ setX x point = point { x = x }
 -- setX x point = point { x } -- Not allowed
 ```
 
+## Merging Records
+
+The [`record`](https://pursuit.purescript.org/packages/purescript-record) package enables additional record operations, such as `merge` and `union`.
+
+Here's an example of using the `disjointUnion` function to add a `z` field to a `Point` record. The `to3d` function merges the original record `p` with another record `{ z }` created from this new `Number`:
+
+```purescript
+import Record (disjointUnion)
+
+type Point3d
+  = { x :: Number
+    , y :: Number
+    , z :: Number
+    }
+
+to3d :: Point -> Number -> Point3d
+to3d p z = disjointUnion p { z }
+
+-- Equivalent to:
+to3d p z =
+  { x: p.x
+  , y: p.y
+  , z
+  }
+```
+
 ## Field Names
 
 Symbols which are illegal value identifiers, such as title-cased identifiers or ones containing spaces, can be used to identify a field by enclosing it in double-quotes:
