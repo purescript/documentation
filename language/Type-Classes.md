@@ -167,6 +167,25 @@ instance showPerson :: Show Person where
 
 More information on Generic deriving is available [in the generics-rep library documentation](https://pursuit.purescript.org/packages/purescript-generics-rep).
 
+Note that we _could_ write our original example as:
+```purs
+derive newtype instance eqPerson :: Eq Person
+```
+In the case of `Eq`, there’s no difference between `derive instance` and `derive newtype instance` for `newtype`s, but in general `derive newtype instance` only works for `newtype`s whereas `derive instance` works for `data` too. Some more examples:
+* `derive instance eqMyType :: Eq MyType` uses the compiler’s built in knowledge of `Eq` to write the instance for you. It works for both `data` and `newtype`, provided that all of the fields have `Eq` instances. Recall the the compiler has built-in knowledge of the classes listed above (`Eq`, `Ord`, etc.).
+* `derive instance myClassMyType :: MyClass MyType` is not valid because the compiler does not have built-in knowledge of `MyClass`. Your options are to either:
+  1. If `MyType` is a `newtype` of a type with a `MyClass` instance, use the `newtype` keyword: `derive newtype instance myClassMyType :: MyClass MyType`. This reuses the `MyClass` instance for whatever `MyType` is a newtype of, and it works for any class, not just ones with special built-in compiler support.
+  2. If `MyClass` has generic members, then you can first derive a generic instance of `MyType` then use it with `MyClass`. For example:
+    ```purs
+    derive instance genericMyType :: Generic MyType _
+  
+    instance myClassMyType :: MyClass MyType where
+      myClassDoesThis = genericMyClassDoesThis
+      myClassDoesThat = genericMyClassDoesThat
+    ```
+  3. Write a `GenericMyClass` implementation. This is a nice option if you're publishing a library.
+  4. Write the typeclass instance by hand without `derive`. This is likely easiest if you're not planning on creating lots of `MyClass` instances.
+  
 ## Compiler-Solvable Type Classes
 
 Some type classes can be automatically solved by the PureScript Compiler without requiring you place a PureScript statement, like `derive instance`, in your source code.
