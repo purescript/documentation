@@ -137,54 +137,90 @@ See also the section in [PureScript by Example](https://book.purescript.org/chap
 
 ## Type Class Deriving
 
-Some type class instances can be derived automatically by the PureScript compiler. To derive a type class instance, use the `derive instance` keywords:
+The compiler can derive type class instances to spare you the tedium of writing boilerplate. There are a few ways to do this depending on the specific Type and Class being derived.
 
-```purescript
-newtype Person = Person { name :: String, age :: Int }
+### Derive from `newtype`
 
-derive instance eqPerson :: Eq Person
-derive instance ordPerson :: Ord Person
+If you'd like to use a wrapped type's instance for your newtype, use the `derive newtype` keywords.
+
+For example, let's say you want to add two `Points` values using the `Semiring` instance of the wrapped `Int`.
+
+```purs
+newtype Points = Points Int
+
+derive newtype instance semiringPoints :: Semiring Points
+
+tenPoints :: Points
+tenPoints = (Points 4) + (Points 6)
 ```
-Currently, the following type classes can be derived by the compiler:
 
+That `derive` line replaced all this code!:
+```purs
+-- No need to write this
+instance semiringPoints :: Semiring Points where
+  zero = Points 0
+  add (Points a) (Points b) = Points (a + b)
+  mul (Points a) (Points b) = Points (a * b)
+  one = Points 1
+```
+
+### Classes with built-in compiler support
+
+Some classes have special built-in compiler support, and instances can be derived from all types, not just `newtype`s.
+
+For example, if you you'd like to be able to remove duplicates from an array of an ADT using `nub`, you need an `Eq` and `Ord` instance. Rather than writing these manually, let the compiler do the work.
+
+```purs
+import Data.Array (nub)
+
+data MyADT
+  = Some
+  | Arbitrary Int
+  | Contents Number String
+
+derive instance eqMyADT :: Eq MyADT
+derive instance ordMyADT :: Ord MyADT
+
+nub [Some, Arbitrary 1, Some, Some] == [Some, Arbitrary 1]
+```
+
+Currently, the following type classes can be derived by the compiler:
 - [Data.Generic.Rep (class Generic)](https://pursuit.purescript.org/packages/purescript-generics-rep/docs/Data.Generic.Rep#t:Generic)
 - [Data.Eq (class Eq)](https://pursuit.purescript.org/packages/purescript-prelude/docs/Data.Eq#t:Eq)
 - [Data.Ord (class Ord)](https://pursuit.purescript.org/packages/purescript-prelude/docs/Data.Ord#t:Ord)
 - [Data.Functor (class Functor)](https://pursuit.purescript.org/packages/purescript-prelude/docs/Data.Functor#t:Functor)
 - [Data.Newtype (class Newtype)](https://pursuit.purescript.org/packages/purescript-newtype/docs/Data.Newtype#t:Newtype)
 
-Note that `derive instance` is not the only mechanism for allowing you to avoid writing out boilerplate type class instance code. Many type classes not listed here can be derived through other means, such as via a Generic instance. For example, here's how to create a `Show` instance for `Person` via `genericShow`:
+Note that with our earlier `Points` `newtype`, we can use either of these options to derive an `Eq` instance. They are equivalent in this case.
+```
+derive instance eqPoints :: Eq Points
+derive newtype instance eqPoints :: Eq Points
+```
+
+### Deriving from `Generic`
+
+The compiler's built-in support for `Generic` unlocks convenient deriving for many other classes not listed above.
+
+For example, if we wanted a `Show` instance for `MyADT`, it might seem like we're out of luck because neither `MyADT` is a `newtype` nor is `Show` listed as a class with built-in compiler support.
+
+But we _can_ use `genricShow`, which works with _any_ type that has a `Generic` instance. And recall that the compiler has built-in support for deriving a `Generic` instance for any type (including the `MyADT` type). We put all those pieces together like so:
 
 ```purescript
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
+import Effect.Console (logShow)
 
-derive instance genericPerson :: Generic Person _
+derive instance genericMyADT :: Generic MyADT _
 
-instance showPerson :: Show Person where
+instance showMyADT :: Show MyADT where
   show = genericShow
+  
+main = logShow [Some, Arbitrary 1, Contents 2.0 "Three"]
+-- Prints:
+-- [Some,(Arbitrary 1),(Contents 2.0 "Three")]
 ```
 
 More information on Generic deriving is available [in the generics-rep library documentation](https://pursuit.purescript.org/packages/purescript-generics-rep).
-
-Note that we _could_ write our original example as:
-```purs
-derive newtype instance eqPerson :: Eq Person
-```
-In the case of `Eq`, there’s no difference between `derive instance` and `derive newtype instance` for `newtype`s, but in general `derive newtype instance` only works for `newtype`s whereas `derive instance` works for `data` too. Some more examples:
-* `derive instance eqMyType :: Eq MyType` uses the compiler’s built in knowledge of `Eq` to write the instance for you. It works for both `data` and `newtype`, provided that all of the fields have `Eq` instances. Recall the the compiler has built-in knowledge of the classes listed above (`Eq`, `Ord`, etc.).
-* `derive instance myClassMyType :: MyClass MyType` is not valid because the compiler does not have built-in knowledge of `MyClass`. Your options are to either:
-  1. If `MyType` is a `newtype` of a type with a `MyClass` instance, use the `newtype` keyword: `derive newtype instance myClassMyType :: MyClass MyType`. This reuses the `MyClass` instance for whatever `MyType` is a newtype of, and it works for any class, not just ones with special built-in compiler support.
-  2. If `MyClass` has generic members, then you can first derive a generic instance of `MyType` then use it with `MyClass`. For example:
-    ```purs
-    derive instance genericMyType :: Generic MyType _
-  
-    instance myClassMyType :: MyClass MyType where
-      myClassDoesThis = genericMyClassDoesThis
-      myClassDoesThat = genericMyClassDoesThat
-    ```
-  3. Write a `GenericMyClass` implementation. This is a nice option if you're publishing a library.
-  4. Write the typeclass instance by hand without `derive`. This is likely easiest if you're not planning on creating lots of `MyClass` instances.
   
 ## Compiler-Solvable Type Classes
 
