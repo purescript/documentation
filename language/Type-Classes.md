@@ -221,7 +221,7 @@ main = logShow [Some, Arbitrary 1, Contents 2.0 "Three"]
 ```
 
 More information on Generic deriving is available [in the generics-rep library documentation](https://pursuit.purescript.org/packages/purescript-generics-rep).
-  
+
 ## Compiler-Solvable Type Classes
 
 Some type classes can be automatically solved by the PureScript Compiler without requiring you place a PureScript statement, like `derive instance`, in your source code.
