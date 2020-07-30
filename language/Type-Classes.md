@@ -155,6 +155,7 @@ tenPoints = (Points 4) + (Points 6)
 ```
 
 That `derive` line replaced all this code!:
+
 ```purs
 -- No need to write this
 instance semiringPoints :: Semiring Points where
@@ -192,7 +193,8 @@ Currently, the following type classes can be derived by the compiler:
 - [Data.Newtype (class Newtype)](https://pursuit.purescript.org/packages/purescript-newtype/docs/Data.Newtype#t:Newtype)
 
 Note that with our earlier `Points` `newtype`, we can use either of these options to derive an `Eq` instance. They are equivalent in this case.
-```
+
+```purs
 derive instance eqPoints :: Eq Points
 derive newtype instance eqPoints :: Eq Points
 ```
@@ -221,6 +223,41 @@ main = logShow [Some, Arbitrary 1, Contents 2.0 "Three"]
 ```
 
 More information on Generic deriving is available [in the generics-rep library documentation](https://pursuit.purescript.org/packages/purescript-generics-rep).
+
+#### Avoiding stack overflow errors with recursive types
+
+Be careful when using generic functions with recursive data types. The instances _cannot_ be written in point free style:
+
+```purs
+import Data.Generic.Rep (class Generic)
+import Data.Generic.Rep.Show (genericShow)
+import Effect.Console (logShow)
+
+data Chain a
+  = End a
+  | Link a (Chain a)
+
+derive instance genericChain :: Generic (Chain a) _
+
+instance showChain :: Show a => Show (Chain a) where
+  show c = genericShow c -- Note the use of the seemingly-unnecessary variable `c`
+
+main = logShow $ Link 1 $ Link 2 $ End 3
+-- Prints:
+-- (Link 1 (Link 2 (End 3)))
+```
+
+If the instance was written in point free style, then would produce a stack overflow error:
+
+``` purs
+instance showChain :: Show a => Show (Chain a) where
+  show = genericShow -- This line is problematic
+
+-- Throws this error:
+-- RangeError: Maximum call stack size exceeded
+```
+
+This technique of undoing point free notation is known as _eta expansion_.
 
 ## Compiler-Solvable Type Classes
 
