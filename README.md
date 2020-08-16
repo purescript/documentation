@@ -21,6 +21,7 @@ This repository is a collaborative effort, so please feel free to make a pull re
 - [PureScript: Jordan's Reference](https://github.com/JordanMartinez/purescript-jordans-reference): An up-to-date project covering Getting Started, Build Tools, PureScript's syntax with examples, FP design patterns, and PureScript's ecosystem.
 - [PureScript Cookbook](https://github.com/JordanMartinez/purescript-cookbook): An unofficial cookbook for PureScript.
 - [A guide to the PureScript numeric hierarchy](https://a-guide-to-the-purescript-numeric-hierarchy.readthedocs.io/en/latest/index.html): An introduction to the mathematics behind the numeric hierarchy of type classes in PureScript’s Prelude. (See also [PureScript numeric hierarchy overview](https://harry.garrood.me/numeric-hierarchy-overview/).)
+- [PureScript Resources](https://purescript-resources.readthedocs.io/): A collection of notes and links to resources to learn and use PureScript.
 
 ### Guides
 
@@ -38,7 +39,7 @@ This repository is a collaborative effort, so please feel free to make a pull re
 ### Tools
 
 - [Editor and tool support](ecosystem/Editor-and-tool-support.md): Editor plugins, build tools, and other development tools
-- [PureScript and NixOS](https://pr06lefs.wordpress.com/2015/01/11/get-started-with-purescript-on-nixos/): How to use PureScript with NixOS
+- [`easy-purescript-nix`](https://github.com/justinwoo/easy-purescript-nix): Set up PureScript and development environment with [Nix](https://nixos.org/)
 - [PSCi](guides/PSCi.md): An interactive development tool for PureScript
 
 ### Ecosystem
@@ -46,6 +47,7 @@ This repository is a collaborative effort, so please feel free to make a pull re
 - [Maintained Packages](ecosystem/Maintained-Packages.md)
 - [Style Guide](guides/Style-Guide.md)
 - [Alternate Backends](https://github.com/purescript/documentation/blob/master/ecosystem/Alternate-backends.md): PureScript can compile to other languages as well!
+- [Recommended tooling for PureScript in 2020](https://discourse.purescript.org/t/recommended-tooling-for-purescript-in-2020/1615)
 
 ### Articles
 
