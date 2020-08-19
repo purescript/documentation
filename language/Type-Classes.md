@@ -170,33 +170,33 @@ Currently, instances for the following classes can be derived by the compiler:
 
 If you would like your newtype to defer to the instance that the underlying type uses for a given class, then you can use newtype deriving via the `derive newtype` keywords.
 
-For example, let's say you want to add two `Points` values using the `Semiring` instance of the wrapped `Int`.
+For example, let's say you want to add two `Score` values using the `Semiring` instance of the wrapped `Int`.
 
 ```purs
-newtype Points = Points Int
+newtype Score = Score Int
 
-derive newtype instance semiringPoints :: Semiring Points
+derive newtype instance semiringScore :: Semiring Score
 
-tenPoints :: Points
-tenPoints = (Points 4) + (Points 6)
+tenPoints :: Score
+tenPoints = (Score 4) + (Score 6)
 ```
 
 That `derive` line replaced all this code!:
 
 ```purs
 -- No need to write this
-instance semiringPoints :: Semiring Points where
-  zero = Points 0
-  add (Points a) (Points b) = Points (a + b)
-  mul (Points a) (Points b) = Points (a * b)
-  one = Points 1
+instance semiringScore :: Semiring Score where
+  zero = Score 0
+  add (Score a) (Score b) = Score (a + b)
+  mul (Score a) (Score b) = Score (a * b)
+  one = Score 1
 ```
 
 Note that we can use either of these options to derive an `Eq` instance for a `newtype`, since `Eq` has built-in compiler support. They are equivalent in this case.
 
 ```purs
-derive instance eqPoints :: Eq Points
-derive newtype instance eqPoints :: Eq Points
+derive instance eqScore :: Eq Score
+derive newtype instance eqScore :: Eq Score
 ```
 
 ### Deriving from `Generic`
@@ -227,12 +227,12 @@ Note that the `show` output string can be copy-pasted to reconstruct the origina
 ```purs
 import Effect.Console (logShow)
 
-newtype Points = Points Int
+newtype Score = Score Int
 
 -- newtype deriving omits wrapper with show
-derive newtype instance showPoints :: Show Points
+derive newtype instance showScore :: Show Score
 
-main = logShow (Points 5)
+main = logShow (Score 5)
 -- Prints:
 -- 5
 ```
@@ -242,16 +242,16 @@ import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Effect.Console (logShow)
 
-newtype Points = Points Int
+newtype Score = Score Int
 
 -- generic deriving prints wrapper with show
-derive instance genericPoints :: Generic Points _
-instance showPoints :: Show Points where
+derive instance genericScore :: Generic Score _
+instance showScore :: Show Score where
   show = genericShow
 
-main = logShow (Points 5)
+main = logShow (Score 5)
 -- Prints:
--- (Points 5)
+-- (Score 5)
 ```
 
 More information on Generic deriving is available [in the generics-rep library documentation](https://pursuit.purescript.org/packages/purescript-generics-rep). See this [blog post](https://harry.garrood.me/blog/write-your-own-generics/) for a tutorial on how to write your own `generic` functions.
