@@ -203,7 +203,7 @@ derive newtype instance eqScore :: Eq Score
 
 The compiler's built-in support for `Generic` unlocks convenient deriving for many other classes not listed above.
 
-For example, if we wanted a `Show` instance for `MyADT`, it might seem like we're out of luck because neither `MyADT` is a `newtype` nor is `Show` listed as a class with built-in compiler support.
+For example, if we wanted to derive a `Show` instance for `MyADT` it might seem like we're out of luck: `Show` is not a class with built-in compiler support for deriving and `MyADT` is not a `newtype` (so we can't use newtype deriving).
 
 But we _can_ use `genericShow`, which works with _any_ type that has a `Generic` instance. And recall that the compiler has built-in support for deriving a `Generic` instance for any type (including the `MyADT` type). We put all those pieces together like so:
 
