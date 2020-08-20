@@ -181,7 +181,7 @@ tenPoints :: Score
 tenPoints = (Score 4) + (Score 6)
 ```
 
-That `derive` line replaced all this code!:
+That `derive` line replaced all this code:
 
 ```purs
 -- No need to write this
@@ -222,7 +222,9 @@ main = logShow [Some, Arbitrary 1, Contents 2.0 "Three"]
 -- [Some,(Arbitrary 1),(Contents 2.0 "Three")]
 ```
 
-Note that the `show` output string can be copy-pasted to reconstruct the original data. This is a good oportunity to emphasize how `newtype` deriving simply reuses the instance of the underlying type. In the case of `show`, this means omitting printing the wrapper.
+The `Show` type class is most often used for debugging data, so the output of most `Show` instances can be copy-pasted back into a PureScript source file to reconstruct the original data. The `Show` instance we created by deriving `Generic` and then using `genericShow` follows this convention.
+
+This is a good opportunity to emphasize how newtype deriving is different from instances derived by the compiler or through the `Generic` type class. In the examples below, notice how the instance derived through `Generic` includes the newtype constructor `Score`, but the newtype-derived instance simply reuses the underlying `Show` instance for `Int` and therefore does not include the constructor:
 
 ```purs
 import Effect.Console (logShow)
