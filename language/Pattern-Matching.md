@@ -180,13 +180,12 @@ Guards may also be used within `case` expressions, which allow for inline expres
 
 ```purs
 fb :: Int -> Effect Unit
-fb n =
-  log case n of
-    _
-      | 0 == mod n 15 -> "FizzBuzz"
-      | 0 == mod n 3 -> "Fizz"
-      | 0 == mod n 5 -> "Buzz"
-      | otherwise -> show n
+fb = log <<< case _ of
+  n
+    | 0 == mod n 15 -> "FizzBuzz"
+    | 0 == mod n 3 -> "Fizz"
+    | 0 == mod n 5 -> "Buzz"
+    | otherwise -> show n
 ```
 
 ```purs
