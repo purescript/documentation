@@ -11,7 +11,9 @@ These tools can be installed via [NPM](https://www.npmjs.com), among other insta
 
 ## Editor support
 
-The PureScript compiler includes an IDE server, [`psc-ide`](https://github.com/purescript/purescript/tree/master/psc-ide), to supply tooling for editors. Most editor plugins which rely on PureScript's IDE tooling have at least these features:
+The PureScript compiler includes an IDE server, [`psc-ide`](https://github.com/purescript/purescript/tree/master/psc-ide), to supply tooling for editors. This server has been used to implement a [PureScript language server](https://github.com/nwolverson/purescript-language-server), which implements the [Language Server Protocol](https://langserver.org) for PureScript. Major editor tooling either uses `psc-ide` or the language server.
+
+Most editor plugins which rely on PureScript's IDE tooling have at least these features:
 
 - Autocomplete (including auto-imports)
 - Definitions and error reporting on hover
@@ -25,7 +27,6 @@ The PureScript compiler includes an IDE server, [`psc-ide`](https://github.com/p
 
 Some tools are commonly used with several editors, as they are implemented to be editor-agnostic:
 
-- [purescript-language-server](https://github.com/nwolverson/purescript-language-server) implements the [Language Server Protocol](https://langserver.org) for PureScript via `psc-ide`. Almost all editor tooling either uses `psc-ide` or the language server.
 - [psa](https://github.com/natefaubion/purescript-psa) is a pretty, flexible error/warning reporting frontend for the compiler featuring colours, original source spans in errors, warning filtering and persistence.
 - [pscid](https://github.com/kRITZCREEK/pscid) is a lightweight file-watcher and test runner which provides instant-rebuilds in an editor agnostic way.
 
