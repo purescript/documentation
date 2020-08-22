@@ -179,7 +179,7 @@ compare _ _ = EQ
 Guard Limitations in `let`
 ----------------------------
 
-Guards are incompatable with Constructor Patterns in `let`. For example, the following function using a `Tuple` constructor pattern will not compile:
+Guards are [currently not supported](purescript/purescript#3200) with patterns other than simple identifiers in `let` expressions. For example, this does not compile:
 ```purs
 -- This doesn't work
 f1 :: Int
