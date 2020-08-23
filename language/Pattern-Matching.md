@@ -192,7 +192,7 @@ f1 =
     a
 ```
 
-A workaround is to separate the constructor pattern from the Guard:
+A workaround is to separate the constructor pattern from the guard:
 ```purs
 f2 :: Int
 f2 =
