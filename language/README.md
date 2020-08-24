@@ -1,5 +1,7 @@
 # PureScript Language Reference
 
+**Note:** the `language` folder's content is primarily for intermediate users already familiar with the language. It serves to help such users determine whether an issue they are experiencing is intended behavior or caused by a bug. It is not meant for people who are learning PureScript for the first time.
+
 As an introductory example, here is the usual "Hello World" written in PureScript:
 
 ```purescript
