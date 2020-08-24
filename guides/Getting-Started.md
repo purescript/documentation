@@ -6,7 +6,9 @@ We'll start with the installation of the compiler and Spago build tool, and then
 
 ### Installing the Compiler
 
-You'll need to install [Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm#using-a-node-version-manager-to-install-nodejs-and-npm).  We recommend installing [Node.js and npm via a node version manager](https://docs.npmjs.com/getting-started/installing-node) to avoid issues with installing packages globally. If you choose to install it manually, you might experience the [`EACCES` error when installing packages globally](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
+There are many [installation options](https://github.com/purescript/purescript/blob/master/INSTALL.md), but we recommend using `npm`.
+
+[Install Node.js and npm via a node version manager](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm#using-a-node-version-manager-to-install-nodejs-and-npm). Using a node version manager helps avoid [`EACCES` errors](https://docs.npmjs.com/getting-started/fixing-npm-permissions) when installing packages globally (as we'll do in the next step).
 
 Install the Purescript compiler (`purs`) with npm:
 
@@ -15,8 +17,6 @@ Install the Purescript compiler (`purs`) with npm:
 Try running the PureScript compiler on the command line to verify that the PureScript compiler executables are available on your `$PATH`:
 
     purs
-
-It can also be installed from [Hackage](http://hackage.haskell.org/package/purescript), or by downloading the latest [binary bundle](https://github.com/purescript/purescript/releases) for your OS. If you do so, make sure the `purs` executable is on your `$PATH`.
 
 If you encounter problems during installation, see the compiler's [Install Guide](https://github.com/purescript/purescript/blob/master/INSTALL.md) for troubleshooting suggestions.
 
