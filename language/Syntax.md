@@ -527,6 +527,30 @@ factorial = go 1
   go acc n = go (acc * n) (n - 1)
 ```
 
+### Caveat for generalized functions
+
+PureScript does not implicity generalize functions defined within `let` or `where` blocks. See ["Let Should not be Generalised"](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tldi10-vytiniotis.pdf) for the motivation behind this design choice.
+
+So while the `asArray` annotations in the following snippet may seem unnecessary, they are required for compilation.
+```purs
+arrayPairIn :: forall a b. a -> b -> Tuple (Array a) (Array b)
+arrayPairIn x y =
+  let
+    -- This annotation is required
+    asArray :: forall c. c -> Array c
+    asArray z = [z]
+  in
+    Tuple (asArray x) (asArray y)
+
+arrayPairWhere :: forall a b. a -> b -> Tuple (Array a) (Array b)
+arrayPairWhere x y =
+  Tuple (asArray x) (asArray y)
+  where
+    -- This annotation is required
+    asArray :: forall c. c -> Array c
+    asArray z = [z]
+```
+
 ## Indentation in binding blocks
 
 Indentation of a binding's body is significant. If defining multiple bindings, as in a let-in block, each binding must have the same level of indentation. The body of the binding's definition, then, must be further indented. To illustrate:
