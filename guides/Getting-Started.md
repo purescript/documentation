@@ -163,6 +163,8 @@ When you have finished using PSCi, type `:quit` to quit:
 
 Now that we've seen how to use the REPL to reach the answer, let's move our solution into a source file and compile it.
 
+You may find it convenient to [setup an IDE](https://github.com/purescript/documentation/blob/master/ecosystem/Editor-and-tool-support.md) before continuing, but that tooling detour is optional.
+
 Create a new text file `src/Euler.purs` and copy the following code:
 
 ```purescript
