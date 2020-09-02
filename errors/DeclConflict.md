@@ -1,30 +1,35 @@
 # `DeclConflict` Error
 
 ## Example
-
+Each of these pairs will fail with a DeclConflict error.
 ```purescript
-data MyType = A | B 
+module Main where
 
-data MyType2 = C | D
+data T = Fail | Fail
 
-data MyType3 = MyType3 { x :: Int }
+data T1 = Fail1
+data T2 = Fail1
 
-data MyType4 = MyType | MyType2 | MyType3 
+class Fail2
+data T3 = Fail2
 ```
 
 ## Cause
 
-This error shows up when an a defined type (i.e: MyType, MyType2, etc...) is being defined as a data constructor for another data type definition (i.e: MyType4). 
+This error occurs when a data constructor, type, or type class conflicts with another data constructor, type, or type class.
 
 ## Fix
-This can be fixed by simply wrapping these pre-defined data types in a new data constrcutor.
+This can be fixed by using non-conflicting names or by putting conflicting names into a separate module. Then, if the names are later used together in a module they can be distinguished via a qualified import:
 ```purescript
-data MyType = A | B 
+module Main where
 
-data MyType2 = C | D
+import Module1 as Module1 -- includes: data Works = Works
+import Module2 as Module2 -- includes: data Works = Works
 
-data MyType3 = MyType3 { x :: Int }
+x :: Module1.Works
+x = Module1.Works
 
-data MyType4 = T MyType | T2 MyType2 | T3 MyType3 
+y :: Module2.Works
+y = Module2.Works 
 ```
 
