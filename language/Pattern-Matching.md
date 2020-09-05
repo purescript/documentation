@@ -174,7 +174,7 @@ compare x y | x < y = LT
 compare _ _ = EQ
 ```
 
-(The name `otherwise` is a synonym for `true` commonly used in guards.)
+(The name `otherwise` is a synonym for `true` and is commonly used in guards.)
 
 Guards may also be used within `case` expressions, which allow for inline expressions. For example, these are equivalent: 
 
