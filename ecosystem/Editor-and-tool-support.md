@@ -11,7 +11,7 @@ These tools can be installed via [NPM](https://www.npmjs.com), among other insta
 
 ## Editor support
 
-The PureScript compiler includes an IDE server, [`psc-ide`](https://github.com/purescript/purescript/tree/master/psc-ide), to supply tooling for editors. This server has been used to implement a [PureScript language server](https://github.com/nwolverson/purescript-language-server), which implements the [Language Server Protocol](https://langserver.org) for PureScript. Major editor tooling either uses `psc-ide` or the language server.
+The PureScript compiler includes an IDE server, [`purs ide`](https://github.com/purescript/purescript/tree/master/psc-ide), to supply tooling for editors. This server has been used to implement a [PureScript language server](https://github.com/nwolverson/purescript-language-server), which implements the [Language Server Protocol](https://langserver.org) for PureScript. Major editor tooling either uses `purs ide server` directly or via the language server.
 
 Most editor plugins which rely on PureScript's IDE tooling have at least these features:
 
@@ -35,11 +35,11 @@ To generate `TAGS` files, use `purs docs --format etags` (or `--format ctags`).
 ### Atom
 
 - [atom-language-purescript](https://github.com/purescript-contrib/atom-language-purescript) provides syntax highlighting for `.purs` files.
-- [atom-ide-purescript](https://github.com/nwolverson/atom-ide-purescript) provides editor support via `psc-ide`.
+- [atom-ide-purescript](https://github.com/nwolverson/atom-ide-purescript) provides editor support via `purs ide`.
 
 ### Emacs
 
-- [psc-ide-emacs](https://github.com/purescript-emacs/psc-ide-emacs) provides editor support via `psc-ide`.
+- [psc-ide-emacs](https://github.com/purescript-emacs/psc-ide-emacs) provides editor support via `purs ide`.
 - [purescript-mode](https://github.com/purescript-emacs/purescript-mode) provides syntax highlighting and indentation rules for `.purs` files.
 - [psci-mode](https://github.com/purescript-emacs/emacs-psci) provides a minor mode for a PureScript REPL.
 
@@ -47,11 +47,11 @@ Spacemacs users can use the [PureScript layer](https://github.com/syl20bnr/space
 
 ### Sublime Text 3
 
-- [purescript-ide-sublime](https://packagecontrol.io/packages/PureScript) provides editor support via `psc-ide` and syntax highlighting for `.purs` files.
+- [purescript-ide-sublime](https://packagecontrol.io/packages/PureScript) provides editor support via `purs ide` and syntax highlighting for `.purs` files.
 
 ### Vim
 
-- [psc-ide-vim](https://github.com/FrigoEU/psc-ide-vim) provides editor support via `psc-ide`.
+- [psc-ide-vim](https://github.com/FrigoEU/psc-ide-vim) provides editor support via `purs ide`.
 - [ale](https://github.com/dense-analysis/ale) provides editor support via the PureScript language server.
 - [coc.nvim](https://github.com/neoclide/coc.nvim) provides editor support via the PureScript language server.
 - [purescript-vim](https://github.com/raichoo/purescript-vim) provides syntax highlighting and indentation rules for `.purs` files.
