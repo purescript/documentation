@@ -258,41 +258,6 @@ main = logShow (Score 5)
 
 More information on Generic deriving is available [in the generics-rep library documentation](https://pursuit.purescript.org/packages/purescript-generics-rep). See this [blog post](https://harry.garrood.me/blog/write-your-own-generics/) for a tutorial on how to write your own `generic` functions.
 
-#### Avoiding stack overflow errors with recursive types
-
-Be careful when using generic functions with recursive data types. Due to strictness, these instances _cannot_ be written in point free style:
-
-```purs
-import Data.Generic.Rep (class Generic)
-import Data.Generic.Rep.Show (genericShow)
-import Effect.Console (logShow)
-
-data Chain a
-  = End a
-  | Link a (Chain a)
-
-derive instance genericChain :: Generic (Chain a) _
-
-instance showChain :: Show a => Show (Chain a) where
-  show c = genericShow c -- Note the use of the seemingly-unnecessary variable `c`
-
-main = logShow $ Link 1 $ Link 2 $ End 3
--- Prints:
--- (Link 1 (Link 2 (End 3)))
-```
-
-If the instance was written in point free style, then would produce a stack overflow error:
-
-``` purs
-instance showChain :: Show a => Show (Chain a) where
-  show = genericShow -- This line is problematic
-
--- Throws this error:
--- RangeError: Maximum call stack size exceeded
-```
-
-This technique of undoing point free notation is known as _eta expansion_.
-
 ## Compiler-Solvable Type Classes
 
 Some type classes can be automatically solved by the PureScript Compiler without requiring you place a PureScript statement, like `derive instance`, in your source code.
