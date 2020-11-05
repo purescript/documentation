@@ -201,7 +201,7 @@ derive newtype instance eqScore :: Eq Score
 
 ### Deriving from `Generic`
 
-The compiler's built-in support for `Generic` unlocks convenient deriving for many other classes not listed above. See the [deriving guide](../guides/Type-Class-Deriving.md) for more information.
+The compiler's built-in support for `Generic` unlocks convenient deriving for many other classes not listed above. See the [deriving guide](../guides/Type-Class-Deriving.md#deriving-from-generic) for more information.
 
 ## Compiler-Solvable Type Classes
 
