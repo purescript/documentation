@@ -199,6 +199,10 @@ derive instance eqScore :: Eq Score
 derive newtype instance eqScore :: Eq Score
 ```
 
+### Deriving from `Generic`
+
+The compiler's built-in support for `Generic` unlocks convenient deriving for many other classes not listed above. See the [deriving guide](../guides/Type-Class-Deriving.md) for more information.
+
 ## Compiler-Solvable Type Classes
 
 Some type classes can be automatically solved by the PureScript Compiler without requiring you place a PureScript statement, like `derive instance`, in your source code.
