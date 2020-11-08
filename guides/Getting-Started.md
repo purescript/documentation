@@ -36,8 +36,8 @@ Create a new project in an empty directory using `spago init`:
 
 Your directory should now contain the following files:
 
-- `packages.dhall` - contains Spago configuration
-- `spago.dhall` - contains library dependency information
+- `packages.dhall` - contains library dependency information
+- `spago.dhall` - contains Spago configuration
 - `src/Main.purs` - Entry point module for your project
 - `test/Main.purs` - An empty test suite
 
