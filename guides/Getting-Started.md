@@ -279,7 +279,7 @@ Try creating an `index.html` file with the following contents:
 
 </html>
 ```
-Open this `index.html` file in your browser's developer console.
+Open this `index.html` file in your web browser. The page will be blank, but if you open the browser's developer console, you should see a log message containing: "The answer is 233168".
 
 If you open `index.js`, you should see a few compiled modules which look like this:
 
