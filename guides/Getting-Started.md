@@ -260,7 +260,26 @@ Spago can be used to turn our PureScript code into JavaScript suitable for use i
     Build succeeded.
     Bundle succeeded and output file to index.js
 
-All the code in the `src` directory and any project dependencies have been compiled to JavaScript. The resulting code is bundled as `index.js` and has also had any unused code removed, a process known as dead code elimination. This `index.js` file can now be included in an HTML document. If you try this, you should see the words "Hello, World!" printed to your browser's console.
+All the code in the `src` directory and any project dependencies have been compiled to JavaScript. The resulting code is bundled as `index.js` and has also had any unused code removed, a process known as dead code elimination. This `index.js` file can now be included in an HTML document. 
+
+Try creating an `index.html` file with the following contents: 
+
+```html
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Euler Exercise</title>
+  </head>
+
+  <body>
+    <script src="./index.js"></script>
+  <body>
+
+</html>
+```
+Open this `index.html` file in your browser's developer console.
 
 If you open `index.js`, you should see a few compiled modules which look like this:
 
