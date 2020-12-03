@@ -209,13 +209,13 @@ In the past, PureScript used `return`. However, it is now removed and replaced w
 
 ## Array Comprehensions
 
-PureScript does not provide special syntax for array comprehensions. Instead, use `do`-notation. The `guard` function from the `Control.MonadPlus` module in `purescript-control` can be used to filter results:
+PureScript does not provide special syntax for array comprehensions. Instead, use `do`-notation. The `guard` function from the `Control.Alternative` module in `purescript-control` can be used to filter results:
 
 ```purescript
 import Prelude (($), (*), (==), bind, pure)
 import Data.Array ((..))
 import Data.Tuple (Tuple(..))
-import Control.MonadZero (guard)
+import Control.Alternative (guard)
 
 factors :: Int -> Array (Tuple Int Int)
 factors n = do
