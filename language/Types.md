@@ -201,12 +201,6 @@ mkDoubledFoo foo bar = { foo: 2.0*foo, bar: 2.0*bar }
 -- (Remember that Bar Number is the same as Foo)
 doubleFoo :: Foo -> Foo
 doubleFoo = combineBar mkDoubledFoo
-
--- Define type synonyms to help write complex Effect rows
--- This will accept further Effects to be added to the row
-type RandomConsoleEffects eff = ( random :: RANDOM, console :: CONSOLE | eff )
--- This limits the Effects to just RANDOM and CONSOLE
-type RandomConsoleEffect = RandomConsoleEffects ()
 ```
 
 ## Constrained Types
