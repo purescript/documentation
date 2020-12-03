@@ -288,6 +288,7 @@ The PureScript compiler does not support GHC-like language extensions. However, 
 * ScopedTypeVariables
 * TypeSynonymInstances
 * RoleAnnotations
+* PolyKinds
 
 Note on `DataKinds`: Unlike in Haskell, user-defined kinds are open, and they are not promoted, which means that their constructors can only be used in types, and not in values. For more information about the kind system, see https://github.com/purescript/documentation/blob/master/language/Types.md#kind-system
 
