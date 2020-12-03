@@ -209,8 +209,6 @@ type RandomConsoleEffects eff = ( random :: RANDOM, console :: CONSOLE | eff )
 type RandomConsoleEffect = RandomConsoleEffects ()
 ```
 
-Unlike newtypes, type synonyms are merely aliases and cannot be distinguished from usages of their expansion. Because of this they cannot be used to declare a type class instance. For more see [``TypeSynonymInstance`` Error](../errors/TypeSynonymInstance.md#typesynonyminstance-error).
-
 ## Constrained Types
 
 Polymorphic types may be predicated on one or more ``constraints``. See the chapter on type classes for more information.
