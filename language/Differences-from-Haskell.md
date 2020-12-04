@@ -274,18 +274,37 @@ In PureScript, operator sections look a little bit different.
 
 The PureScript compiler does not support GHC-like language extensions. However, there are some "built-in" language features that are equivalent (or at least similar) to a number of GHC extensions. These currently are:
 
-* DataKinds (see note below)
-* EmptyDataDecls
-* ExplicitForAll
-* FlexibleContexts
-* FlexibleInstances
-* FunctionalDependencies
-* KindSignatures
-* MultiParamTypeClasses
-* PartialTypeSignatures
-* RankNTypes
-* RebindableSyntax
-* ScopedTypeVariables
+* [ApplicativeDo](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#extension-ApplicativeDo)
+* [BlockArguments](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#extension-BlockArguments)
+* [DataKinds](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#extension-DataKinds) (see note below)
+* [DeriveFunctor](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#extension-DeriveFunctor)
+* [DeriveGeneric](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#extension-DeriveGeneric)
+* [EmptyDataDecls](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#extension-EmptyDataDecls)
+* [ExplicitForAll](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#extension-ExplicitForAll)
+* [FlexibleContexts](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#extension-FlexibleContexts)
+* [FlexibleInstances](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#extension-FlexibleInstances)
+* [FunctionalDependencies](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#extension-FunctionalDependencies)
+* [GeneralisedNewtypeDeriving](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#extension-GeneralisedNewtypeDeriving)
+* [InstanceSigs](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#extension-InstanceSigs)
+* [KindSignatures](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#extension-KindSignatures)
+* [LambdaCase](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#extension-LambdaCase)
+* [LiberalTypeSynonyms](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#extension-LiberalTypeSynonyms)
+* [MonoLocalBinds](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#extension-MonoLocalBinds)
+* [MultiParamTypeClasses](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#extension-MultiParamTypeClasses)
+* [NamedFieldPuns](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#extension-NamedFieldPuns)
+* [NumericUnderscores](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#extension-NumericUnderscores)
+* [PartialTypeSignatures](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#extension-PartialTypeSignatures)
+* [PolyKinds](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#extension-PolyKinds)
+* [RankNTypes](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#extension-RankNTypes)
+* [RebindableSyntax](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#extension-RebindableSyntax)
+* [RoleAnnotations](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#extension-RoleAnnotations)
+* [ScopedTypeVariables](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#extension-ScopedTypeVariables)
+* [StandaloneDeriving](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#extension-StandaloneDeriving)
+* [StandaloneKindSignatures](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#extension-StandaloneKindSignatures)
+* [TypeOperators](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#extension-TypeOperators)
+* [TypeSynonymInstances](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#extension-TypeSynonymInstances)
+* [UndecidableInstances](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#extension-UndecidableInstances)
+* [UnicodeSyntax](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#extension-UnicodeSyntax)
 
 Note on `DataKinds`: Unlike in Haskell, user-defined kinds are open, and they are not promoted, which means that their constructors can only be used in types, and not in values. For more information about the kind system, see https://github.com/purescript/documentation/blob/master/language/Types.md#kind-system
 
