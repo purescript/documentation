@@ -38,8 +38,8 @@ foreign import document :: {
 }
 ```
 
-When declaring types in this way, you may declare your type to have any kind, not just `Type`. For example, to declare a row of effects:
+When declaring types in this way, you may declare your type to have any kind, not just `Type`. For example, to declare a row of symbols:
 
 ```purescript
-foreign import data MyRow :: # Effect
+foreign import data MyRow :: Row Symbol
 ```

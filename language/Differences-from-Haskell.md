@@ -209,13 +209,13 @@ In the past, PureScript used `return`. However, it is now removed and replaced w
 
 ## Array Comprehensions
 
-PureScript does not provide special syntax for array comprehensions. Instead, use `do`-notation. The `guard` function from the `Control.MonadPlus` module in `purescript-control` can be used to filter results:
+PureScript does not provide special syntax for array comprehensions. Instead, use `do`-notation. The `guard` function from the `Control.Alternative` module in `purescript-control` can be used to filter results:
 
 ```purescript
 import Prelude (($), (*), (==), bind, pure)
 import Data.Array ((..))
 import Data.Tuple (Tuple(..))
-import Control.MonadZero (guard)
+import Control.Alternative (guard)
 
 factors :: Int -> Array (Tuple Int Int)
 factors n = do
@@ -286,6 +286,10 @@ The PureScript compiler does not support GHC-like language extensions. However, 
 * RankNTypes
 * RebindableSyntax
 * ScopedTypeVariables
+* TypeSynonymInstances
+* RoleAnnotations
+* PolyKinds
+* StandaloneKindSignatures
 
 Note on `DataKinds`: Unlike in Haskell, user-defined kinds are open, and they are not promoted, which means that their constructors can only be used in types, and not in values. For more information about the kind system, see https://github.com/purescript/documentation/blob/master/language/Types.md#kind-system
 

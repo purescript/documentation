@@ -115,14 +115,14 @@ exports.doSomethingImpl = function(isJust, show, value) {
 
 By moving the `show` reference out to `showSomething` the compiler will pick the right `Show` instance for us at that point, so we don't have to deal with typeclass dictionaries in `showSomethingImpl`.
 
-## Why Doesn't my `Eff` Work When Passed to a Normal JS Function?
+## Why Doesn't my `Effect` Work When Passed to a Normal JS Function?
 
 ["Representing Side Effects"](https://book.purescript.org/chapter10.html#representing-side-effects) in *PureScript by Example*.
 
 In order to avoid prematurely evaluating effects (or evaluating effects that should not be evaluated at all), PureScript wraps them in constant functions:
 
 ```javascript
-exports.myEff = function() {
+exports.myEffect = function() {
   return doSomethingEffectful(1, 2, 3);
 }
 ```
@@ -130,5 +130,5 @@ exports.myEff = function() {
 which is imported to PureScript as:
 
 ```purescript
-foreign import myEff :: forall eff. Eff (myEff :: MYEFF | eff) SomeType
+foreign import myEffect :: Effect SomeType
 ```
