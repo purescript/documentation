@@ -237,3 +237,4 @@ Other classes
 - [`Partial`](https://pursuit.purescript.org/builtins/docs/Prim#t:Partial)
 - [`Fail`](https://pursuit.purescript.org/builtins/docs/Prim.TypeError#t:Fail)
 - [`Warn`](https://pursuit.purescript.org/builtins/docs/Prim.TypeError#t:Warn)
+- [`Coercible`](https://pursuit.purescript.org/builtins/docs/Prim.Coerce#t:Coercible)
