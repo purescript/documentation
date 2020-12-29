@@ -31,11 +31,25 @@ type Point =
 
 ## Kinds
 
-`{ ... }` is just syntactic sugar for the `Record` type constructor, so `{ language ::  String }` is the same as `Record ( language :: String )`.
+`{ ... }` is syntactic sugar for the `Record` type constructor. This type constructor is parameterized by a row of types:
 
-The Record type constructor is parameterized by a row of types. In kind notation, `Record` has kind `# Type -> Type`. That is, it takes a row of types to a type.
+```purescript
+-- these types are equivalent
+type Language = { language :: String }
+type Language' = Record ( language :: String )
+```
 
-`( language :: String )` denotes a row of types (something of kind `# Type`), so it can be passed to `Record` to construct a type, namely `Record ( language :: String )`.
+A `Record` is constructed from a row type and represents a product type in which all fields in the row type are present. Using kind notation, `Record` has the kind `# Type -> Type` -- that is, it takes a row of types and produces a type.
+
+Because `( language :: String )` denotes a row of types (and therefore has the kind `# Type`), it can be passed to the `Record` constructor or to the `{ ... }` syntax for `Record` to construct a type:
+
+```purescript
+type LanguageRow = ( language :: String ) -- has kind # Type
+
+-- these are equivalent
+type Language = Record LanguageRow
+type Language' = { | LanguageRow }
+```
 
 ## Extending Records
 
@@ -121,30 +135,26 @@ setX x point = point { x = x }
 -- setX x point = point { x } -- Not allowed
 ```
 
-## Merging Records
+## Further Record Operations
 
-The [`record`](https://pursuit.purescript.org/packages/purescript-record) package enables additional record operations, such as `merge` and `union`.
+The [`record`](https://pursuit.purescript.org/packages/purescript-record) package enables additional record operations, such as `merge`, `union`, and efficient ways to create records (see [Record.Builder](https://pursuit.purescript.org/packages/purescript-record/docs/Record.Builder)).
 
 Here's an example of using the `disjointUnion` function to add a `z` field to a `Point` record. The `to3d` function merges the original record `p` with another record `{ z }` created from this new `Number`:
 
 ```purescript
 import Record (disjointUnion)
 
-type Point3d
-  = { x :: Number
-    , y :: Number
-    , z :: Number
-    }
+type Point3d =
+  { x :: Number
+  , y :: Number
+  , z :: Number
+  }
 
 to3d :: Point -> Number -> Point3d
 to3d p z = disjointUnion p { z }
 
 -- Equivalent to:
-to3d p z =
-  { x: p.x
-  , y: p.y
-  , z
-  }
+to3d p z = { x: p.x, y: p.y, z }
 ```
 
 ## Field Names
