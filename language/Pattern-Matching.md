@@ -174,7 +174,30 @@ compare x y | x < y = LT
 compare _ _ = EQ
 ```
 
-(The name `otherwise` is a synonym for `true` commonly used in guards.)
+(The name `otherwise` is a synonym for `true` and is commonly used in guards.)
+
+Guards may also be used within `case` expressions, which allow for inline expressions. For example, these are equivalent: 
+
+```purs
+fb :: Int -> Effect Unit
+fb = log <<< case _ of
+  n
+    | 0 == mod n 15 -> "FizzBuzz"
+    | 0 == mod n 3 -> "Fizz"
+    | 0 == mod n 5 -> "Buzz"
+    | otherwise -> show n
+```
+
+```purs
+fb :: Int -> Effect Unit
+fb n = log x
+  where
+  x
+    | 0 == mod n 15 = "FizzBuzz"
+    | 0 == mod n 3 = "Fizz"
+    | 0 == mod n 5 = "Buzz"
+    | otherwise = show n
+```
 
 Pattern Guards
 --------------

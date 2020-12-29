@@ -204,7 +204,7 @@ The PureScript function type `a -> b` does not allow for side-effects, so it wou
 
 The `Effect` type constructor and its usage is documented [on Pursuit](https://pursuit.purescript.org/packages/purescript-effect).
 
-#### Santizing Foreign Data With Data.Foreign
+#### Sanitizing Foreign Data With Data.Foreign
 
 Data returned from Javascript functions cannot generally be trusted to be defined and non-null. PureScript functions in the Prelude and common libraries generally assume that values will be neither `undefined` nor `null`, so it is important to sanitize data when working with values returned from Javascript functions using the FFI.
 

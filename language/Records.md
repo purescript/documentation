@@ -39,12 +39,12 @@ type Language = { language :: String }
 type Language' = Record ( language :: String )
 ```
 
-A `Record` is constructed from a row type and represents a product type in which all fields in the row type are present. Using kind notation, `Record` has the kind `# Type -> Type` -- that is, it takes a row of types and produces a type.
+A `Record` is constructed from a row type and represents a product type in which all fields in the row type are present. Using kind notation, `Record` has the kind `Row Type -> Type` -- that is, it takes a row of types and produces a type.
 
-Because `( language :: String )` denotes a row of types (and therefore has the kind `# Type`), it can be passed to the `Record` constructor or to the `{ ... }` syntax for `Record` to construct a type:
+Because `( language :: String )` denotes a row of types (and therefore has the kind `Row Type`), it can be passed to the `Record` constructor or to the `{ ... }` syntax for `Record` to construct a type:
 
 ```purescript
-type LanguageRow = ( language :: String ) -- has kind # Type
+type LanguageRow = ( language :: String ) -- has kind Row Type
 
 -- these are equivalent
 type Language = Record LanguageRow

@@ -137,21 +137,71 @@ See also the section in [PureScript by Example](https://book.purescript.org/chap
 
 ## Type Class Deriving
 
-Some type class instances can be derived automatically by the PureScript compiler. To derive a type class instance, use the `derive instance` keywords:
+The compiler can derive type class instances to spare you the tedium of writing boilerplate. There are a few ways to do this depending on the specific type and class being derived.
 
-```purescript
-newtype Person = Person { name :: String, age :: Int }
+### Classes with built-in compiler support
 
-derive instance eqPerson :: Eq Person
-derive instance ordPerson :: Ord Person
+Some classes have special built-in compiler support, and their instances can be derived from all types.
+
+For example, if you you'd like to be able to remove duplicates from an array of an ADT using `nub`, you need an `Eq` and `Ord` instance. Rather than writing these manually, let the compiler do the work.
+
+```purs
+import Data.Array (nub)
+
+data MyADT
+  = Some
+  | Arbitrary Int
+  | Contents Number String
+
+derive instance eqMyADT :: Eq MyADT
+derive instance ordMyADT :: Ord MyADT
+
+nub [Some, Arbitrary 1, Some, Some] == [Some, Arbitrary 1]
 ```
-Currently, the following type classes can be derived:
 
-- [Data.Generic.Rep (class Generic)](https://pursuit.purescript.org/packages/purescript-generics-rep/6.0.0/docs/Data.Generic.Rep#t:Generic)
-- [Data.Eq (class Eq)](https://pursuit.purescript.org/packages/purescript-prelude/4.1.0/docs/Data.Eq#t:Eq)
-- [Data.Ord (class Ord)](https://pursuit.purescript.org/packages/purescript-prelude/4.1.0/docs/Data.Ord#t:Ord)
-- [Data.Functor (class Functor)](https://pursuit.purescript.org/packages/purescript-prelude/4.1.0/docs/Data.Functor#t:Functor)
-- [Data.Newtype (class Newtype)](https://pursuit.purescript.org/packages/purescript-newtype/3.0.0/docs/Data.Newtype#t:Newtype)
+Currently, instances for the following classes can be derived by the compiler:
+- [Data.Generic.Rep (class Generic)](https://pursuit.purescript.org/packages/purescript-generics-rep/docs/Data.Generic.Rep#t:Generic)
+- [Data.Eq (class Eq)](https://pursuit.purescript.org/packages/purescript-prelude/docs/Data.Eq#t:Eq)
+- [Data.Ord (class Ord)](https://pursuit.purescript.org/packages/purescript-prelude/docs/Data.Ord#t:Ord)
+- [Data.Functor (class Functor)](https://pursuit.purescript.org/packages/purescript-prelude/docs/Data.Functor#t:Functor)
+- [Data.Newtype (class Newtype)](https://pursuit.purescript.org/packages/purescript-newtype/docs/Data.Newtype#t:Newtype)
+
+### Derive from `newtype`
+
+If you would like your newtype to defer to the instance that the underlying type uses for a given class, then you can use newtype deriving via the `derive newtype` keywords.
+
+For example, let's say you want to add two `Score` values using the `Semiring` instance of the wrapped `Int`.
+
+```purs
+newtype Score = Score Int
+
+derive newtype instance semiringScore :: Semiring Score
+
+tenPoints :: Score
+tenPoints = (Score 4) + (Score 6)
+```
+
+That `derive` line replaced all this code:
+
+```purs
+-- No need to write this
+instance semiringScore :: Semiring Score where
+  zero = Score 0
+  add (Score a) (Score b) = Score (a + b)
+  mul (Score a) (Score b) = Score (a * b)
+  one = Score 1
+```
+
+Note that we can use either of these options to derive an `Eq` instance for a `newtype`, since `Eq` has built-in compiler support. They are equivalent in this case.
+
+```purs
+derive instance eqScore :: Eq Score
+derive newtype instance eqScore :: Eq Score
+```
+
+### Deriving from `Generic`
+
+The compiler's built-in support for `Generic` unlocks convenient deriving for many other classes not listed above. See the [deriving guide](../guides/Type-Class-Deriving.md#deriving-from-generic) for more information.
 
 ## Compiler-Solvable Type Classes
 
@@ -187,3 +237,4 @@ Other classes
 - [`Partial`](https://pursuit.purescript.org/builtins/docs/Prim#t:Partial)
 - [`Fail`](https://pursuit.purescript.org/builtins/docs/Prim.TypeError#t:Fail)
 - [`Warn`](https://pursuit.purescript.org/builtins/docs/Prim.TypeError#t:Warn)
+- [`Coercible`](https://pursuit.purescript.org/builtins/docs/Prim.Coerce#t:Coercible)
