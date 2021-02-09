@@ -77,7 +77,7 @@ If you are currently using `unsafeCoerce` to transform two types with the same r
 
 The `Coercible` implementation introduces role annotations for type parameters (to learn more about roles, see the compiler release notes). Role annotations can loosen or strengthen the compiler-inferred roles of type parameters.
 
-For example, the compiler infers nominal roles for foreign data types, which is safe but can be too constraining. For example, we should be able to coerce `Effect Age` to `Effect Int` if `Age` is a newtype over `Int`, but because `Effect` is a foreign data type its type parameter is inferred with a nominal role. We can loosen the role with an annotation:
+For example, the compiler infers nominal roles for foreign data types, which is safe but can be too constraining. For example, we should be able to coerce `Effect Age` to `Effect Int` if `Age` is a newtype over `Int`, but because `Effect` is a foreign data type a nominal role is inferred for its type parameter. We can loosen the role with an annotation:
 
 ```purs
 foreign import data Effect :: Type -> Type
