@@ -276,9 +276,13 @@ Several modules have moved or been renamed, all from the `profunctors` and `bifu
 
 ```
 Data.Profunctor.Clown  -> Data.Functor.Clown
-Data.Profunctor.Costar -> Data.Functor.Costar
 Data.Profunctor.Cowrap -> Data.Functor.Flip
 Data.Profunctor.Joker  -> Data.Functor.Joker
+Data.Profunctor.Costar -> Data.Functor.Costar
+
+Data.Bifunctor.Clown   -> Data.Functor.Clown
+Data.Bifunctor.Flip    -> Data.Functor.Flip
+Data.Bifunctor.Joker   -> Data.Functor.Joker
 Data.Bifunctor.Product -> Data.Functor.Product2
 ```
 
