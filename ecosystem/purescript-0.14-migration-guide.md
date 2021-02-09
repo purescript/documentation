@@ -193,7 +193,8 @@ The `argonaut-generic` library has also renamed its modules to match this naming
 
 ```txt
 Data.Argonaut.Decode.Generic.Rep -> Data.Argonaut.Decode.Generic
-Data.Argonaut.Encode.Generic.Rep -> Data.Argonaut.Encode.Generic Data.Argonaut.Types.Generic.Rep  -> Data.Argonaut.Types.Generic
+Data.Argonaut.Encode.Generic.Rep -> Data.Argonaut.Encode.Generic
+Data.Argonaut.Types.Generic.Rep  -> Data.Argonaut.Types.Generic
 ```
 
 #### The `globals` library has been deprecated
@@ -409,18 +410,16 @@ If you previously relied on the `Monoid` instance for `Data.Map` (ie. you used `
 If this is not possible and you previously relied on the `Semigroup` or `Monoid` instances for `Data.Map`, then you can use the `SemigroupMap` newtype to continue using those instances. Note that the behavior of the instances has changed to be unbiased rather than left-biased. You can use the `First` and `Last` newtypes to produce left-biased or right-biased behavior, as demonstrated below.
 
 ```purs
-import Data.Map (SemigroupMap, singleton)
+import Data.Map (SemigroupMap(..), singleton)
 import Data.Semigroup.First (First(..))
 import Data.Semigroup.Last (Last(..))
 
--- Pseudocode demonstrating evaluation
-let
-  s :: forall key value. key -> value -> SemigroupMap key value
-  s k v = SemigroupMap (Data.Map.singleton k v)
-
-(s 1     "foo") <> (s 1     "bar") == (s 1  "foobar")
-(s 1 (First 1)) <> (s 1 (First 2)) == (s 1 (First 1))
-(s 1  (Last 1)) <> (s 1  (Last 2)) == (s 1  (Last 2))
+> under2 SemigroupMap (<>) (singleton 1 "foo") (singleton 1 "bar")
+(fromFoldable [(Tuple 1 "foobar")])
+> under2 SemigroupMap (<>) (singleton 1 (First "foo")) (singleton 1 (First "bar"))
+(fromFoldable [(Tuple 1 (First "foo"))])
+> under2 SemigroupMap (<>) (singleton 1 (Last "foo")) (singleton 1 (Last "bar"))
+(fromFoldable [(Tuple 1 (Last "bar"))])
 ```
 
 #### The `Semigroup` instance for foreign objects has changed.
@@ -507,7 +506,8 @@ where previously it would produce the type:
 If you would like to use the new behavior, then your code doesn't need to change. Otherwise, you can use the new `Record.Builder.flip` function to flip the arguments and recover the old behavior.
 
 ```purs
-Builder.build (Builder.flip Builder.merge ...)
+Builder.build (Builder.flip Builder.merge { x: 1, y: "y" }) { y: 2, z: true }
+  :: { x :: Int, y :: Int, z :: Boolean }
 ```
 
 #### The `Data.Either.fromLeft` and `Data.Either.fromRight` functions are now total functions.
@@ -568,7 +568,7 @@ Or, for a slightly more performant version which constructs the array and conver
 import Data.Array.NonEmpty (fromArray)
 
 instance arbitraryOrdering :: Arbitrary Ordering where
-  arbitrary = unsafePartial fromJust $ fromArray [ LT, EQ, GT ]
+  arbitrary = elements $ unsafePartial fromJust $ fromArray [ LT, EQ, GT ]
 ```
 
 
@@ -603,7 +603,7 @@ In PureScript 0.14, compilation errors are printed to stderr instead of stdout (
 
 ### Spago
 
-Spago does not require changes to be compatible with PureScript 0.14. You will, however, want to update to a [0.14-compatible package set](https://github.com/purescript/package-sets) in your `packages.dhall` file.
+Spago does not require changes to be compatible with PureScript 0.14. You will, however, want to update to a 0.14-compatible package set in your `packages.dhall` file, starting from [psc-0.14.0](https://github.com/purescript/package-sets/releases/tag/psc-0.14.0).
 
 ### Pulp
 
