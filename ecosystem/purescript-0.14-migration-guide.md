@@ -528,7 +528,7 @@ y = unsafePartial fromRight $ Right "hi"
 This can be replaced with the new lazy `fromLeft'` and `fromRight'` combined with `unsafeCrashWith`:
 
 ```purs
-x = fromLeft' (\_ -> unsafeCrashWith "Unexpected Left") $ Left 10
+x = fromLeft' (\_ -> unsafeCrashWith "Unexpected Right") $ Left 10
 x = fromRight' (\_ -> unsafeCrashWith "Unexpected Left") $ Right "hi"
 ```
 
