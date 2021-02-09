@@ -267,7 +267,7 @@ Most of these changes involve instances and should be invisible to user code. Ho
 
 The `lookup` function has moved from `Data.Tuple` to `Data.Foldable` and the import should be updated accordingly:
 
-```purs
+```diff
 - import Data.Tuple (lookup)
 + import Data.Foldable (lookup)
 ```
