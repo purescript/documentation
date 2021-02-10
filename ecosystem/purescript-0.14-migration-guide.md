@@ -53,7 +53,7 @@ Finally, all type-level declarations are now generalized.
 data Proxy a
 ```
 
-This previously had the `Type`-defaulted kind `Type -> Type`. Now this will be generalized to `forall k. k -> Type`. It is better to be explicit about polymorphism by writing signatures, and the compiler will warn about missing kind signatures when it infers polymorphic kinds.
+Previously, the kind for `a` above would implicitly default to `Type` (i.e. `data Proxy (a :: Type)`. Now this will be generalized to `forall k. k -> Type`. It is better to be explicit about polymorphism by writing signatures, and the compiler will warn about missing kind signatures when it infers polymorphic kinds.
 
 To avoid the compiler warning, provide a kind signature:
 
