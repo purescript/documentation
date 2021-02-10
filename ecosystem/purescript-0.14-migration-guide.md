@@ -172,9 +172,9 @@ getFoo = Record.get (Proxy :: Proxy "foo")
 
 **To fix:**
 
-You should remove `generics-rep` as a dependency of your library or application, as most of the relevant code and instances live in the `prelude` package. Code related to `Enum` has been moved to the `enums` package, but you should already depend on this package if you were using it.
+You should remove `generics-rep` as a dependency of your library or application, as most of the relevant code and instances live in the `prelude` package. Code related to `Enum` has been moved to the `enums` package, but you should already depend on this package if you were using it. If you provide your own Generic type class, we recommend the following module naming convention: `<full module path to module containing class>.Generic`.
 
-You should rename any modules that used `Generic` instances for common type classes, as those modules have been renamed.
+You should rename any modules that used `Generic` instances for common type classes, as those modules have been renamed to match this naming convention.
 
 ```txt
 Data.Generic.Rep.Bounded        -> Data.Bounded.Generic
