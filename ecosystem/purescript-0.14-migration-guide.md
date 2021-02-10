@@ -40,22 +40,21 @@ foreign import data True :: Boolean
 foreign import data False :: Boolean
 ```
 
-The old unary `# Type` syntax for row kinds is deprecated, and it should instead be written as `Row Type`.
+The old unary `# Type` syntax for row kinds is deprecated and should instead be written as `Row Type`. The kind of `RowList` has changed from `Type` to `Type -> Type`, so if you had `RowList` in 0.13.x code it should now be written as `RowList Type`. For example, here's how the `ListToRow` class has changed:
 
 ```diff
 - class ListToRow (list :: RowList) (row :: # Type)
-+ class ListToRow (list :: RowList) (row :: Row Type)
++ class ListToRow (list :: RowList Type) (row :: Row Type)
 ```
 
-Finally, all type-level declarations are now generalized.
+Finally, all type-level declarations are now generalized. In the below declaration, the kind for `a` would default to `Type`:
 
 ```purs
+-- defaults to `data Proxy (a :: Type)`
 data Proxy a
 ```
 
-Previously, the kind for `a` above would implicitly default to `Type` (i.e. `data Proxy (a :: Type)`). Now the kind of `Proxy` will be generalized to `forall k. k -> Type`. It is better to be explicit about polymorphism by writing signatures, and the compiler will warn about missing kind signatures when it infers polymorphic kinds.
-
-To avoid the compiler warning, provide a kind signature:
+Now, the kind of `Proxy` will be generalized to `forall k. k -> Type`. It is better to be explicit about polymorphism by writing signatures, and the compiler will warn about missing kind signatures when it infers polymorphic kinds. You can provide a kind signature to avoid the compiler warning:
 
 ```purs
 data Proxy :: forall k. k -> Type
@@ -71,31 +70,11 @@ class Cons label a tail row | label a tail -> row, label row -> a tail
 
 ### Coercible & Role Annotations
 
-PureScript 0.14 introduces a new compiler-solved class, `Prim.Coerce.Coercible`, to relate types with the same runtime representation. You can now use `Safe.Coerce.coerce` from the new `safe-coerce` library in place of `Unsafe.Coerce.unsafeCoerce` to turn an `a` into a `b` when `Coercible a b` holds.
+PureScript 0.14 introduces a new compiler-solved class, `Prim.Coerce.Coercible`, to relate types with the same runtime representation. 
 
-If you are currently using `unsafeCoerce` to transform two types with the same runtime representation, you should consider replacing it with `coerce`.
+You can now use `Safe.Coerce.coerce` from the new `safe-coerce` library in place of `Unsafe.Coerce.unsafeCoerce` to turn an `a` into a `b` when `Coercible a b` holds. If you are currently using `unsafeCoerce` to transform two types with the same runtime representation, you should consider replacing it with `coerce`.
 
-The `Coercible` implementation introduces role annotations for type parameters (to learn more about roles, see the compiler release notes). Role annotations can loosen or strengthen the compiler-inferred roles of type parameters.
-
-For example, the compiler infers nominal roles for foreign data types, which is safe but can be too constraining. For example, we should be able to coerce `Effect Age` to `Effect Int` if `Age` is a newtype over `Int`, but because `Effect` is a foreign data type a nominal role is inferred for its type parameter. We can loosen the role with an annotation:
-
-```purs
-foreign import data Effect :: Type -> Type
-
--- this is a role annotation, setting Effect's type parameter to be
--- representational instead of nominal (its inferred role).
-type role Effect representational
-```
-
-In contrast, it is unsafe to allow coercions between `Map k1 a` and `Map k2 a`, even when `Coercible k1 k2` holds. We can annotate `Map`'s key type parameter with a nominal role to prevent coercions:
-
-```purs
-data Map k v = ...
-
--- this is a role annotation, setting `Map`'s key type parameter to
--- be nominal instead of representational (its inferred role).
-type role Map nominal representational
-```
+The `Coercible` implementation introduces role annotations for type parameters. Most users do not need to use roles explicitly, as role inference covers the vast majority of cases and this is a new feature that largely does not affect existing code. However, if you would like to understand more about role annotations, please [see the roles documentation in this repository](https://github.com/purescript/documentation/blob/master/language/Syntax.md).
 
 ### Other Changes
 
@@ -109,10 +88,18 @@ Rename any functions that contain a prime and are implemented via the FFI:
 // before
 exports["functionName'"] = function (a) { return a; }
 
-// after: these are common options
+// after
 exports.functionNameImpl = function (a) { return a; }
-exports._functionName = function (a) { return a; }
-exports.functionNamePrime = function (a) { return a; }
+```
+
+You will also need to update the foreign import in your PureScript code:
+
+```diff
+- foreign import functionName' :: forall a. a -> a
++ foreign import functionNameImpl :: forall a. a -> a
++
++ functionName' :: forall a. a -> a
++ functionName' = functionNameImpl
 ```
 
 ## Library Changes
@@ -232,17 +219,15 @@ If you used any `Number`-related code from the `globals` package, then you shoul
 + z = toStringWith (exponential someInt) 4.0
 ```
 
-If you used `readInt`, then you should add a dependency on `integers` and use the `fromStringAs` function given the correct radix, or if you are parsing a base-10 integer then you can use `Data.Number.fromString`.
+If you used `readInt`, then you should add a dependency on `integers` and either use `Data.Int.fromString` if you were parsing a base-10 integer, or use `Data.Int.fromStringAs` given a `Data.Int.Radix` if you were parsing a number with another base:
 
 ```diff
 - import Global (readInt)
-+ import Data.Int (radix, fromStringAs)
++ import Data.Int (binary, fromStringAs)
 
-  x :: String -> Maybe Int
-- x = readInt 2
-+ x = fromStringAs (unsafeRadix 2)
-+   where
-+   unsafeRadix n = unsafePartial fromJust $ radix n
+  fromBinaryString :: String -> Maybe Int
+- fromBinaryString = readInt 2
++ fromBinaryString = fromStringAs binary
 ```
 
 If you used URI encoding and decoding functions, then you should add a dependency on `js-uri` and update your imports:
@@ -289,14 +274,6 @@ Data.Bifunctor.Product -> Data.Functor.Product2
 
 The `Data.Profunctor.Wrap` and `Data.Bifunctor.Wrap` types have been deleted, as any profunctor or bifunctor should also have a functor instance.
 
-This was the old dependency graph:
-
-![old-dependency-graph](https://user-images.githubusercontent.com/1570964/106351480-6e55a100-62aa-11eb-8e8a-72cb33e354dc.png)
-
-This is the new dependency graph, where the dotted line represents three packages which may be merged together in the future:
-
-![new-dependency-graph](https://user-images.githubusercontent.com/1570964/106351479-6ac21a00-62aa-11eb-8234-803f7868cc53.png)
-
 ### Notable Library Changes
 
 #### The `Newtype` class now has `Coercible` as a superclass and no longer has `wrap` and `unwrap` class members.
@@ -320,16 +297,18 @@ Most `Newtype` instances are derived and will continue to work. If you manually 
 -   unwrap (Additive a) = a
 ```
 
-Most newtypes either export their constructors and have a `Newtype` instance or hide their constructors and do not have the instance. However, if you have a newtype in your code which has hidden constructors and a `Newtype` instance then you will need to either:
+Most newtypes either export their constructors and have a `Newtype` instance, or hide their constructors and do not have the instance. A new compiler warning is raised for types with a `Newtype` instance but hidden constructors.
 
-1. Remove the `Newtype` instance (a breaking change), or
-1. Export the newtype constructors so that `wrap` and `unwrap` can be used via the `Coercible` class.
+To address the compiler warning, you can either:
+
+1. Export the newtype constructors, or
+1. Remove the `Newtype` instance -- a breaking change, but the correct option if you used hidden constructors to make your newtype a smart constructor.
 
 #### The `MonadZero` class has been deprecated.
 
 Implemented in [purescript-control#64](https://github.com/purescript/purescript-control/pull/64) with additional discussion in [purescript-control#62](https://github.com/purescript/purescript-control/issues/62) and [purescript-control#51](https://github.com/purescript/purescript-control/issues/51).
 
-The `MonadZero` class has been deprecated, as the additional law that it provides (`empty >>= f = empty`) is already covered by the classes it requires, namely `Monad` and `Alternative`.
+The `MonadZero` class has been deprecated, as the additional law that it provides (`empty >>= f = empty`) is already covered by the `Monad` laws and parametricity.
 
 The `MonadZero` class was already little-used; in the core libraries it only shows up as a superclass of `MonadPlus` and as a constraint on the `guard` function. This release deprecates the class and it will be removed in the next release.
 
@@ -350,6 +329,8 @@ If you are using the `MonadZero m` constraint, replace it with `Monad m` and `Al
 - x :: forall m. MonadZero m => ...
 + x :: forall m. Monad m => Alternative m => ...
 ```
+
+If you are _providing_ a `MonadZero` instance, consider removing it, as the class will be removed in a future release.
 
 #### The `Foldable1` class added `foldl1` and `foldr1` as members.
 
@@ -440,14 +421,7 @@ Code using these instances will now append in the correct order.
 
 **To fix:**
 
-Most users should not change their code and will now be using the correct instance. However, if you were intentionally relying on the behavior of this instance then you can recover it by writing a newtype around `Object` and implementing this newtype instance as desired. For example:
-
-```purs
-newtype Reversed v = Reversed (Object v)
-
-instance semigroupReversed :: Semigroup v => Semigroup (Reversed v) where
-  append (Reversed l) (Reversed r) = Reversed (r <> l)
-```
+Most users should not change their code and will now be using the correct instance. However, if you were intentionally relying on the behavior of this instance then you can recover it by using the `Data.Monoid.Dual` newtype (ie. `Object (Dual a)`).
 
 #### The `Alt` instance for `ZipList` has changed.
 
@@ -506,8 +480,8 @@ where previously it would produce the type:
 If you would like to use the new behavior, then your code doesn't need to change. Otherwise, you can use the new `Record.Builder.flip` function to flip the arguments and recover the old behavior.
 
 ```purs
-Builder.build (Builder.flip Builder.merge { x: 1, y: "y" }) { y: 2, z: true }
-  :: { x :: Int, y :: Int, z :: Boolean }
+val :: { x :: Int, y :: Int, z :: Boolean }
+val = Builder.build (Builder.flip Builder.merge { x: 1, y: "y" }) { y: 2, z: true }
 ```
 
 #### The `Data.Either.fromLeft` and `Data.Either.fromRight` functions are now total functions.
