@@ -206,7 +206,7 @@ Specifically:
 * Number values and operations like `isFinite`, parsing, and formatting have been moved to the `numbers` package, which itself has moved into the core organization.
 * Integer parsing has been removed, as it is already included in the `integers` package.
 * Encoding and decoding URIs and URI components using JavaScript's builtin `encodeURIComponent` and `decodeURIComponent` have been moved to the new `js-uri` package.
-* Unsafe global functions have been removed altogether.
+* Unsafe global functions (i.e. those which lived in `Global.Unsafe`) have been removed altogether.
 
 **To fix:**
 
