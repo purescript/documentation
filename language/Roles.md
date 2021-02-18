@@ -36,6 +36,9 @@ newtype HTML = MkHTML String
 instance showHTML :: Show HTML where
   show (MkHTML s) = "(HTML " <> show s <> ")"
 
+shownString :: Shown String
+shownString = Shown (\f -> f "Hello")
+
 shownHTML :: Shown HTML
 shownHTML = Shown (\f -> f (MkHTML "Hello"))
 
@@ -44,8 +47,14 @@ badShownHTML = coerce shownString
 ```
 
 ```
+> :type shownHTML
+Shown HTML
+
 > shown shownHTML
 "(HTML \"Hello\")"
+
+> :type badShownHTML
+Shown HTML
 
 > shown badShownHTML
 "\"Hello\""
