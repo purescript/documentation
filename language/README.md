@@ -41,4 +41,5 @@ The full language reference continues below:
 5. [Modules](Modules.md)
 6. [FFI](FFI.md)
 7. [Records](Records.md)
-8. [Differences from Haskell](Differences-from-Haskell.md)
+8. [Roles](Roles.md)
+9. [Differences from Haskell](Differences-from-Haskell.md)
