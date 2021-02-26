@@ -16,7 +16,7 @@ foreign import data Nominal :: Type -> Type
 
 `Coercible (Nominal a) (Nominal b)` does not hold, even when `Coercible a b` does.
 
-Albeit a safe default, this is often too constraining. Such coercions can be allowed with a [role annotation](#role-annotations) when it is known to be safe.
+Albeit a safe default, this is often too constraining. More coercions can be allowed with a [role annotation](#role-annotations) when it is known to be safe.
 
 Nominal roles are also inferred for constrained parameters:
 
@@ -112,13 +112,18 @@ The roles of foreign data types can thus be loosened with explicit role annotati
 
 Conversely, we might want to strengthen the roles of parameters with invariants invisible to the type system. Maps are the canonical example of this: the shape of their underlying tree rely on the `Ord` instance of their keys, but the `Ord` instance of a newtype may behave differently than the one of the wrapped type so it would be unsafe to allow coercions between `Map k1 a` and `Map k2 a`, even when `Coercible k1 k2` holds.
 
-A role annotation starts with `type role`, then the name of the annotated type and the role (`nominal`, `representational` or `phantom`) of each parameters of the type:
+A role annotation starts with `type role`, then the name of the annotated type and the role (`nominal`, `representational` or `phantom`) of each parameters of the type. Role annotations are only allowed for data and newtype declarations. They have to immediately follow the annotated type declaration.
+
+For example this role annotation relaxes the role inferred for the parameter of `Effect` (which would be _nominal_ otherwise):
 
 ```purescript
 type role Effect representational
-type role Map nominal representational
 ```
 
-Role annotations are only allowed for data and newtype declarations. They have to immediately follow the annotated type declaration.
+and this one strengten the role inferred for the first parameter of `Map` (which would be _representational_ otherwise), leaving its second parameter _representational_:
+
+```purescript
+type role Map nominal representational
+```
 
 Annotated roles are compared against the roles inferred by the compiler so it is not possible to compromise safety by ascribing too permissive roles, except for foreign types.
