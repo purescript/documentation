@@ -108,7 +108,7 @@ Here the parameter appears at _representational_ (under the `In` constructor) an
 
 Inferring _nominal_ roles for foreign data types is safe but can be too constraining sometimes. For example this prevents to coerce `Effect Age` to `Effect Int`, even though they actually have the same runtime representation.
 
-The roles of foreign data types can thus be loosened with explicit role annotations, similar to the [RoleAnnotations](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#role-annotations) GHC extension.
+The roles of foreign data types can thus be loosened with explicit role annotations, similar to the [RoleAnnotations](https://downloads.haskell.org/ghc/latest/docs/html/users_guide/exts/roles.html#extension-RoleAnnotations) GHC extension.
 
 Conversely, we might want to strengthen the roles of parameters with invariants invisible to the type system. Maps are the canonical example of this: the shape of their underlying tree rely on the `Ord` instance of their keys, but the `Ord` instance of a newtype may behave differently than the one of the wrapped type so it would be unsafe to allow coercions between `Map k1 a` and `Map k2 a`, even when `Coercible k1 k2` holds.
 
