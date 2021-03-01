@@ -120,7 +120,7 @@ For example this role annotation relaxes the role inferred for the parameter of 
 type role Effect representational
 ```
 
-and this one strengten the role inferred for the first parameter of `Map` (which would be _representational_ otherwise), leaving its second parameter _representational_:
+and this one strengthens the role inferred for the first parameter of `Map` (which would be _representational_ otherwise), leaving its second parameter _representational_:
 
 ```purescript
 type role Map nominal representational
