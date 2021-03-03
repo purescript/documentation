@@ -188,7 +188,6 @@ At the moment, it is not possible to declare default member implementations for 
 Many type class hierarchies are more granular than in Haskell. For example:
 
 * `Category` has a superclass `Semigroupoid` which provides `(<<<)`, and does not require an identity.
-* `Monoid` has a superclass `Semigroup`, which provides `(<>)`, and does not require an identity.
 * `Applicative` has a superclass `Apply`, which provides `(<*>)` and does not require an implementation for `pure`.
 
 ## Tuples
