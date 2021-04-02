@@ -192,7 +192,7 @@ Many type class hierarchies are more granular than in Haskell. For example:
 
 ## Overloaded number literals
 
-In PureScript, number literals are not overloaded, as in Haskell. That is, `1` is always an `Int`, and `1.0` is always a `Number`.
+In PureScript, number literals are not overloaded as in Haskell. That is, `1` is always an `Int`, and `1.0` is always a `Number`.
 
 ## Tuples
 
