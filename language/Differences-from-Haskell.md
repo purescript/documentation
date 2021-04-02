@@ -190,6 +190,10 @@ Many type class hierarchies are more granular than in Haskell. For example:
 * `Category` has a superclass `Semigroupoid` which provides `(<<<)`, and does not require an identity.
 * `Applicative` has a superclass `Apply`, which provides `(<*>)` and does not require an implementation for `pure`.
 
+## Overloaded number literals
+
+In PureScript, number literals are not overloaded, as in Haskell. That is, `1` is always an `Int`, and `1.0` is always a `Number`.
+
 ## Tuples
 
 PureScript has no special syntax for tuples as records can fulfill the same role that *n*-tuples do with the advantage of having more meaningful types and accessors.
