@@ -213,7 +213,7 @@ Most types can be inferred (not including Rank N Types and constrained types), b
 
 ```purescript
 -- Defined in Data.Semiring
-one :: forall a. (Semiring a) => a
+-- one :: forall a. (Semiring a) => a
 
 -- one can be an Int, since Int is an instance of Semiring where one = 1
 int1 :: Int
