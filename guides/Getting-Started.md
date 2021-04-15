@@ -58,11 +58,11 @@ If everything was built successfully, and the tests ran without problems, then t
 
 ### Installing Dependencies
 
-Dependencies can be installed using Spago. We will be using the `lists` library shortly, so install it now:
+Dependencies can be installed using Spago. We will be using the `lists` and `foldable-traversable` libraries shortly, so install those now:
 
-    spago install lists
+    spago install lists foldable-traversable
 
-The `lists` library sources should now be available in the `.spago/lists/{version}/` subdirectory, and will be included when you compile your project.
+The `lists` and `foldable-traversable` library sources should now be available in the `.spago/lists/{version}/` and `.spago/foldable-traversable/{version}/` subdirectories respectively, and will be included when you compile your project.
 
 ### Working in PSCI
 
