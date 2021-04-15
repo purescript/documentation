@@ -62,7 +62,7 @@ Dependencies can be installed using Spago. We will be using the `lists` and `fol
 
     spago install lists foldable-traversable
 
-The `lists` library sources should now be available in the `.spago/lists/{version}/` subdirectory, and will be included when you compile your project.
+The `lists` and `foldable-traversable` library sources should now be available in the `.spago/lists/{version}/` and `.spago/foldable-traversable/{version}/` subdirectories respectively, and will be included when you compile your project.
 
 ### Working in PSCI
 
