@@ -104,7 +104,7 @@ main = logShow (Score 5)
 
 ```purs
 import Data.Generic.Rep (class Generic)
-import Data.Generic.Rep.Show (genericShow)
+import Data.Show.Generic (genericShow)
 import Effect.Console (logShow)
 
 newtype Score = Score Int
@@ -127,7 +127,7 @@ Be careful when using generic functions with recursive data types. Due to strict
 
 ```purs
 import Data.Generic.Rep (class Generic)
-import Data.Generic.Rep.Show (genericShow)
+import Data.Show.Generic (genericShow)
 import Effect.Console (logShow)
 
 data Chain a
