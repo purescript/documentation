@@ -23,7 +23,7 @@ nub [Some, Arbitrary 1, Some, Some] == [Some, Arbitrary 1]
 ```
 
 Currently, instances for the following classes can be derived by the compiler:
-- [Data.Generic.Rep (class Generic)](https://pursuit.purescript.org/packages/purescript-prelude/5.0.0/docs/Data.Generic.Rep#t:Generic)
+- [Data.Generic.Rep (class Generic)](https://pursuit.purescript.org/packages/purescript-prelude/docs/Data.Generic.Rep#t:Generic)
 - [Data.Eq (class Eq)](https://pursuit.purescript.org/packages/purescript-prelude/docs/Data.Eq#t:Eq)
 - [Data.Ord (class Ord)](https://pursuit.purescript.org/packages/purescript-prelude/docs/Data.Ord#t:Ord)
 - [Data.Functor (class Functor)](https://pursuit.purescript.org/packages/purescript-prelude/docs/Data.Functor#t:Functor)
@@ -155,4 +155,3 @@ instance showChain :: Show a => Show (Chain a) where
 ```
 
 This technique of undoing point free notation is known as _eta expansion_.
-
