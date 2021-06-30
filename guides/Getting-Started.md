@@ -275,7 +275,7 @@ Try creating an `index.html` file with the following contents:
 
   <body>
     <script src="./index.js"></script>
-  <body>
+  </body>
 
 </html>
 ```
