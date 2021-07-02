@@ -451,7 +451,7 @@ Operator sections also work for functions used this way:
 fooBy2 = (_ `foo` 2)
 ```
 
-Infix operators created using backticks are left associative with the highest precedence by default.
+Infix operators created using backticks are left associative with the highest precedence.
 
 ``` purescript
 result = 1 `add` 2 * 3 -- == 9
