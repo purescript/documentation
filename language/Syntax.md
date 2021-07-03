@@ -451,6 +451,12 @@ Operator sections also work for functions used this way:
 fooBy2 = (_ `foo` 2)
 ```
 
+Infix operators created using backticks are left associative with the highest precedence.
+
+``` purescript
+result = 1 `add` 2 * 3 -- == 9
+```
+
 ## Case expressions
 
 The `case` and `of` keywords are used to deconstruct values to create logic based on the value's constructors. You can match on multiple values by delimiting them with `,` in the head and cases.
