@@ -214,7 +214,7 @@ The `Data.Foreign` module (available in the `purescript-foreign` package) define
 
 It is often useful when wrapping Javascript APIs to create new types at a specific kind for use with the FFI.
 
-For example, suppose we have a Javascript library `frob` which defines the `Frob` data structure and associated functions. To give meaningful types to those functions, it might be useful to define a type `Frob` as kind `Type`. We can do this as follows:
+For example, suppose we have a Javascript library `frob` which defines the `Frob` data structure and associated functions. To give meaningful types to those functions, it might be useful to define a type `Frob` at kind `Type`. We can do this as follows:
 
 ``` haskell
 foreign import data Frob :: Type
