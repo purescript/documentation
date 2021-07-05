@@ -53,6 +53,26 @@ main = do
   log $ myShow MysteryItem -- Invalid
 ```
 
+When type variables are present in the constraint being solved, the question of whether an instance in a chain matches is a little subtle. A type variable in the constraint is treated existentially—it represents some concrete type, but the constraint solver isn't allowed to assume that it is any particular type. This means that, when evaluating an instance as a solution for a particular constraint, there are three possible outcomes for the instance: it can match, it can fail to match, or it can be ambiguous. An ambiguous instance is one that could match the constraint only if one or more of the variables in the constraint happened to represent a particular type.
+
+```purescript
+class MyShow a where
+  myShow :: a -> String
+
+instance showStringTuple :: MyShow a => MyShow (Tuple String a) where
+  myShow (Tuple s a) = s <> ": " <> myShow a
+
+else instance showA :: MyShow a where
+  myShow _ = "Invalid"
+
+f :: forall l r. Tuple l r -> String
+f = myShow -- error: no instance found
+```
+
+In this example, `f` needs an instance of `MyShow (Tuple l r)`. The `showStringTuple` is an ambiguous match for this constraint, because it would only match if `l` represented the type `String`. But `f` needs an implementation that will work for all `l`, so this can't be used as a full match.
+
+Ambiguous instances are mostly treated the same as an instance that fails to match, with this exception. If an instance in an instance chain fails to match, the compiler will try the next instance in the chain. But if an instance in an instance chain is an ambiguous match, the compiler will not consider any more instances in that chain. In the above example, the compiler will report that no instance was found for `MyShow (Tuple l r)` in `f`, even though the `showA` instance could have been a match, because the ambiguous `showStringTuple` prevents `showA` from being considered.
+
 ## Multi-Parameter Type Classes
 
 TODO. For now, see the section in [PureScript by Example](https://book.purescript.org/chapter6.html#multi-parameter-type-classes).
