@@ -39,3 +39,45 @@ Note that cycles can also spring up in much less obvious ways, e.g. if you defin
 ## Notes
 
 - If you are trying to implement a recursive parser in PureScript, then you might find this post on [recursive parsing in PureScript](https://github.com/Thimoteus/SandScript/wiki/2.-Parsing-recursively) to be helpful.
+
+### Additional Examples
+
+Mutually recursive functions:
+```purs
+{-
+A very inneficient way to write:
+zeroOrNine n = if n >= 9 then 9 else 0
+-}
+zeroOrNine :: Int -> Int
+zeroOrNine 9 = 9
+zeroOrNine n | n < 0 = 0
+zeroOrNine n = again (n - 1)
+
+again :: Int -> Int
+again = zeroOrNine
+{-
+Fix compiler error by replacing the above line with either:
+again n = zeroOrNine n
+again = \n -> zeroOrNine n
+-}
+```
+https://try.purescript.org/?gist=3e013405988ab9a58521412fddadca08
+
+Type class instance for recursive data type:
+```purs
+data Chain a
+  = End a
+  | Link a (Chain a)
+
+derive instance genericChain :: Generic (Chain a) _
+
+-- This builds, but blows-up call stack and triggers a
+-- "too much recursion error".
+instance showChain :: Show a => Show (Chain a) where
+  show = genericShow
+{-
+Fix the issue by replacing the above line with:
+  show c = genericShow c
+-}
+```
+https://try.purescript.org/?gist=32b78ce065d60427620cdd8d40777a1f
