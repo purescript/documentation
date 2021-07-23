@@ -5,17 +5,23 @@
 ```purescript
 module ShortFailingExample where
 
+addTwo :: Number -> Number -> Number
+addToo a b = a + b
 ...
 ```
 
 ## Cause
 
-Explain why a user might see this error.
+Purescript requires that the type declaration for a function or value (i.e. the line with the `::` in it)
+be followed immidiatly by the definition of that function or value (i.e. the line with the `=` in it). The
+compiler has found a declaration for which a defination did not follow.
+
+The most common cause of this error are typographical issues.  Check to see that the declaration and the
+definition are spelled the same. Purescript is a whitespace sensitive language and the presence of an
+extra space can make the defination look like a part of the declaration.
 
 ## Fix
 
-- Suggest possible solutions.
-
-## Notes
-
-- Additional notes.
+- Ensure that the next (non-comment) line is the definition for the listed declaration.
+- Check that the spelling of they two matches.
+- Check for extra spaces.  Both declarationa and defination should start with the same indentation.
