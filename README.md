@@ -14,6 +14,11 @@ This repository is a collaborative effort, so please feel free to make a pull re
 - [Getting Started](guides/Getting-Started.md): Download PureScript and build your first project
 - [Try PureScript](http://try.purescript.org): Try PureScript in your browser
 
+### Community
+
+- [Discourse](https://discourse.purescript.org/): Discuss PureScript in a forum setting
+- [Discord](https://discord.gg/sMqwYUbvz6): Chat about PureScript and attend video / audio meetups
+
 ### Learning
 
 - The [PureScript Book](https://book.purescript.org) is the recommended approach to learning the language, since it covers more material in greater depth.
