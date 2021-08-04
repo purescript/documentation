@@ -17,7 +17,7 @@ This repository is a collaborative effort, so please feel free to make a pull re
 ### Community
 
 - [Discourse](https://discourse.purescript.org/): Discuss PureScript in a forum setting
-- [Discord](https://discord.gg/sMqwYUbvz6): Chat about PureScript and attend video / audio meetups
+- [Discord](https://purescript.org/chat): Chat about PureScript and attend video / audio meetups
 
 ### Learning
 
