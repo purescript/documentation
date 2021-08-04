@@ -7,7 +7,6 @@ There are various alternatives to `psc`'s default JavaScript backend:
 | [andyarvanitis/purescript-native](https://github.com/andyarvanitis/purescript-native) | 0.13.x     | C++11 or Go   | all applicable tests in `purescript/tests/purs/passing` are passing |
 | [purerl/purerl](https://github.com/purerl/purerl)                                     | 0.13.5     | Erlang        |                                |
 | [pure-c/purec](https://github.com/pure-c/purec)                                       |            | C (Clang)     |                                |
-| [turlando/purescm](https://github.com/turlando/purescm)                               |            | Scheme        | early state of development     |
 
 ## Stale
 
