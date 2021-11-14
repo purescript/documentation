@@ -3,7 +3,7 @@
 ## Example
 
 ```purescript
-module ShortFailingExample where
+module UnusedNameExample where
 
 plus :: Int -> Int -> Int
 plus x y = y -- Name x was introduced but not used.
