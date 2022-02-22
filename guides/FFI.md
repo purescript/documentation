@@ -33,18 +33,11 @@ This function finds the greatest common divisor of two numbers by repeated subtr
 To understand how this function can be called from Javascript, it is important to realize that PureScript functions always get turned into Javascript functions _of a single argument_, so we need to apply its arguments one-by-one:
 
 ``` javascript
-var Test = require('Test');
-Test.gcd(15)(20);
+import { gcd } from 'Test';
+gcd(15)(20);
 ```
 
-Here, I am assuming that the code was compiled with `psc`, which compiles PureScript modules to CommonJS modules. For that reason, I was able to reference the `gcd` function on the `Test` object, after importing the `Test` module using `require`.
-
-You might also like to bundle JavaScript code for the browser, using `purs bundle`. In that case, you would access the `Test` module on the global namespace, which defaults to `PS`:
-
-``` javascript
-var Test = PS.Test;
-Test.gcd(15)(20);
-```
+Here, I am assuming that the code was compiled with `psc`, which compiles PureScript modules to ES modules. For that reason, I was able to import the `gcd` function from the `Test` module.
 
 #### Understanding Name Generation
 
@@ -85,14 +78,12 @@ The general rule regarding types is that you can enforce as little or as much ty
 In PureScript, JavaScript code is wrapped using a _foreign module_. A foreign module is just a CommonJS module which is associated with a PureScript module. Foreign modules are required to adhere to certain conventions:
 
 - The name of the foreign module must be the same as its companion PureScript module, with its extension changed to `.js`. This associates the foreign module with the PureScript module.
-- All exports must be of the form `exports.name = value;`, specified at the top level.
+- All exports must be of the form `export const name = value;`, specified at the top level.
 
 Here is an example, where we export a function which computes interest amounts from a foreign module:
 
 ```javascript
-"use strict";
-
-exports.calculateInterest = function(amount) {
+export function calculateInterest(amount) {
   return amount * 0.1;
 };
 ```
@@ -114,9 +105,7 @@ PureScript functions are curried by default, so Javascript functions of multiple
 Suppose we wanted to modify our `calculateInterest` function to take a second argument:
 
 ```javascript
-"use strict";
-
-exports.calculateInterest = function(amount, months) {
+export function calculateInterest(amount, months) {
   return amount * Math.exp(0.1, months);
 };
 ```
@@ -141,9 +130,7 @@ calculateInterestCurried = runFn2 calculateInterest
 An alternative is to use curried functions in the native module, using multiple nested functions, each with a single argument, as the runtime representation of the function type constructor `(->)` dictates:
 
 ```javascript
-"use strict";
-
-exports.calculateInterest = function(amount) {
+export function calculateInterest(amount) {
   return function(months) {
     return amount * Math.exp(0.1, months);
   };
