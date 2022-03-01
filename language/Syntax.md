@@ -109,10 +109,10 @@ Function and value names must start with a lowercase letter ([unicode category](
 Here a table showing for each acceptable category the characters which have code points in the 8-bit range ("Extended ASCII"):
 
 | Category | Characters within the 8-bit code point range |
-|----------|------------------- ---------------|
+|----------|-----------------------------------|
 | `Ll`       | `a` `b` `c` `d` `e` `f` `g` `h` `i` `j` `k` `l` `m` `n` `o` `p` `q` `r` `s` `t` `u` `v` `w` `x` `y` `z` <BR>`µ` `ß` `à` `á` `â` `ã` `ä` `å` `æ` `ç` `è` `é` `ê` `ë` `ì` `í` `î` `ï` `ð` `ñ` `ò` `ó` `ô` `õ` `ö` `ø` `ù` `ú` `û` `ü` `ý` `þ` `ÿ` |
 | `L`        | `A` `B` `C` `D` `E` `F` `G` `H` `I` `J` `K` `L` `M` `N` `O` `P` `Q` `R` `S` `T` `U` `V` `W` `X` `Y` `Z` <BR>`a` `b` `c` `d` `e` `f` `g` `h` `i` `j` `k` `l` `m` `n` `o` `p` `q` `r` `s` `t` `u` `v` `w` `x` `y` `z` <BR>`ª` `µ` `º` `À` `Á` `Â` `Ã` `Ä` `Å` `Æ` `Ç` `È` `É` `Ê` `Ë` `Ì` `Í` `Î` `Ï` `Ð` `Ñ` `Ò` `Ó` `Ô` `Õ` `Ö` `Ø` `Ù` `Ú` `Û` `Ü` `Ý` <BR>`Þ` `ß` `à` `á` `â` `ã` `ä` `å` `æ` `ç` `è` `é` `ê` `ë` `ì` `í` `î` `ï` `ð` `ñ` `ò` `ó` `ô` `õ` `ö` `ø` `ù` `ú` `û` `ü` `ý` `þ` `ÿ` |
-| `M`        | [none] |
+| `M`        | _none_ |
 | `N`        | `0` `1` `2` `3` `4` `5` `6` `7` `8` `9` `²` `³` `¹` `¼` `½` `¾` |
 
 
