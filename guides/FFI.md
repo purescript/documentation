@@ -78,7 +78,7 @@ The general rule regarding types is that you can enforce as little or as much ty
 In PureScript, JavaScript code is wrapped using a _foreign module_. A foreign module is just a CommonJS module which is associated with a PureScript module. Foreign modules are required to adhere to certain conventions:
 
 - The name of the foreign module must be the same as its companion PureScript module, with its extension changed to `.js`. This associates the foreign module with the PureScript module.
-- All exports must be of the form `export const name = value;`, specified at the top level.
+- All exports must be of the form `export const name = value;` respectively `export function name() { ... }` for functions, specified at the top level.
 
 Here is an example, where we export a function which computes interest amounts from a foreign module:
 
