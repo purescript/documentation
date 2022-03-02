@@ -326,6 +326,17 @@ This illustrates a few points about the way the PureScript compiler generates Ja
 
 These points are important since they mean that PureScript generates simple, understandable code. The code generation process, in general, is quite a shallow transformation. It takes relatively little understanding of the language to predict what JavaScript code will be generated for a particular input.
 
+### Compiling ES Modules
+
+Spago can also be used to generate ES modules from PureScript code. This can be useful when using NodeJS, or just when developing a larger project which uses ES modules to break code into smaller components.
+
+To build ES modules, use the `spago build` command:
+
+    $ spago build
+    ...
+    Build succeeded.
+
+The generated modules will be placed in the `output` directory by default. Each PureScript module will be compiled to its own ES module, in its own subdirectory.
 
 ### What Next?
 
