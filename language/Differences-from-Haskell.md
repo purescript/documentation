@@ -166,13 +166,7 @@ and `Ord`.  See
 [here](https://github.com/purescript/documentation/blob/master/language/Type-Classes.md#type-class-deriving)
 for a list of other type classes.
 
-Using generics, it is also possible to use generic implementations for type
-classes like `Bounded`, `Monoid`, and `Show`.  See
-[the generics-rep library](https://pursuit.purescript.org/packages/purescript-generics-rep)
-for a list of other type classes that have generic implementations, as well as
-an explanation of how to write generic implementations for your own type
-classes.
-
+Furthermore, using generics, it is also possible to use generic implementations for type classes like `Bounded`, `Monoid`, and `Show`. See the [deriving guide](../guides/Type-Class-Deriving.md#deriving-from-generic) for more information.
 ### Orphan Instances
 
 Unlike Haskell, orphan instances are completely disallowed in PureScript.  It is a compiler error to try to declare orphan instances.
