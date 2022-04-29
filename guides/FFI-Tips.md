@@ -11,7 +11,7 @@ foreign import joinPath :: FilePath -> FilePath -> FilePath
 ```
 
 ```javascript
-exports.joinPath = function(start) {
+export function joinPath(start) {
   return function(end) {
     return require('path').join(start, end);
   };
@@ -27,7 +27,7 @@ foreign import joinPathImpl :: Fn2 FilePath FilePath FilePath
 ```
 
 ```javascript
-exports.joinPathImpl = require('path').join;
+export { join as joinPathImpl } from 'path';
 ```
 
 However, these `Fn0`..`Fn10` types cannot be applied as normal PureScript functions, they require a corresponding `runFn0`..`runFn10` call to execute. The `runFn` definitions essentially do the work of taking a multi-argument function and returning a curried version for you.
@@ -62,7 +62,7 @@ doSomething fn x = runFn2 doSomethingImpl fn x
 ```
 
 ```javascript
-exports.doSomethingImpl = function(fn, x) {
+export function doSomethingImpl(fn, x) {
   if (fn(x)) {
     return Data_Maybe.Just.create(x);
   } else {
@@ -104,7 +104,7 @@ showSomething x = runFn3 showSomethingImpl isJust show x
 ```
 
 ```javascript
-exports.doSomethingImpl = function(isJust, show, value) {
+export function doSomethingImpl(isJust, show, value) {
   if (isJust(value)) {
     return "It's something: " + show(value);
   } else {
@@ -122,7 +122,7 @@ By moving the `show` reference out to `showSomething` the compiler will pick the
 In order to avoid prematurely evaluating effects (or evaluating effects that should not be evaluated at all), PureScript wraps them in constant functions:
 
 ```javascript
-exports.myEffect = function() {
+export function myEffect() {
   return doSomethingEffectful(1, 2, 3);
 }
 ```

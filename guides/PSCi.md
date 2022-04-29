@@ -14,7 +14,7 @@ $ spago init                 # Initialize a Spago environment
 $ spago repl                 # Fire up the interpreter psci
 
 ...
-PSCi, version 0.13.6
+PSCi, version 0.15.0
 Type :? for help
 
 import Prelude
