@@ -340,7 +340,7 @@ The generated modules will be placed in the `output` directory by default. Each 
 
 ### What Next?
 
-If you're new to typed functional programming, your next stop should be [PureScript by Example](https://book.purescript.org/), which will walk you through learning PureScript by solving practical problems.
+If you're new to typed functional programming, your next stop should be [PureScript by Example](https://book.purescript.org/), which will walk you through learning PureScript by solving practical problems. You may find it convenient to take a brief detour and [setup an IDE](https://github.com/purescript/documentation/blob/master/ecosystem/Editor-and-tool-support.md) before working through the exercises in the book.
 
 If you are already familiar with an ML-family language, like Haskell or Elm, PureScript by Example should still be appropriate as a starting point, but you may alternatively want to start by browsing the [language reference in the documentation repository](https://github.com/purescript/documentation/tree/master/language) instead. The language reference gives a more brief, reference-style description of the language, and is aimed at those who are already somewhat familiar with typed functional programming. There is also a [Differences from Haskell](https://github.com/purescript/documentation/blob/master/language/Differences-from-Haskell.md) page which Haskell programmers will find useful.
 
