@@ -340,8 +340,12 @@ The generated modules will be placed in the `output` directory by default. Each 
 
 ### What Next?
 
-If you're new to typed functional programming, your next stop should be [PureScript by Example](https://book.purescript.org/), which will walk you through learning PureScript by solving practical problems.
+If you're new to typed functional programming, check out the [PureScript by Example](https://book.purescript.org/) book. This book walks you through learning PureScript by solving practical problems.
 
-If you are already familiar with an ML-family language, like Haskell or Elm, PureScript by Example should still be appropriate as a starting point, but you may alternatively want to start by browsing the [language reference in the documentation repository](https://github.com/purescript/documentation/tree/master/language) instead. The language reference gives a more brief, reference-style description of the language, and is aimed at those who are already somewhat familiar with typed functional programming. There is also a [Differences from Haskell](https://github.com/purescript/documentation/blob/master/language/Differences-from-Haskell.md) page which Haskell programmers will find useful.
+If you are already familiar with an [ML-family language](https://en.wikipedia.org/wiki/ML_(programming_language)), the [PureScript by Example](https://book.purescript.org/) book should still be a good starting point.
 
-New PureScript programmers are also encouraged to spend some time browsing [Pursuit](https://pursuit.purescript.org), which hosts generated API documentation for PureScript libraries. In particular it is worth familiarising yourself with the [core libraries](https://github.com/purescript) (i.e., those which are hosted under the `purescript` organisation on GitHub), and especially the [prelude](https://pursuit.purescript.org/packages/purescript-prelude), as these provide many basic concepts which are frequently useful for writing programs.
+If you are somewhat familiar with typed functional programming, You may alternatively browse the [language reference in the documentation repository](https://github.com/purescript/documentation/tree/master/language). It gives a brief, reference-style description of the language.
+
+Haskell programmers will find the [Differences from Haskell](https://github.com/purescript/documentation/blob/master/language/Differences-from-Haskell.md) page very  useful.
+
+We encourage new PureScript programmers to spend some time browsing [Pursuit](https://pursuit.purescript.org). It is worth familiarising yourself with the [core libraries](https://github.com/purescript) (especially the [prelude](https://pursuit.purescript.org/packages/purescript-prelude)) as these provide many basic concepts, which are useful for writing programs. 
