@@ -34,12 +34,12 @@ module B where
 import A (runFoo, (.~), Foo(..), Bar(Bar))
 ```
 
-Type classes are imported using the `class` keyword, kinds with `kind`:
+Type classes are imported using the `class` keyword, kinds with `kind`, and type operators (wrapped in parentheses) with `type`:
 
 ```purescript
 module B where
 
-import A (class Fab, kind Effect)
+import A (class Fab, kind Effect, type (~>))
 ```
 
 ### Hiding imports

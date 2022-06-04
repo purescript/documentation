@@ -17,11 +17,12 @@ This repository is a collaborative effort, so please feel free to make a pull re
 ### Community
 
 - [Discourse](https://discourse.purescript.org/): Discuss PureScript in a forum setting
-- [Discord](https://discord.gg/sMqwYUbvz6): Chat about PureScript and attend video / audio meetups
+- [Discord](https://purescript.org/chat): Chat about PureScript and attend video / audio meetups
 
 ### Learning
 
 - The [PureScript Book](https://book.purescript.org) is the recommended approach to learning the language, since it covers more material in greater depth.
+- The [Functional Programming Made Easier](https://leanpub.com/fp-made-easier) will start you at the very beginning with the basics. The book assumes that you know nothing about Functional Programming, and teaches you functional concept with Purescript and in the final few chapters it will build a Full-Stack web server and browser-based front end written in PureScript.
 - [Language Reference](language/README.md)
 - [PureScript: Jordan's Reference](https://github.com/JordanMartinez/purescript-jordans-reference): An up-to-date project covering Getting Started, Build Tools, PureScript's syntax with examples, FP design patterns, and PureScript's ecosystem.
 - [PureScript Cookbook](https://github.com/JordanMartinez/purescript-cookbook): An unofficial cookbook for PureScript.

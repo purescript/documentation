@@ -59,24 +59,27 @@ Compiling Effect.Console
 
 #### Bundling JavaScript for the Browser
 
-To bundle the generated Javascript code, we will use `purs bundle`.
+To bundle the generated Javascript code into a single file, we will use `spago bundle`.
 
-`purs bundle` takes a collection of CommonJS module files as input, and generates a single JavaScript file.
+`spago bundle-app` take the module with the main as input, and generates a single self-contained JavaScript file.
 
-Run `purs bundle` with the following arguments:
+Run `spago bundle-app` with the following arguments:
 
-```text
-$ purs bundle output/*/{index,foreign}.js --module Main --main Main
+```bash
+$ spago bundle-app --main Main --to index.js
 ```
-
-The `--module` argument specifies an _entry-point_ module, which will be used to determine dead code which can be removed. For our purposes, we only care about bundling the CommonJS module corresponding to the Main PureScript module and its transitive dependencies.
 
 The `--main` argument will make the output JavaScript file an executable by adding a line of JavaScript to it which runs the `main` function in the specified module.
 
-If everything worked, you should see about 100 lines of JavaScript printed out. This can optionally be redirected to a file with the `--output`/`-o` argument.
+If you want to bundle for Node.js, you can use the following command:
 
-You should be able to execute the generated JavaScript using NodeJS. If your PureScript code uses FFI files which `require` NPM modules, you'll need to use a JavaScript bundler, like Webpack or Browserify, before running it in the browser.
+```bash
+spago bundle-app --main Main --to index.js --platform node
+```
+You should be able to execute the generated JavaScript using Node.js.
+
+For more information, see the [spago documentation](https://www.github.com/purescript/spago).
 
 #### Conclusion
 
-I've shown how it's possible to get started with PureScript without using the tools from the NodeJS ecosystem. Obviously, for larger projects, it takes some work to manage library dependencies this way, which is why the PureScript community has decided to reuse existing tools. However, if you need to avoid those tools for any reason, it is possible to script some standard tasks without them.
+I've shown how it's possible to get started with PureScript without using the tools from the Node.JS ecosystem. Obviously, for larger projects, it takes some work to manage library dependencies this way, which is why the PureScript community has decided to reuse existing tools. However, if you need to avoid those tools for any reason, it is possible to script some standard tasks without them.

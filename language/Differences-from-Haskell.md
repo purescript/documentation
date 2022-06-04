@@ -6,7 +6,7 @@ As the evaluation strategy matches JavaScript, interoperability with existing co
 
 Keeping strict evaluation also means there is no need for a runtime system or overly complicated JavaScript output. It should also be possible to write higher performance code when needed, as introducing laziness on top of JavaScript comes with an unavoidable overhead.
 
-## Prelude/base
+## Prelude / base
 
 There is no implicit `Prelude` import in PureScript, the `Prelude` module is just like any other. Also, no libraries are distributed with the compiler at all.
 
@@ -134,14 +134,14 @@ This is so that `=>` can always be read as logical implication; in the above cas
 
 ### Named instances
 
-In PureScript, instances must be given names:
+In PureScript, you can give names to instances:
 
 ```purescript
 instance arbitraryUnit :: Arbitrary Unit where
   ...
 ```
 
-Overlapping instances are still disallowed, like in Haskell. The instance names are used to help the readability of compiled JavaScript.
+Although instance names are optional, they can help the readability of compiled JavaScript. Overlapping instances are still disallowed, like in Haskell.
 
 ### Deriving
 
@@ -166,13 +166,7 @@ and `Ord`.  See
 [here](https://github.com/purescript/documentation/blob/master/language/Type-Classes.md#type-class-deriving)
 for a list of other type classes.
 
-Using generics, it is also possible to use generic implementations for type
-classes like `Bounded`, `Monoid`, and `Show`.  See
-[the generics-rep library](https://pursuit.purescript.org/packages/purescript-generics-rep)
-for a list of other type classes that have generic implementations, as well as
-an explanation of how to write generic implementations for your own type
-classes.
-
+Furthermore, using generics, it is also possible to use generic implementations for type classes like `Bounded`, `Monoid`, and `Show`. See the [deriving guide](../guides/Type-Class-Deriving.md#deriving-from-generic) for more information.
 ### Orphan Instances
 
 Unlike Haskell, orphan instances are completely disallowed in PureScript.  It is a compiler error to try to declare orphan instances.
@@ -198,7 +192,7 @@ In PureScript, number literals are not overloaded as in Haskell. That is, `1` is
 
 PureScript has no special syntax for tuples as records can fulfill the same role that *n*-tuples do with the advantage of having more meaningful types and accessors.
 
-A `Tuple` type for 2-tuples is available via the [purescript-tuples](https://github.com/purescript/purescript-tuples) library. `Tuple` is treated the same as any other type or data constructor.
+A `Tuple` type for 2-tuples is available via the [purescript-tuples](https://github.com/purescript/purescript-tuples) library. `Tuple` is treated the same as any other type or data constructor. There is a shorthand `a /\ b` for `Tuple a b` in [Data.Tuple.Nested](https://pursuit.purescript.org/packages/purescript-tuples/6.0.1/docs/Data.Tuple.Nested).
 
 ## Composition operator
 

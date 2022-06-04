@@ -23,7 +23,7 @@ nub [Some, Arbitrary 1, Some, Some] == [Some, Arbitrary 1]
 ```
 
 Currently, instances for the following classes can be derived by the compiler:
-- [Data.Generic.Rep (class Generic)](https://pursuit.purescript.org/packages/purescript-prelude/docs/Data.Generic.Rep#t:Generic)
+- Data.Generic.Rep (class Generic) [see below](../guides/Type-Class-Deriving.md#deriving-from-generic)
 - [Data.Eq (class Eq)](https://pursuit.purescript.org/packages/purescript-prelude/docs/Data.Eq#t:Eq)
 - [Data.Ord (class Ord)](https://pursuit.purescript.org/packages/purescript-prelude/docs/Data.Ord#t:Ord)
 - [Data.Functor (class Functor)](https://pursuit.purescript.org/packages/purescript-prelude/docs/Data.Functor#t:Functor)
@@ -119,7 +119,7 @@ main = logShow (Score 5)
 -- (Score 5)
 ```
 
-More information on Generic deriving is available [in the generics-rep library documentation](https://pursuit.purescript.org/packages/purescript-generics-rep). See this [blog post](https://harry.garrood.me/blog/write-your-own-generics/) for a tutorial on how to write your own `generic` functions.
+You can try out generic deriving in the example at [Try PureScript](https://try.purescript.org/). See also [Jordan's Reference](https://jordanmartinez.github.io/purescript-jordans-reference-site/content/31-Design-Patterns/22-Generics.html) for more discussion, and this [blog post](https://harry.garrood.me/blog/write-your-own-generics/) for a tutorial on how to write your own `generic` functions (NB there have been language and library changes since that post).
 
 #### Avoiding stack overflow errors with recursive types
 
