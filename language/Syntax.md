@@ -157,9 +157,48 @@ String literals are enclosed in double-quotes and may extend over multiple lines
 
 Line breaks will be omitted from the string when written this way.
 
+#### Escape sequences
+
+String literals can contain a variety of escape sequences. The following escape sequences insert a commonly used control character:
+
+``` purescript
+"\t" -- tab (U+0009)
+"\n" -- line feed (U+000A)
+"\r" -- carriage return (U+000D)
+```
+  
+The following escape sequences insert a character which normally has special meaning in string literals:
+
+``` purescript
+"\\" -- backslash
+"\"" -- double-quote
+"\'" -- apostrophe
+```
+
+Hexadecimal escape sequences can be used to insert an arbitrary Unicode code point. They start with `\x` and can contain 1 to 6 hexadecimal digits.
+
+``` purescript
+"\x0"      -- U+0000 (the lowest valid code point) 
+"\x2713"   -- U+2713 (check mark)
+"\x02713"  -- U+2713 as well
+"\x10ffff" -- U+10FFFF (the highest valid code point)
+```
+
+If you want to include a hexadecimal digit after such an escape sequence you have two options. You can break the string into two parts:
+
+``` purescript
+"\x2713" <> "1"
+```
+
+or use leading zeros in the escape sequence to make sure it has six digits:
+
+``` purescript
+"\x0027131"
+```
+
 #### Triple-quote Strings
 
-If line breaks are required in the output, they can be inserted with `\n`. Alternatively, you can use triple double-quotes to prevent special parsing of escaped symbols. This also allows the use of double quotes within the string with no need to escape them:
+You can use triple double-quotes to prevent special parsing of escaped symbols. This also allows the use of double-quotes within the string with no need to escape them:
 
 ``` purescript
 jsIsHello :: String

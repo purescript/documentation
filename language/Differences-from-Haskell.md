@@ -52,6 +52,14 @@ ap :: forall m a b. (Monad m) => m (a -> b) -> m a -> m b
 
 There is a native `Number` type which represents JavaScript's standard IEEE 754 float and an `Int` which is restricted to the range of 32-bit integers. In JavaScript, the `Int` values and operations are generated with a `|0` postfix to achieve this, e.g. if you have variables `x`, `y`, and `z` of type `Int`, then the PureScript expression `(x + y) * z` would compile to `((x + y)|0 * z)|0`.
 
+#### Strings
+
+There is a native `String` type which is distinct from `Array Char`. A `String` consists of UTF-16 code units and may contain unpaired surrogates. Working with Unicode code points is supported by library functions. The set of supported escape sequences for string literals is different from both Haskell and JavaScript. 
+
+#### Chars
+
+PureScript has a type `Char` which represents a UTF-16 code unit for compatibility with JavaScript. In contrast, the type `Char` in Haskell represents a Unicode code point.
+
 ### Unit
 
 PureScript has a type `Unit` used in place of Haskell's `()`. The `Prelude` module provides a value `unit` that inhabits this type.
