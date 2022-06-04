@@ -346,6 +346,6 @@ If you are already familiar with an [ML-family language](https://en.wikipedia.or
 
 If you are somewhat familiar with typed functional programming, You may alternatively browse the [language reference in the documentation repository](https://github.com/purescript/documentation/tree/master/language). It gives a brief, reference-style description of the language.
 
-Haskell programmers will find the [Differences from Haskell](https://github.com/purescript/documentation/blob/master/language/Differences-from-Haskell.md) page very  useful.
+Haskell programmers will find the [Differences from Haskell](https://github.com/purescript/documentation/blob/master/language/Differences-from-Haskell.md) page very useful.
 
 We encourage new PureScript programmers to spend some time browsing [Pursuit](https://pursuit.purescript.org). It is worth familiarising yourself with the [core libraries](https://github.com/purescript) (especially the [prelude](https://pursuit.purescript.org/packages/purescript-prelude)) as these provide many basic concepts, which are useful for writing programs. 
