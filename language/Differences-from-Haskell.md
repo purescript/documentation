@@ -267,6 +267,45 @@ In PureScript, operator sections look a little bit different.
 (_ ^ 2)
 ```
 
+## Fixity declarations for functions
+
+In Haskell, functions can have fixity declarations. For example in `base`:
+
+```haskell
+infix  4 `elem`, `notElem`
+infixl 7 `quot`, `rem`, `div`, `mod`
+```
+
+However fixity declarations are only supported while declaring [operator aliases](Syntax.md#binary-operators) for functions in PureScript. Functions are always left associative and have the highest precedence when used as infix operators, which means that:
+
+```
+x * y `mod` z
+```
+
+parses as:
+
+```haskell
+((x * y) `mod` z)
+```
+
+in Haskell, but as:
+
+```purescript
+(x * (y `mod` z))
+```
+
+in PureScript, and those expressions may yield different values:
+
+```purescript
+> ((2 * 3) `mod` 5)
+1
+```
+
+```purescript
+> (2 * (3 `mod` 5))
+6
+```
+
 ## Extensions
 
 The PureScript compiler does not support GHC-like language extensions. However, there are some "built-in" language features that are equivalent (or at least similar) to a number of GHC extensions. These currently are:
