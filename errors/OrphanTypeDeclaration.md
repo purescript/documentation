@@ -16,7 +16,7 @@ Purescript requires that the type declaration for a function or value (i.e. the 
 be followed immediately by the definition of that function or value (i.e. the line with the `=` in it). The
 compiler has found a declaration for which a definition did not follow.
 
-This is often caused by typographical issues.  Check to see that the declaration and the
+This is often caused by spelling mistakes.  Check to see that the declaration and the
 definition are spelled the same. PureScript is a whitespace sensitive language and the presence of an
 extra space can make the definition look like a part of the declaration.
 
