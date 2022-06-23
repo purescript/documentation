@@ -8,8 +8,8 @@ module ScopeConflict where
 -- `Prelude` exports a function called `id`
 import Prelude
 
-id :: Number
-id = 1
+identity :: Number
+identity = 1
 ```
 
 ## Cause
@@ -23,10 +23,10 @@ The `ScopeConflict` error occurs when an attempt is made to define a value or ot
     ```purescript
     module NoScopeConflict where
 
-    import Prelude hiding (id)
+    import Prelude hiding (identity)
 
-    id :: Number
-    id = 1
+    identity :: Number
+    identity = 1
     ```
 
 - Alternatively, import the conflicting module using the `as` keyword:
@@ -36,8 +36,8 @@ The `ScopeConflict` error occurs when an attempt is made to define a value or ot
 
     import Prelude as P
 
-    id :: Number
-    id = 1
+    identity :: Number
+    identity = 1
     ```
 
 ## Notes
