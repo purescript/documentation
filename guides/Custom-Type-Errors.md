@@ -18,7 +18,7 @@ notBad = 21
 But now you decide there is something `better`; you want to deprecate `notBad` in favour of this new function:
 
 ```purescript
-notBad :: Warn "`notBad` is deprecated. Prefer `better` instead." => Int
+notBad :: Warn (Text "`notBad` is deprecated. Prefer `better` instead.") => Int
 notBad = 21
 
 better :: Int
