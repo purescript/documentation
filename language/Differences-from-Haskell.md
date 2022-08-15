@@ -96,7 +96,7 @@ Objects are constructed with syntax similar to that of JavaScript (and the type 
 
 ``` purescript
 origin :: PointRec 
-origin = { x: 0, y: 0 }
+origin = { x: 0.0 , y: 0.0 }
 ```
 
 And instead of introducing `x` and `y` accessor functions, `x` and `y` can be read like JavaScript properties:
