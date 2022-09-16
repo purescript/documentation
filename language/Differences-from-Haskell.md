@@ -321,8 +321,10 @@ The PureScript compiler does not support GHC-like language extensions. However, 
 * [ApplicativeDo](https://downloads.haskell.org/ghc/latest/docs/html/users_guide/exts/applicative_do.html#extension-ApplicativeDo)
 * [BlockArguments](https://downloads.haskell.org/ghc/latest/docs/html/users_guide/exts/block_arguments.html#extension-BlockArguments)
 * [DataKinds](https://downloads.haskell.org/ghc/latest/docs/html/users_guide/exts/data_kinds.html#extension-DataKinds) (see note below)
-* [DeriveFunctor](https://downloads.haskell.org/ghc/latest/docs/html/users_guide/exts/deriving_extra.html#extension-DeriveFunctor)
+* [DeriveFoldable](https://downloads.haskell.org/ghc/latest/docs/users_guide/exts/deriving_extra.html#extension-DeriveFoldable)
+* [DeriveFunctor](https://downloads.haskell.org/ghc/latest/docs/html/users_guide/exts/deriving_extra.html#extension-DeriveFunctor) (see note below)
 * [DeriveGeneric](https://downloads.haskell.org/ghc/latest/docs/html/users_guide/exts/generics.html#extension-DeriveGeneric)
+* [DeriveTraversable](https://downloads.haskell.org/ghc/latest/docs/users_guide/exts/deriving_extra.html#extension-DeriveTraversable)
 * [EmptyDataDecls](https://downloads.haskell.org/ghc/latest/docs/html/users_guide/exts/nullary_types.html#extension-EmptyDataDecls)
 * [ExplicitForAll](https://downloads.haskell.org/ghc/latest/docs/html/users_guide/exts/explicit_forall.html#extension-ExplicitForAll)
 * [FlexibleContexts](https://downloads.haskell.org/ghc/latest/docs/html/users_guide/exts/flexible_contexts.html#extension-FlexibleContexts)
@@ -353,6 +355,8 @@ The PureScript compiler does not support GHC-like language extensions. However, 
 * [UnicodeSyntax](https://downloads.haskell.org/ghc/latest/docs/html/users_guide/exts/unicode_syntax.html#extension-UnicodeSyntax)
 
 Note on `DataKinds`: Unlike in Haskell, user-defined kinds are open, and they are not promoted, which means that their constructors can only be used in types, and not in values. For more information about the kind system, see https://github.com/purescript/documentation/blob/master/language/Types.md#kind-system
+
+Note on `DeriveFunctor`: GHC gives special consideration to the contravariant parameter of function types when deriving `Functor`s. PureScript does not currently do this. For details, see https://github.com/purescript/documentation/blob/master/language/Type-Classes.md#functor-foldable-and-traversable
 
 ## `error` and `undefined`
 

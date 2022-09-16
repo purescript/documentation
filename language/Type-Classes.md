@@ -183,8 +183,101 @@ Currently, instances for the following classes can be derived by the compiler:
 - Data.Generic.Rep (class Generic) 
 - [Data.Eq (class Eq)](https://pursuit.purescript.org/packages/purescript-prelude/docs/Data.Eq#t:Eq)
 - [Data.Ord (class Ord)](https://pursuit.purescript.org/packages/purescript-prelude/docs/Data.Ord#t:Ord)
+- [Data.Foldable (class Foldable)](https://pursuit.purescript.org/packages/purescript-foldable-traversable/docs/Data.Foldable#t:Foldable)
 - [Data.Functor (class Functor)](https://pursuit.purescript.org/packages/purescript-prelude/docs/Data.Functor#t:Functor)
 - [Data.Newtype (class Newtype)](https://pursuit.purescript.org/packages/purescript-newtype/docs/Data.Newtype#t:Newtype)
+- [Data.Traversable (class Traversable)](https://pursuit.purescript.org/packages/purescript-foldable-traversable/docs/Data.Traversable#t:Traversable)
+
+#### `Functor`, `Foldable`, and `Traversable`
+
+All three of these classes can be derived for certain data types, provided the following requirements are met:
+
+1. As these classes all have kind `(Type -> Type) -> Constraint`, the data type must have at least one type parameter.
+2. Every occurrence of the final parameter in the data type must be in a legal position. Legal positions are:
+   * Data constructor arguments
+   * A field in a record type that itself appears in a legal position
+   * The rightmost argument to a type constructor that itself appears in a legal position. In this case, the type constructor must have an instance of the same class being derived. (For example, function types returning the parameter can be used when deriving `Functor` but not when deriving `Foldable` or `Traversable`.)
+
+(Note for Haskell programmers: unlike the very similar feature in GHC, PureScript does not currently consider the `a` in `((a -> b) -> b)` to be a legal position in the above sense when deriving `Functor`.)
+
+The examples below indicate valid usages (via `✓`) and invalid usages (via `⨯`) of a type parameter `a` used in various places below.
+If the invalid usages are removed from the data constructors, the compiler can derive `Functor`, `Foldable`, and `Traversable` instances for it.
+
+```purs
+data X f a
+  = X0 Int
+  --         - since no `a` appears in this data constructor
+  --           it doesn't break any of the rules above
+  | X1 a a a
+  --   ✓ ✓ ✓ - data constructor arguments are legal positions for `a`
+  | X2 (f a)
+  --      ✓ - because the `a` is the rightmost argument to `f`
+  --          `f` will be required to be a `Functor`, etc.
+  | X3 (Tuple a Int)
+  --          ⨯ - because the `a` is not in the rightmost position of `Tuple`
+  | X4 (Tuple a a)
+  --          ⨯ ✓
+  | X5 { foo :: a, bar :: f a, baz :: Tuple Int a }
+  --            ✓           ✓                   ✓ - records are supported
+  | X6 { one :: { two :: { three :: a } } }
+  --                                ✓ - even nested ones
+```
+
+For `Foldable` and `Traversable`, records are folded and traversed in the alphabetical ordering of their labels, not their definition order.
+For example, a record defined like
+```purs
+type Foo a =
+  { m :: a
+  , f :: a
+  , c :: a
+  , g :: a
+  }
+```
+
+will be traversed in a `cfgm` order, not the `mfcg` order.
+
+Given a data type like the following...
+
+```purs
+data M f a
+  = M0
+  | M1 a (Array a)
+  | M2 Int
+  | M3 (f a)
+  | M4 { a :: a, x :: Array a, fa :: f a
+       , ignore :: Int, no :: Array Int, nope :: f Int
+       , nested :: { anotherOne :: a }
+       }
+
+derive instance Foldable f => Foldable (M f)
+```
+
+Something like the following will be generated:
+```purs
+instance Foldable f => Foldable (M f) where
+  foldl f z = case _ of
+    M0 -> z
+    M1 a arr -> foldl f (f z a) arr
+    M2 _ -> z
+    M3 fa -> foldl f z fa
+    M4 rec ->
+      foldl f (foldl f (foldl f (f z rec.a) rec.fa) rec.nested.anotherOne) rec.x
+  foldr f z = case _ of
+    M0 -> z
+    M1 a arr -> f a (foldr f z arr)
+    M2 _ -> z
+    M3 fa -> foldr f z fa
+    M4 rec ->
+      f (foldr f (foldr f (f z rec.x) rec.nested.anotherOne) rec.fa) rec.a
+  foldMap f = case _ of
+    M0 -> mempty
+    M1 a arr -> f a <> foldMap f arr
+    M2 _ -> mempty
+    M3 fa -> foldMap f fa
+    M4 rec -> f rec.a <> foldMap f rec.fa <> foldMap f rec.nested.anotherOne <> foldMap rec.x
+```
+
+Finally, note that superclasses are not automatically derived; if you derive `Traversable`, you will also need explicit or derived instances of `Functor` and `Foldable`.
 
 ### Derive from `newtype`
 
