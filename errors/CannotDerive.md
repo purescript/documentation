@@ -18,8 +18,9 @@ list, however, you'll need to find another way of obtaining an instance.
 ## Fix
 
 - You will need to write an instance yourself.
-- For many classes (including `Show`), you can use [Generics][] to obtain the
-  instances you want with less effort.
+- For many classes, you can use [Generic][] to obtain the
+  instances you want with less effort. For example you can use [Data.Show.Generic][] to derive the Show instance using Generic.
 
-[Generics]: https://pursuit.purescript.org/packages/purescript-generics-rep
+[Generic]: https://pursuit.purescript.org/packages/purescript-prelude/6.0.1/docs/Data.Generic.Rep
 [derivable]: https://github.com/purescript/documentation/blob/master/language/Type-Classes.md#type-class-deriving
+[Data.Show.Generic]: https://pursuit.purescript.org/packages/purescript-prelude/6.0.1/docs/Data.Show.Generic
