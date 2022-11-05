@@ -16,7 +16,7 @@ When importing values from the FFI, the values themselves are defined in separat
 ```javascript
 // src/Math.js
 "use strict";
-exports.pow = function(x) {
+export function pow(x) {
   return function(y) {
     return Math.pow(x,y);
   };
