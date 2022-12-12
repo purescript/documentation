@@ -181,10 +181,142 @@ nub [Some, Arbitrary 1, Some, Some] == [Some, Arbitrary 1]
 
 Currently, instances for the following classes can be derived by the compiler:
 - Data.Generic.Rep (class Generic) 
+- [Data.Bifoldable (class Bifoldable)](https://pursuit.purescript.org/packages/purescript-foldable-traversable/docs/Data.Bifoldable#t:Bifoldable)
+- [Data.Bifunctor (class Bifunctor)](https://pursuit.purescript.org/packages/purescript-bifunctors/docs/Data.Bifunctor#t:Bifunctor)
+- [Data.Bitraversable (class Bitraversable)](https://pursuit.purescript.org/packages/purescript-foldable-traversable/docs/Data.Bitraversable#t:Bitraversable)
 - [Data.Eq (class Eq)](https://pursuit.purescript.org/packages/purescript-prelude/docs/Data.Eq#t:Eq)
 - [Data.Ord (class Ord)](https://pursuit.purescript.org/packages/purescript-prelude/docs/Data.Ord#t:Ord)
+- [Data.Foldable (class Foldable)](https://pursuit.purescript.org/packages/purescript-foldable-traversable/docs/Data.Foldable#t:Foldable)
 - [Data.Functor (class Functor)](https://pursuit.purescript.org/packages/purescript-prelude/docs/Data.Functor#t:Functor)
+- [Data.Functor.Contravariant (class Contravariant)](https://pursuit.purescript.org/packages/purescript-contravariant/docs/Data.Functor.Contravariant#t:Contravariant)
 - [Data.Newtype (class Newtype)](https://pursuit.purescript.org/packages/purescript-newtype/docs/Data.Newtype#t:Newtype)
+- [Data.Profunctor (class Profunctor)](https://pursuit.purescript.org/packages/purescript-profunctor/docs/Data.Profunctor#t:Profunctor)
+- [Data.Traversable (class Traversable)](https://pursuit.purescript.org/packages/purescript-foldable-traversable/docs/Data.Traversable#t:Traversable)
+
+#### `Functor`, `Foldable`, and `Traversable`
+
+All three of these classes (and variations on them, like `Bifunctor`) can be derived for certain data types. The full table of supported classes is below:
+
+<table>
+<thead>
+<tr><th colspan="2">monoparametric</th><th colspan="2">biparametric</th></tr>
+</thead>
+<tbody>
+<tr><td><code>Functor</code></td><td><code>Contravariant</code></td><td><code>Bifunctor</code></td><td><code>Profunctor</code></td></tr>
+<tr><td><code>Foldable</code></td><td>—</td><td><code>Bifoldable</code></td><td>—</td></tr>
+<tr><td><code>Traversable</code></td><td>—</td><td><code>Bitraversable</code></td><td>—</td></tr></tbody>
+</table>
+
+Each row of this table defines a set of **compatible** classes; for the remainder of this section, a `Functor`-compatible class is any class in the top row of the table, etc.
+
+The compiler can derive an instance of any of the above classes for your data type if the following requirements are met:
+
+1. The data type must have at least one type parameter (or at least two type parameters, if a biparametric class is being derived).
+
+   Occurrences of the final parameter (if deriving a monoparametric class) or final two parameters (if biparametric) in the constructors of your data type will be referred to below as **relevant variables**.
+
+2. Each relevant variable must be in a legal position in the data type's definitions. Legal positions are:
+   * Data constructor arguments
+   * A field in a record type that itself appears in a legal position
+   * An argument to a type constructor that itself appears in a legal position, *only if* one of the following holds:
+       * If the constructed type is of the form `f a b ... x y`, and `f a b ... x` has an instance of a monoparametric class compatible with the class being derived, then `y` is a legal position.
+       * If the constructed type is of the form `f a b ... x y z`, and `f a b ... x` has an instance of a biparametric class compatible with the class being derived, then `y` and `z` are legal positions.
+
+     (For the highly detail-oriented: if both conditions are met, and the penultimate argument doesn't contain any relevant variables, the monoparametric instance will be preferred. This shouldn't ever cause problems if all instances are well-behaved; for example, `rmap` and `map` are expected to be equivalent when both are available.)
+
+3. If deriving a `Functor`-compatible class, each relevant variable must be used with its expected **variance** (covariant or contravariant). When deriving `Functor` or `Bifunctor`, all variables are expected to be covariant. When deriving `Contravariant`, the variable is expected to be contravariant. When deriving `Profunctor`, the first variable is expected to be contravariant and the second covariant.
+
+   A type variable is used covariantly if it occurs exclusively in positive positions in the data type's definition, and contravariantly if it occurs exclusively in negative positions. Positive and negative positions are defined similarly to legal positions:
+   * Data constructor arguments are positive positions.
+   * A field in a record type in a positive (resp. negative) position is itself a positive (resp. negative) position.
+   * An argument to a type constructor may keep or invert the sign of the (constructed) type's position, depending on the variance of the `Functor`-compatible instance chosen for that type when determining if the argument is a legal position. An argument corresponding to a covariant (resp. contravariant) parameter keeps (resp. inverts) the sign.
+
+     (Another remark for the highly detail-oriented: in the rare case that both `Functor` and `Contravariant`, or both `Bifunctor` and `Profunctor`, instances are available for a type constructor such that a position could be either positive or negative, the compiler chooses `Functor` or `Bifunctor`. This case is rare because only phantom parameters can be both covariant and contravariant.)
+
+(In most cases, the lack of orphan instances in PureScript means that the compiler will be able to automatically find any instances that might be relevant for the above requirements if they exist. However, a small number of `Functor`-compatible instances are defined in packages that may not already be included in your project if you are attempting to derive a different `Functor`-compatible class. In that case, if you are expecting to use the `Bifunctor`, `Contravariant`, or `Profunctor` instances for any of `Const`, `Either`, `Function`, or `Tuple`, you will have to add `purescript-bifunctors`, `purescript-contravariant`, or `purescript-profunctor` as appropriate to the dependencies of your project before the compiler will proceed with deriving the class. This list of exceptional instances may change as the PureScript standard libraries evolve.)
+
+The examples below indicate valid usages (via `✓`) and invalid usages (via `⨯`) of a type parameter `a` used in various places below.
+If the invalid usages are removed from the data constructors, the compiler can derive `Functor`, `Foldable`, and `Traversable` instances for it.
+
+```purs
+data X f a
+  = X0 Int
+  --         - since no `a` appears in this data constructor
+  --           it doesn't break any of the rules above
+  | X1 a a a
+  --   ✓ ✓ ✓ - data constructor arguments are legal positions for `a`
+  | X2 (f a)
+  --      ✓ - because the `a` is the rightmost argument to `f`
+  --          `f` will be required to be a `Functor`, etc.
+  | X3 (Tuple a Int)
+  --          ✓ - `Tuple` needs to be a `Bifunctor`, etc. (which it is, if `purescript-bifunctors` is in your project's dependencies)
+  | X4 (Tuple a a)
+  --          ✓ ✓
+  | X5 { foo :: a, bar :: f a, baz :: Tuple Int a }
+  --            ✓           ✓                   ✓ - records are supported
+  | X6 { one :: { two :: { three :: a } } }
+  --                                ✓ - even nested ones
+  | X7 (Foo a Int Int)
+  --        ⨯ - this `a` is the third-to-last argument and can't be legal no matter what `Foo` implements
+  | X8 (Variant (left :: a, right :: Int))
+  --                     ⨯ - row types aren't included in the definition of legal positions
+```
+
+For `Foldable` and `Traversable` (and compatible classes), records are folded and traversed in the alphabetical ordering of their labels, not their definition order.
+For example, a record defined like
+```purs
+type Foo a =
+  { m :: a
+  , f :: a
+  , c :: a
+  , g :: a
+  }
+```
+
+will be traversed in a `cfgm` order, not the `mfcg` order.
+
+Given a data type like the following...
+
+```purs
+data M f a
+  = M0
+  | M1 a (Array a)
+  | M2 Int
+  | M3 (f a)
+  | M4 { a :: a, x :: Array a, fa :: f a
+       , ignore :: Int, no :: Array Int, nope :: f Int
+       , nested :: { anotherOne :: a }
+       }
+
+derive instance Foldable f => Foldable (M f)
+```
+
+Something like the following will be generated:
+```purs
+instance Foldable f => Foldable (M f) where
+  foldl f z = case _ of
+    M0 -> z
+    M1 a arr -> foldl f (f z a) arr
+    M2 _ -> z
+    M3 fa -> foldl f z fa
+    M4 rec ->
+      foldl f (foldl f (foldl f (f z rec.a) rec.fa) rec.nested.anotherOne) rec.x
+  foldr f z = case _ of
+    M0 -> z
+    M1 a arr -> f a (foldr f z arr)
+    M2 _ -> z
+    M3 fa -> foldr f z fa
+    M4 rec ->
+      f (foldr f (foldr f (f z rec.x) rec.nested.anotherOne) rec.fa) rec.a
+  foldMap f = case _ of
+    M0 -> mempty
+    M1 a arr -> f a <> foldMap f arr
+    M2 _ -> mempty
+    M3 fa -> foldMap f fa
+    M4 rec -> f rec.a <> foldMap f rec.fa <> foldMap f rec.nested.anotherOne <> foldMap rec.x
+```
+
+Finally, note that superclasses are not automatically derived; if you derive `Traversable`, you will also need explicit or derived instances of `Functor` and `Foldable`.
 
 ### Derive from `newtype`
 
