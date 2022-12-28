@@ -4,7 +4,7 @@ Let's walk through the basics of getting set up to use the PureScript compiler `
 
 We'll start with the installation of the compiler and Spago build tool, and then go through the basic usage of `purs repl`, working towards a solution of problem 1 from [Project Euler](http://projecteuler.net/problem=1).
 
-#### Installing the Compiler
+## Installing the Compiler
 
 You'll need to install [Node.js and npm](https://docs.npmjs.com/getting-started/installing-node).  We recommend installing [Node.js and npm via a node version manager](https://docs.npmjs.com/getting-started/installing-node) to avoid issues with installing packages globally. If you choose to install it manually, you might experience the [`EACCES` error when installing packages globally](https://docs.npmjs.com/getting-started/fixing-npm-permissions#option-1-change-the-permission-to-npm-s-default-directory).
 
@@ -18,7 +18,7 @@ Try running the PureScript compiler on the command line to verify that the PureS
 
 It can also be installed from [Hackage](http://hackage.haskell.org/package/purescript), or by downloading the latest [binary bundle](https://github.com/purescript/purescript/releases) for your OS. If you do so, make sure the `purs` executable is on your `$PATH`.
 
-#### Setting up the Development Environment
+## Setting up the Development Environment
 
 [Spago](https://github.com/spacchetti/spago) is the recommended package manager and build tool for PureScript.
 
@@ -54,7 +54,7 @@ You should see output similar to the following:
 
 If everything was built successfully, and the tests ran without problems, then the last line should state "Tests succeeded."
 
-#### Installing Dependencies
+## Installing Dependencies
 
 Dependencies can be installed using Spago. We will be using the `lists` library shortly, so install it now:
 
@@ -62,7 +62,7 @@ Dependencies can be installed using Spago. We will be using the `lists` library 
 
 The `lists` library sources should now be available in the `.spago/lists/{version}/` subdirectory, and will be included when you compile your project.
 
-#### Working in PSCI
+## Working in PSCI
 
 PSCi is the interactive mode of PureScript. It is useful for working with pure computations, and for testing ideas.
 
@@ -119,7 +119,7 @@ We will be using some of the functions from the `Prelude` and `Data.List` module
 
 Note that using `Tab` to autocomplete names can be a useful time-saving device in `psci`.
 
-#### Solving Project Euler #1
+## Solving Project Euler #1
 
 The following problem is taken from [Project Euler](http://projecteuler.net/problem=1):
 
@@ -161,26 +161,24 @@ When you have finished using PSCi, type `:quit` to quit:
     > :quit
     See ya!
 
-#### Compiling a Solution
+## Compiling a Solution
 
 Now that we've seen how to use the REPL to reach the answer, let's move our solution into a source file and compile it.
 
 Create a new text file `src/Euler.purs` and copy the following code:
 
-```purescript
-module Euler where
+    module Euler where
 
-import Prelude
+    import Prelude
 
-import Data.List (range, filter)
-import Data.Foldable (sum)
+    import Data.List (range, filter)
+    import Data.Foldable (sum)
 
-ns = range 0 999
+    ns = range 0 999
 
-multiples = filter (\n -> mod n 3 == 0 || mod n 5 == 0) ns
+    multiples = filter (\n -> mod n 3 == 0 || mod n 5 == 0) ns
 
-answer = sum multiples
-```
+    answer = sum multiples
 
 This sample illustrates a few key ideas regarding modules:
 
@@ -204,7 +202,7 @@ This will compile each module present in `src/` into a separate file in the `out
 
 The compiler will display several warnings about missing type declarations. In general it is considered good practice to provide explicit type signatures. In this guide, they are left out for brevity. In the absence of type signatures, the PureScript compiler infers types automatically but will remind us to consider adding them.
 
-#### Writing a Test Suite
+## Writing a Test Suite
 
 To test our code, we'll use the `assert` library:
 
@@ -212,37 +210,33 @@ To test our code, we'll use the `assert` library:
 
 Replace the contents of the `test/Main.purs` file with the following code:
 
-```purescript
-module Test.Main where
+    module Test.Main where
 
-import Prelude
+    import Prelude
 
-import Euler (answer)
-import Test.Assert (assert)
+    import Euler (answer)
+    import Test.Assert (assert)
 
-main = do
-  assert (answer == 233168)
-```
+    main = do
+    assert (answer == 233168)
 
 Our "test suite" is just a single assertion that the `answer` value equals the correct integer. In a real test suite, we might use the `Effect` monad to compose multiple tests in our `main` function.
 
 Run the tests using `spago test`, and you should hopefully see "Tests succeeded." in the last line.
 
-#### Creating Executables
+## Creating Executables
 
 We can modify the `main` function in the `src/Main.purs` module to print our result to the console:
 
-```purescript
-module Main where
+    module Main where
 
-import Prelude
+    import Prelude
 
-import Euler (answer)
-import Effect.Console (log)
+    import Euler (answer)
+    import Effect.Console (log)
 
-main = do
-  log ("The answer is " <> show answer)
-```
+    main = do
+    log ("The answer is " <> show answer)
 
 The `spago run` command can be used to compile and run the `Main` module:
 
@@ -250,8 +244,7 @@ The `spago run` command can be used to compile and run the `Main` module:
     [info] Build succeeded.
     The answer is 233168
 
-
-#### Compiling for the Browser
+## Compiling for the Browser
 
 Spago can be used to turn our PureScript code into JavaScript suitable for use in the web browser by using the `spago bundle-app` command:
 
@@ -262,70 +255,66 @@ Spago can be used to turn our PureScript code into JavaScript suitable for use i
 
 All the code in the `src` directory and any project dependencies have been compiled to JavaScript. The resulting code is bundled as `index.js` and has also had any unused code removed, a process known as dead code elimination. This `index.js` file can now be included in an HTML document.  Try this by creating the following `index.html` file in your `my-project` directory:
 
-```html
-<!DOCTYPE html>
-<html>
+    <!DOCTYPE html>
+    <html>
 
-<head>
-  <meta charset="UTF-8">
-  <title>Euler Exercise</title>
-</head>
+    <head>
+    <meta charset="UTF-8">
+    <title>Euler Exercise</title>
+    </head>
 
-<body>
-  <script src="./index.js"></script>
-</body>
+    <body>
+    <script src="./index.js"></script>
+    </body>
 
-</html>
-```
-
+    </html>
+gss
 See this HTML file work as follows:
 
-1.  Run `npx parcel index.html --open` in a terminal opened to your `my-project`.
-1.  In the newly-opened browser, browse `localhost:1234`.  You will probably see a blank window.
-1.  Open a debugger console.
-1.  Observe the console contains the Euler exercise result string `The answer is 233168`.
+1. Run `npx parcel index.html --open` in a terminal opened to your `my-project`.
+1. In the newly-opened browser, browse `localhost:1234`.  You will probably see a blank window.
+1. Open a debugger console.
+1. Observe the console contains the Euler exercise result string `The answer is 233168`.
 
-#### How the PureScript Compiler Generates Javascript
+## How the PureScript Compiler Generates Javascript
 
 If you open `index.js`, you should see a few compiled modules which look like this:
 
-```javascript
-// Generated by purs bundle 0.13.6
-var PS = {};
+    // Generated by purs bundle 0.13.6
+    var PS = {};
 
-// ... (skipped over code)
+    // ... (skipped over code)
 
-(function($PS) {
-  "use strict";
-  $PS["Euler"] = $PS["Euler"] || {};
-  var exports = $PS["Euler"];
-  var Data_EuclideanRing = $PS["Data.EuclideanRing"];
-  var Data_Foldable = $PS["Data.Foldable"];
-  var Data_List = $PS["Data.List"];
-  var Data_List_Types = $PS["Data.List.Types"];
-  var Data_Semiring = $PS["Data.Semiring"];
-  var ns = Data_List.range(0)(999);
-  var multiples = Data_List.filter(function (n) {
-      return Data_EuclideanRing.mod(Data_EuclideanRing.euclideanRingInt)(n)(3) === 0 || Data_EuclideanRing.mod(Data_EuclideanRing.euclideanRingInt)(n)(5) === 0;
-  })(ns);
-  var answer = Data_Foldable.sum(Data_List_Types.foldableList)(Data_Semiring.semiringInt)(multiples);
-  exports["answer"] = answer;
-})(PS);
+    (function($PS) {
+    "use strict";
+    $PS["Euler"] = $PS["Euler"] || {};
+    var exports = $PS["Euler"];
+    var Data_EuclideanRing = $PS["Data.EuclideanRing"];
+    var Data_Foldable = $PS["Data.Foldable"];
+    var Data_List = $PS["Data.List"];
+    var Data_List_Types = $PS["Data.List.Types"];
+    var Data_Semiring = $PS["Data.Semiring"];
+    var ns = Data_List.range(0)(999);
+    var multiples = Data_List.filter(function (n) {
+        return Data_EuclideanRing.mod(Data_EuclideanRing.euclideanRingInt)(n)(3) === 0 || Data_EuclideanRing.mod(Data_EuclideanRing.euclideanRingInt)(n)(5) === 0;
+    })(ns);
+    var answer = Data_Foldable.sum(Data_List_Types.foldableList)(Data_Semiring.semiringInt)(multiples);
+    exports["answer"] = answer;
+    })(PS);
 
-(function($PS) {
-  // Generated by purs version 0.13.6
-  "use strict";
-  $PS["Main"] = $PS["Main"] || {};
-  var exports = $PS["Main"];
-  var Data_Show = $PS["Data.Show"];
-  var Effect_Console = $PS["Effect.Console"];
-  var Euler = $PS["Euler"];
-  var main = Effect_Console.log("The answer is " + Data_Show.show(Data_Show.showInt)(Euler.answer));
-  exports["main"] = main;
-})(PS);
+    (function($PS) {
+    // Generated by purs version 0.13.6
+    "use strict";
+    $PS["Main"] = $PS["Main"] || {};
+    var exports = $PS["Main"];
+    var Data_Show = $PS["Data.Show"];
+    var Effect_Console = $PS["Effect.Console"];
+    var Euler = $PS["Euler"];
+    var main = Effect_Console.log("The answer is " + Data_Show.show(Data_Show.showInt)(Euler.answer));
+    exports["main"] = main;
+    })(PS);
 
-PS["Main"].main();
-```
+    PS["Main"].main();
 
 This illustrates a few points about the way the PureScript compiler generates JavaScript code:
 
@@ -337,7 +326,7 @@ This illustrates a few points about the way the PureScript compiler generates Ja
 
 These points are important since they mean that PureScript generates simple, understandable code. The code generation process, in general, is quite a shallow transformation. It takes relatively little understanding of the language to predict what JavaScript code will be generated for a particular input.
 
-#### Compiling CommonJS Modules
+## Compiling CommonJS Modules
 
 Spago can also be used to generate CommonJS modules from PureScript code. This can be useful when using NodeJS, or just when developing a larger project which uses CommonJS modules to break code into smaller components.
 
@@ -349,7 +338,7 @@ To build CommonJS modules, use the `spago build` command:
 
 The generated modules will be placed in the `output` directory by default. Each PureScript module will be compiled to its own CommonJS module, in its own subdirectory.
 
-#### What Next?
+## What Next?
 
 If you're new to typed functional programming, your next stop should be [PureScript by Example](https://book.purescript.org/), which will walk you through learning PureScript by solving practical problems.
 
