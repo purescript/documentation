@@ -268,12 +268,13 @@ All the code in the `src` directory and any project dependencies have been compi
     </body>
 
     </html>
-gss
+
 See this HTML file work as follows:
 
-1. Run `npx parcel index.html --open` in a terminal opened to your `my-project`.
-1. In the newly-opened browser, browse `localhost:1234`.  You will probably see a blank window.
-1. Open a debugger console.
+In your browser:
+
+1. Open `index.html` as a *file*.  You will probably see a blank window.
+1. Then open a debugger console.
 1. Observe the console contains the Euler exercise result string `The answer is 233168`.
 
 ## How the PureScript Compiler Generates Javascript
