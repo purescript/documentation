@@ -10,11 +10,15 @@ You'll need to install [Node.js and npm](https://docs.npmjs.com/getting-started/
 
 Install the PureScript compiler (`purs`) with npm:
 
-    npm install -g purescript
+```bash
+npm install -g purescript
+```
 
 Try running the PureScript compiler on the command line to verify that the PureScript compiler executables are available on your `$PATH`:
 
-    purs
+```bash
+purs
+```
 
 It can also be installed from [Hackage](http://hackage.haskell.org/package/purescript), or by downloading the latest [binary bundle](https://github.com/purescript/purescript/releases) for your OS. If you do so, make sure the `purs` executable is on your `$PATH`.
 
@@ -24,13 +28,17 @@ It can also be installed from [Hackage](http://hackage.haskell.org/package/pures
 
 If you don't have Spago installed, install it now:
 
-    npm install -g spago
+``` bash
+npm install -g spago
+```
 
 Create a new project in an empty directory using `spago init`:
 
-    mkdir my-project
-    cd my-project
-    spago init
+```bash
+mkdir my-project
+cd my-project
+spago init
+```
 
 Your directory should now contain the following files:
 
@@ -41,16 +49,20 @@ Your directory should now contain the following files:
 
 At this point, you should be able to build the project and run the tests:
 
-    spago build
-    spago test
+```bash
+spago build
+spago test
+```
 
 You should see output similar to the following:
 
-    [info] Installation complete.
-    [info] Build succeeded.
-    🍝
-    You should add some tests.
-    [info] Tests succeeded.
+```bash
+[info] Installation complete.
+[info] Build succeeded.
+🍝
+You should add some tests.
+[info] Tests succeeded.
+```
 
 If everything was built successfully, and the tests ran without problems, then the last line should state "Tests succeeded."
 
@@ -58,7 +70,9 @@ If everything was built successfully, and the tests ran without problems, then t
 
 Dependencies can be installed using Spago. We will be using the `lists` library shortly, so install it now:
 
-    spago install lists
+```bash
+spago install lists
+```
 
 The `lists` library sources should now be available in the `.spago/lists/{version}/` subdirectory, and will be included when you compile your project.
 
@@ -68,33 +82,37 @@ PSCi is the interactive mode of PureScript. It is useful for working with pure c
 
 Open PSCi by typing `spago repl` at the command line. Optionally, you can create a file in your directory called `.purs-repl`, which contains instructions to PSCi to load your modules and dependencies. If you invoke the PSCi executable directly, you would need to load these files by hand.
 
-    PSCi, version 0.12.0
-    Type :? for help
+```repl
+PSCi, version 0.12.0
+Type :? for help
 
-    import Prelude
+import Prelude
 
-    >
+>
+```
 
 As the introduction indicates, you can type `:?` to see a list of commands:
 
-    The following commands are available:
+```repl
+The following commands are available:
 
-    :?                        Show this help menu
-    :quit                     Quit PSCi
-    :reload                   Reload all imported modules while discarding bindings
-    :clear                    Discard all imported modules and declared bindings
-    :browse      <module>     See all functions in <module>
-    :type        <expr>       Show the type of <expr>
-    :kind        <type>       Show the kind of <type>
-    :show        import       Show all imported modules
-    :show        loaded       Show all loaded modules
-    :show        print        Show the repl's current printing function
-    :paste       paste        Enter multiple lines, terminated by ^D
-    :complete    <prefix>     Show completions for <prefix> as if pressing tab
-    :print       <fn>         Set the repl's printing function to <fn> (which must be fully qualified)
+:?                        Show this help menu
+:quit                     Quit PSCi
+:reload                   Reload all imported modules while discarding bindings
+:clear                    Discard all imported modules and declared bindings
+:browse      <module>     See all functions in <module>
+:type        <expr>       Show the type of <expr>
+:kind        <type>       Show the kind of <type>
+:show        import       Show all imported modules
+:show        loaded       Show all loaded modules
+:show        print        Show the repl's current printing function
+:paste       paste        Enter multiple lines, terminated by ^D
+:complete    <prefix>     Show completions for <prefix> as if pressing tab
+:print       <fn>         Set the repl's printing function to <fn> (which must be fully qualified)
 
-    Further information is available on the PureScript documentation repository:
-    --> https://github.com/purescript/documentation/blob/master/guides/PSCi.md
+Further information is available on the PureScript documentation repository:
+--> https://github.com/purescript/documentation/blob/master/guides/PSCi.md
+```
 
 We will use a selection of these commands during this tutorial.
 
@@ -104,18 +122,22 @@ To see the type of one of these values, first import the appropriate module usin
 
 Next, use the `:type` command, followed by a space, followed by the name of the value:
 
-    > import Prelude
-    > :type map
-    forall a b f. Functor f => (a -> b) -> f a -> f b
+```repl
+> import Prelude
+> :type map
+forall a b f. Functor f => (a -> b) -> f a -> f b
 
-    > import Data.List
-    > :type zip
-    forall a b. List a -> List b -> List (Tuple a b)
+> import Data.List
+> :type zip
+forall a b. List a -> List b -> List (Tuple a b)
+```
 
 We will be using some of the functions from the `Prelude` and `Data.List` modules, so make sure you have imported those by using the `import` keyword:
 
-    import Prelude
-    import Data.List
+```repl
+import Prelude
+import Data.List
+```
 
 Note that using `Tab` to autocomplete names can be a useful time-saving device in `psci`.
 
@@ -131,35 +153,47 @@ We can solve this problem neatly using functions and function composition, direc
 
 Let's start by listing all of the natural numbers below 1000 as a list. We can do this using the `range` function from `Data.List`:
 
-    > range 0 999
+```repl
+> range 0 999
+```
 
 You should see a list with 1000 elements printed to the command line.
 
 This value can be given a name:
 
-    > ns = range 0 999
+```repl
+> ns = range 0 999
+```
 
 Now let's filter out all of those elements which do not meet the criterion. We can use the `filter` function from `Data.List`, by providing a predicate function as its first argument:
 
-    > multiples = filter (\n -> mod n 3 == 0 || mod n 5 == 0) ns
+```repl
+> multiples = filter (\n -> mod n 3 == 0 || mod n 5 == 0) ns
+```
 
 You can see the result by evaluating `multiples` if you like, or even check its type:
 
-    > multiples
-    (0 : 3 : 5 : 6 : ...
-    > :type multiples
-    List Int
+```repl
+> multiples
+(0 : 3 : 5 : 6 : ...
+> :type multiples
+List Int
+```
 
 Now we need to find the sum of the `multiples` list, to complete the solution. We can use the `sum` function from the `Data.Foldable` module.
 
-    > import Data.Foldable
-    > sum multiples
-    233168
+```repl
+> import Data.Foldable
+> sum multiples
+233168
+```
 
 When you have finished using PSCi, type `:quit` to quit:
 
-    > :quit
-    See ya!
+```repl
+> :quit
+See ya!
+```
 
 ## Compiling a Solution
 
@@ -167,18 +201,20 @@ Now that we've seen how to use the REPL to reach the answer, let's move our solu
 
 Create a new text file `src/Euler.purs` and copy the following code:
 
-    module Euler where
+```purs
+module Euler where
 
-    import Prelude
+import Prelude
 
-    import Data.List (range, filter)
-    import Data.Foldable (sum)
+import Data.List (range, filter)
+import Data.Foldable (sum)
 
-    ns = range 0 999
+ns = range 0 999
 
-    multiples = filter (\n -> mod n 3 == 0 || mod n 5 == 0) ns
+multiples = filter (\n -> mod n 3 == 0 || mod n 5 == 0) ns
 
-    answer = sum multiples
+answer = sum multiples
+```
 
 This sample illustrates a few key ideas regarding modules:
 
@@ -187,16 +223,20 @@ This sample illustrates a few key ideas regarding modules:
 
 It is possible to load this file directly into the REPL and to continue working:
 
-    spago repl
-    > import Euler
-    > answer
-    233168
-    > :quit
-    See ya!
+```bash
+spago repl
+> import Euler
+> answer
+233168
+> :quit
+See ya!
+```
 
 Alternatively, we can use Spago to compile our new module to JavaScript:
 
-    spago build
+```bash
+spago build
+```
 
 This will compile each module present in `src/` into a separate file in the `output/` directory.
 
@@ -206,19 +246,23 @@ The compiler will display several warnings about missing type declarations. In g
 
 To test our code, we'll use the `assert` library:
 
-    spago install assert
+```bash
+spago install assert
+```
 
 Replace the contents of the `test/Main.purs` file with the following code:
 
-    module Test.Main where
+```purs
+module Test.Main where
 
-    import Prelude
+import Prelude
 
-    import Euler (answer)
-    import Test.Assert (assert)
+import Euler (answer)
+import Test.Assert (assert)
 
-    main = do
-    assert (answer == 233168)
+main = do
+assert (answer == 233168)
+```
 
 Our "test suite" is just a single assertion that the `answer` value equals the correct integer. In a real test suite, we might use the `Effect` monad to compose multiple tests in our `main` function.
 
@@ -228,46 +272,54 @@ Run the tests using `spago test`, and you should hopefully see "Tests succeeded.
 
 We can modify the `main` function in the `src/Main.purs` module to print our result to the console:
 
-    module Main where
+```purs
+module Main where
 
-    import Prelude
+import Prelude
 
-    import Euler (answer)
-    import Effect.Console (log)
+import Euler (answer)
+import Effect.Console (log)
 
-    main = do
-    log ("The answer is " <> show answer)
+main = do
+log ("The answer is " <> show answer)
+```
 
 The `spago run` command can be used to compile and run the `Main` module:
 
-    $ spago run
-    [info] Build succeeded.
-    The answer is 233168
+```bash
+$ spago run
+[info] Build succeeded.
+The answer is 233168
+```
 
 ## Compiling for the Browser
 
 Spago can be used to turn our PureScript code into JavaScript suitable for use in the web browser by using the `spago bundle-app` command:
 
-    $ spago bundle-app
-    ...
-    Build succeeded.
-    Bundle succeeded and output file to index.js
+```bash
+$ spago bundle-app
+...
+Build succeeded.
+Bundle succeeded and output file to index.js
+```
 
 All the code in the `src` directory and any project dependencies have been compiled to JavaScript. The resulting code is bundled as `index.js` and has also had any unused code removed, a process known as dead code elimination. This `index.js` file can now be included in an HTML document.  Try this by creating the following `index.html` file in your `my-project` directory:
 
-    <!DOCTYPE html>
-    <html>
+```html
+<!DOCTYPE html>
+<html>
 
-    <head>
-    <meta charset="UTF-8">
-    <title>Euler Exercise</title>
-    </head>
+<head>
+<meta charset="UTF-8">
+<title>Euler Exercise</title>
+</head>
 
-    <body>
-    <script src="./index.js"></script>
-    </body>
+<body>
+<script src="./index.js"></script>
+</body>
 
-    </html>
+</html>
+```
 
 See this HTML file work as follows:
 
@@ -281,41 +333,43 @@ In your browser:
 
 If you open `index.js`, you should see a few compiled modules which look like this:
 
-    // Generated by purs bundle 0.13.6
-    var PS = {};
+```purs
+// Generated by purs bundle 0.13.6
+var PS = {};
 
-    // ... (skipped over code)
+// ... (skipped over code)
 
-    (function($PS) {
-    "use strict";
-    $PS["Euler"] = $PS["Euler"] || {};
-    var exports = $PS["Euler"];
-    var Data_EuclideanRing = $PS["Data.EuclideanRing"];
-    var Data_Foldable = $PS["Data.Foldable"];
-    var Data_List = $PS["Data.List"];
-    var Data_List_Types = $PS["Data.List.Types"];
-    var Data_Semiring = $PS["Data.Semiring"];
-    var ns = Data_List.range(0)(999);
-    var multiples = Data_List.filter(function (n) {
-        return Data_EuclideanRing.mod(Data_EuclideanRing.euclideanRingInt)(n)(3) === 0 || Data_EuclideanRing.mod(Data_EuclideanRing.euclideanRingInt)(n)(5) === 0;
-    })(ns);
-    var answer = Data_Foldable.sum(Data_List_Types.foldableList)(Data_Semiring.semiringInt)(multiples);
-    exports["answer"] = answer;
-    })(PS);
+(function($PS) {
+"use strict";
+$PS["Euler"] = $PS["Euler"] || {};
+var exports = $PS["Euler"];
+var Data_EuclideanRing = $PS["Data.EuclideanRing"];
+var Data_Foldable = $PS["Data.Foldable"];
+var Data_List = $PS["Data.List"];
+var Data_List_Types = $PS["Data.List.Types"];
+var Data_Semiring = $PS["Data.Semiring"];
+var ns = Data_List.range(0)(999);
+var multiples = Data_List.filter(function (n) {
+    return Data_EuclideanRing.mod(Data_EuclideanRing.euclideanRingInt)(n)(3) === 0 || Data_EuclideanRing.mod(Data_EuclideanRing.euclideanRingInt)(n)(5) === 0;
+})(ns);
+var answer = Data_Foldable.sum(Data_List_Types.foldableList)(Data_Semiring.semiringInt)(multiples);
+exports["answer"] = answer;
+})(PS);
 
-    (function($PS) {
-    // Generated by purs version 0.13.6
-    "use strict";
-    $PS["Main"] = $PS["Main"] || {};
-    var exports = $PS["Main"];
-    var Data_Show = $PS["Data.Show"];
-    var Effect_Console = $PS["Effect.Console"];
-    var Euler = $PS["Euler"];
-    var main = Effect_Console.log("The answer is " + Data_Show.show(Data_Show.showInt)(Euler.answer));
-    exports["main"] = main;
-    })(PS);
+(function($PS) {
+// Generated by purs version 0.13.6
+"use strict";
+$PS["Main"] = $PS["Main"] || {};
+var exports = $PS["Main"];
+var Data_Show = $PS["Data.Show"];
+var Effect_Console = $PS["Effect.Console"];
+var Euler = $PS["Euler"];
+var main = Effect_Console.log("The answer is " + Data_Show.show(Data_Show.showInt)(Euler.answer));
+exports["main"] = main;
+})(PS);
 
-    PS["Main"].main();
+PS["Main"].main();
+```
 
 This illustrates a few points about the way the PureScript compiler generates JavaScript code:
 
@@ -333,9 +387,11 @@ Spago can also be used to generate CommonJS modules from PureScript code. This c
 
 To build CommonJS modules, use the `spago build` command:
 
-    $ spago build
-    ...
-    Build succeeded.
+```bash
+$ spago build
+...
+Build succeeded.
+```
 
 The generated modules will be placed in the `output` directory by default. Each PureScript module will be compiled to its own CommonJS module, in its own subdirectory.
 
