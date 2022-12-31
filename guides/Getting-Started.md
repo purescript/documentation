@@ -330,7 +330,7 @@ This illustrates a few points about the way the PureScript compiler generates Ja
 
 These points are important since they mean that PureScript generates simple, understandable code. The code generation process, in general, is quite a shallow transformation. It takes relatively little understanding of the language to predict what JavaScript code will be generated for a particular input.
 
-## Compiling CommonJS Modules
+## Compiling ES Modules
 
 Spago can also be used to generate ES modules from PureScript code. This can be useful when using NodeJS, or just when developing a larger project which uses ES modules to break code into smaller components.
 
@@ -353,4 +353,3 @@ If you are somewhat familiar with typed functional programming, You may alternat
 Haskell programmers will find the [Differences from Haskell](https://github.com/purescript/documentation/blob/master/language/Differences-from-Haskell.md) page very useful.
 
 We encourage new PureScript programmers to spend some time browsing [Pursuit](https://pursuit.purescript.org). It is worth familiarising yourself with the [core libraries](https://github.com/purescript) (especially the [prelude](https://pursuit.purescript.org/packages/purescript-prelude)) as these provide many basic concepts, which are useful for writing programs.
-
