@@ -4,7 +4,7 @@ Let's walk through the basics of getting set up to use the PureScript compiler `
 
 We'll start with the installation of the compiler and Spago build tool, and then go through the basic usage of `purs repl`, working towards a solution of problem 1 from [Project Euler](http://projecteuler.net/problem=1).
 
-### Installing the Compiler
+## Installing the Compiler
 
 There are many [installation options](https://github.com/purescript/purescript/blob/master/INSTALL.md), but we recommend using `npm`.
 
@@ -20,7 +20,7 @@ Try running the PureScript compiler on the command line to verify that the PureS
 
 If you encounter problems during installation, see the compiler's [Install Guide](https://github.com/purescript/purescript/blob/master/INSTALL.md) for troubleshooting suggestions.
 
-### Setting up the Development Environment
+## Setting up the Development Environment
 
 [Spago](https://github.com/spacchetti/spago) is the recommended package manager and build tool for PureScript.
 
@@ -56,7 +56,7 @@ You should see output similar to the following:
 
 If everything was built successfully, and the tests ran without problems, then the last line should state "Tests succeeded."
 
-### Installing Dependencies
+## Installing Dependencies
 
 Dependencies can be installed using Spago. We will be using the `lists` and `foldable-traversable` libraries shortly, so install those now:
 
@@ -64,7 +64,7 @@ Dependencies can be installed using Spago. We will be using the `lists` and `fol
 
 The `lists` and `foldable-traversable` library sources should now be available in the `.spago/lists/{version}/` and `.spago/foldable-traversable/{version}/` subdirectories respectively, and will be included when you compile your project.
 
-### Working in PSCI
+## Working in PSCI
 
 PSCi is the interactive mode of PureScript. It is useful for working with pure computations, and for testing ideas.
 
@@ -90,8 +90,10 @@ As the introduction indicates, you can type `:?` to see a list of commands:
     :kind        <type>       Show the kind of <type>
     :show        import       Show all imported modules
     :show        loaded       Show all loaded modules
+    :show        print        Show the repl's current printing function
     :paste       paste        Enter multiple lines, terminated by ^D
     :complete    <prefix>     Show completions for <prefix> as if pressing tab
+    :print       <fn>         Set the repl's printing function to <fn> (which must be fully qualified)
 
     Further information is available on the PureScript documentation repository:
     --> https://github.com/purescript/documentation/blob/master/guides/PSCi.md
@@ -119,7 +121,7 @@ We will be using some of the functions from the `Prelude` and `Data.List` module
 
 Note that using `Tab` to autocomplete names can be a useful time-saving device in `psci`.
 
-### Solving Project Euler #1
+## Solving Project Euler #1
 
 The following problem is taken from [Project Euler](http://projecteuler.net/problem=1):
 
@@ -161,12 +163,13 @@ When you have finished using PSCi, type `:quit` to quit:
     > :quit
     See ya!
 
-### Compiling a Solution
+## Compiling a Solution
 
 Now that we've seen how to use the REPL to reach the answer, let's move our solution into a source file and compile it.
 
 Create a new text file `src/Euler.purs` and copy the following code:
 
+<!--markdownlint-disable MD046 -->
 ```purescript
 module Euler where
 
@@ -181,6 +184,7 @@ multiples = filter (\n -> mod n 3 == 0 || mod n 5 == 0) ns
 
 answer = sum multiples
 ```
+<!-- markdownlint-enable MD037 -->
 
 This sample illustrates a few key ideas regarding modules:
 
@@ -204,13 +208,13 @@ This will compile each module present in `src/` into a separate file in the `out
 
 The compiler will display several warnings about missing type declarations. In general it is considered good practice to provide explicit type signatures. In this guide, they are left out for brevity. In the absence of type signatures, the PureScript compiler infers types automatically but will remind us to consider adding them.
 
-### Writing a Test Suite
+## Writing a Test Suite
 
 To test our code, we'll use the `assert` library:
 
     spago install assert
 
-Modify the `test/Main.purs` file, and add the following code:
+Replace the contents of the `test/Main.purs` file with the following code:
 
 ```purescript
 module Test.Main where
@@ -226,9 +230,9 @@ main = do
 
 Our "test suite" is just a single assertion that the `answer` value equals the correct integer. In a real test suite, we might use the `Effect` monad to compose multiple tests in our `main` function.
 
-Run the tests using `spago test`, and you should hopefully see "Tests OK" in the last line.
+Run the tests using `spago test`, and you should hopefully see "Tests succeeded." in the last line.
 
-### Creating Executables
+## Creating Executables
 
 We can modify the `main` function in the `src/Main.purs` module to print our result to the console:
 
@@ -250,8 +254,7 @@ The `spago run` command can be used to compile and run the `Main` module:
     [info] Build succeeded.
     The answer is 233168
 
-
-### Compiling for the Browser
+## Compiling for the Browser
 
 Spago can be used to turn our PureScript code into JavaScript suitable for use in the web browser by using the `spago bundle-app` command:
 
@@ -261,9 +264,9 @@ Spago can be used to turn our PureScript code into JavaScript suitable for use i
     ⚡ Done in 14ms
     [info] Bundle succeeded and output file to index.js
 
-All the code in the `src` directory and any project dependencies have been compiled to JavaScript. The resulting code is bundled as `index.js` and has also had any unused code removed, a process known as dead code elimination. This `index.js` file can now be included in an HTML document. 
+All the code in the `src` directory and any project dependencies have been compiled to JavaScript. The resulting code is bundled as `index.js` and has also had any unused code removed, a process known as dead code elimination. This `index.js` file can now be included in an HTML document.
 
-Try creating an `index.html` file with the following contents: 
+Try creating an `index.html` file with the following contents:
 
 ```html
 <!DOCTYPE html>
@@ -280,6 +283,7 @@ Try creating an `index.html` file with the following contents:
 
 </html>
 ```
+
 Open this `index.html` file in your web browser. The page will be blank, but if you open the browser's developer console, you should see a log message containing: "The answer is 233168".
 
 If you open `index.js`, you should see a few compiled modules which look like this:
@@ -326,7 +330,7 @@ This illustrates a few points about the way the PureScript compiler generates Ja
 
 These points are important since they mean that PureScript generates simple, understandable code. The code generation process, in general, is quite a shallow transformation. It takes relatively little understanding of the language to predict what JavaScript code will be generated for a particular input.
 
-### Compiling ES Modules
+## Compiling CommonJS Modules
 
 Spago can also be used to generate ES modules from PureScript code. This can be useful when using NodeJS, or just when developing a larger project which uses ES modules to break code into smaller components.
 
@@ -348,4 +352,5 @@ If you are somewhat familiar with typed functional programming, You may alternat
 
 Haskell programmers will find the [Differences from Haskell](https://github.com/purescript/documentation/blob/master/language/Differences-from-Haskell.md) page very useful.
 
-We encourage new PureScript programmers to spend some time browsing [Pursuit](https://pursuit.purescript.org). It is worth familiarising yourself with the [core libraries](https://github.com/purescript) (especially the [prelude](https://pursuit.purescript.org/packages/purescript-prelude)) as these provide many basic concepts, which are useful for writing programs. 
+We encourage new PureScript programmers to spend some time browsing [Pursuit](https://pursuit.purescript.org). It is worth familiarising yourself with the [core libraries](https://github.com/purescript) (especially the [prelude](https://pursuit.purescript.org/packages/purescript-prelude)) as these provide many basic concepts, which are useful for writing programs.
+
