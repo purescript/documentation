@@ -5,7 +5,7 @@ There are various alternatives to `psc`'s default JavaScript backend:
 | source code                                                                           | PS version | Target        | Usability                      | 
 |:--------------------------------------------------------------------------------------|:-----------|:--------------|:-------------------------------|
 | [andyarvanitis/purescript-native](https://github.com/andyarvanitis/purescript-native) | 0.14.x     | C++11 or Go   | all applicable tests in `purescript/tests/purs/passing` are passing |
-| [purerl/purerl](https://github.com/purerl/purerl)                                     | 0.13.5     | Erlang        |                                |
+| [purerl/purerl](https://github.com/purerl/purerl)                                     | 0.15.3     | Erlang        |                                |
 | [pure-c/purec](https://github.com/pure-c/purec)                                       |            | C (Clang)     |                                |
 | [purenix-org/purenix](https://github.com/purenix-org/purenix) | 0.14.4 | Nix | |
 
