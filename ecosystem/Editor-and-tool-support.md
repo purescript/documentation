@@ -55,6 +55,7 @@ Spacemacs users can use the [PureScript layer](https://github.com/syl20bnr/space
 - [ale](https://github.com/dense-analysis/ale) provides editor support via the PureScript language server.
 - [coc.nvim](https://github.com/neoclide/coc.nvim) provides editor support via the PureScript language server.
 - [purescript-vim](https://github.com/raichoo/purescript-vim) provides syntax highlighting and indentation rules for `.purs` files.
+- [vim-lsp-settings](https://github.com/mattn/vim-lsp-settings) provides automatic configuration for editor support via the PureScript language server
 
 ### VSCode
 
