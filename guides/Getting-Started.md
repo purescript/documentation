@@ -1,3 +1,4 @@
+<!--markdownlint-disable MD046 -->
 # Getting Started with PureScript
 
 Let's walk through the basics of getting set up to use the PureScript compiler `purs`, and its interactive mode `purs repl`.
@@ -169,7 +170,6 @@ Now that we've seen how to use the REPL to reach the answer, let's move our solu
 
 Create a new text file `src/Euler.purs` and copy the following code:
 
-<!--markdownlint-disable MD046 -->
 ```purescript
 module Euler where
 
@@ -184,7 +184,6 @@ multiples = filter (\n -> mod n 3 == 0 || mod n 5 == 0) ns
 
 answer = sum multiples
 ```
-<!-- markdownlint-enable MD037 -->
 
 This sample illustrates a few key ideas regarding modules:
 
