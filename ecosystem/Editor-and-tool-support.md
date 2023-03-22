@@ -88,6 +88,8 @@ These build tools are maintained, but are no longer recommended for most project
 There are some tools meant specifically for Nix users, who may not be able to use installation methods like NPM.
 
 - [easy-purescript-nix](https://github.com/justinwoo/easy-purescript-nix) provides many common tools in the PureScript community like the compiler (`purs`), `spago`, `pscid`, `zephyr`, and more for Nix environments.
+- [purs-nix](https://github.com/purs-nix/purs-nix) provides support for official package-set, namespaces and overlays on Nix without a external package manager (like spago).
+- [purifix](https://github.com/purifix/purifix) package manager in nix using spago (spago.yaml) as single source of truth.
 - [spago2nix](https://github.com/justinwoo/spago2nix) helps you generate Nix expressions for your Spago dependencies.
 - [yarn2nix](https://github.com/nix-community/yarn2nix) helps you generate Nix expressions for your JavaScript dependencies.
 
