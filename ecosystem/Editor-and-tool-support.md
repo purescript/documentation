@@ -47,7 +47,7 @@ Spacemacs users can use the [PureScript layer](https://github.com/syl20bnr/space
 
 ### IntelliJ
 
-- [PureScript plugin](https://plugins.jetbrains.com/plugin/9738-purescript) provides editor support via `purs ide` and syntax highlighting for `.purs` files.
+- [PureScript plugin](https://plugins.jetbrains.com/plugin/9738-purescript) provides editor support via `purs ide`, syntax highlighting for `.purs` files, and much more.
 
 ### Sublime Text 3
 
