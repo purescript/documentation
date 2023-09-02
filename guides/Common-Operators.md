@@ -25,7 +25,7 @@ This means that the PureScript analogues to unary JavaScript operators (other th
 | `-`         | `-`                 | `Data.Ring`           | Numeric subtraction                      |
 | `*`         | `*`                 | `Data.Semiring`       | Numeric multiplication                   |
 | `/`         | `/`                 | `Data.EuclideanRing`  | Numeric division                         |
-| `%`         | `%` (see note)      | `Math`                | Remainder, the same as JS' `%` operator. |
+| `%`         | `%` (see note)      | `Data.Number`         | Remainder, the same as JS' `%` operator. |
 | `%`         | `mod` (see note)    | `Data.EuclideanRing`  | Also remainder (see note)                |
 | `==`        | `==`                | `Data.Eq`             | Equality check                           |
 | `!=`        | `/=`                | `Data.Eq`             | Inequality check                         |
@@ -54,6 +54,6 @@ It's a bit harder to say what a 'remainder' operation should mean if we are tryi
 
 Since JS just has one number type, it has to come up with a sensible way of handling cases where one or both of its arguments are non-integral. To address this, it uses a behaviour where it tries to find the largest *integer* multiple of the second argument which is smaller than the first argument, and then returns the difference between these. For example, in JS, `10.5 % 3 == 1.5`.
 
-If this is the behaviour you want in PureScript, you should use `%` from the `Math` module in `purescript-math`. Its type is `Number -> Number -> Number` and it simply delegates to the `%` operator in JS.
+If this is the behaviour you want in PureScript, you should use `%` from the `Data.Number` module in `purescript-numbers`. Its type is `Number -> Number -> Number` and it simply delegates to the `%` operator in JS.
 
-However, PureScript's `Prelude` aims to provide a stronger theoretical foundation for common operators such as this one, which is why the `Prelude` exports a slightly different function, `mod :: forall a. EuclideanRing a => a -> a -> a`. For integers, `mod` works how you expect it to: ``10 `mod` 3 == 1``, just as before. However, for Numbers, `mod` always returns 0. This may be surprising; however, the reason it works this way is that it is based upon a mathematical structure called a *Euclidean Ring*, whose definition requires this behaviour. For more info, see the [EuclideanRing documentation](https://pursuit.purescript.org/packages/purescript-prelude/4.1.0/docs/Data.EuclideanRing#t:EuclideanRing).
+However, PureScript's `Prelude` aims to provide a stronger theoretical foundation for common operators such as this one, which is why the `Prelude` exports a slightly different function, `mod :: forall a. EuclideanRing a => a -> a -> a`. For integers, `mod` works how you expect it to: ``10 `mod` 3 == 1``, just as before. However, for Numbers, `mod` always returns 0. This may be surprising; however, the reason it works this way is that it is based upon a mathematical structure called a *Euclidean Ring*, whose definition requires this behaviour. For more info, see the [EuclideanRing documentation](https://pursuit.purescript.org/packages/purescript-prelude/6.0.1/docs/Data.EuclideanRing#t:EuclideanRing).
