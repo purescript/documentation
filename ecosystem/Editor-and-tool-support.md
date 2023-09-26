@@ -45,6 +45,10 @@ To generate `TAGS` files, use `purs docs --format etags` (or `--format ctags`).
 
 Spacemacs users can use the [PureScript layer](https://github.com/syl20bnr/spacemacs/tree/master/layers/%2Blang/purescript).
 
+### IntelliJ
+
+- [PureScript plugin](https://plugins.jetbrains.com/plugin/9738-purescript) provides editor support via `purs ide`, syntax highlighting for `.purs` files, and much more.
+
 ### Sublime Text 3
 
 - [purescript-ide-sublime](https://packagecontrol.io/packages/PureScript) provides editor support via `purs ide` and syntax highlighting for `.purs` files.
