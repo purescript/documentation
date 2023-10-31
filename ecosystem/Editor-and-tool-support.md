@@ -5,7 +5,7 @@ The PureScript ecosystem contains a number of editor plugins and tools to help y
 At minimum, almost all projects will use:
 
 - The [PureScript compiler](https://github.com/purescript/purescript)
-- The [Spago](https://github.com/purescript/spago) build tool and package manager
+- The [Spago](https://github.com/purescript/spago-legacy) build tool and package manager
 
 These tools can be installed via [NPM](https://www.npmjs.com), among other installation methods.
 
@@ -119,7 +119,6 @@ PureScript projects which target JavaScript may find some tools from the JavaScr
 These tools were previously mentioned in this documentation, but are no longer maintained or recommended:
 
 - [purty](https://gitlab.com/joneshf/purty) was a PureScript code formatter and pretty-printer.
-- [spago-legacy](https://github.com/purescript/spago-legacy) is the deprecated version of Spago, with Dhall-powered configuration.
 - [gulp-purescript](https://github.com/purescript-deprecated/gulp-purescript) was a Gulp task for Purescript.
 - [psvm-js](https://github.com/ThomasCrvsr/psvm-js) was a version manager (like `nvm` for Node) for PureScript compiler versions.
 - [psc-pane](https://github.com/anttih/psc-pane) provided auto-reloading builds which formatted a single error to fit the window.
