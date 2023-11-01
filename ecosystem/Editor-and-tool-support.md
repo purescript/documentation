@@ -5,9 +5,26 @@ The PureScript ecosystem contains a number of editor plugins and tools to help y
 At minimum, almost all projects will use:
 
 - The [PureScript compiler](https://github.com/purescript/purescript)
-- The [Spago](https://github.com/purescript/spago-legacy) build tool and package manager
+- The [Spago legacy](https://github.com/purescript/spago-legacy) build tool and package manager
+- The [Spago rewrite](https://github.com/purescript/spago), a recent major rewrite of Spago package manager
 
 These tools can be installed via [NPM](https://www.npmjs.com), among other installation methods.
+
+#### Which Spago?
+
+At the moment of writing, Spago is going through a period of transition from an older to a new codebase. Consider the following characteristics of each:
+
+**Spago**
+- The currently maintained and actively developed version of Spago
+- Considered to be in its alpha stage
+
+**Spago legacy**
+- Officially deprecated and not maintained, except for security updates
+- Considered to be stable
+- A lot of PureScript documentation and guides released pre-2024 would link to the `purescript/spago` repository while actually having Spago legacy and its API in mind
+- Most PureScript libraries and projects will be using this version for a while
+
+Note that both versions are extensively documented in their respective repositories, consult these if you face any issues. Spago rewrite offers automatic ways of migration from Spago legacy-driven projects.
 
 ## Editor support
 
