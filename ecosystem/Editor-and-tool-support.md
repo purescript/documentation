@@ -38,7 +38,7 @@ Most editor plugins which rely on PureScript's IDE tooling have at least these f
 - REPL support
 - Automatic builds
 - Error suggestions and quick-fix actions for missing type signatures, imports, and more
-- Case split for type-driven development
+- Case split and holes for type-driven development
 
 ### General
 
