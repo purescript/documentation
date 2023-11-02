@@ -5,9 +5,26 @@ The PureScript ecosystem contains a number of editor plugins and tools to help y
 At minimum, almost all projects will use:
 
 - The [PureScript compiler](https://github.com/purescript/purescript)
-- The [Spago](https://github.com/purescript/spago) build tool and package manager
+- The [Spago legacy](https://github.com/purescript/spago-legacy) build tool and package manager
+- The [Spago rewrite](https://github.com/purescript/spago), a recent major rewrite of Spago package manager
 
 These tools can be installed via [NPM](https://www.npmjs.com), among other installation methods.
+
+#### Which Spago?
+
+At the moment of writing, Spago is going through a period of transition from an older to a new codebase. Consider the following characteristics of each:
+
+**Spago**
+- The currently maintained and actively developed version of Spago
+- Considered to be in its alpha stage
+
+**Spago legacy**
+- Officially deprecated and not maintained, except for security updates
+- Considered to be stable
+- A lot of PureScript documentation and guides released pre-2024 would link to the `purescript/spago` repository while actually having Spago legacy and its API in mind
+- Most PureScript libraries and projects will be using this version for a while
+
+Note that both versions are extensively documented in their respective repositories, consult these if you face any issues. Spago rewrite offers automatic ways of migration from Spago legacy-driven projects.
 
 ## Editor support
 
@@ -21,7 +38,7 @@ Most editor plugins which rely on PureScript's IDE tooling have at least these f
 - REPL support
 - Automatic builds
 - Error suggestions and quick-fix actions for missing type signatures, imports, and more
-- Case split for type-driven development
+- Case split and holes for type-driven development
 
 ### General
 
@@ -74,7 +91,7 @@ There are many tools available to help you develop libraries and applications in
 
 There are several build tools and package managers available for PureScript.
 
-- [spago](https://github.com/purescript/spago) is the standard package manager and build tool for Purescript, powered by [Dhall](https://github.com/dhall-lang/dhall-lang) and [package-sets](https://github.com/purescript/package-sets).
+- [spago](https://github.com/purescript/spago) is the standard package manager and build tool for Purescript.
 
 These build tools are maintained, but are no longer recommended for most projects (use Spago instead):
 
@@ -83,8 +100,9 @@ These build tools are maintained, but are no longer recommended for most project
 
 ### Development tools
 
+- [purescript-backend-optimizer](https://github.com/aristanetworks/purescript-backend-optimizer) is an optimizing backend toolkit for PureScript's CoreFn and a code-generator which outputs modern ECMAScript.
 - [setup-purescript](https://github.com/purescript-contrib/setup-purescript) is a GitHub Action which sets up a PureScript toolchain with common tools including the compiler and Spago for continuous integration.
-- [purty](https://gitlab.com/joneshf/purty) is a formatter / pretty-printer for PureScript source code.
+- [purs-tidy](https://github.com/natefaubion/purescript-tidy) is a formatter and pretty-printer for PureScript code.
 - [zephyr](https://github.com/coot/zephyr) is a dead code elimination tool for PureScript applications which can be used to reduce bundle sizes.
 
 #### For Nix users
@@ -106,13 +124,18 @@ PureScript projects which use alternate backends may use tools from the ecosyste
 PureScript projects which target JavaScript may find some tools from the JavaScript ecosystem. PureScript code which imports libraries from JavaScript will at least require a JavaScript package manager (to install dependencies) and a JavaScript bundling tool (to resolve JavaScript imports, among other things). You may also want to use a linter for any JavaScript code you are writing via the FFI.
 
 - Some popular package managers in JavaScript include [npm](https://www.npmjs.com) (recommended), [yarn](https://yarnpkg.com), and [pnpm](https://pnpm.js.org).
-- Some popular bundlers in JavaScript include [webpack](https://webpack.js.org) (recommended) with the [purs-loader](https://github.com/ethul/purs-loader) PureScript loader, and [parcel](https://parceljs.org). Other JavaScript bundlers like [rollup](https://github.com/rollup/rollup) rely on ES Modules, which PureScript does not yet support.
+- The recommended way to bundle PureScript code is by using Spago's `spago bundle` command, which uses [esbuild](https://esbuild.github.io/). Other popular bundlers include [webpack](https://webpack.js.org) with the [purs-loader](https://github.com/ethul/purs-loader) PureScript loader, and [parcel](https://parceljs.org).
 - Some popular linters include [eslint](https://eslint.org) and [jsconfig](https://code.visualstudio.com/docs/languages/jsconfig).
+
+#### Erlang
+
+- [purerlex](https://github.com/drathier/purerlex) integrates Purerl code compilation process with BEAM platform's Mix project management tool.
 
 ### Deprecated and unmaintained tools
 
 These tools were previously mentioned in this documentation, but are no longer maintained or recommended:
 
-- [gulp-purescript](https://github.com/purescript-deprecated/gulp-purescript) was a Gulp task for Purescript`npm`).
+- [purty](https://gitlab.com/joneshf/purty) was a PureScript code formatter and pretty-printer.
+- [gulp-purescript](https://github.com/purescript-deprecated/gulp-purescript) was a Gulp task for Purescript.
 - [psvm-js](https://github.com/ThomasCrvsr/psvm-js) was a version manager (like `nvm` for Node) for PureScript compiler versions.
 - [psc-pane](https://github.com/anttih/psc-pane) provided auto-reloading builds which formatted a single error to fit the window.
