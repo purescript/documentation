@@ -375,14 +375,31 @@ fourToSix = Cons 4 (Cons 5 (Cons 6 Nil))
 oneToSix = oneToThree <> fourToSix
 ```
 
-Operator alias declarations are made up of four parts:
+*Types* can also serve as operators. Consider this example from the module `Data.Tuple.Nested` of `purescript-tuples`:
+```purescript
+infixr 6 type Tuple as /\
+```
+
+Operator alias declarations are made up of five parts:
 
 * The associativity: either `infixl`, `infixr`, or `infix`.
 * The precedence: an integer, between 0 and 9. Here, it is 5.
+* The `type` keyword, if the symbol to be aliased is a type constructor.
 * The function to alias: here, `append`
 * The operator: here, `<>`.
 
 The declaration determines how expressions involving this operator are bracketed.
+
+### Qualified operators
+
+Operators can be imported from other modules in their qualified form. For example:
+
+```purescript
+import Data.Tuple as Tuple
+
+tuple :: Int Tuple./\ Int Tuple./\ Int
+tuple = 1 Tuple./\ 2 Tuple./\ 3
+```
 
 ### Associativity
 
@@ -474,6 +491,11 @@ Operators can be used as normal values by surrounding them with parentheses:
 
 ``` purescript
 and = (&&)
+```
+
+For qualified operators, enclosing parentheses come *after* the qualifying module:
+```purescript
+and = Data.HeytingAlgebra.(&&)
 ```
 
 ### Operator sections
