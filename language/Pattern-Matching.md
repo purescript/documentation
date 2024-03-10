@@ -199,6 +199,36 @@ fb n = log x
     | otherwise = show n
 ```
 
+Guard Limitations in `let`
+----------------------------
+
+Guards are [currently not supported](purescript/purescript#3200) with patterns other than simple identifiers in `let` expressions. For example, this does not compile:
+```purs
+-- This doesn't work
+f1 :: Int
+f1 =
+  let
+    (Tuple a b)
+      | false = Tuple 1 2
+      | otherwise = Tuple 3 4
+  in
+    a
+```
+
+A workaround is to separate the constructor pattern from the guard:
+```purs
+f2 :: Int
+f2 =
+  let
+    t
+      | false = Tuple 1 2
+      | otherwise = Tuple 3 4
+
+    Tuple a b = t
+  in
+    a
+```
+
 Pattern Guards
 --------------
 
