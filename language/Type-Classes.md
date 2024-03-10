@@ -173,8 +173,8 @@ data MyADT
   | Arbitrary Int
   | Contents Number String
 
-derive instance eqMyADT :: Eq MyADT
-derive instance ordMyADT :: Ord MyADT
+derive instance Eq MyADT
+derive instance Ord MyADT
 
 nub [Some, Arbitrary 1, Some, Some] == [Some, Arbitrary 1]
 ```
@@ -347,8 +347,8 @@ instance semiringScore :: Semiring Score where
 Note that we can use either of these options to derive an `Eq` instance for a `newtype`, since `Eq` has built-in compiler support. They are equivalent in this case.
 
 ```purs
-derive instance eqScore :: Eq Score
-derive newtype instance eqScore :: Eq Score
+derive instance Eq Score
+derive newtype instance Eq Score
 ```
 
 ### Deriving from `Generic`
