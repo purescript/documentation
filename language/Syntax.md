@@ -670,3 +670,30 @@ maybeSum a b =
 ```
 
 In practice, you will usually be using [`bind` from the Prelude](https://pursuit.purescript.org/packages/purescript-prelude/docs/Control.Bind#v:bind), but the desugaring will use whichever `bind` is in scope. When using `bind` from the Prelude, there must be an instance of the `Monad` type class for the return type.
+
+## Type holes
+
+If you’re not sure of a type in a type signature, you can write a type "hole" consisting of a question mark followed by a lowercase name. The compiler will generate an error and tell you what type it inferred:
+
+```purescript
+add x = 1 + ?x
+```
+
+```txt
+add x = 1 + ?x
+            ^^
+Hole 'x' has the inferred type
+  Int
+```
+
+## Language extensions
+
+There are some additional keywords that are defined in language extensions for example applicative do notation introduces the `ado` keyword:
+
+```purescript
+user = ado
+  name <- read
+  in { name }
+```
+
+These are documented in the [differences from Haskell page](Differences-from-Haskell.md)
