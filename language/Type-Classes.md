@@ -318,6 +318,29 @@ instance Foldable f => Foldable (M f) where
 
 Finally, note that superclasses are not automatically derived; if you derive `Traversable`, you will also need explicit or derived instances of `Functor` and `Foldable`.
 
+### Attached derive clauses
+
+Since PureScript 0.15.17, you can attach a `derive` clause directly to a `data` or `newtype` declaration:
+
+```purs
+data Color = Red | Green | Blue
+  derive (Eq, Ord)
+
+newtype Name = Name String
+  derive (Eq, Ord)
+
+data Box a = Empty | Full a
+  derive (Functor)
+```
+
+The classes must be in scope, just as with standalone `derive instance` declarations. A clause can list multiple classes, and a declaration can have multiple clauses. You can also mix attached clauses with standalone derived instances, provided you do not define the same instance twice:
+
+```purs
+derive instance Eq a => Eq (Box a)
+```
+
+Attached clauses support the compiler's built-in deriving mechanisms listed above, including `Generic` and `Newtype`. They do not support `derive newtype`; use a standalone `derive newtype instance` declaration to reuse an underlying type's instance.
+
 ### Derive from `newtype`
 
 If you would like your newtype to defer to the instance that the underlying type uses for a given class, then you can use newtype deriving via the `derive newtype` keywords.
