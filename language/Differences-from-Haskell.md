@@ -364,6 +364,20 @@ For `error`, you can use `Effect.Exception.Unsafe.unsafeThrow`, in the `purescri
 
 Although note that these might have different behaviour to the Haskell versions due to PureScript's strictness.
 
+## Semicolons can't replace newlines
+
+In Haskell, an expression that normally uses multiple lines can be written in one line by substituting semicolons for newlines.  For example, in Haskell,
+```purescript
+do
+   x <- Just 2
+   pure (1 + x)
+```
+can be written as
+```purescript
+do ; x <- Just 2 ; pure 2
+```
+This isn't allowed in Purescript; the `do` expression has to be written on multiple lines.
+
 ## Documentation comments
 
 When writing documentation, the pipe character `|` must appear at the start of every comment line, not just the first. See [the documentation for doc-comments](Syntax.md#comments) for more details.
