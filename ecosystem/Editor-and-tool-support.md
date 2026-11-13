@@ -5,26 +5,15 @@ The PureScript ecosystem contains a number of editor plugins and tools to help y
 At minimum, almost all projects will use:
 
 - The [PureScript compiler](https://github.com/purescript/purescript)
-- The [Spago legacy](https://github.com/purescript/spago-legacy) build tool and package manager
-- The [Spago rewrite](https://github.com/purescript/spago), a recent major rewrite of Spago package manager
+- The [Spago](https://github.com/purescript/spago) build tool and package manager
 
 These tools can be installed via [NPM](https://www.npmjs.com), among other installation methods.
 
-#### Which Spago?
+#### Spago legacy
 
-At the moment of writing, Spago is going through a period of transition from an older to a new codebase. Consider the following characteristics of each:
+Spago 1.0 is a rewrite of the original Spago, configured with a `spago.yaml` file and using packages from the [PureScript Registry](https://github.com/purescript/registry). The original codebase (versions up to 0.21.x, configured with `spago.dhall` and `packages.dhall` files) now lives on as [Spago legacy](https://github.com/purescript/spago-legacy), which is deprecated and only receives security updates.
 
-**Spago**
-- The currently maintained and actively developed version of Spago
-- Considered to be in its alpha stage
-
-**Spago legacy**
-- Officially deprecated and not maintained, except for security updates
-- Considered to be stable
-- A lot of PureScript documentation and guides released pre-2024 would link to the `purescript/spago` repository while actually having Spago legacy and its API in mind
-- Most PureScript libraries and projects will be using this version for a while
-
-Note that both versions are extensively documented in their respective repositories, consult these if you face any issues. Spago rewrite offers automatic ways of migration from Spago legacy-driven projects.
+Many PureScript guides and projects written before 2024 link to the `purescript/spago` repository while using Spago legacy and its commands, such as `spago bundle-app`. To move such a project to Spago 1.0, follow the [migration instructions](https://github.com/purescript/spago#migrate-from-spagodhall-to-spagoyaml) in the Spago README.
 
 ## Editor support
 
