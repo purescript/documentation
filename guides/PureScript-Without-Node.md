@@ -55,30 +55,29 @@ Compiling Effect.Console
 ...
 ```
 
-`purs` will write a collection of CommonJS modules to the output directory. You can use these CommonJS modules in NodeJS, but it is more likely that you will want to bundle them for use in the browser.
+`purs` will write a collection of ES modules to the output directory. You can use these ES modules in NodeJS, but it is more likely that you will want to bundle them for use in the browser.
 
 #### Bundling JavaScript for the Browser
 
-To bundle the generated Javascript code into a single file, we will use `spago bundle`.
+To bundle the generated JavaScript code into a single file, we will use [esbuild](https://esbuild.github.io/), which ships as a standalone executable (see its [installation options](https://esbuild.github.io/getting-started/#other-ways-to-install)). This is the same bundler that `spago bundle` uses, but `spago bundle` only works in a project with a `spago.yaml` file, so here we call esbuild directly.
 
-`spago bundle-app` take the module with the main as input, and generates a single self-contained JavaScript file.
-
-Run `spago bundle-app` with the following arguments:
+Pass esbuild a small entry point that imports the `main` function from the compiled `Main` module and runs it:
 
 ```bash
-$ spago bundle-app --main Main --to index.js
+$ echo 'import { main } from "./output/Main/index.js"; main();' | esbuild --bundle --outfile=index.js
 ```
 
-The `--main` argument will make the output JavaScript file an executable by adding a line of JavaScript to it which runs the `main` function in the specified module.
+Calling `main()` in the entry point makes the output JavaScript file an executable, which runs the `main` function as soon as it is loaded.
 
-If you want to bundle for Node.js, you can use the following command:
+If you want to bundle for Node.js, add the `--platform=node` flag:
 
 ```bash
-spago bundle-app --main Main --to index.js --platform node
+$ echo 'import { main } from "./output/Main/index.js"; main();' | esbuild --bundle --outfile=index.js --platform=node
 ```
+
 You should be able to execute the generated JavaScript using Node.js.
 
-For more information, see the [spago documentation](https://www.github.com/purescript/spago).
+For more information, see the [esbuild documentation](https://esbuild.github.io/api/).
 
 #### Conclusion
 

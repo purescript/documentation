@@ -23,7 +23,7 @@ If you encounter problems during installation, see the compiler's [Install Guide
 
 ## Setting up the Development Environment
 
-[Spago](https://github.com/spacchetti/spago) is the recommended package manager and build tool for PureScript.
+[Spago](https://github.com/purescript/spago) is the recommended package manager and build tool for PureScript.
 
 If you don't have Spago installed, install it now:
 
@@ -37,10 +37,9 @@ Create a new project in an empty directory using `spago init`:
 
 Your directory should now contain the following files:
 
-- `packages.dhall` - contains Spago configuration
-- `spago.dhall` - contains library dependency information
+- `spago.yaml` - contains Spago configuration and library dependency information
 - `src/Main.purs` - Entry point module for your project
-- `test/Main.purs` - An empty test suite
+- `test/Test/Main.purs` - An empty test suite
 
 At this point, you should be able to build the project and run the tests:
 
@@ -49,13 +48,20 @@ At this point, you should be able to build the project and run the tests:
 
 You should see output similar to the following:
 
-    [info] Installation complete.
-    [info] Build succeeded.
-    🍝
-    You should add some tests.
-    [info] Tests succeeded.
+    ...
+               Src   Lib   All
+    Warnings     0     0     0
+    Errors       0     0     0
 
-If everything was built successfully, and the tests ran without problems, then the last line should state "Tests succeeded."
+    ✓ Build succeeded.
+
+    Running tests for package: my-project
+    🍕
+    You should add some tests.
+
+    ✓ Test succeeded for package "my-project".
+
+If everything was built successfully, and the tests ran without problems, then the last line should state "Test succeeded".
 
 ## Installing Dependencies
 
@@ -63,15 +69,15 @@ Dependencies can be installed using Spago. We will be using the `lists` and `fol
 
     spago install lists foldable-traversable
 
-The `lists` and `foldable-traversable` library sources should now be available in the `.spago/lists/{version}/` and `.spago/foldable-traversable/{version}/` subdirectories respectively, and will be included when you compile your project.
+The `lists` and `foldable-traversable` library sources should now be available in the `.spago/p/lists-{version}/` and `.spago/p/foldable-traversable-{version}/` subdirectories respectively, and will be included when you compile your project. Spago also adds them to the `dependencies` list in `spago.yaml`.
 
 ## Working in PSCI
 
 PSCi is the interactive mode of PureScript. It is useful for working with pure computations, and for testing ideas.
 
-Open PSCi by typing `spago repl` at the command line. Optionally, you can create a file in your directory called `.purs-repl`, which contains instructions to PSCi to load your modules and dependencies. If you invoke the PSCi executable directly, you would need to load these files by hand.
+Open PSCi by typing `spago repl` at the command line. Spago loads your modules and dependencies for you, and PSCi runs the imports listed in the `.purs-repl` file when it starts. If you invoke the PSCi executable directly, you would need to load these files by hand.
 
-    PSCi, version 0.12.0
+    PSCi, version 0.15.17
     Type :? for help
 
     import Prelude
@@ -109,11 +115,11 @@ Next, use the `:type` command, followed by a space, followed by the name of the 
 
     > import Prelude
     > :type map
-    forall a b f. Functor f => (a -> b) -> f a -> f b
+    forall (@f :: Type -> Type) (a :: Type) (b :: Type). Functor f => (a -> b) -> f a -> f b
 
     > import Data.List
     > :type zip
-    forall a b. List a -> List b -> List (Tuple a b)
+    forall (a :: Type) (b :: Type). List a -> List b -> List (Tuple a b)
 
 We will be using some of the functions from the `Prelude` and `Data.List` modules, so make sure you have imported those by using the `import` keyword:
 
@@ -209,11 +215,11 @@ The compiler will display several warnings about missing type declarations. In g
 
 ## Writing a Test Suite
 
-To test our code, we'll use the `assert` library:
+To test our code, we'll use the `assert` library. The `--test-deps` flag adds it to the test dependencies in `spago.yaml`, since only the test suite needs it:
 
-    spago install assert
+    spago install --test-deps assert
 
-Replace the contents of the `test/Main.purs` file with the following code:
+Replace the contents of the `test/Test/Main.purs` file with the following code:
 
 ```purescript
 module Test.Main where
@@ -229,7 +235,7 @@ main = do
 
 Our "test suite" is just a single assertion that the `answer` value equals the correct integer. In a real test suite, we might use the `Effect` monad to compose multiple tests in our `main` function.
 
-Run the tests using `spago test`, and you should hopefully see "Tests succeeded." in the last line.
+Run the tests using `spago test`, and you should hopefully see "Test succeeded" in the last line.
 
 ## Creating Executables
 
@@ -250,18 +256,28 @@ main = do
 The `spago run` command can be used to compile and run the `Main` module:
 
     $ spago run
-    [info] Build succeeded.
+    ...
+    ✓ Build succeeded.
+
     The answer is 233168
 
 ## Compiling for the Browser
 
-Spago can be used to turn our PureScript code into JavaScript suitable for use in the web browser by using the `spago bundle-app` command:
+Spago can be used to turn our PureScript code into JavaScript suitable for use in the web browser by using the `spago bundle` command. Spago bundles with [esbuild](https://esbuild.github.io/), so install it first:
 
-    $ spago bundle-app
-      index.js  11.8kb
+    npm install -g esbuild
 
-    ⚡ Done in 14ms
-    [info] Bundle succeeded and output file to index.js
+Then run `spago bundle`:
+
+    $ spago bundle
+    ...
+    Bundling...
+
+      index.js  10.5kb
+
+    ⚡ Done in 23ms
+
+    ✓ Bundle succeeded.
 
 All the code in the `src` directory and any project dependencies have been compiled to JavaScript. The resulting code is bundled as `index.js` and has also had any unused code removed, a process known as dead code elimination. This `index.js` file can now be included in an HTML document.
 
@@ -288,6 +304,7 @@ Open this `index.html` file in your web browser. The page will be blank, but if 
 If you open `index.js`, you should see a few compiled modules which look like this:
 
 ```javascript
+/* Generated by Spago v1.0.5 */
 (() => {
   // output/Data.Show/foreign.js
   var showIntImpl = function(n) {
@@ -297,22 +314,17 @@ If you open `index.js`, you should see a few compiled modules which look like th
   ...
 
   // output/Euler/index.js
-  var ns = /* @__PURE__ */ function() {
-    return range2(0)(999);
-  }();
-  var multiples = /* @__PURE__ */ function() {
-    return filter(function(n) {
-      return mod(euclideanRingInt)(n)(3) === 0 || mod(euclideanRingInt)(n)(5) === 0;
-    })(ns);
-  }();
-  var answer = /* @__PURE__ */ function() {
-    return sum(foldableList)(semiringInt)(multiples);
-  }();
+  var mod2 = /* @__PURE__ */ mod(euclideanRingInt);
+  var ns = /* @__PURE__ */ range2(0)(999);
+  var multiples = /* @__PURE__ */ filter(function(n) {
+    return mod2(n)(3) === 0 || mod2(n)(5) === 0;
+  })(ns);
+  var answer = /* @__PURE__ */ sum(foldableList)(semiringInt)(multiples);
 
   // output/Main/index.js
-  var main = /* @__PURE__ */ function() {
+  var main = /* @__PURE__ */ (function() {
     return log("The answer is " + show(showInt)(answer));
-  }();
+  })();
 
   // <stdin>
   main();
@@ -337,7 +349,7 @@ To build ES modules, use the `spago build` command:
 
     $ spago build
     ...
-    Build succeeded.
+    ✓ Build succeeded.
 
 The generated modules will be placed in the `output` directory by default. Each PureScript module will be compiled to its own ES module, in its own subdirectory.
 

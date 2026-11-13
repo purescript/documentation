@@ -14,7 +14,7 @@ $ spago init                 # Initialize a Spago environment
 $ spago repl                 # Fire up the interpreter psci
 
 ...
-PSCi, version 0.15.0
+PSCi, version 0.15.17
 Type :? for help
 
 import Prelude
@@ -73,14 +73,7 @@ Enter `:paste` (or `:pa`) to enter multi-line (or "paste") mode. Terminate it wi
 
 ## `purescript-psci-support`
 
-```text
-$ spago repl
-
-PSCi requires the `purescript-psci-support` package to be installed.
-You can install it using Spago by adding `"psci-support"` to the list of dependencies in `spago.dhall`.
-
-For help getting started, visit http://wiki.purescript.org/PSCi
-```
+`spago repl` installs the `psci-support` package for you, so you don't need to add it to the dependencies in `spago.yaml`.
 
 The PureScript compiler suite (i.e. the executable `purs`), unlike most compilers, does not ship with a standard library. In PureScript, even `Prelude` is a normal module, just like any other. Consequentially, `purs repl` requires a specific library to be installed in order to be able to evaluate terms in the REPL.
 
