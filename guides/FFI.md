@@ -33,11 +33,11 @@ This function finds the greatest common divisor of two numbers by repeated subtr
 To understand how this function can be called from Javascript, it is important to realize that PureScript functions always get turned into Javascript functions _of a single argument_, so we need to apply its arguments one-by-one:
 
 ``` javascript
-import { gcd } from 'Test';
+import { gcd } from '../Test/index.js';
 gcd(15)(20);
 ```
 
-Here, I am assuming that the code was compiled with `psc`, which compiles PureScript modules to ES modules. For that reason, I was able to import the `gcd` function from the `Test` module.
+You may also be able to use `import { gcd } from 'Test';` construction if you compile the code with `psc`, which outputs ES modules.
 
 #### Understanding Name Generation
 
