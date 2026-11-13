@@ -38,7 +38,6 @@ Create a new project in an empty directory using `spago init`:
 Your directory should now contain the following files:
 
 - `spago.yaml` - contains Spago configuration and library dependency information
-- `.purs-repl` - modules that PSCi imports when it starts
 - `src/Main.purs` - Entry point module for your project
 - `test/Test/Main.purs` - An empty test suite
 
